@@ -1,0 +1,6389 @@
+				;
+				;	Disassembled by:
+				;		DASMx object code disassembler
+				;		(c) Copyright 1996-2003   Conquest Consultants
+				;		Version 1.40 (Oct 18 2003)
+				;
+				;	File:		A000_1982MT_S130_A18-601-042.BIN
+				;
+				;	Size:		49152 bytes
+				;	Checksum:	C0B1
+				;	CRC-32:		4928DC5E
+				;
+				;	Date:		Tue Oct 30 12:22:39 2018
+				;
+				;	CPU:		Motorola 6802 (6800/6802/6808 family)
+				;
+				;
+				;
+					org	$0000
+				;
+A000				start:
+A000 : 0F		" "		sei ;Set the Interrupt Flag to disable interrupts
+A001 : 97 9A		"  "		staa	X009A ;Store Accumulator in Memory
+A003 : D7 9B		"  "		stab	X009B
+A005 : 01		" "		nop
+A006 : 01		" "		nop
+A007 : 01		" "		nop
+A008 : 01		" "		nop
+A009 : 01		" "		nop
+A00A : 96 9A		"  "		ldaa	X009A ;Load Accumulator from Memory
+A00C : D6 9B		"  "		ldab	X009B
+A00E : 39		"9"		rts ;Return from subroutine. Pull PC from top of Stack and increment Stack Pointer.
+				;
+A00F				LA00F:
+A00F : 44		"D"		lsra ;Logical Shift Right. Bit 7 is set to 0.
+A010 : 56		"V"		rorb ;Rotate right through Carry.
+A011 : 44		"D"		lsra
+A012 : 56		"V"		rorb
+A013				LA013:
+A013 : 44		"D"		lsra
+A014 : 56		"V"		rorb
+A015				LA015:
+A015 : 44		"D"		lsra
+A016 : 56		"V"		rorb
+A017				LA017:
+A017 : 44		"D"		lsra
+A018 : 56		"V"		rorb
+A019 : 44		"D"		lsra
+A01A : 56		"V"		rorb
+A01B : 39		"9"		rts
+				;
+A01C				LA01C:
+A01C : 58		"X"		aslb
+A01D : 49		"I"		rola
+A01E : 58		"X"		aslb
+A01F : 49		"I"		rola
+A020				LA020:
+A020 : 58		"X"		aslb
+A021 : 49		"I"		rola
+A022 : 58		"X"		aslb
+A023 : 49		"I"		rola
+A024 : 39		"9"		rts
+				;
+A025				LA025:
+A025 : 97 2A		" *"		staa	X002A
+A027 : 97 9A		"  "		staa	X009A
+A029 : 96 28		" ("		ldaa	X0028
+A02B : 97 9B		"  "		staa	X009B
+A02D : 01		" "		nop
+A02E : 01		" "		nop
+A02F : 01		" "		nop
+A030 : 01		" "		nop
+A031 : 01		" "		nop
+A032 : 97 2B		" +"		staa	X002B
+A034 : 96 9A		"  "		ldaa	X009A
+A036 : 97 28		" ("		staa	X0028
+A038 : 96 2B		" +"		ldaa	X002B
+A03A : 97 9A		"  "		staa	X009A
+A03C : 96 9B		"  "		ldaa	X009B
+A03E : D7 2B		" +"		stab	X002B
+A040 : D7 9B		"  "		stab	X009B
+A042 : 01		" "		nop
+A043 : 01		" "		nop
+A044 : 01		" "		nop
+A045 : 01		" "		nop
+A046 : 01		" "		nop
+A047 : D6 28		" ("		ldab	X0028
+A049 : 9B 9A		"  "		adda	X009A
+A04B : C9 00		"  "		adcb	#$00
+A04D : D7 28		" ("		stab	X0028
+A04F : D6 2A		" *"		ldab	X002A
+A051 : D7 9A		"  "		stab	X009A
+A053 : D6 9B		"  "		ldab	X009B
+A055 : D7 2A		" *"		stab	X002A
+A057 : D6 29		" )"		ldab	X0029
+A059 : D7 9B		"  "		stab	X009B
+A05B : 01		" "		nop
+A05C : 01		" "		nop
+A05D : 01		" "		nop
+A05E : 01		" "		nop
+A05F : 01		" "		nop
+A060 : D6 9B		"  "		ldab	X009B
+A062 : DB 2A		" *"		addb	X002A
+A064 : 99 9A		"  "		adca	X009A
+A066 : D7 2A		" *"		stab	X002A
+A068 : D6 28		" ("		ldab	X0028
+A06A : C9 00		"  "		adcb	#$00
+A06C : D7 28		" ("		stab	X0028
+A06E : D6 29		" )"		ldab	X0029
+A070 : D7 9A		"  "		stab	X009A
+A072 : D6 2B		" +"		ldab	X002B
+A074 : D7 9B		"  "		stab	X009B
+A076 : 01		" "		nop
+A077 : 01		" "		nop
+A078 : 01		" "		nop
+A079 : 01		" "		nop
+A07A : 01		" "		nop
+A07B : D6 9B		"  "		ldab	X009B
+A07D : D7 2B		" +"		stab	X002B
+A07F : D6 2A		" *"		ldab	X002A
+A081 : DB 9A		"  "		addb	X009A
+A083 : 89 00		"  "		adca	#$00
+A085 : D7 2A		" *"		stab	X002A
+A087 : 97 29		" )"		staa	X0029
+A089 : 16		" "		tab
+A08A : 96 28		" ("		ldaa	X0028
+A08C : 89 00		"  "		adca	#$00
+A08E : 97 28		" ("		staa	X0028
+A090 : 39		"9"		rts
+				;
+A091				LA091:
+A091 : 97 2A		" *"		staa	X002A
+A093 : D7 2B		" +"		stab	X002B
+A095 : 86 11		"  "		ldaa	#$11
+A097 : 97 30		" 0"		staa	X0030
+A099 : 96 00		"  "		ldaa	X0000
+A09B : 85 08		"  "		bita	#$08
+A09D : 27 06		"' "		beq	LA0A5
+A09F : 86 03		"  "		ldaa	#$03
+A0A1 : C6 E8		"  "		ldab	#$E8
+A0A3 : 20 03		"  "		bra	LA0A8
+				;
+A0A5				LA0A5:
+A0A5 : 4F		"O"		clra
+A0A6 : C6 FA		"  "		ldab	#$FA
+A0A8				LA0A8:
+A0A8 : 7D 00 2A		"} *"		tst	X002A
+A0AB : 2B 13		"+ "		bmi	LA0C0
+A0AD : 78 00 2B		"x +"		asl	X002B
+A0B0 : 79 00 2A		"y *"		rol	X002A
+A0B3 : 58		"X"		aslb
+A0B4 : 49		"I"		rola
+A0B5 : 24 F1		"$ "		bcc	LA0A8
+A0B7				LA0B7:
+A0B7 : 32		"2"		pula
+A0B8 : 33		"3"		pulb
+A0B9 : CB 04		"  "		addb	#$04
+A0BB : 89 00		"  "		adca	#$00
+A0BD : 37		"7"		pshb
+A0BE : 36		"6"		psha
+A0BF : 39		"9"		rts
+				;
+A0C0				LA0C0:
+A0C0 : D0 2B		" +"		subb	X002B
+A0C2 : 92 2A		" *"		sbca	X002A
+A0C4 : 24 18		"$ "		bcc	LA0DE
+A0C6 : DB 2B		" +"		addb	X002B
+A0C8 : 99 2A		" *"		adca	X002A
+A0CA : 0C		" "		clc
+A0CB				LA0CB:
+A0CB : 79 00 29		"y )"		rol	X0029
+A0CE : 79 00 28		"y ("		rol	X0028
+A0D1 : 7A 00 30		"z 0"		dec	X0030
+A0D4 : 27 0B		"' "		beq	LA0E1
+A0D6 : 58		"X"		aslb
+A0D7 : 49		"I"		rola
+A0D8 : 24 E6		"$ "		bcc	LA0C0
+A0DA : D0 2B		" +"		subb	X002B
+A0DC : 92 2A		" *"		sbca	X002A
+A0DE				LA0DE:
+A0DE : 0D		" "		sec
+A0DF : 20 EA		"  "		bra	LA0CB
+				;
+A0E1				LA0E1:
+A0E1 : 25 D4		"% "		bcs	LA0B7
+A0E3 : 96 28		" ("		ldaa	X0028
+A0E5 : D6 29		" )"		ldab	X0029
+A0E7 : 39		"9"		rts
+				;
+A0E8				LA0E8:
+A0E8 : 86 11		"  "		ldaa	#$11
+A0EA : 97 30		" 0"		staa	X0030
+A0EC : 96 28		" ("		ldaa	X0028
+A0EE : D6 29		" )"		ldab	X0029
+A0F0				LA0F0:
+A0F0 : 7D 00 2D		"} -"		tst	X002D
+A0F3 : 2B 1A		"+ "		bmi	LA10F
+A0F5 : 78 00 2F		"x /"		asl	X002F
+A0F8 : 79 00 2E		"y ."		rol	X002E
+A0FB : 79 00 2D		"y -"		rol	X002D
+A0FE : 78 00 2C		"x ,"		asl	X002C
+A101 : 79 00 2B		"y +"		rol	X002B
+A104 : 79 00 2A		"y *"		rol	X002A
+A107 : 59		"Y"		rolb
+A108 : 49		"I"		rola
+A109 : 24 E5		"$ "		bcc	LA0F0
+A10B				LA10B:
+A10B : 86 FF		"  "		ldaa	#$FF
+A10D : 16		" "		tab
+A10E : 39		"9"		rts
+				;
+A10F				LA10F:
+A10F : D0 2E		" ."		subb	X002E
+A111 : 92 2D		" -"		sbca	X002D
+A113 : 24 1B		"$ "		bcc	LA130
+A115 : DB 2E		" ."		addb	X002E
+A117 : 99 2D		" -"		adca	X002D
+A119 : 0C		" "		clc
+A11A				LA11A:
+A11A : 79 00 2C		"y ,"		rol	X002C
+A11D : 79 00 2B		"y +"		rol	X002B
+A120 : 7A 00 30		"z 0"		dec	X0030
+A123 : 27 0E		"' "		beq	LA133
+A125 : 79 00 2A		"y *"		rol	X002A
+A128 : 59		"Y"		rolb
+A129 : 49		"I"		rola
+A12A : 24 E3		"$ "		bcc	LA10F
+A12C : D0 2E		" ."		subb	X002E
+A12E : 92 2D		" -"		sbca	X002D
+A130				LA130:
+A130 : 0D		" "		sec
+A131 : 20 E7		"  "		bra	LA11A
+				;
+A133				LA133:
+A133 : 25 D6		"% "		bcs	LA10B
+A135 : 96 2B		" +"		ldaa	X002B
+A137 : D6 2C		" ,"		ldab	X002C
+A139 : 39		"9"		rts
+				;
+A13A				LA13A:
+A13A : 81 F0		"  "		cmpa	#$F0
+A13C : 23 02		"# "		bls	LA140
+A13E : 86 F0		"  "		ldaa	#$F0
+A140				LA140:
+A140 : 5F		"_"		clrb
+A141 : 44		"D"		lsra
+A142 : 56		"V"		rorb
+A143 : 20 07		"  "		bra	LA14C
+				;
+A145				LA145:
+A145 : 81 F8		"  "		cmpa	#$F8
+A147 : 23 02		"# "		bls	LA14B
+A149 : 86 F8		"  "		ldaa	#$F8
+A14B				LA14B:
+A14B : 5F		"_"		clrb
+A14C				LA14C:
+A14C : 44		"D"		lsra
+A14D : 56		"V"		rorb
+A14E : 44		"D"		lsra
+A14F : 56		"V"		rorb
+A150 : 44		"D"		lsra
+A151 : 56		"V"		rorb
+A152 : 0F		" "		sei
+A153 : DF 53		" S"		stx	X0053
+A155 : 9B 54		" T"		adda	X0054
+A157 : 97 54		" T"		staa	X0054
+A159 : 86 00		"  "		ldaa	#$00
+A15B : 99 53		" S"		adca	X0053
+A15D : 97 53		" S"		staa	X0053
+A15F : DE 53		" S"		ldx	X0053
+A161 : 0E		" "		cli
+A162 : 5D		"]"		tstb
+A163 : 27 18		"' "		beq	LA17D
+A165 : A6 01		"  "		ldaa	$01,x
+A167 : A0 00		"  "		suba	$00,x
+A169 : 27 12		"' "		beq	LA17D
+A16B : 24 09		"$ "		bcc	LA176
+A16D : 40		"@"		nega
+A16E : 50		"P"		negb
+A16F : BD A0 00		"   "		jsr	start
+A172 : 0E		" "		cli
+A173 : AB 01		"  "		adda	$01,x
+A175 : 39		"9"		rts
+				;
+A176				LA176:
+A176 : BD A0 00		"   "		jsr	start
+A179 : 0E		" "		cli
+A17A : AB 00		"  "		adda	$00,x
+A17C : 39		"9"		rts
+				;
+A17D				LA17D:
+A17D : A6 00		"  "		ldaa	$00,x
+A17F : 39		"9"		rts
+				;
+A180				LA180:
+A180 : 96 57		" W"		ldaa	X0057
+A182 : D6 58		" X"		ldab	X0058
+A184 : BD A0 0F		"   "		jsr	LA00F
+A187 : 97 57		" W"		staa	X0057
+A189 : D7 58		" X"		stab	X0058
+A18B : DE 71		" q"		ldx	X0071
+A18D : 96 79		" y"		ldaa	X0079
+A18F : 2A 04		"* "		bpl	LA195
+A191 : C6 07		"  "		ldab	#$07
+A193 : 20 02		"  "		bra	LA197
+				;
+A195				LA195:
+A195 : C6 0F		"  "		ldab	#$0F
+A197				LA197:
+A197 : 96 58		" X"		ldaa	X0058
+A199 : A0 03		"  "		suba	$03,x
+A19B : 96 57		" W"		ldaa	X0057
+A19D : A2 02		"  "		sbca	$02,x
+A19F : 25 05		"% "		bcs	LA1A6
+A1A1 : 08		" "		inx
+A1A2 : 08		" "		inx
+A1A3 : 5A		"Z"		decb
+A1A4 : 26 F1		"& "		bne	LA197
+A1A6				LA1A6:
+A1A6 : 96 79		" y"		ldaa	X0079
+A1A8 : 2A 04		"* "		bpl	LA1AE
+A1AA : 86 07		"  "		ldaa	#$07
+A1AC : 20 02		"  "		bra	LA1B0
+				;
+A1AE				LA1AE:
+A1AE : 86 0F		"  "		ldaa	#$0F
+A1B0				LA1B0:
+A1B0 : 10		" "		sba
+A1B1 : 97 68		" h"		staa	X0068
+A1B3 : A6 03		"  "		ldaa	$03,x
+A1B5 : 97 6C		" l"		staa	X006C
+A1B7 : A6 01		"  "		ldaa	$01,x
+A1B9 : 97 6B		" k"		staa	X006B
+A1BB : DE 71		" q"		ldx	X0071
+A1BD : 96 57		" W"		ldaa	X0057
+A1BF : D6 58		" X"		ldab	X0058
+A1C1 : E0 01		"  "		subb	$01,x
+A1C3 : A2 00		"  "		sbca	$00,x
+A1C5 : 25 1E		"% "		bcs	LA1E5
+A1C7 : 96 79		" y"		ldaa	X0079
+A1C9 : 2A 0A		"* "		bpl	LA1D5
+A1CB : 96 57		" W"		ldaa	X0057
+A1CD : D6 58		" X"		ldab	X0058
+A1CF : E0 0F		"  "		subb	$0F,x
+A1D1 : A2 0E		"  "		sbca	$0E,x
+A1D3 : 20 08		"  "		bra	LA1DD
+				;
+A1D5				LA1D5:
+A1D5 : 96 57		" W"		ldaa	X0057
+A1D7 : D6 58		" X"		ldab	X0058
+A1D9 : E0 1F		"  "		subb	$1F,x
+A1DB : A2 1E		"  "		sbca	$1E,x
+A1DD				LA1DD:
+A1DD : 25 0C		"% "		bcs	LA1EB
+A1DF : 96 79		" y"		ldaa	X0079
+A1E1 : 8A 20		"  "		oraa	#$20
+A1E3 : 97 79		" y"		staa	X0079
+A1E5				LA1E5:
+A1E5 : 96 58		" X"		ldaa	X0058
+A1E7 : 97 6B		" k"		staa	X006B
+A1E9 : 97 6C		" l"		staa	X006C
+A1EB				LA1EB:
+A1EB : DE 0F		"  "		ldx	X000F
+A1ED : DF 55		" U"		stx	X0055
+A1EF : DE 6F		" o"		ldx	X006F
+A1F1 : 96 79		" y"		ldaa	X0079
+A1F3 : 2A 04		"* "		bpl	LA1F9
+A1F5 : C6 07		"  "		ldab	#$07
+A1F7 : 20 02		"  "		bra	LA1FB
+				;
+A1F9				LA1F9:
+A1F9 : C6 0F		"  "		ldab	#$0F
+A1FB				LA1FB:
+A1FB : 96 56		" V"		ldaa	X0056
+A1FD : A0 03		"  "		suba	$03,x
+A1FF : 96 55		" U"		ldaa	X0055
+A201 : A2 02		"  "		sbca	$02,x
+A203 : 25 05		"% "		bcs	LA20A
+A205 : 08		" "		inx
+A206 : 08		" "		inx
+A207 : 5A		"Z"		decb
+A208 : 26 F1		"& "		bne	LA1FB
+A20A				LA20A:
+A20A : 96 79		" y"		ldaa	X0079
+A20C : 2A 05		"* "		bpl	LA213
+A20E : 86 07		"  "		ldaa	#$07
+A210 : 10		" "		sba
+A211 : 20 04		"  "		bra	LA217
+				;
+A213				LA213:
+A213 : 86 0F		"  "		ldaa	#$0F
+A215 : 10		" "		sba
+A216 : 48		"H"		asla
+A217				LA217:
+A217 : 48		"H"		asla 	;Arithmetic Shift Left. Bit 0 is set to 0.(multiplying by two)
+A218 : 48		"H"		asla
+A219 : 48		"H"		asla
+A21A : 9B 68		" h"		adda	X0068
+A21C : 97 68		" h"		staa	X0068
+A21E : A6 03		"  "		ldaa	$03,x
+A220 : 97 6A		" j"		staa	X006A
+A222 : A6 01		"  "		ldaa	$01,x
+A224 : 97 69		" i"		staa	X0069
+A226 : DE 6F		" o"		ldx	X006F
+A228 : 96 55		" U"		ldaa	X0055
+A22A : D6 56		" V"		ldab	X0056
+A22C : E0 01		"  "		subb	$01,x
+A22E : A2 00		"  "		sbca	$00,x
+A230 : 25 1E		"% "		bcs	LA250
+A232 : 96 79		" y"		ldaa	X0079
+A234 : 2A 0A		"* "		bpl	LA240
+A236 : 96 55		" U"		ldaa	X0055
+A238 : D6 56		" V"		ldab	X0056
+A23A : E0 0F		"  "		subb	$0F,x
+A23C : A2 0E		"  "		sbca	$0E,x
+A23E : 20 08		"  "		bra	LA248
+				;
+A240				LA240:
+A240 : 96 55		" U"		ldaa	X0055
+A242 : D6 56		" V"		ldab	X0056
+A244 : E0 1F		"  "		subb	$1F,x
+A246 : A2 1E		"  "		sbca	$1E,x
+A248				LA248:
+A248 : 25 0C		"% "		bcs	LA256
+A24A : 96 79		" y"		ldaa	X0079
+A24C : 8A 10		"  "		oraa	#$10
+A24E : 97 79		" y"		staa	X0079
+A250				LA250:
+A250 : 96 56		" V"		ldaa	X0056
+A252 : 97 69		" i"		staa	X0069
+A254 : 97 6A		" j"		staa	X006A
+A256				LA256:
+A256 : 96 68		" h"		ldaa	X0068
+A258 : 5F		"_"		clrb ;Clear the Accumulator    ;0x006D load calculation ????
+A259 : 9B 6E		" n"		adda	X006E
+A25B : 97 6E		" n"		staa	X006E
+A25D : D9 6D		" m"		adcb	X006D ; Add contents of Memory + Carry Flag to Accumulator 
+A25F : D7 6D		" m"		stab	X006D
+A261 : DE 6D		" m"		ldx	X006D ;load index register X at 0x006D ?
+A263 : 96 58		" X"		ldaa	X0058 ;load from RAM? 
+A265 : 90 6B		" k"		suba	X006B ;subtract memory contents 0x006B from accumulator A
+A267 : 97 76		" v"		staa	X0076 ;store accumulator A at 0x0076
+A269 : 27 56		"'V"		beq	LA2C1 ;Branch if equal to zero
+A26B : 97 59		" Y"		staa	X0059
+A26D : 7F 00 5A		"  Z"		clr	X005A
+A270 : 96 6C		" l"		ldaa	X006C
+A272 : 90 6B		" k"		suba	X006B
+A274 : 97 5B		" ["		staa	X005B
+A276 : BD A3 07		"   "		jsr	LA307
+A279 : 97 1C		"  "		staa	X001C
+A27B : A6 01		"  "		ldaa	$01,x
+A27D : E6 00		"  "		ldab	$00,x
+A27F : 11		" "		cba
+A280 : 25 07		"% "		bcs	LA289
+A282 : D7 75		" u"		stab	X0075
+A284 : 10		" "		sba
+A285 : D6 1C		"  "		ldab	X001C
+A287 : 20 07		"  "		bra	LA290
+				;
+A289				LA289:
+A289 : 97 75		" u"		staa	X0075
+A28B : 10		" "		sba
+A28C : 40		"@"		nega
+A28D : D6 1C		"  "		ldab	X001C
+A28F : 50		"P"		negb
+A290				LA290:
+A290 : BD A0 00		"   "		jsr	start
+A293 : 0E		" "		cli
+A294 : 9B 75		" u"		adda	X0075
+A296 : 97 73		" s"		staa	X0073
+A298 : 96 79		" y"		ldaa	X0079
+A29A : 2A 06		"* "		bpl	LA2A2
+A29C : A6 09		"  "		ldaa	$09,x
+A29E : E6 08		"  "		ldab	$08,x
+A2A0 : 20 04		"  "		bra	LA2A6
+				;
+A2A2				LA2A2:
+A2A2 : A6 11		"  "		ldaa	$11,x
+A2A4 : E6 10		"  "		ldab	$10,x
+A2A6				LA2A6:
+A2A6 : 11		" "		cba
+A2A7 : 25 07		"% "		bcs	LA2B0
+A2A9 : D7 75		" u"		stab	X0075
+A2AB : 10		" "		sba
+A2AC : D6 1C		"  "		ldab	X001C
+A2AE : 20 07		"  "		bra	LA2B7
+				;
+A2B0				LA2B0:
+A2B0 : 97 75		" u"		staa	X0075
+A2B2 : 10		" "		sba
+A2B3 : 40		"@"		nega
+A2B4 : D6 1C		"  "		ldab	X001C
+A2B6 : 50		"P"		negb
+A2B7				LA2B7:
+A2B7 : BD A0 00		"   "		jsr	start
+A2BA : 0E		" "		cli
+A2BB : 9B 75		" u"		adda	X0075
+A2BD : 97 74		" t"		staa	X0074
+A2BF : 20 10		"  "		bra	LA2D1
+				;
+A2C1				LA2C1:
+A2C1 : A6 00		"  "		ldaa	$00,x ;index register X at 0x006D, load at RAM $00
+A2C3 : 97 73		" s"		staa	X0073 ;Store Accumulator in Memory
+A2C5 : 96 79		" y"		ldaa	X0079 ; load acc A, RPM?  
+A2C7 : 2A 04		"* "		bpl	LA2CD	;Unconditional branch relative to present Program Counter contents.
+A2C9 : A6 08		"  "		ldaa	$08,x ;index register x at 0x006D + $08
+A2CB : 20 02		"  "		bra	LA2CF ;Unconditional branch relative to present Program Counter contents.
+				;
+A2CD				LA2CD:
+A2CD : A6 10		"  "		ldaa	$10,x
+A2CF				LA2CF:
+A2CF : 97 74		" t"		staa	X0074
+A2D1				LA2D1:
+A2D1 : 96 56		" V"		ldaa	X0056
+A2D3 : 90 69		" i"		suba	X0069 ;Subtract Memory contents from Accumulator
+A2D5 : 97 76		" v"		staa	X0076 ;Store Accumulator in Memory
+A2D7 : 96 74		" t"		ldaa	X0074 ;
+A2D9 : D6 73		" s"		ldab	X0073 ;
+A2DB : D7 75		" u"		stab	X0075 ;Store Accumulator in Memory
+A2DD : 11		" "		cba ;Compare contents of Accumulators A and B. Only the Status register is affected.
+A2DE : 24 10		"$ "		bcc	LA2F0 ;Branch if carry clear
+A2E0 : 96 76		" v"		ldaa	X0076
+A2E2 : 27 0C		"' "		beq	LA2F0
+A2E4 : 96 6A		" j"		ldaa	X006A
+A2E6 : 90 56		" V"		suba	X0056
+A2E8 : 97 76		" v"		staa	X0076
+A2EA : 96 73		" s"		ldaa	X0073
+A2EC : D6 74		" t"		ldab	X0074
+A2EE : D7 75		" u"		stab	X0075
+A2F0				LA2F0:
+A2F0 : 10		" "		sba
+A2F1 : D6 76		" v"		ldab	X0076
+A2F3 : BD A0 00		"   "		jsr	start ;Jump to Subroutine
+A2F6 : 0E		" "		cli ;Clear the Interrupt flag to enable interrupts
+A2F7 : 97 59		" Y"		staa	X0059 ;store A
+A2F9 : D7 5A		" Z"		stab	X005A ;store B 
+A2FB : 96 6A		" j"		ldaa	X006A ;load A
+A2FD : 90 69		" i"		suba	X0069 ;subtract 0x0069 from A 
+A2FF : 97 5B		" ["		staa	X005B ;store A 
+A301 : BD A3 07		"   "		jsr	LA307 ;subroutine 
+A304 : 9B 75		" u"		adda	X0075 ;add A 0x0075 
+A306 : 39		"9"		rts ;return to routine 
+				;
+A307				LA307:
+A307 : 86 01		"  "		ldaa	#$01
+A309 : D6 5B		" ["		ldab	X005B
+A30B : C1 01		"  "		cmpb	#$01
+A30D : 23 4B		"#K"		bls	LA35A
+A30F : 7F 00 5B		"  ["		clr	X005B
+A312 : D7 5C		" \"		stab	X005C
+A314				LA314:
+A314 : D6 5A		" Z"		ldab	X005A
+A316 : D0 5C		" \"		subb	X005C
+A318 : D6 59		" Y"		ldab	X0059
+A31A : D2 5B		" ["		sbcb	X005B
+A31C : 25 0D		"% "		bcs	LA32B
+A31E : 4C		"L"		inca
+A31F : 78 00 5C		"x \"		asl	X005C
+A322 : 79 00 5B		"y ["		rol	X005B
+A325 : 81 09		"  "		cmpa	#$09
+A327 : 23 EB		"# "		bls	LA314
+A329 : 20 2B		" +"		bra	LA356
+				;
+A32B				LA32B:
+A32B : 97 5D		" ]"		staa	X005D
+A32D : 96 59		" Y"		ldaa	X0059
+A32F : D6 5A		" Z"		ldab	X005A
+A331 : 7F 00 59		"  Y"		clr	X0059
+A334				LA334:
+A334 : D0 5C		" \"		subb	X005C
+A336 : 92 5B		" ["		sbca	X005B
+A338 : 24 07		"$ "		bcc	LA341
+A33A : DB 5C		" \"		addb	X005C
+A33C : 99 5B		" ["		adca	X005B
+A33E : 0C		" "		clc
+A33F : 20 01		"  "		bra	LA342
+				;
+A341				LA341:
+A341 : 0D		" "		sec
+A342				LA342:
+A342 : 79 00 59		"y Y"		rol	X0059
+A345 : 25 0F		"% "		bcs	LA356
+A347 : 74 00 5B		"t ["		lsr	X005B
+A34A : 76 00 5C		"v \"		ror	X005C
+A34D : 7A 00 5D		"z ]"		dec	X005D
+A350 : 26 E2		"& "		bne	LA334
+A352 : 96 59		" Y"		ldaa	X0059
+A354 : 20 06		"  "		bra	LA35C
+				;
+A356				LA356:
+A356 : 86 FF		"  "		ldaa	#$FF
+A358 : 20 02		"  "		bra	LA35C
+				;
+A35A				LA35A:
+A35A : 96 5A		" Z"		ldaa	X005A
+A35C				LA35C:
+A35C : 39		"9"		rts
+				;
+A35D				LA35D:
+A35D : B7 01 12		"   "		staa	X0112
+A360 : 86 0A		"  "		ldaa	#$0A
+A362 : B7 01 13		"   "		staa	X0113
+A365 : 86 20		"  "		ldaa	#$20
+A367 : B7 01 11		"   "		staa	X0111
+A36A				LA36A:
+A36A : 96 7F		"  "		ldaa	X007F
+A36C : 84 20		"  "		anda	#$20
+A36E : 26 30		"&0"		bne	LA3A0
+A370 : F6 01 24		"  $"		ldab	X0124
+A373 : 26 05		"& "		bne	LA37A
+A375 : B6 01 23		"  #"		ldaa	X0123
+A378 : 27 26		"'&"		beq	LA3A0
+A37A				LA37A:
+A37A : B6 01 25		"  %"		ldaa	X0125
+A37D : F6 01 26		"  &"		ldab	X0126
+A380 : F0 01 24		"  $"		subb	X0124
+A383 : B2 01 23		"  #"		sbca	X0123
+A386 : 24 06		"$ "		bcc	LA38E
+A388 : 50		"P"		negb
+A389 : 24 02		"$ "		bcc	LA38D
+A38B : 8B 01		"  "		adda	#$01
+A38D				LA38D:
+A38D : 40		"@"		nega
+A38E				LA38E:
+A38E : 26 05		"& "		bne	LA395
+A390 : F1 01 11		"   "		cmpb	X0111
+A393 : 25 0B		"% "		bcs	LA3A0
+A395				LA395:
+A395 : 7C 01 12		"|  "		inc	X0112
+A398 : B6 01 12		"   "		ldaa	X0112
+A39B : B1 01 13		"   "		cmpa	X0113
+A39E : 25 0A		"% "		bcs	LA3AA
+A3A0				LA3A0:
+A3A0 : 7F 01 12		"   "		clr	X0112
+A3A3 : B6 01 25		"  %"		ldaa	X0125
+A3A6 : F6 01 26		"  &"		ldab	X0126
+A3A9 : 39		"9"		rts
+				;
+A3AA				LA3AA:
+A3AA : B6 01 23		"  #"		ldaa	X0123
+A3AD : F6 01 24		"  $"		ldab	X0124
+A3B0 : 39		"9"		rts
+				;
+A3B1				LA3B1:
+A3B1 : 96 05		"  "		ldaa	X0005
+A3B3 : 8A 10		"  "		oraa	#$10
+A3B5 : 97 05		"  "		staa	X0005
+A3B7 : 97 99		"  "		staa	X0099
+A3B9 : 96 60		" `"		ldaa	X0060
+A3BB : 81 0B		"  "		cmpa	#$0B
+A3BD : 27 70		"'p"		beq	LA42F
+A3BF : 81 0A		"  "		cmpa	#$0A
+A3C1 : 27 63		"'c"		beq	LA426
+A3C3 : CE FF FF		"   "		ldx	#$FFFF
+A3C6				LA3C6:
+A3C6 : 08		" "		inx
+A3C7 : 7A 00 60		"z `"		dec	X0060
+A3CA : 26 FA		"& "		bne	LA3C6
+A3CC : 96 00		"  "		ldaa	X0000
+A3CE : 84 C0		"  "		anda	#$C0
+A3D0 : 26 56		"&V"		bne	LA428
+A3D2 : 96 7F		"  "		ldaa	X007F
+A3D4 : 84 20		"  "		anda	#$20
+A3D6 : 26 06		"& "		bne	LA3DE
+A3D8 : 96 47		" G"		ldaa	X0047
+A3DA : 85 20		"  "		bita	#$20
+A3DC : 26 4A		"&J"		bne	LA428
+A3DE				LA3DE:
+A3DE : 96 1D		"  "		ldaa	X001D
+A3E0 : 8B 01		"  "		adda	#$01
+A3E2 : 97 1D		"  "		staa	X001D
+A3E4 : 25 3C		"%<"		bcs	LA422
+A3E6 : 81 80		"  "		cmpa	#$80
+A3E8 : 27 34		"'4"		beq	LA41E
+A3EA : 85 01		"  "		bita	#$01
+A3EC : 26 28		"&("		bne	LA416
+A3EE : 85 02		"  "		bita	#$02
+A3F0 : 26 20		"& "		bne	LA412
+A3F2 : 85 04		"  "		bita	#$04
+A3F4 : 26 18		"& "		bne	LA40E
+A3F6 : 85 08		"  "		bita	#$08
+A3F8 : 26 10		"& "		bne	LA40A
+A3FA : 85 10		"  "		bita	#$10
+A3FC : 26 08		"& "		bne	LA406
+A3FE : 85 20		"  "		bita	#$20
+A400 : 26 18		"& "		bne	LA41A
+A402 : 86 05		"  "		ldaa	#$05
+A404 : 20 73		" s"		bra	LA479
+				;
+A406				LA406:
+A406 : 86 04		"  "		ldaa	#$04
+A408 : 20 6F		" o"		bra	LA479
+				;
+A40A				LA40A:
+A40A : 86 02		"  "		ldaa	#$02
+A40C : 20 6B		" k"		bra	LA479
+				;
+A40E				LA40E:
+A40E : 86 01		"  "		ldaa	#$01
+A410 : 20 67		" g"		bra	LA479
+				;
+A412				LA412:
+A412 : 86 06		"  "		ldaa	#$06
+A414 : 20 63		" c"		bra	LA479
+				;
+A416				LA416:
+A416 : 86 07		"  "		ldaa	#$07
+A418 : 20 5F		" _"		bra	LA479
+				;
+A41A				LA41A:
+A41A : 86 03		"  "		ldaa	#$03
+A41C : 20 5B		" ["		bra	LA479
+				;
+A41E				LA41E:
+A41E : 86 0B		"  "		ldaa	#$0B
+A420 : 20 57		" W"		bra	LA479
+				;
+A422				LA422:
+A422 : 86 0A		"  "		ldaa	#$0A
+A424 : 20 53		" S"		bra	LA479
+A426				LA426:
+A426 : 20 2A		" *"		bra	LA452
+				;
+A428				LA428:
+A428 : 8C 00 01		"   "		cpx	#$0001
+A42B : 27 E1		"' "		beq	LA40E
+A42D : 20 EF		"  "		bra	LA41E
+				;
+A42F				LA42F:
+A42F : D6 00		"  "		ldab	X0000
+A431 : C4 C0		"  "		andb	#$C0
+A433 : 26 16		"& "		bne	LA44B
+A435 : 96 7F		"  "		ldaa	X007F
+A437 : 84 20		"  "		anda	#$20
+A439 : 26 06		"& "		bne	LA441
+A43B : 96 47		" G"		ldaa	X0047
+A43D : 85 20		"  "		bita	#$20
+A43F : 26 0A		"& "		bne	LA44B
+A441				LA441:
+A441 : 7C 00 1D		"|  "		inc	X001D
+A444 : C6 07		"  "		ldab	#$07
+A446 : D7 60		" `"		stab	X0060
+A448 : 7E A5 32		"~ 2"		jmp	LA532
+				;
+A44B				LA44B:
+A44B : C6 0A		"  "		ldab	#$0A
+A44D : D7 60		" `"		stab	X0060
+A44F : 7E A5 32		"~ 2"		jmp	LA532
+				;
+A452				LA452:
+A452 : D6 00		"  "		ldab	X0000
+A454 : C4 C0		"  "		andb	#$C0
+A456 : 26 16		"& "		bne	LA46E
+A458 : 96 7F		"  "		ldaa	X007F
+A45A : 84 20		"  "		anda	#$20
+A45C : 26 06		"& "		bne	LA464
+A45E : 96 47		" G"		ldaa	X0047
+A460 : 85 20		"  "		bita	#$20
+A462 : 26 0A		"& "		bne	LA46E
+A464				LA464:
+A464 : 7C 00 1D		"|  "		inc	X001D
+A467 : C6 07		"  "		ldab	#$07
+A469 : D7 60		" `"		stab	X0060
+A46B : 7E A4 F7		"~  "		jmp	LA4F7
+				;
+A46E				LA46E:
+A46E : C6 08		"  "		ldab	#$08
+A470 : D7 1D		"  "		stab	X001D
+A472 : C6 02		"  "		ldab	#$02
+A474 : D7 60		" `"		stab	X0060
+A476 : 7E A4 F7		"~  "		jmp	LA4F7
+				;
+A479				LA479:
+A479 : 97 60		" `"		staa	X0060
+A47B : 96 61		" a"		ldaa	X0061
+A47D : D6 62		" b"		ldab	X0062
+A47F : D0 64		" d"		subb	X0064
+A481 : 92 63		" c"		sbca	X0063
+A483 : 24 03		"$ "		bcc	LA488
+A485 : 5F		"_"		clrb
+A486 : 20 15		"  "		bra	LA49D
+				;
+A488				LA488:
+A488 : 97 28		" ("		staa	X0028
+A48A : D7 29		" )"		stab	X0029
+A48C : 96 7D		" }"		ldaa	X007D
+A48E : D6 7E		" ~"		ldab	X007E
+A490 : BD A0 25		"  %"		jsr	LA025
+A493 : 96 28		" ("		ldaa	X0028
+A495 : D6 29		" )"		ldab	X0029
+A497 : 84 FF		"  "		anda	#$FF
+A499 : 27 02		"' "		beq	LA49D
+A49B : C6 FF		"  "		ldab	#$FF
+A49D				LA49D:
+A49D : 8C 00 00		"   "		cpx	#$0000
+A4A0 : 27 14		"' "		beq	LA4B6
+A4A2 : 8C 00 01		"   "		cpx	#$0001
+A4A5 : 26 41		"&A"		bne	LA4E8
+A4A7 : 86 0A		"  "		ldaa	#$0A
+A4A9 : B7 01 13		"   "		staa	X0113
+A4AC : 86 08		"  "		ldaa	#$08
+A4AE : B7 01 11		"   "		staa	X0111
+A4B1 : B6 01 2A		"  *"		ldaa	X012A
+A4B4 : 20 0D		"  "		bra	LA4C3
+				;
+A4B6				LA4B6:
+A4B6 : 86 0A		"  "		ldaa	#$0A
+A4B8 : B7 01 13		"   "		staa	X0113
+A4BB : 86 4B		" K"		ldaa	#$4B
+A4BD : B7 01 11		"   "		staa	X0111
+A4C0 : B6 01 2B		"  +"		ldaa	X012B
+A4C3				LA4C3:
+A4C3 : B7 01 12		"   "		staa	X0112
+A4C6 : 4F		"O"		clra
+A4C7 : B7 01 23		"  #"		staa	X0123
+A4CA : B7 01 25		"  %"		staa	X0125
+A4CD : F7 01 26		"  &"		stab	X0126
+A4D0 : E6 06		"  "		ldab	$06,x
+A4D2 : F7 01 24		"  $"		stab	X0124
+A4D5 : BD A3 6A		"  j"		jsr	LA36A
+A4D8 : B6 01 12		"   "		ldaa	X0112
+A4DB : 8C 00 00		"   "		cpx	#$0000
+A4DE : 27 05		"' "		beq	LA4E5
+A4E0 : B7 01 2A		"  *"		staa	X012A
+A4E3 : 20 03		"  "		bra	LA4E8
+				;
+A4E5				LA4E5:
+A4E5 : B7 01 2B		"  +"		staa	X012B
+A4E8				LA4E8:
+A4E8 : E7 06		"  "		stab	$06,x
+A4EA				LA4EA:
+A4EA : 96 07		"  "		ldaa	X0007
+A4EC : CE BB 30		"  0"		ldx	#$BB30 ;load Temp Sensor conversion CHTS register IX
+A4EF : BD A1 45		"  E"		jsr	LA145
+A4F2 : 97 04		"  "		staa	X0004
+A4F4 : 7E AF AE		"~  "		jmp	LAFAE
+				;
+A4F7				LA4F7:
+A4F7 : DE 63		" c"		ldx	X0063
+A4F9 : FF 01 23		"  #"		stx	X0123
+A4FC : DE 61		" a"		ldx	X0061
+A4FE : FF 01 25		"  %"		stx	X0125
+A501 : B6 01 27		"  '"		ldaa	X0127
+A504 : BD A3 5D		"  ]"		jsr	LA35D
+A507 : 97 63		" c"		staa	X0063
+A509 : D7 64		" d"		stab	X0064
+A50B : B6 01 12		"   "		ldaa	X0112
+A50E : B7 01 27		"  '"		staa	X0127
+A511 : 96 65		" e"		ldaa	X0065
+A513 : D6 66		" f"		ldab	X0066
+A515 : D0 64		" d"		subb	X0064
+A517 : 92 63		" c"		sbca	X0063
+A519 : BD A0 91		"   "		jsr	LA091
+A51C : 97 7D		" }"		staa	X007D
+A51E : D7 7E		" ~"		stab	X007E
+A520 : 96 25		" %"		ldaa	X0025
+A522 : 26 04		"& "		bne	LA528
+A524 : 96 26		" &"		ldaa	X0026
+A526 : 27 C2		"' "		beq	LA4EA
+A528				LA528:
+A528 : 96 00		"  "		ldaa	X0000
+A52A : 2A 04		"* "		bpl	LA530
+A52C : 8A C0		"  "		oraa	#$C0
+A52E : 97 00		"  "		staa	X0000
+A530				LA530:
+A530 : 20 B8		"  "		bra	LA4EA
+				;
+A532				LA532:
+A532 : DE 65		" e"		ldx	X0065
+A534 : FF 01 23		"  #"		stx	X0123
+A537 : DE 61		" a"		ldx	X0061
+A539 : FF 01 25		"  %"		stx	X0125
+A53C : B6 01 28		"  ("		ldaa	X0128
+A53F : BD A3 5D		"  ]"		jsr	LA35D
+A542 : 97 65		" e"		staa	X0065
+A544 : D7 66		" f"		stab	X0066
+A546 : B6 01 12		"   "		ldaa	X0112
+A549 : B7 01 28		"  ("		staa	X0128
+A54C : 20 9C		"  "		bra	LA4EA
+				;
+A54E				LA54E:
+A54E : 96 1E		"  "		ldaa	X001E
+A550 : 81 03		"  "		cmpa	#$03
+A552 : 27 2F		"'/"		beq	LA583
+A554 : 81 02		"  "		cmpa	#$02
+A556 : 27 24		"'$"		beq	LA57C
+A558 : 96 00		"  "		ldaa	X0000
+A55A : 84 C0		"  "		anda	#$C0
+A55C : 26 16		"& "		bne	LA574
+A55E : 96 47		" G"		ldaa	X0047
+A560 : 85 20		"  "		bita	#$20
+A562 : 26 10		"& "		bne	LA574
+A564 : 96 27		" '"		ldaa	X0027
+A566 : 8B 01		"  "		adda	#$01
+A568 : 97 27		" '"		staa	X0027
+A56A : 25 0C		"% "		bcs	LA578
+A56C : 81 80		"  "		cmpa	#$80
+A56E : 27 04		"' "		beq	LA574
+A570 : 86 01		"  "		ldaa	#$01
+A572 : 20 29		" )"		bra	LA59D
+				;
+A574				LA574:
+A574 : 86 03		"  "		ldaa	#$03
+A576 : 20 25		" %"		bra	LA59D
+				;
+A578				LA578:
+A578 : 86 02		"  "		ldaa	#$02
+A57A : 20 21		" !"		bra	LA59D
+				;
+A57C				LA57C:
+A57C : 86 01		"  "		ldaa	#$01
+A57E : 97 1E		"  "		staa	X001E
+A580 : 7E A5 C7		"~  "		jmp	LA5C7
+				;
+A583				LA583:
+A583 : D6 00		"  "		ldab	X0000
+A585 : C4 C0		"  "		andb	#$C0
+A587 : 26 0D		"& "		bne	LA596
+A589 : D6 47		" G"		ldab	X0047
+A58B : C5 20		"  "		bitb	#$20
+A58D : 26 07		"& "		bne	LA596
+A58F : C6 01		"  "		ldab	#$01
+A591 : D7 1E		"  "		stab	X001E
+A593 : 7E A6 02		"~  "		jmp	LA602
+				;
+A596				LA596:
+A596 : C6 02		"  "		ldab	#$02
+A598 : D7 1E		"  "		stab	X001E
+A59A : 7E A6 02		"~  "		jmp	LA602
+				;
+A59D				LA59D:
+A59D : 97 1E		"  "		staa	X001E
+A59F : 96 1F		"  "		ldaa	X001F
+A5A1 : D6 20		"  "		ldab	X0020
+A5A3 : D0 22		" ""		subb	X0022
+A5A5 : 92 21		" !"		sbca	X0021
+A5A7 : 25 1B		"% "		bcs	LA5C4
+A5A9 : 97 28		" ("		staa	X0028
+A5AB : D7 29		" )"		stab	X0029
+A5AD : 96 25		" %"		ldaa	X0025
+A5AF : D6 26		" &"		ldab	X0026
+A5B1 : BD A0 25		"  %"		jsr	LA025
+A5B4 : 96 28		" ("		ldaa	X0028
+A5B6 : D6 29		" )"		ldab	X0029
+A5B8 : 81 03		"  "		cmpa	#$03
+A5BA : 23 04		"# "		bls	LA5C0
+A5BC : 86 03		"  "		ldaa	#$03
+A5BE : C6 FF		"  "		ldab	#$FF
+A5C0				LA5C0:
+A5C0 : 97 11		"  "		staa	X0011
+A5C2 : D7 12		"  "		stab	X0012
+A5C4				LA5C4:
+A5C4 : 7E A8 14		"~  "		jmp	LA814
+				;
+A5C7				LA5C7:
+A5C7 : DE 21		" !"		ldx	X0021
+A5C9 : FF 01 23		"  #"		stx	X0123
+A5CC : DE 1F		"  "		ldx	X001F
+A5CE : FF 01 25		"  %"		stx	X0125
+A5D1 : B6 01 2C		"  ,"		ldaa	X012C
+A5D4 : BD A3 5D		"  ]"		jsr	LA35D
+A5D7 : 97 21		" !"		staa	X0021
+A5D9 : D7 22		" ""		stab	X0022
+A5DB : B6 01 12		"   "		ldaa	X0112
+A5DE : B7 01 2C		"  ,"		staa	X012C
+A5E1 : 96 23		" #"		ldaa	X0023
+A5E3 : D6 24		" $"		ldab	X0024
+A5E5 : D0 22		" ""		subb	X0022
+A5E7 : 92 21		" !"		sbca	X0021
+A5E9 : BD A0 91		"   "		jsr	LA091
+A5EC : 97 25		" %"		staa	X0025
+A5EE : D7 26		" &"		stab	X0026
+A5F0 : 96 7D		" }"		ldaa	X007D
+A5F2 : 26 04		"& "		bne	LA5F8
+A5F4 : 96 7E		" ~"		ldaa	X007E
+A5F6 : 27 CC		"' "		beq	LA5C4
+A5F8				LA5F8:
+A5F8 : 96 00		"  "		ldaa	X0000
+A5FA : 2A 04		"* "		bpl	LA600
+A5FC : 8A C0		"  "		oraa	#$C0
+A5FE : 97 00		"  "		staa	X0000
+A600				LA600:
+A600 : 20 C2		"  "		bra	LA5C4
+				;
+A602				LA602:
+A602 : DE 23		" #"		ldx	X0023
+A604 : FF 01 23		"  #"		stx	X0123
+A607 : DE 1F		"  "		ldx	X001F
+A609 : FF 01 25		"  %"		stx	X0125
+A60C : B6 01 2D		"  -"		ldaa	X012D
+A60F : BD A3 5D		"  ]"		jsr	LA35D
+A612 : 97 23		" #"		staa	X0023
+A614 : D7 24		" $"		stab	X0024
+A616 : B6 01 12		"   "		ldaa	X0112
+A619 : B7 01 2D		"  -"		staa	X012D
+A61C : 20 A6		"  "		bra	LA5C4
+				;
+A61E				LA61E:
+A61E : 7C 00 01		"|  "		inc	X0001
+A621 : 96 67		" g"		ldaa	X0067
+A623 : 2B 14		"+ "		bmi	LA639
+A625 : 96 01		"  "		ldaa	X0001
+A627 : 84 0F		"  "		anda	#$0F
+A629 : 81 03		"  "		cmpa	#$03
+A62B : 25 18		"% "		bcs	LA645
+A62D : 96 01		"  "		ldaa	X0001
+A62F : 84 F0		"  "		anda	#$F0
+A631 : 97 01		"  "		staa	X0001
+A633 : 86 03		"  "		ldaa	#$03
+A635 : 97 81		"  "		staa	X0081
+A637 : 20 22		" ""		bra	LA65B
+				;
+A639				LA639:
+A639 : 96 01		"  "		ldaa	X0001
+A63B : 84 0F		"  "		anda	#$0F
+A63D : 81 06		"  "		cmpa	#$06
+A63F : 24 10		"$ "		bcc	LA651
+A641 : 81 04		"  "		cmpa	#$04
+A643 : 27 04		"' "		beq	LA649
+A645				LA645:
+A645 : 81 02		"  "		cmpa	#$02
+A647 : 26 06		"& "		bne	LA64F
+A649				LA649:
+A649 : 96 00		"  "		ldaa	X0000
+A64B : 8A 20		"  "		oraa	#$20
+A64D : 97 00		"  "		staa	X0000
+A64F				LA64F:
+A64F : 20 12		"  "		bra	LA663
+				;
+A651				LA651:
+A651 : 96 01		"  "		ldaa	X0001
+A653 : 84 F0		"  "		anda	#$F0
+A655 : 97 01		"  "		staa	X0001
+A657 : 86 06		"  "		ldaa	#$06
+A659 : 97 81		"  "		staa	X0081
+A65B				LA65B:
+A65B : 96 17		"  "		ldaa	X0017
+A65D : 97 9C		"  "		staa	X009C
+A65F : DE 19		"  "		ldx	X0019
+A661 : DF 86		"  "		stx	X0086
+A663				LA663:
+A663 : 7E A7 8F		"~  "		jmp	LA78F
+				;
+A666 : 3F		"?"		swi
+A667 : 3F		"?"		swi
+A668 : 3F		"?"		swi
+A669 : 3F		"?"		swi
+A66A : 3F		"?"		swi
+A66B : 3F		"?"		swi
+A66C : 3F		"?"		swi
+A66D : 3F		"?"		swi
+A66E : 3F		"?"		swi
+A66F : 3F		"?"		swi
+A670 : 3F		"?"		swi
+A671 : 3F		"?"		swi
+A672 : 3F		"?"		swi
+A673 : 3F		"?"		swi
+A674 : 3F		"?"		swi
+A675 : 3F		"?"		swi
+A676 : 3F		"?"		swi
+A677 : 3F		"?"		swi
+A678 : 3F		"?"		swi
+A679 : 3F		"?"		swi
+A67A : 3F		"?"		swi
+A67B : 3F		"?"		swi
+A67C : 3F		"?"		swi
+A67D : 3F		"?"		swi
+A67E : 3F		"?"		swi
+A67F : 3F		"?"		swi
+A680 : 3F		"?"		swi
+A681 : 3F		"?"		swi
+A682 : 3F		"?"		swi
+A683 : 3F		"?"		swi
+A684 : 3F		"?"		swi
+A685 : 3F		"?"		swi
+A686 : 3F		"?"		swi
+A687 : 3F		"?"		swi
+A688 : 3F		"?"		swi
+A689 : 3F		"?"		swi
+A68A : 3F		"?"		swi
+A68B : 3F		"?"		swi
+A68C : 3F		"?"		swi
+A68D : 3F		"?"		swi
+A68E : 3F		"?"		swi
+A68F : 3F		"?"		swi
+A690 : 3F		"?"		swi
+A691 : 3F		"?"		swi
+A692 : 3F		"?"		swi
+A693 : 3F		"?"		swi
+A694 : 3F		"?"		swi
+A695 : 3F		"?"		swi
+A696 : 3F		"?"		swi
+A697 : 3F		"?"		swi
+A698 : 3F		"?"		swi
+A699 : 3F		"?"		swi
+A69A : 3F		"?"		swi
+A69B : 3F		"?"		swi
+A69C : 3F		"?"		swi
+A69D : 3F		"?"		swi
+A69E : 3F		"?"		swi
+A69F : 3F		"?"		swi
+A6A0 : 3F		"?"		swi
+A6A1 : 3F		"?"		swi
+A6A2 : 3F		"?"		swi
+A6A3 : 3F		"?"		swi
+A6A4 : 3F		"?"		swi
+A6A5 : 3F		"?"		swi
+A6A6 : 3F		"?"		swi
+A6A7 : 3F		"?"		swi
+A6A8 : 3F		"?"		swi
+A6A9 : 3F		"?"		swi
+A6AA : 3F		"?"		swi
+A6AB : 3F		"?"		swi
+A6AC : D6 9F		"  "		ldab	X009F
+A6AE : 01		" "		nop
+A6AF : 01		" "		nop
+A6B0 : D7 9F		"  "		stab	X009F
+A6B2 : C5 10		"  "		bitb	#$10
+A6B4 : 26 03		"& "		bne	LA6B9
+A6B6 : 7E A6 F2		"~  "		jmp	LA6F2
+				;
+A6B9				LA6B9:
+A6B9 : 96 60		" `"		ldaa	X0060
+A6BB : 97 94		"  "		staa	X0094
+A6BD : 96 1E		"  "		ldaa	X001E
+A6BF : 97 96		"  "		staa	X0096
+A6C1 : BD AD 05		"   "		jsr	LAD05
+A6C4 : 96 99		"  "		ldaa	X0099
+A6C6 : 85 80		"  "		bita	#$80
+A6C8 : 26 17		"& "		bne	LA6E1
+A6CA : 7E BE B0		"~  "		jmp	LBEB0
+				;
+A6CD : 01		" "		nop
+A6CE				LA6CE:
+A6CE : 81 FF		"  "		cmpa	#$FF
+A6D0 : 25 0A		"% "		bcs	LA6DC
+A6D2 : 86 01		"  "		ldaa	#$01
+A6D4 : 97 81		"  "		staa	X0081
+A6D6 : 96 01		"  "		ldaa	X0001
+A6D8 : 8A 80		"  "		oraa	#$80
+A6DA : 97 01		"  "		staa	X0001
+A6DC				LA6DC:
+A6DC : 7F 00 7C		"  |"		clr	X007C
+A6DF : 20 11		"  "		bra	LA6F2
+				;
+A6E1				LA6E1:
+A6E1 : 96 7C		" |"		ldaa	X007C
+A6E3 : 2A 09		"* "		bpl	LA6EE
+A6E5 : 81 FF		"  "		cmpa	#$FF
+A6E7 : 24 09		"$ "		bcc	LA6F2
+A6E9 : 7C 00 7C		"| |"		inc	X007C
+A6EC : 20 04		"  "		bra	LA6F2
+				;
+A6EE				LA6EE:
+A6EE : 86 80		"  "		ldaa	#$80
+A6F0 : 97 7C		" |"		staa	X007C
+A6F2				LA6F2:
+A6F2 : C5 80		"  "		bitb	#$80
+A6F4 : 26 03		"& "		bne	LA6F9
+A6F6 : 7E A7 8F		"~  "		jmp	LA78F
+				;
+A6F9				LA6F9:
+A6F9 : 96 99		"  "		ldaa	X0099
+A6FB : 84 0E		"  "		anda	#$0E
+A6FD : B7 01 20		"   "		staa	X0120
+A700 : 85 02		"  "		bita	#$02
+A702 : 26 08		"& "		bne	LA70C
+A704 : 7C 01 21		"| !"		inc	X0121
+A707 : 26 03		"& "		bne	LA70C
+A709 : 7A 01 21		"z !"		dec	X0121
+A70C				LA70C:
+A70C : B6 01 31		"  1"		ldaa	X0131
+A70F : 37		"7"		pshb
+A710 : 5F		"_"		clrb
+A711 : D7 88		"  "		stab	X0088
+A713 : 97 89		"  "		staa	X0089
+A715 : 33		"3"		pulb
+A716 : B7 01 32		"  2"		staa	X0132
+A719 : 96 00		"  "		ldaa	X0000
+A71B : 84 FC		"  "		anda	#$FC
+A71D : 97 00		"  "		staa	X0000
+A71F : 96 01		"  "		ldaa	X0001
+A721 : 2B 2C		"+,"		bmi	LA74F
+A723 : 85 20		"  "		bita	#$20
+A725 : 26 06		"& "		bne	LA72D
+A727 : 8A 20		"  "		oraa	#$20
+A729 : 97 01		"  "		staa	X0001
+A72B : 20 16		"  "		bra	LA743
+				;
+A72D				LA72D:
+A72D : 85 10		"  "		bita	#$10
+A72F : 26 12		"& "		bne	LA743
+A731 : 8A 10		"  "		oraa	#$10
+A733 : 97 01		"  "		staa	X0001
+A735 : 96 7F		"  "		ldaa	X007F
+A737 : 84 40		" @"		anda	#$40
+A739 : 26 04		"& "		bne	LA73F
+A73B : 86 03		"  "		ldaa	#$03
+A73D : 20 02		"  "		bra	LA741
+				;
+A73F				LA73F:
+A73F : 86 0B		"  "		ldaa	#$0B
+A741				LA741:
+A741 : 97 9D		"  "		staa	X009D
+A743				LA743:
+A743 : 96 00		"  "		ldaa	X0000
+A745 : 85 40		" @"		bita	#$40
+A747 : 27 0E		"' "		beq	LA757
+A749 : 84 3F		" ?"		anda	#$3F
+A74B : 97 00		"  "		staa	X0000
+A74D : 20 08		"  "		bra	LA757
+				;
+A74F				LA74F:
+A74F : 96 01		"  "		ldaa	X0001
+A751 : 84 78		" x"		anda	#$78
+A753 : 8A 02		"  "		oraa	#$02
+A755 : 97 01		"  "		staa	X0001
+A757				LA757:
+A757 : 7E A6 1E		"~  "		jmp	LA61E
+				;
+A75A : 3F		"?"		swi
+A75B : 3F		"?"		swi
+A75C : 3F		"?"		swi
+A75D : 3F		"?"		swi
+A75E : 3F		"?"		swi
+A75F : 3F		"?"		swi
+A760 : 3F		"?"		swi
+A761 : 3F		"?"		swi
+A762 : 3F		"?"		swi
+A763 : 3F		"?"		swi
+A764 : 3F		"?"		swi
+A765 : 3F		"?"		swi
+A766 : 3F		"?"		swi
+A767 : 3F		"?"		swi
+A768 : 3F		"?"		swi
+A769 : 3F		"?"		swi
+A76A : 3F		"?"		swi
+A76B : 3F		"?"		swi
+A76C : 3F		"?"		swi
+A76D : 3F		"?"		swi
+A76E : 3F		"?"		swi
+A76F : 3F		"?"		swi
+A770 : 3F		"?"		swi
+A771 : 3F		"?"		swi
+A772 : 3F		"?"		swi
+A773 : 3F		"?"		swi
+A774 : 3F		"?"		swi
+A775 : 3F		"?"		swi
+A776 : 3F		"?"		swi
+A777 : 3F		"?"		swi
+A778 : 3F		"?"		swi
+A779 : 3F		"?"		swi
+A77A : 3F		"?"		swi
+A77B : 3F		"?"		swi
+A77C : 3F		"?"		swi
+A77D : 3F		"?"		swi
+A77E : 3F		"?"		swi
+A77F : 3F		"?"		swi
+A780 : 3F		"?"		swi
+A781 : 3F		"?"		swi
+A782 : 3F		"?"		swi
+A783 : 3F		"?"		swi
+A784 : 3F		"?"		swi
+A785 : 3F		"?"		swi
+A786 : 3F		"?"		swi
+A787 : 3F		"?"		swi
+A788 : 3F		"?"		swi
+A789 : 3F		"?"		swi
+A78A : 3F		"?"		swi
+A78B : 3F		"?"		swi
+A78C : 3F		"?"		swi
+A78D : 3F		"?"		swi
+A78E : 3F		"?"		swi
+A78F				LA78F:
+A78F : C5 20		"  "		bitb	#$20
+A791 : 27 10		"' "		beq	LA7A3
+A793 : 96 00		"  "		ldaa	X0000
+A795 : 84 18		"  "		anda	#$18
+A797 : 26 0A		"& "		bne	LA7A3
+A799 : DE 96		"  "		ldx	X0096 >load something index
+A79B : DF 1F		"  "		stx	X001F >read something index at 1F 
+A79D : 96 00		"  "		ldaa	X0000
+A79F : 8A 10		"  "		oraa	#$10
+A7A1 : 97 00		"  "		staa	X0000
+A7A3				LA7A3:
+A7A3 : C5 40		" @"		bitb	#$40
+A7A5 : 27 10		"' "		beq	LA7B7
+A7A7 : 96 00		"  "		ldaa	X0000
+A7A9 : 84 04		"  "		anda	#$04
+A7AB : 26 0A		"& "		bne	LA7B7
+A7AD : DE 94		"  "		ldx	X0094
+A7AF : DF 61		" a"		stx	X0061
+A7B1 : 96 00		"  "		ldaa	X0000
+A7B3 : 8A 04		"  "		oraa	#$04
+A7B5 : 97 00		"  "		staa	X0000
+A7B7				LA7B7:
+A7B7 : 96 00		"  "		ldaa	X0000
+A7B9 : 2B 16		"+ "		bmi	LA7D1
+A7BB : C5 08		"  "		bitb	#$08
+A7BD : 27 12		"' "		beq	LA7D1
+A7BF : 16		" "		tab
+A7C0 : 84 03		"  "		anda	#$03
+A7C2 : 81 03		"  "		cmpa	#$03
+A7C4 : 26 07		"& "		bne	LA7CD
+A7C6 : 0F		" "		sei
+A7C7 : 7F 00 7F		"   "		clr	X007F
+A7CA : 7E A8 4C		"~ L"		jmp	LA84C
+				;
+A7CD				LA7CD:
+A7CD : CB 01		"  "		addb	#$01
+A7CF : D7 00		"  "		stab	X0000
+A7D1				LA7D1:
+A7D1 : 96 01		"  "		ldaa	X0001
+A7D3 : 85 40		" @"		bita	#$40
+A7D5 : 27 01		"' "		beq	LA7D8
+A7D7 : 3B		";"		rti
+				;
+A7D8				LA7D8:
+A7D8 : 96 00		"  "		ldaa	X0000
+A7DA : 85 20		"  "		bita	#$20
+A7DC : 26 0D		"& "		bne	LA7EB
+A7DE : 96 00		"  "		ldaa	X0000
+A7E0 : 85 18		"  "		bita	#$18
+A7E2 : 26 20		"& "		bne	LA804
+A7E4 : 96 00		"  "		ldaa	X0000
+A7E6 : 85 04		"  "		bita	#$04
+A7E8 : 26 40		"&@"		bne	LA82A
+A7EA : 3B		";"		rti
+				;
+A7EB				LA7EB:
+A7EB : 96 01		"  "		ldaa	X0001
+A7ED : 8A 40		" @"		oraa	#$40
+A7EF : 97 01		"  "		staa	X0001
+A7F1 : 0E		" "		cli
+A7F2 : 7E B7 96		"~  "		jmp	LB796
+				;
+A7F5				LA7F5:
+A7F5 : 0F		" "		sei
+A7F6 : 96 00		"  "		ldaa	X0000
+A7F8 : 84 DF		"  "		anda	#$DF
+A7FA : 97 00		"  "		staa	X0000
+A7FC : 96 01		"  "		ldaa	X0001
+A7FE : 84 BF		"  "		anda	#$BF
+A800 : 97 01		"  "		staa	X0001
+A802 : 20 D4		"  "		bra	LA7D8
+				;
+A804				LA804:
+A804 : 96 01		"  "		ldaa	X0001
+A806 : 8A 40		" @"		oraa	#$40
+A808 : 97 01		"  "		staa	X0001
+A80A : 96 00		"  "		ldaa	X0000
+A80C : 8A 18		"  "		oraa	#$18
+A80E : 97 00		"  "		staa	X0000
+A810 : 0E		" "		cli
+A811 : 7E A5 4E		"~ N"		jmp	LA54E
+				;
+A814				LA814:
+A814 : 96 00		"  "		ldaa	X0000
+A816 : 2B 03		"+ "		bmi	LA81B
+A818 : 7E B1 F9		"~  "		jmp	LB1F9
+				;
+A81B				LA81B:
+A81B : 0F		" "		sei
+A81C : 96 00		"  "		ldaa	X0000
+A81E : 84 E7		"  "		anda	#$E7
+A820 : 97 00		"  "		staa	X0000
+A822 : 96 01		"  "		ldaa	X0001
+A824 : 84 BF		"  "		anda	#$BF
+A826 : 97 01		"  "		staa	X0001
+A828 : 20 AE		"  "		bra	LA7D8
+				;
+A82A				LA82A:
+A82A : 96 01		"  "		ldaa	X0001
+A82C : 8A 40		" @"		oraa	#$40
+A82E : 97 01		"  "		staa	X0001
+A830 : 0E		" "		cli
+A831 : 7E A3 B1		"~  "		jmp	LA3B1
+				;
+A834				LA834:
+A834 : 0F		" "		sei
+A835 : 96 00		"  "		ldaa	X0000
+A837 : 84 FB		"  "		anda	#$FB
+A839 : 97 00		"  "		staa	X0000
+A83B : 96 01		"  "		ldaa	X0001
+A83D : 84 BF		"  "		anda	#$BF
+A83F : 97 01		"  "		staa	X0001
+A841 : 20 95		"  "		bra	LA7D8
+				;
+A843 : 86 80		"  "		ldaa	#$80
+A845 : 97 00		"  "		staa	X0000
+A847 : CE 00 7F		"   "		ldx	#$007F
+A84A : 20 06		"  "		bra	LA852
+				;
+A84C				LA84C:
+A84C : 7F 00 00		"   "		clr	X0000
+A84F : CE 00 7E		"  ~"		ldx	#$007E
+A852				LA852:
+A852 : 4F		"O"		clra
+A853				LA853:
+A853 : A7 00		"  "		staa	$00,x
+A855 : 09		" "		dex
+A856 : 26 FB		"& "		bne	LA853
+A858 : CE 01 7F		"   "		ldx	#$017F
+A85B				LA85B:
+A85B : A7 00		"  "		staa	$00,x
+A85D : 09		" "		dex
+A85E : 8C 00 FF		"   "		cpx	#$00FF
+A861 : 26 F8		"& "		bne	LA85B
+A863 : 8E 01 7F		"   "		lds	#$017F
+A866 : 96 00		"  "		ldaa	X0000
+A868 : 2A 04		"* "		bpl	LA86E
+A86A : 86 01		"  "		ldaa	#$01
+A86C : 20 02		"  "		bra	LA870
+				;
+A86E				LA86E:
+A86E : 86 00		"  "		ldaa	#$00
+A870				LA870:
+A870 : 97 99		"  "		staa	X0099
+A872 : 97 05		"  "		staa	X0005
+A874 : 86 80		"  "		ldaa	#$80
+A876 : 97 00		"  "		staa	X0000
+A878 : 4F		"O"		clra
+A879 : 97 45		" E"		staa	X0045
+A87B : 97 48		" H"		staa	X0048
+A87D : 97 14		"  "		staa	X0014
+A87F : 86 47		" G"		ldaa	#$47
+A881 : C6 64		" d"		ldab	#$64
+A883 : 97 46		" F"		staa	X0046
+A885 : 97 49		" I"		staa	X0049
+A887 : D7 13		"  "		stab	X0013
+A889 : B6 BF 6F		"  o"		ldaa	XBF6F
+A88C : 97 4B		" K"		staa	X004B
+A88E : 86 04		"  "		ldaa	#$04
+A890 : 97 80		"  "		staa	X0080
+A892 : 86 01		"  "		ldaa	#$01
+A894 : 97 81		"  "		staa	X0081
+A896 : 86 02		"  "		ldaa	#$02
+A898 : 97 01		"  "		staa	X0001
+A89A : CE 00 0A		"   "		ldx	#$000A
+A89D : DF 82		"  "		stx	X0082
+A89F : CE 00 F4		"   "		ldx	#$00F4
+A8A2 : DF 84		"  "		stx	X0084
+A8A4 : CE 00 36		"  6"		ldx	#$0036
+A8A7 : DF 88		"  "		stx	X0088
+A8A9 : CE 00 60		"  `"		ldx	#$0060
+A8AC : DF 8A		"  "		stx	X008A
+A8AE : 86 C8		"  "		ldaa	#$C8
+A8B0 : 97 8C		"  "		staa	X008C
+A8B2 : 97 8D		"  "		staa	X008D
+A8B4 : 97 8E		"  "		staa	X008E
+A8B6 : 7F 00 8F		"   "		clr	X008F
+A8B9 : CE 02 B2		"   "		ldx	#$02B2
+A8BC : DF 92		"  "		stx	X0092
+A8BE : CE 00 68		"  h"		ldx	#$0068
+A8C1 : DF 90		"  "		stx	X0090
+A8C3 : B6 BF F7		"   "		ldaa	XBFF7
+A8C6 : 44		"D"		lsra
+A8C7 : 25 04		"% "		bcs	LA8CD
+A8C9 : 86 59		" Y"		ldaa	#$59
+A8CB : 20 02		"  "		bra	LA8CF
+				;
+A8CD				LA8CD:
+A8CD : 86 51		" Q"		ldaa	#$51
+A8CF				LA8CF:
+A8CF : 97 98		"  "		staa	X0098
+A8D1 : 86 0B		"  "		ldaa	#$0B
+A8D3 : 97 60		" `"		staa	X0060
+A8D5 : 86 03		"  "		ldaa	#$03
+A8D7 : 97 1E		"  "		staa	X001E
+A8D9 : 86 36		" 6"		ldaa	#$36
+A8DB : B7 01 31		"  1"		staa	X0131
+A8DE : 73 01 15		"s  "		com	X0115
+A8E1 : 86 AF		"  "		ldaa	#$AF
+A8E3 : 97 06		"  "		staa	X0006
+A8E5 : 86 B0		"  "		ldaa	#$B0
+A8E7 : 97 08		"  "		staa	X0008
+A8E9 : 86 58		" X"		ldaa	#$58
+A8EB : 97 09		"  "		staa	X0009
+A8ED : 86 18		"  "		ldaa	#$18
+A8EF : 97 41		" A"		staa	X0041
+A8F1 : 86 F8		"  "		ldaa	#$F8
+A8F3 : 97 9E		"  "		staa	X009E
+A8F5				LA8F5:
+A8F5 : 96 9F		"  "		ldaa	X009F
+A8F7 : 01		" "		nop
+A8F8 : 01		" "		nop
+A8F9 : 97 9F		"  "		staa	X009F
+A8FB : 85 04		"  "		bita	#$04
+A8FD : 27 F6		"' "		beq	LA8F5
+A8FF : 86 09		"  "		ldaa	#$09
+A901 : 97 9D		"  "		staa	X009D
+A903 : 0E		" "		cli
+A904				LA904:
+A904 : B6 01 16		"   "		ldaa	X0116
+A907 : 81 32		" 2"		cmpa	#$32
+A909 : 25 08		"% "		bcs	LA913
+A90B : 96 05		"  "		ldaa	X0005
+A90D : 84 FE		"  "		anda	#$FE
+A90F : 97 05		"  "		staa	X0005
+A911 : 97 99		"  "		staa	X0099
+A913				LA913:
+A913 : 96 00		"  "		ldaa	X0000
+A915 : 2A 35		"*5"		bpl	LA94C
+A917 : 96 07		"  "		ldaa	X0007
+A919 : 26 04		"& "		bne	LA91F
+A91B : 4F		"O"		clra
+A91C : 5F		"_"		clrb
+A91D : 20 0C		"  "		bra	LA92B
+				;
+A91F				LA91F:
+A91F : CE BE 20		"   "		ldx	#$BE20
+A922 : BD A1 45		"  E"		jsr	LA145
+A925 : C6 04		"  "		ldab	#$04
+A927 : BD A0 00		"   "		jsr	start
+A92A : 0E		" "		cli
+A92B				LA92B:
+A92B : 97 3E		" >"		staa	X003E
+A92D : D7 3F		" ?"		stab	X003F
+A92F : 0F		" "		sei
+A930 : 86 05		"  "		ldaa	#$05
+A932 : 97 17		"  "		staa	X0017
+A934 : 97 9C		"  "		staa	X009C
+A936 : DE 3E		" >"		ldx	X003E
+A938 : DF 19		"  "		stx	X0019
+A93A : DF 86		"  "		stx	X0086
+A93C : 0E		" "		cli
+A93D : 96 05		"  "		ldaa	X0005
+A93F : 84 EF		"  "		anda	#$EF
+A941 : 97 05		"  "		staa	X0005
+A943 : 97 99		"  "		staa	X0099
+A945 : 96 7F		"  "		ldaa	X007F
+A947 : 2A BB		"* "		bpl	LA904
+A949 : 7E AD F8		"~  "		jmp	LADF8
+				;
+A94C				LA94C:
+A94C : 96 04		"  "		ldaa	X0004
+A94E : B1 BF 7C		"  |"		cmpa	XBF7C
+A951 : 22 0B		"" "		bhi	LA95E
+A953 : B1 BF 7B		"  {"		cmpa	XBF7B
+A956 : 23 06		"# "		bls	LA95E
+A958 : D6 47		" G"		ldab	X0047
+A95A : C5 20		"  "		bitb	#$20
+A95C : 27 03		"' "		beq	LA961
+A95E				LA95E:
+A95E : 7E A9 CA		"~  "		jmp	LA9CA
+				;
+A961				LA961:
+A961 : C5 80		"  "		bitb	#$80
+A963 : 27 10		"' "		beq	LA975
+A965 : 7F 01 0E		"   "		clr	X010E
+A968 : B6 01 0F		"   "		ldaa	X010F
+A96B : 8A 01		"  "		oraa	#$01
+A96D : B7 01 0F		"   "		staa	X010F
+A970 : 86 C6		"  "		ldaa	#$C6
+A972 : 7E AA 83		"~  "		jmp	LAA83
+				;
+A975				LA975:
+A975 : DE 3A		" :"		ldx	X003A
+A977 : DF 57		" W"		stx	X0057
+A979 : DE 0F		"  "		ldx	X000F
+A97B : DF 55		" U"		stx	X0055
+A97D : D6 79		" y"		ldab	X0079
+A97F : C4 0F		"  "		andb	#$0F
+A981 : CA C0		"  "		orab	#$C0
+A983 : D7 79		" y"		stab	X0079
+A985 : CE BF C0		"   "		ldx	#$BFC0 ;load unknown 8x1 RPM scale
+A988 : DF 6F		" o"		stx	X006F
+A98A : CE BF 30		"  0"		ldx	#$BF30 ;load unknown 8x1 TP scale
+A98D : DF 71		" q"		stx	X0071
+A98F : CE BE F0		"   "		ldx	#$BEF0 ;load 8x8 table
+A992 : DF 6D		" m"		stx	X006D
+A994 : DE 71		" q"		ldx	X0071
+A996 : 96 57		" W"		ldaa	X0057
+A998 : A1 10		"  "		cmpa	$10,x
+A99A : 23 2E		"#."		bls	LA9CA
+A99C : A1 11		"  "		cmpa	$11,x
+A99E : 24 2A		"$*"		bcc	LA9CA
+A9A0 : DE 6F		" o"		ldx	X006F
+A9A2 : 96 55		" U"		ldaa	X0055
+A9A4 : D6 56		" V"		ldab	X0056
+A9A6 : E0 11		"  "		subb	$11,x
+A9A8 : A2 10		"  "		sbca	$10,x
+A9AA : 25 1E		"% "		bcs	LA9CA
+A9AC : 96 55		" U"		ldaa	X0055
+A9AE : D6 56		" V"		ldab	X0056
+A9B0 : E0 13		"  "		subb	$13,x
+A9B2 : A2 12		"  "		sbca	$12,x
+A9B4 : 24 14		"$ "		bcc	LA9CA
+A9B6 : BD A1 80		"   "		jsr	LA180
+A9B9 : 97 5E		" ^"		staa	X005E
+A9BB : D6 6C		" l"		ldab	X006C
+A9BD : D1 6B		" k"		cmpb	X006B
+A9BF : 27 0D		"' "		beq	LA9CE
+A9C1 : D6 6A		" j"		ldab	X006A
+A9C3 : D1 69		" i"		cmpb	X0069
+A9C5 : 27 35		"'5"		beq	LA9FC
+A9C7				LA9C7:
+A9C7 : 7E AA 38		"~ 8"		jmp	LAA38
+				;
+A9CA				LA9CA:
+A9CA : 86 C6		"  "		ldaa	#$C6
+A9CC : 20 F9		"  "		bra	LA9C7
+				;
+A9CE				LA9CE:
+A9CE : DE 71		" q"		ldx	X0071
+A9D0 : 96 79		" y"		ldaa	X0079
+A9D2 : 85 20		"  "		bita	#$20
+A9D4 : 26 12		"& "		bne	LA9E8
+A9D6 : A6 10		"  "		ldaa	$10,x
+A9D8 : 5F		"_"		clrb
+A9D9 : BD A0 0F		"   "		jsr	LA00F
+A9DC : D7 6B		" k"		stab	X006B
+A9DE : A6 01		"  "		ldaa	$01,x
+A9E0 : 97 6C		" l"		staa	X006C
+A9E2 : 90 58		" X"		suba	X0058
+A9E4 : 97 59		" Y"		staa	X0059
+A9E6 : 20 38		" 8"		bra	LAA20
+				;
+A9E8				LA9E8:
+A9E8 : A6 11		"  "		ldaa	$11,x
+A9EA : 5F		"_"		clrb
+A9EB : BD A0 0F		"   "		jsr	LA00F
+A9EE : D7 6C		" l"		stab	X006C
+A9F0 : A6 0F		"  "		ldaa	$0F,x
+A9F2 : 97 6B		" k"		staa	X006B
+A9F4 : 96 58		" X"		ldaa	X0058
+A9F6 : 90 6B		" k"		suba	X006B
+A9F8 : 97 59		" Y"		staa	X0059
+A9FA : 20 24		" $"		bra	LAA20
+				;
+A9FC				LA9FC:
+A9FC : DE 6F		" o"		ldx	X006F
+A9FE : 96 79		" y"		ldaa	X0079
+AA00 : 85 10		"  "		bita	#$10
+AA02 : 26 0E		"& "		bne	LAA12
+AA04 : A6 11		"  "		ldaa	$11,x
+AA06 : 97 6B		" k"		staa	X006B
+AA08 : A6 01		"  "		ldaa	$01,x
+AA0A : 97 6C		" l"		staa	X006C
+AA0C : 90 56		" V"		suba	X0056
+AA0E : 97 59		" Y"		staa	X0059
+AA10 : 20 0E		"  "		bra	LAA20
+				;
+AA12				LAA12:
+AA12 : A6 0F		"  "		ldaa	$0F,x
+AA14 : 97 6B		" k"		staa	X006B
+AA16 : A6 13		"  "		ldaa	$13,x
+AA18 : 97 6C		" l"		staa	X006C
+AA1A : 96 56		" V"		ldaa	X0056
+AA1C : 90 6B		" k"		suba	X006B
+AA1E : 97 59		" Y"		staa	X0059
+AA20				LAA20:
+AA20 : 7F 00 5A		"  Z"		clr	X005A
+AA23 : 96 6C		" l"		ldaa	X006C
+AA25 : 90 6B		" k"		suba	X006B
+AA27 : 97 5B		" ["		staa	X005B
+AA29 : BD A3 07		"   "		jsr	LA307
+AA2C : C6 C8		"  "		ldab	#$C8
+AA2E : D0 5E		" ^"		subb	X005E
+AA30 : BD A0 00		"   "		jsr	start
+AA33 : 0E		" "		cli
+AA34 : 9B 5E		" ^"		adda	X005E
+AA36 : 97 5E		" ^"		staa	X005E
+AA38				LAA38:
+AA38 : 81 BE		"  "		cmpa	#$BE
+AA3A : 24 1A		"$ "		bcc	LAA56
+AA3C : 81 14		"  "		cmpa	#$14
+AA3E : 23 16		"# "		bls	LAA56
+AA40 : C6 37		" 7"		ldab	#$37
+AA42 : 86 A2		"  "		ldaa	#$A2
+AA44 : 90 06		"  "		suba	X0006
+AA46 : 24 08		"$ "		bcc	LAA50
+AA48 : 40		"@"		nega
+AA49 : BD A0 00		"   "		jsr	start
+AA4C : 0E		" "		cli
+AA4D : 40		"@"		nega
+AA4E : 20 04		"  "		bra	LAA54
+				;
+AA50				LAA50:
+AA50 : BD A0 00		"   "		jsr	start
+AA53 : 0E		" "		cli
+AA54				LAA54:
+AA54 : 9B 5E		" ^"		adda	X005E
+AA56				LAA56:
+AA56 : 81 C6		"  "		cmpa	#$C6
+AA58 : 25 02		"% "		bcs	LAA5C
+AA5A : 86 C6		"  "		ldaa	#$C6
+AA5C				LAA5C:
+AA5C : 81 02		"  "		cmpa	#$02
+AA5E : 24 02		"$ "		bcc	LAA62
+AA60 : 86 02		"  "		ldaa	#$02
+AA62				LAA62:
+AA62 : F6 01 0F		"   "		ldab	X010F
+AA65 : 54		"T"		lsrb
+AA66 : 24 1B		"$ "		bcc	LAA83
+AA68 : F6 01 0E		"   "		ldab	X010E
+AA6B : F1 BF 7D		"  }"		cmpb	XBF7D
+AA6E : 24 0B		"$ "		bcc	LAA7B
+AA70 : D6 0D		"  "		ldab	X000D
+AA72 : C1 04		"  "		cmpb	#$04
+AA74 : 25 05		"% "		bcs	LAA7B
+AA76 : B6 BF 7E		"  ~"		ldaa	XBF7E
+AA79 : 20 08		"  "		bra	LAA83
+				;
+AA7B				LAA7B:
+AA7B : F6 01 0F		"   "		ldab	X010F
+AA7E : C4 FE		"  "		andb	#$FE
+AA80 : F7 01 0F		"   "		stab	X010F
+AA83				LAA83:
+AA83 : 97 8D		"  "		staa	X008D
+AA85 : 0F		" "		sei
+AA86 : 96 05		"  "		ldaa	X0005
+AA88 : 84 EF		"  "		anda	#$EF
+AA8A : 97 05		"  "		staa	X0005
+AA8C : 97 99		"  "		staa	X0099
+AA8E : 0E		" "		cli
+AA8F : 96 7F		"  "		ldaa	X007F
+AA91 : 84 20		"  "		anda	#$20
+AA93 : 27 03		"' "		beq	LAA98
+AA95 : 7E B9 DE		"~  "		jmp	LB9DE
+				;
+AA98				LAA98:
+AA98 : B6 01 0F		"   "		ldaa	X010F
+AA9B : D6 47		" G"		ldab	X0047
+AA9D : C5 40		" @"		bitb	#$40
+AA9F : 27 4C		"'L"		beq	LAAED
+AAA1 : D6 47		" G"		ldab	X0047
+AAA3 : 2A 19		"* "		bpl	LAABE
+AAA5 : 85 40		" @"		bita	#$40
+AAA7 : 27 0C		"' "		beq	LAAB5
+AAA9 : F6 01 29		"  )"		ldab	X0129
+AAAC : 2A 0C		"* "		bpl	LAABA
+AAAE : C6 C8		"  "		ldab	#$C8
+AAB0 : F7 01 29		"  )"		stab	X0129
+AAB3 : 20 05		"  "		bra	LAABA
+				;
+AAB5				LAAB5:
+AAB5 : 7F 01 29		"  )"		clr	X0129
+AAB8 : 8A 40		" @"		oraa	#$40
+AABA				LAABA:
+AABA : 84 7F		"  "		anda	#$7F
+AABC : 20 24		" $"		bra	LAAE2
+				;
+AABE				LAABE:
+AABE : 85 40		" @"		bita	#$40
+AAC0 : 27 12		"' "		beq	LAAD4
+AAC2 : 84 BF		"  "		anda	#$BF
+AAC4 : F6 01 29		"  )"		ldab	X0129
+AAC7 : C1 64		" d"		cmpb	#$64
+AAC9 : 24 04		"$ "		bcc	LAACF
+AACB : 8A 80		"  "		oraa	#$80
+AACD : 20 02		"  "		bra	LAAD1
+				;
+AACF				LAACF:
+AACF : 84 7F		"  "		anda	#$7F
+AAD1				LAAD1:
+AAD1 : 7F 01 29		"  )"		clr	X0129
+AAD4				LAAD4:
+AAD4 : 85 80		"  "		bita	#$80
+AAD6 : 27 0A		"' "		beq	LAAE2
+AAD8 : F6 01 29		"  )"		ldab	X0129
+AADB : F1 BF 7F		"   "		cmpb	XBF7F
+AADE : 25 02		"% "		bcs	LAAE2
+AAE0 : 84 7F		"  "		anda	#$7F
+AAE2				LAAE2:
+AAE2 : D6 0F		"  "		ldab	X000F
+AAE4 : 27 02		"' "		beq	LAAE8
+AAE6 : 84 7F		"  "		anda	#$7F
+AAE8				LAAE8:
+AAE8 : B7 01 0F		"   "		staa	X010F
+AAEB : 20 2D		" -"		bra	LAB1A
+				;
+AAED				LAAED:
+AAED : C5 08		"  "		bitb	#$08
+AAEF : 27 25		"'%"		beq	LAB16
+AAF1 : D6 0D		"  "		ldab	X000D
+AAF3 : C1 17		"  "		cmpb	#$17
+AAF5 : 24 1F		"$ "		bcc	LAB16
+AAF7 : 85 04		"  "		bita	#$04
+AAF9 : 26 09		"& "		bne	LAB04
+AAFB : 7F 01 29		"  )"		clr	X0129
+AAFE : 8A 04		"  "		oraa	#$04
+AB00				LAB00:
+AB00 : 8A 80		"  "		oraa	#$80
+AB02 : 20 E4		"  "		bra	LAAE8
+				;
+AB04				LAB04:
+AB04 : F6 01 29		"  )"		ldab	X0129
+AB07 : F1 BF 7F		"   "		cmpb	XBF7F
+AB0A : 25 F4		"% "		bcs	LAB00
+AB0C : F6 BF 7F		"   "		ldab	XBF7F
+AB0F : F7 01 29		"  )"		stab	X0129
+AB12 : 84 7F		"  "		anda	#$7F
+AB14 : 20 D2		"  "		bra	LAAE8
+				;
+AB16				LAB16:
+AB16 : 84 7B		" {"		anda	#$7B
+AB18 : 20 CE		"  "		bra	LAAE8
+				;
+AB1A				LAB1A:
+AB1A : DE 3A		" :"		ldx	X003A
+AB1C : DF 57		" W"		stx	X0057 ;Store the Index Register X
+AB1E : DE 0F		"  "		ldx	X000F
+AB20 : DF 55		" U"		stx	X0055 
+AB22 : 96 79		" y"		ldaa	X0079
+AB24 : 84 7F		"  "		anda	#$7F
+AB26 : 97 79		" y"		staa	X0079 
+AB28 : CE BD 00		"   "		ldx	#$BD00 ;load index register address, $BD00 fuel map
+AB2B : DF 6D		" m"		stx	X006D ;0x006D should be RPM + load, STX = Store the Index Register X 
+AB2D : CE BB A0		"   "		ldx	#$BBA0 ;load RPM scale fuel?
+AB30 : DF 6F		" o"		stx	X006F ;0x006F should be RPM data? Store Index RPM Scale at value 6F 
+AB32 : CE BB 80		"   "		ldx	#$BB80 ;load TP scale fuel? 
+AB35 : DF 71		" q"		stx	X0071 ;0x0071 should be load data? maybe part of TP calc STX at RAM 0x0071
+AB37 : BD A1 80		"   "		jsr	LA180 ;Jump to Subroutine
+AB3A : F6 01 0F		"   "		ldab	X010F ;load accumulator from memory
+AB3D : C5 08		"  "		bitb	#$08 ;Memory contents AND the Accumulator, but only Status register is affected.
+AB3F : 27 09		"' "		beq	LAB4A ;Branch if equal to zero, closed loop flag? <<<<<<<<<<<<<<<<<<
+AB41 : 81 01		"  "		cmpa	#$01
+AB43 : 24 09		"$ "		bcc	LAB4E
+AB45				LAB45:
+AB45 : C4 F7		"  "		andb	#$F7
+AB47 : 4F		"O"		clra
+AB48 : 20 0A		"  "		bra	LAB54
+				;
+AB4A				LAB4A:
+AB4A : 81 02		"  "		cmpa	#$02 ;Compare the contents of Memory and Accumulator. Only the Status register is affected.
+AB4C : 25 F7		"% "		bcs	LAB45 ;Branch if carry set
+AB4E				LAB4E:
+AB4E : CA 08		"  "		orab	#$08
+AB50 : C5 80		"  "		bitb	#$80
+AB52 : 26 F1		"& "		bne	LAB45
+AB54				LAB54:
+AB54 : 97 4A		" J"		staa	X004A
+AB56 : F7 01 0F		"   "		stab	X010F
+AB59 : DE 0F		"  "		ldx	X000F
+AB5B : DF 55		" U"		stx	X0055
+AB5D : D6 47		" G"		ldab	X0047
+AB5F : C5 20		"  "		bitb	#$20
+AB61 : 27 28		"'("		beq	LAB8B
+AB63 : 96 07		"  "		ldaa	X0007
+AB65 : 81 A0		"  "		cmpa	#$A0
+AB67 : 24 02		"$ "		bcc	LAB6B
+AB69 : 86 A0		"  "		ldaa	#$A0
+AB6B				LAB6B:
+AB6B : CE BF C0		"   "		ldx	#$BFC0
+AB6E : BD A1 45		"  E"		jsr	LA145
+AB71 : D6 55		" U"		ldab	X0055
+AB73 : 26 0E		"& "		bne	LAB83
+AB75 : D6 56		" V"		ldab	X0056
+AB77 : C1 08		"  "		cmpb	#$08
+AB79 : 24 08		"$ "		bcc	LAB83
+AB7B : BD A0 00		"   "		jsr	start
+AB7E : 0E		" "		cli
+AB7F : BD A0 15		"   "		jsr	LA015
+AB82 : 17		" "		tba
+AB83				LAB83:
+AB83 : 97 18		"  "		staa	X0018
+AB85 : 7F 00 36		"  6"		clr	X0036
+AB88 : 7E AC 89		"~  "		jmp	LAC89
+				;
+AB8B				LAB8B:
+AB8B : C5 80		"  "		bitb	#$80
+AB8D : 27 2A		"'*"		beq	LABB9
+AB8F : D6 04		"  "		ldab	X0004
+AB91 : 96 55		" U"		ldaa	X0055
+AB93 : 27 04		"' "		beq	LAB99
+AB95 : 86 F0		"  "		ldaa	#$F0
+AB97 : 20 02		"  "		bra	LAB9B
+				;
+AB99				LAB99:
+AB99 : 96 56		" V"		ldaa	X0056
+AB9B				LAB9B: ;idle switch timing something
+AB9B : F1 BF 82		"   "		cmpb	XBF82 ; temp to idle adder?  cold idle timing increase? 
+AB9E : 24 0E		"$ "		bcc	LABAE ;branch if carry clear 
+ABA0 : CE BF E0		"   "		ldx	#$BFE0 ;ign idle switch table
+ABA3 : BD A1 3A		"  :"		jsr	LA13A
+ABA6 : BB BF 80		"   "		adda	XBF80 ;idle ign timing
+ABA9 : BB BF 88		"   "		adda	XBF88 ;more timing ???
+ABAC : 20 D5		"  "		bra	LAB83
+				;
+ABAE				LABAE: ;normal idle switch timing
+ABAE : CE BF E0		"   "		ldx	#$BFE0 ;ign idle switch table
+ABB1 : BD A1 3A		"  :"		jsr	LA13A
+ABB4 : BB BF 80		"   "		adda	XBF80 ;idle base timing
+ABB7 : 20 CA		"  "		bra	LAB83
+				;
+ABB9				LABB9:
+ABB9 : 96 55		" U"		ldaa	X0055
+ABBB : D6 56		" V"		ldab	X0056
+ABBD : B1 BF 8B		"   "		cmpa	XBF8B
+ABC0 : 22 07		"" "		bhi	LABC9
+ABC2 : 26 13		"& "		bne	LABD7
+ABC4 : F1 BF 8C		"   "		cmpb	XBF8C
+ABC7 : 25 0E		"% "		bcs	LABD7
+ABC9				LABC9:
+ABC9 : B1 BF 8D		"   "		cmpa	XBF8D
+ABCC : 22 3F		""?"		bhi	LAC0D
+ABCE : 26 22		"&""		bne	LABF2
+ABD0 : F1 BF 8E		"   "		cmpb	XBF8E
+ABD3 : 24 38		"$8"		bcc	LAC0D
+ABD5 : 20 1B		"  "		bra	LABF2
+				;
+ABD7				LABD7:
+ABD7 : 96 3A		" :"		ldaa	X003A
+ABD9 : B1 BF 89		"   "		cmpa	XBF89
+ABDC : 24 05		"$ "		bcc	LABE3
+ABDE : B6 BF 8F		"   "		ldaa	XBF8F
+ABE1 : 20 43		" C"		bra	LAC26
+				;
+ABE3				LABE3:
+ABE3 : B1 BF 8A		"   "		cmpa	XBF8A
+ABE6 : 24 05		"$ "		bcc	LABED
+ABE8 : B6 BF 90		"   "		ldaa	XBF90
+ABEB : 20 39		" 9"		bra	LAC26
+				;
+ABED				LABED:
+ABED : B6 BF 91		"   "		ldaa	XBF91
+ABF0 : 20 34		" 4"		bra	LAC26
+				;
+ABF2				LABF2:
+ABF2 : 96 3A		" :"		ldaa	X003A
+ABF4 : B1 BF 89		"   "		cmpa	XBF89
+ABF7 : 24 05		"$ "		bcc	LABFE
+ABF9 : B6 BF 92		"   "		ldaa	XBF92
+ABFC : 20 28		" ("		bra	LAC26
+				;
+ABFE				LABFE:
+ABFE : B1 BF 8A		"   "		cmpa	XBF8A
+AC01 : 24 05		"$ "		bcc	LAC08
+AC03 : B6 BF 93		"   "		ldaa	XBF93
+AC06 : 20 1E		"  "		bra	LAC26
+				;
+AC08				LAC08:
+AC08 : B6 BF 94		"   "		ldaa	XBF94
+AC0B : 20 19		"  "		bra	LAC26
+				;
+AC0D				LAC0D:
+AC0D : 96 3A		" :"		ldaa	X003A
+AC0F : B1 BF 89		"   "		cmpa	XBF89
+AC12 : 24 05		"$ "		bcc	LAC19
+AC14 : B6 BF 95		"   "		ldaa	XBF95
+AC17 : 20 0D		"  "		bra	LAC26
+				;
+AC19				LAC19:
+AC19 : B1 BF 8A		"   "		cmpa	XBF8A
+AC1C : 24 05		"$ "		bcc	LAC23
+AC1E : B6 BF 96		"   "		ldaa	XBF96
+AC21 : 20 03		"  "		bra	LAC26
+				;
+AC23				LAC23:
+AC23 : B6 BF 97		"   "		ldaa	XBF97
+AC26				LAC26:
+AC26 : 97 36		" 6"		staa	X0036
+AC28 : D6 04		"  "		ldab	X0004
+AC2A : F1 BF 83		"   "		cmpb	XBF83
+AC2D : 24 31		"$1"		bcc	LAC60
+AC2F : F1 BF 82		"   "		cmpb	XBF82
+AC32 : 25 2C		"%,"		bcs	LAC60
+AC34 : D6 3A		" :"		ldab	X003A
+AC36 : F1 BF 84		"   "		cmpb	XBF84
+AC39 : 24 25		"$%"		bcc	LAC60
+AC3B : 96 55		" U"		ldaa	X0055
+AC3D : B1 BF 85		"   "		cmpa	XBF85
+AC40 : 27 17		"' "		beq	LAC59
+AC42 : 24 1C		"$ "		bcc	LAC60
+AC44 : 96 55		" U"		ldaa	X0055
+AC46 : 27 04		"' "		beq	LAC4C
+AC48 : 86 F0		"  "		ldaa	#$F0
+AC4A : 20 02		"  "		bra	LAC4E
+				;
+AC4C				LAC4C:
+AC4C : 96 56		" V"		ldaa	X0056
+AC4E				LAC4E:
+AC4E : CE BF E0		"   "		ldx	#$BFE0
+AC51 : BD A1 3A		"  :"		jsr	LA13A
+AC54 : BB BF 81		"   "		adda	XBF81
+AC57 : 20 2E		" ."		bra	LAC87
+				;
+AC59				LAC59:
+AC59 : 96 56		" V"		ldaa	X0056
+AC5B : B1 BF 86		"   "		cmpa	XBF86
+AC5E : 25 EE		"% "		bcs	LAC4E
+AC60				LAC60:
+AC60 : FE 01 0B		"   "		ldx	X010B
+AC63 : DF 57		" W"		stx	X0057
+AC65 : 96 79		" y"		ldaa	X0079
+AC67 : 84 7F		"  "		anda	#$7F
+AC69 : 97 79		" y"		staa	X0079
+AC6B : CE BC 00		"   "		ldx	#$BC00 ;load timing map
+AC6E : DF 6D		" m"		stx	X006D
+AC70 : CE BB E0		"   "		ldx	#$BBE0 ;load RPM scale ignition
+AC73 : DF 6F		" o"		stx	X006F
+AC75 : CE BB C0		"   "		ldx	#$BBC0 ;load TP scale ignition
+AC78 : DF 71		" q"		stx	X0071
+AC7A : BD A1 80		"   "		jsr	LA180
+AC7D : D6 04		"  "		ldab	X0004
+AC7F : F1 BF 82		"   "		cmpb	XBF82
+AC82 : 24 03		"$ "		bcc	LAC87
+AC84 : BB BF 88		"   "		adda	XBF88
+AC87				LAC87:
+AC87 : 97 18		"  "		staa	X0018
+AC89				LAC89:
+AC89 : 96 06		"  "		ldaa	X0006
+AC8B : CE BB 50		"  P"		ldx	#$BB50 ;load Ignition Duty Dwell (Battery Voltage)
+AC8E : BD A1 3A		"  :"		jsr	LA13A
+AC91 : 36		"6"		psha
+AC92 : 96 55		" U"		ldaa	X0055
+AC94 : D6 56		" V"		ldab	X0056
+AC96 : 44		"D"		lsra
+AC97 : 56		"V"		rorb
+AC98 : 4D		"M"		tsta
+AC99 : 27 02		"' "		beq	LAC9D
+AC9B : C6 FF		"  "		ldab	#$FF
+AC9D				LAC9D:
+AC9D : 17		" "		tba
+AC9E : CE BF B0		"   "		ldx	#$BFB0 ;load ignition duty dwell %
+ACA1 : BD A1 3A		"  :"		jsr	LA13A
+ACA4 : 33		"3"		pulb
+ACA5 : BD A0 00		"   "		jsr	start
+ACA8 : 0E		" "		cli
+ACA9 : 58		"X"		aslb
+ACAA : 49		"I"		rola
+ACAB : 25 17		"% "		bcs	LACC4
+ACAD : BB BF 87		"   "		adda	XBF87
+ACB0 : 25 12		"% "		bcs	LACC4
+ACB2 : C6 05		"  "		ldab	#$05
+ACB4 : FB BF 87		"   "		addb	XBF87
+ACB7 : 11		" "		cba
+ACB8 : 25 05		"% "		bcs	LACBF
+ACBA : 81 60		" `"		cmpa	#$60
+ACBC : 22 06		"" "		bhi	LACC4
+ACBE : 16		" "		tab
+ACBF				LACBF:
+ACBF : 86 78		" x"		ldaa	#$78
+ACC1 : 10		" "		sba
+ACC2 : 20 02		"  "		bra	LACC6
+				;
+ACC4				LACC4:
+ACC4 : 86 18		"  "		ldaa	#$18
+ACC6				LACC6:
+ACC6 : 5F		"_"		clrb
+ACC7 : 0F		" "		sei
+ACC8 : D7 8A		"  "		stab	X008A
+ACCA : 97 8B		"  "		staa	X008B
+ACCC : 0E		" "		cli
+ACCD : 96 47		" G"		ldaa	X0047
+ACCF : 85 20		"  "		bita	#$20
+ACD1 : 26 1E		"& "		bne	LACF1
+ACD3 : 96 04		"  "		ldaa	X0004
+ACD5 : B1 BF 98		"   "		cmpa	XBF98
+ACD8 : 22 17		"" "		bhi	LACF1
+ACDA : B1 BF 99		"   "		cmpa	XBF99
+ACDD : 25 12		"% "		bcs	LACF1
+ACDF : 96 0F		"  "		ldaa	X000F
+ACE1 : 26 0E		"& "		bne	LACF1
+ACE3 : 96 3A		" :"		ldaa	X003A
+ACE5 : B1 BF 9A		"   "		cmpa	XBF9A
+ACE8 : 24 07		"$ "		bcc	LACF1
+ACEA : 0F		" "		sei
+ACEB : 96 05		"  "		ldaa	X0005
+ACED : 8A 40		" @"		oraa	#$40
+ACEF : 20 05		"  "		bra	LACF6
+				;
+ACF1				LACF1:
+ACF1 : 0F		" "		sei
+ACF2 : 96 05		"  "		ldaa	X0005
+ACF4 : 84 BF		"  "		anda	#$BF
+ACF6				LACF6:
+ACF6 : 97 05		"  "		staa	X0005
+ACF8 : 97 99		"  "		staa	X0099
+ACFA : 0E		" "		cli
+ACFB : 96 7F		"  "		ldaa	X007F
+ACFD : 2A 03		"* "		bpl	LAD02
+ACFF : 7E AE 9A		"~  "		jmp	LAE9A
+AD02				LAD02:
+AD02 : 7E A9 4C		"~ L"		jmp	LA94C
+				;
+AD05				LAD05:
+AD05 : 7C 01 29		"| )"		inc	X0129
+AD08 : 7C 01 0E		"|  "		inc	X010E
+AD0B : 7D 01 22		"} ""		tst	X0122
+AD0E : 27 03		"' "		beq	LAD13
+AD10 : 7A 01 22		"z ""		dec	X0122
+AD13				LAD13:
+AD13 : 96 4E		" N"		ldaa	X004E
+AD15 : 8B 01		"  "		adda	#$01
+AD17 : 19		" "		daa
+AD18 : 97 4E		" N"		staa	X004E
+AD1A : 85 0F		"  "		bita	#$0F
+AD1C : 26 4B		"&K"		bne	LAD69
+AD1E : 85 FF		"  "		bita	#$FF
+AD20 : 26 01		"& "		bne	LAD23
+AD22 : 01		" "		nop
+AD23				LAD23:
+AD23 : 7C 01 15		"|  "		inc	X0115
+AD26 : 26 03		"& "		bne	LAD2B
+AD28 : 73 01 15		"s  "		com	X0115
+AD2B				LAD2B:
+AD2B : 7C 01 16		"|  "		inc	X0116
+AD2E : 26 03		"& "		bne	LAD33
+AD30 : 73 01 16		"s  "		com	X0116
+AD33				LAD33:
+AD33 : 7C 00 4D		"| M"		inc	X004D
+AD36 : 26 03		"& "		bne	LAD3B
+AD38 : 73 00 4D		"s M"		com	X004D
+AD3B				LAD3B:
+AD3B : 37		"7"		pshb
+AD3C : B6 01 2E		"  ."		ldaa	X012E
+AD3F : F6 01 2F		"  /"		ldab	X012F
+AD42 : FB BF 9F		"   "		addb	XBF9F
+AD45 : B9 BF 9E		"   "		adca	XBF9E
+AD48 : B7 01 2E		"  ."		staa	X012E
+AD4B : F7 01 2F		"  /"		stab	X012F
+AD4E : 33		"3"		pulb
+AD4F : 96 04		"  "		ldaa	X0004
+AD51 : B1 BF 9D		"   "		cmpa	XBF9D
+AD54 : 25 0C		"% "		bcs	LAD62
+AD56 : 96 78		" x"		ldaa	X0078
+AD58 : B0 BF 9B		"   "		suba	XBF9B
+AD5B				LAD5B:
+AD5B : 24 01		"$ "		bcc	LAD5E
+AD5D : 4F		"O"		clra
+AD5E				LAD5E:
+AD5E : 97 78		" x"		staa	X0078
+AD60 : 20 07		"  "		bra	LAD69
+				;
+AD62				LAD62:
+AD62 : 96 78		" x"		ldaa	X0078
+AD64 : B0 BF 9C		"   "		suba	XBF9C
+AD67 : 20 F2		"  "		bra	LAD5B
+				;
+AD69				LAD69:
+AD69 : 37		"7"		pshb
+AD6A : 7E AF 77		"~ w"		jmp	LAF77
+				;
+AD6D				LAD6D:
+AD6D : 7F 01 21		"  !"		clr	X0121
+AD70 : B6 01 20		"   "		ldaa	X0120
+AD73 : 85 04		"  "		bita	#$04
+AD75 : 26 15		"& "		bne	LAD8C
+AD77 : 96 0F		"  "		ldaa	X000F
+AD79 : 26 06		"& "		bne	LAD81
+AD7B : 96 10		"  "		ldaa	X0010
+AD7D : 81 A0		"  "		cmpa	#$A0
+AD7F : 25 0B		"% "		bcs	LAD8C
+AD81				LAD81:
+AD81 : B6 BF A3		"   "		ldaa	XBFA3
+AD84 : B7 01 2E		"  ."		staa	X012E
+AD87 : 7F 01 2F		"  /"		clr	X012F
+AD8A : 20 1A		"  "		bra	LADA6
+				;
+AD8C				LAD8C:
+AD8C : 5D		"]"		tstb
+AD8D : 27 17		"' "		beq	LADA6
+AD8F : 5A		"Z"		decb
+AD90 : 37		"7"		pshb
+AD91 : B6 01 2E		"  ."		ldaa	X012E
+AD94 : F6 01 2F		"  /"		ldab	X012F
+AD97 : F0 BF A1		"   "		subb	XBFA1
+AD9A : B2 BF A0		"   "		sbca	XBFA0
+AD9D : B7 01 2E		"  ."		staa	X012E
+ADA0 : F7 01 2F		"  /"		stab	X012F
+ADA3 : 33		"3"		pulb
+ADA4 : 20 E6		"  "		bra	LAD8C
+				;
+ADA6				LADA6:
+ADA6 : 7D 01 2E		"} ."		tst	X012E
+ADA9 : 2B 06		"+ "		bmi	LADB1
+ADAB : 7F 01 2E		"  ."		clr	X012E
+ADAE : 7F 01 2F		"  /"		clr	X012F
+ADB1				LADB1:
+ADB1 : D6 36		" 6"		ldab	X0036
+ADB3 : 50		"P"		negb
+ADB4 : F1 01 2E		"  ."		cmpb	X012E
+ADB7 : 2F 06		"/ "		ble	LADBF
+ADB9 : F7 01 2E		"  ."		stab	X012E
+ADBC : 7F 01 2F		"  /"		clr	X012F
+ADBF				LADBF:
+ADBF : D6 18		"  "		ldab	X0018
+ADC1 : FB 01 2E		"  ."		addb	X012E
+ADC4 : C1 42		" B"		cmpb	#$42
+ADC6 : 25 02		"% "		bcs	LADCA
+ADC8 : C6 42		" B"		ldab	#$42
+ADCA				LADCA:
+ADCA : 86 42		" B"		ldaa	#$42
+ADCC : 10		" "		sba
+ADCD : F6 01 32		"  2"		ldab	X0132
+ADD0 : F0 BF 87		"   "		subb	XBF87
+ADD3 : 24 01		"$ "		bcc	LADD6
+ADD5 : 5F		"_"		clrb
+ADD6				LADD6:
+ADD6 : 11		" "		cba
+ADD7 : 24 05		"$ "		bcc	LADDE
+ADD9 : F7 01 31		"  1"		stab	X0131
+ADDC : 20 11		"  "		bra	LADEF
+				;
+ADDE				LADDE:
+ADDE : F6 01 32		"  2"		ldab	X0132
+ADE1 : FB BF A2		"   "		addb	XBFA2
+ADE4 : 11		" "		cba
+ADE5 : 25 05		"% "		bcs	LADEC
+ADE7 : F7 01 31		"  1"		stab	X0131
+ADEA : 20 03		"  "		bra	LADEF
+				;
+ADEC				LADEC:
+ADEC : B7 01 31		"  1"		staa	X0131
+ADEF				LADEF:
+ADEF : B6 01 2E		"  ."		ldaa	X012E
+ADF2 : 8B 19		"  "		adda	#$19
+ADF4 : 36		"6"		psha
+ADF5 : 32		"2"		pula
+ADF6 : 33		"3"		pulb
+ADF7 : 39		"9"		rts
+				;
+ADF8				LADF8:
+ADF8 : 96 00		"  "		ldaa	X0000
+ADFA : 84 3C		" <"		anda	#$3C
+ADFC : 97 00		"  "		staa	X0000
+ADFE : 5F		"_"		clrb
+ADFF : 86 20		"  "		ldaa	#$20
+AE01 : D7 8A		"  "		stab	X008A
+AE03 : 97 8B		"  "		staa	X008B
+AE05 : 96 99		"  "		ldaa	X0099
+AE07 : 84 20		"  "		anda	#$20
+AE09 : 27 01		"' "		beq	LAE0C
+AE0B				LAE0B:
+AE0B : 3F		"?"		swi
+AE0C				LAE0C:
+AE0C : 96 7F		"  "		ldaa	X007F
+AE0E : 84 BF		"  "		anda	#$BF
+AE10 : 97 7F		"  "		staa	X007F
+AE12 : 85 20		"  "		bita	#$20
+AE14 : 26 F5		"& "		bne	LAE0B
+AE16 : 84 1F		"  "		anda	#$1F
+AE18 : D6 05		"  "		ldab	X0005
+AE1A : 81 02		"  "		cmpa	#$02
+AE1C : 27 02		"' "		beq	LAE20
+AE1E : C4 EE		"  "		andb	#$EE
+AE20				LAE20:
+AE20 : C4 EF		"  "		andb	#$EF
+AE22 : D7 05		"  "		stab	X0005
+AE24 : D7 99		"  "		stab	X0099
+AE26 : 81 03		"  "		cmpa	#$03
+AE28 : 26 0E		"& "		bne	LAE38
+AE2A : 86 C0		"  "		ldaa	#$C0
+AE2C : C6 10		"  "		ldab	#$10
+AE2E : BD AF 20		"   "		jsr	LAF20
+AE31 : 97 8D		"  "		staa	X008D
+AE33 : 7F 00 8F		"   "		clr	X008F
+AE36 : 20 4C		" L"		bra	LAE84
+				;
+AE38				LAE38:
+AE38 : 7F 00 8D		"   "		clr	X008D
+AE3B : 81 04		"  "		cmpa	#$04
+AE3D : 26 02		"& "		bne	LAE41
+AE3F : 20 43		" C"		bra	LAE84
+				;
+AE41				LAE41:
+AE41 : 7F 00 8F		"   "		clr	X008F
+AE44 : 81 02		"  "		cmpa	#$02
+AE46 : 26 0E		"& "		bne	LAE56
+AE48 : 17		" "		tba
+AE49 : 8A 01		"  "		oraa	#$01
+AE4B : C4 FE		"  "		andb	#$FE
+AE4D : BD AF 20		"   "		jsr	LAF20
+AE50 : 97 05		"  "		staa	X0005
+AE52 : 97 99		"  "		staa	X0099
+AE54 : 20 2E		" ."		bra	LAE84
+				;
+AE56				LAE56:
+AE56 : 81 06		"  "		cmpa	#$06
+AE58 : 26 11		"& "		bne	LAE6B
+AE5A : CE 00 06		"   "		ldx	#$0006
+AE5D : FF 01 1A		"   "		stx	X011A
+AE60 : CE BB 10		"   "		ldx	#$BB10
+AE63 : FF 01 18		"   "		stx	X0118
+AE66 : BD AF 36		"  6"		jsr	LAF36
+AE69 : 20 19		"  "		bra	LAE84
+				;
+AE6B				LAE6B:
+AE6B : C6 03		"  "		ldab	#$03
+AE6D : 81 01		"  "		cmpa	#$01
+AE6F : 23 23		"##"		bls	LAE94
+AE71 : 81 10		"  "		cmpa	#$10
+AE73 : 26 0F		"& "		bne	LAE84
+AE75 : CE 00 11		"   "		ldx	#$0011
+AE78 : FF 01 1A		"   "		stx	X011A
+AE7B : CE BB 12		"   "		ldx	#$BB12
+AE7E : FF 01 18		"   "		stx	X0118
+AE81 : BD AF 48		"  H"		jsr	LAF48
+AE84				LAE84:
+AE84 : 96 0F		"  "		ldaa	X000F
+AE86 : 9A 10		"  "		oraa	X0010
+AE88 : 26 0F		"& "		bne	LAE99
+AE8A : 96 7F		"  "		ldaa	X007F
+AE8C : C6 01		"  "		ldab	#$01
+AE8E : 85 40		" @"		bita	#$40
+AE90 : 27 02		"' "		beq	LAE94
+AE92 : C6 09		"  "		ldab	#$09
+AE94				LAE94:
+AE94 : D7 9D		"  "		stab	X009D
+AE96 : 7E AD F8		"~  "		jmp	LADF8
+				;
+AE99				LAE99:
+AE99 : 3F		"?"		swi
+AE9A				LAE9A:
+AE9A : 96 7F		"  "		ldaa	X007F
+AE9C : 16		" "		tab
+AE9D : C4 1F		"  "		andb	#$1F
+AE9F : C1 05		"  "		cmpb	#$05
+AEA3 : 16		" "		tab
+AEA1 : 27 05		"' "		beq	LAEA8
+AEA4 : C4 BF		"  "		andb	#$BF
+AEA6 : D7 7F		"  "		stab	X007F
+AEA8				LAEA8:
+AEA8 : 85 40		" @"		bita	#$40
+AEAA : 26 04		"& "		bne	LAEB0
+AEAC : C6 03		"  "		ldab	#$03
+AEAE : 20 02		"  "		bra	LAEB2
+				;
+AEB0				LAEB0:
+AEB0 : C6 0B		"  "		ldab	#$0B
+AEB2				LAEB2:
+AEB2 : D7 9D		"  "		stab	X009D
+AEB4 : 84 1F		"  "		anda	#$1F
+AEB6 : 81 05		"  "		cmpa	#$05
+AEB8 : 25 51		"%Q"		bcs	LAF0B
+AEBA : 26 0F		"& "		bne	LAECB
+AEBC : 96 7F		"  "		ldaa	X007F
+AEBE : F6 01 20		"   "		ldab	X0120
+AEC1 : C5 02		"  "		bitb	#$02
+AEC3 : 26 02		"& "		bne	LAEC7
+AEC5 : 8A 40		" @"		oraa	#$40
+AEC7				LAEC7:
+AEC7 : 97 7F		"  "		staa	X007F
+AEC9 : 20 3D		" ="		bra	LAF08
+				;
+AECB				LAECB:
+AECB : CE BB 16		"   "		ldx	#$BB16
+AECE : 16		" "		tab
+AECF : C0 06		"  "		subb	#$06
+AED1 : 58		"X"		aslb
+AED2 : 0F		" "		sei
+AED3 : DF 53		" S"		stx	X0053
+AED5 : DB 54		" T"		addb	X0054
+AED7 : D7 54		" T"		stab	X0054
+AED9 : C6 00		"  "		ldab	#$00
+AEDB : D9 53		" S"		adcb	X0053
+AEDD : D7 53		" S"		stab	X0053
+AEDF : 0E		" "		cli
+AEE0 : DE 53		" S"		ldx	X0053
+AEE2 : FF 01 18		"   "		stx	X0118
+AEE5 : B7 01 1B		"   "		staa	X011B
+AEE8 : 7F 01 1A		"   "		clr	X011A
+AEEB : 81 0F		"  "		cmpa	#$0F
+AEED : 25 16		"% "		bcs	LAF05
+AEEF : 27 0F		"' "		beq	LAF00
+AEF1 : FE 01 1A		"   "		ldx	X011A
+AEF4 : 08		" "		inx
+AEF5 : FF 01 1A		"   "		stx	X011A
+AEF8 : FE 01 18		"   "		ldx	X0118
+AEFB : 08		" "		inx
+AEFC : 08		" "		inx
+AEFD : FF 01 18		"   "		stx	X0118
+AF00				LAF00:
+AF00 : BD AF 48		"  H"		jsr	LAF48
+AF03 : 20 03		"  "		bra	LAF08
+				;
+AF05				LAF05:
+AF05 : BD AF 36		"  6"		jsr	LAF36
+AF08				LAF08:
+AF08 : 7E A9 4C		"~ L"		jmp	LA94C
+				;
+AF0B				LAF0B:
+AF0B : 81 03		"  "		cmpa	#$03
+AF0D : 22 F9		"" "		bhi	LAF08
+AF0F : 25 0A		"% "		bcs	LAF1B
+AF11 : 86 B0		"  "		ldaa	#$B0
+AF13 : C6 20		"  "		ldab	#$20
+AF15 : BD AF 20		"   "		jsr	LAF20
+AF18 : 7E AA 83		"~  "		jmp	LAA83
+				;
+AF1B				LAF1B:
+AF1B : 7F 00 7F		"   "		clr	X007F
+AF1E : 20 E8		"  "		bra	LAF08
+				;
+AF20				LAF20:
+AF20 : 36		"6"		psha
+AF21 : 37		"7"		pshb
+AF22 : B6 01 30		"  0"		ldaa	X0130
+AF25 : 26 05		"& "		bne	LAF2C
+AF27 : C6 FF		"  "		ldab	#$FF
+AF29 : F7 01 30		"  0"		stab	X0130
+AF2C				LAF2C:
+AF2C : 81 80		"  "		cmpa	#$80
+AF2E : 25 03		"% "		bcs	LAF33
+AF30 : 33		"3"		pulb
+AF31 : 32		"2"		pula
+AF32 : 39		"9"		rts
+				;
+AF33				LAF33:
+AF33 : 32		"2"		pula
+AF34 : 33		"3"		pulb
+AF35 : 39		"9"		rts
+				;
+AF36				LAF36:
+AF36 : FE 01 1A		"   "		ldx	X011A
+AF39 : A6 00		"  "		ldaa	$00,x
+AF3B : FE 01 18		"   "		ldx	X0118
+AF3E : A1 00		"  "		cmpa	$00,x
+AF40 : 25 2E		"%."		bcs	LAF70
+AF42 : A1 01		"  "		cmpa	$01,x
+AF44 : 22 2A		""*"		bhi	LAF70
+AF46 : 20 22		" ""		bra	LAF6A
+				;
+AF48				LAF48:
+AF48 : FE 01 1A		"   "		ldx	X011A
+AF4B : A6 00		"  "		ldaa	$00,x
+AF4D : E6 01		"  "		ldab	$01,x
+AF4F : FE 01 18		"   "		ldx	X0118
+AF52 : A1 00		"  "		cmpa	$00,x
+AF54 : 27 04		"' "		beq	LAF5A
+AF56 : 24 06		"$ "		bcc	LAF5E
+AF58 : 20 16		"  "		bra	LAF70
+				;
+AF5A				LAF5A:
+AF5A : E1 01		"  "		cmpb	$01,x
+AF5C : 25 12		"% "		bcs	LAF70
+AF5E				LAF5E:
+AF5E : A1 02		"  "		cmpa	$02,x
+AF60 : 27 04		"' "		beq	LAF66
+AF62 : 25 06		"% "		bcs	LAF6A
+AF64 : 20 0A		"  "		bra	LAF70
+				;
+AF66				LAF66:
+AF66 : E1 03		"  "		cmpb	$03,x
+AF68 : 22 06		"" "		bhi	LAF70
+AF6A				LAF6A:
+AF6A : 96 7F		"  "		ldaa	X007F
+AF6C : 8A 40		" @"		oraa	#$40
+AF6E : 20 04		"  "		bra	LAF74
+				;
+AF70				LAF70:
+AF70 : 96 7F		"  "		ldaa	X007F
+AF72 : 84 BF		"  "		anda	#$BF
+AF74				LAF74:
+AF74 : 97 7F		"  "		staa	X007F
+AF76 : 39		"9"		rts
+				;
+AF77				LAF77:
+AF77 : 7A 01 30		"z 0"		dec	X0130
+AF7A : 96 7F		"  "		ldaa	X007F
+AF7C : 81 85		"  "		cmpa	#$85
+AF7E : 27 0A		"' "		beq	LAF8A
+AF80 : 81 C5		"  "		cmpa	#$C5
+AF82 : 27 06		"' "		beq	LAF8A
+AF84				LAF84:
+AF84 : F6 01 21		"  !"		ldab	X0121
+AF87 : 7E AD 6D		"~ m"		jmp	LAD6D
+				;
+AF8A				LAF8A:
+AF8A : 96 47		" G"		ldaa	X0047
+AF8C : 85 80		"  "		bita	#$80
+AF8E : 27 0A		"' "		beq	LAF9A
+AF90 : 86 C7		"  "		ldaa	#$C7
+AF92 : B7 01 30		"  0"		staa	X0130
+AF95				LAF95:
+AF95 : 7C 01 30		"| 0"		inc	X0130
+AF98 : 20 EA		"  "		bra	LAF84
+				;
+AF9A				LAF9A:
+AF9A : B6 01 30		"  0"		ldaa	X0130
+AF9D : 27 F6		"' "		beq	LAF95
+AF9F : C6 0A		"  "		ldab	#$0A
+AFA1 : F7 01 2E		"  ."		stab	X012E
+AFA4 : 86 42		" B"		ldaa	#$42
+AFA6 : DB 18		"  "		addb	X0018
+AFA8 : 10		" "		sba
+AFA9 : B7 01 31		"  1"		staa	X0131
+AFAC : 33		"3"		pulb
+AFAD : 39		"9"		rts
+				;
+AFAE				LAFAE:
+AFAE : 96 7F		"  "		ldaa	X007F
+AFB0 : 2A 27		"*'"		bpl	LAFD9
+AFB2 : 85 20		"  "		bita	#$20
+AFB4 : 26 23		"&#"		bne	LAFD9
+AFB6 : 84 E0		"  "		anda	#$E0
+AFB8 : D6 0A		"  "		ldab	X000A
+AFBA : C0 08		"  "		subb	#$08
+AFBC				LAFBC:
+AFBC : 23 05		"# "		bls	LAFC3
+AFBE : 4C		"L"		inca
+AFBF : C0 0F		"  "		subb	#$0F
+AFC1 : 20 F9		"  "		bra	LAFBC
+				;
+AFC3				LAFC3:
+AFC3 : 97 7F		"  "		staa	X007F
+AFC5 : 81 84		"  "		cmpa	#$84
+AFC7 : 27 06		"' "		beq	LAFCF
+AFC9 : 81 C4		"  "		cmpa	#$C4
+AFCB : 27 02		"' "		beq	LAFCF
+AFCD : 20 0A		"  "		bra	LAFD9
+				;
+AFCF				LAFCF:
+AFCF : 86 B0		"  "		ldaa	#$B0
+AFD1 : C6 20		"  "		ldab	#$20
+AFD3 : BD AF 20		"   "		jsr	LAF20
+AFD6 : 7E B1 EF		"~  "		jmp	LB1EF
+				;
+AFD9				LAFD9:
+AFD9 : DE 0F		"  "		ldx	X000F
+AFDB : 26 03		"& "		bne	LAFE0
+AFDD : 7E A8 34		"~ 4"		jmp	LA834
+				;
+AFE0				LAFE0:
+AFE0 : D6 47		" G"		ldab	X0047
+AFE2 : 7C 00 50		"| P"		inc	X0050
+AFE5 : 26 03		"& "		bne	LAFEA
+AFE7 : 7C 00 4F		"| O"		inc	X004F
+AFEA				LAFEA:
+AFEA : 96 4F		" O"		ldaa	X004F
+AFEC : 2B 0F		"+ "		bmi	LAFFD
+AFEE : C5 20		"  "		bitb	#$20
+AFF0 : 26 13		"& "		bne	LB005
+AFF2 : 96 06		"  "		ldaa	X0006
+AFF4 : 81 96		"  "		cmpa	#$96
+AFF6 : 22 0D		"" "		bhi	LB005
+AFF8 : 7C 00 4F		"| O"		inc	X004F
+AFFB : 20 0B		"  "		bra	LB008
+				;
+AFFD				LAFFD:
+AFFD : 81 F5		"  "		cmpa	#$F5
+AFFF : 22 04		"" "		bhi	LB005
+B001 : CA 02		"  "		orab	#$02
+B003 : 20 06		"  "		bra	LB00B
+				;
+B005				LB005:
+B005 : 7F 00 4F		"  O"		clr	X004F
+B008				LB008:
+B008 : 7F 00 50		"  P"		clr	X0050
+B00B				LB00B:
+B00B : D7 47		" G"		stab	X0047
+B00D : 96 07		"  "		ldaa	X0007
+B00F : CE BE A0		"   "		ldx	#$BEA0
+B012 : BD A1 3A		"  :"		jsr	LA13A
+B015 : D6 47		" G"		ldab	X0047
+B017 : C5 40		" @"		bitb	#$40
+B019 : 26 16		"& "		bne	LB031
+B01B : C5 04		"  "		bitb	#$04
+B01D : 26 0A		"& "		bne	LB029
+B01F : B1 BF 54		"  T"		cmpa	XBF54
+B022 : 25 0D		"% "		bcs	LB031
+B024 : B6 BF 54		"  T"		ldaa	XBF54
+B027 : 20 08		"  "		bra	LB031
+				;
+B029				LB029:
+B029 : B1 BF 55		"  U"		cmpa	XBF55
+B02C : 24 03		"$ "		bcc	LB031
+B02E : B6 BF 55		"  U"		ldaa	XBF55
+B031				LB031:
+B031 : C5 10		"  "		bitb	#$10
+B033 : 27 1A		"' "		beq	LB04F
+B035 : C5 40		" @"		bitb	#$40
+B037 : 26 0E		"& "		bne	LB047
+B039 : C5 04		"  "		bitb	#$04
+B03B : 26 0A		"& "		bne	LB047
+B03D : B1 BF 56		"  V"		cmpa	XBF56
+B040 : 24 0D		"$ "		bcc	LB04F
+B042 : B6 BF 56		"  V"		ldaa	XBF56
+B045 : 20 08		"  "		bra	LB04F
+				;
+B047				LB047:
+B047 : B1 BF 57		"  W"		cmpa	XBF57
+B04A : 24 03		"$ "		bcc	LB04F
+B04C : B6 BF 57		"  W"		ldaa	XBF57
+B04F				LB04F:
+B04F : C5 02		"  "		bitb	#$02
+B051 : 27 06		"' "		beq	LB059
+B053 : 81 40		" @"		cmpa	#$40
+B055 : 24 02		"$ "		bcc	LB059
+B057 : 86 40		" @"		ldaa	#$40
+B059				LB059:
+B059 : D6 47		" G"		ldab	X0047
+B05B : C5 01		"  "		bitb	#$01
+B05D : 26 0B		"& "		bne	LB06A
+B05F : D6 0A		"  "		ldab	X000A
+B061 : C4 E0		"  "		andb	#$E0
+B063 : 54		"T"		lsrb
+B064 : 54		"T"		lsrb
+B065 : 54		"T"		lsrb
+B066 : 54		"T"		lsrb
+B067 : 1B		" "		aba
+B068 : 20 0A		"  "		bra	LB074
+				;
+B06A				LB06A:
+B06A : F6 01 20		"   "		ldab	X0120
+B06D : C5 08		"  "		bitb	#$08
+B06F : 26 0B		"& "		bne	LB07C
+B071 : BB BF 65		"  e"		adda	XBF65
+B074				LB074:
+B074 : 25 04		"% "		bcs	LB07A
+B076 : 81 70		" p"		cmpa	#$70
+B078 : 25 02		"% "		bcs	LB07C
+B07A				LB07A:
+B07A : 86 70		" p"		ldaa	#$70
+B07C				LB07C:
+B07C : 97 15		"  "		staa	X0015
+B07E : 96 7B		" {"		ldaa	X007B
+B080 : 8B 80		"  "		adda	#$80
+B082 : 97 7B		" {"		staa	X007B
+B084 : D6 47		" G"		ldab	X0047
+B086 : C5 20		"  "		bitb	#$20
+B088 : 26 0E		"& "		bne	LB098
+B08A : 96 04		"  "		ldaa	X0004
+B08C : B1 BF 63		"  c"		cmpa	XBF63
+B08F : 25 0A		"% "		bcs	LB09B
+B091 : B6 01 15		"   "		ldaa	X0115
+B094 : 81 64		" d"		cmpa	#$64
+B096 : 24 03		"$ "		bcc	LB09B
+B098				LB098:
+B098 : 7E B1 89		"~  "		jmp	LB189
+				;
+B09B				LB09B:
+B09B : C5 40		" @"		bitb	#$40
+B09D : 26 09		"& "		bne	LB0A8
+B09F : C5 04		"  "		bitb	#$04
+B0A1 : 26 05		"& "		bne	LB0A8
+B0A3 : B6 BF 58		"  X"		ldaa	XBF58
+B0A6 : 20 01		"  "		bra	LB0A9
+				;
+B0A8				LB0A8:
+B0A8 : 4F		"O"		clra
+B0A9				LB0A9:
+B0A9 : 97 51		" Q"		staa	X0051
+B0AB : 96 0F		"  "		ldaa	X000F
+B0AD : 27 04		"' "		beq	LB0B3
+B0AF : 86 FF		"  "		ldaa	#$FF
+B0B1 : 20 02		"  "		bra	LB0B5
+				;
+B0B3				LB0B3:
+B0B3 : 96 10		"  "		ldaa	X0010
+B0B5				LB0B5:
+B0B5 : 97 52		" R"		staa	X0052
+B0B7 : D6 47		" G"		ldab	X0047
+B0B9 : C5 80		"  "		bitb	#$80
+B0BB : 26 11		"& "		bne	LB0CE
+B0BD				LB0BD:
+B0BD : 96 52		" R"		ldaa	X0052
+B0BF : CE BE 90		"   "		ldx	#$BE90
+B0C2 : BD A1 3A		"  :"		jsr	LA13A
+B0C5 : B7 01 00		"   "		staa	X0100
+B0C8				LB0C8:
+B0C8 : 7F 01 02		"   "		clr	X0102
+B0CB : 7E B1 89		"~  "		jmp	LB189
+				;
+B0CE				LB0CE:
+B0CE : C5 04		"  "		bitb	#$04
+B0D0 : 26 07		"& "		bne	LB0D9
+B0D2 : 96 0D		"  "		ldaa	X000D
+B0D4 : B1 BF 64		"  d"		cmpa	XBF64
+B0D7 : 24 E4		"$ "		bcc	LB0BD
+B0D9				LB0D9:
+B0D9 : B6 01 00		"   "		ldaa	X0100
+B0DC : 27 22		"'""		beq	LB100
+B0DE : F6 01 01		"   "		ldab	X0101
+B0E1 : 27 05		"' "		beq	LB0E8
+B0E3 : 7A 01 01		"z  "		dec	X0101
+B0E6 : 20 09		"  "		bra	LB0F1
+				;
+B0E8				LB0E8:
+B0E8 : B6 BF 5B		"  ["		ldaa	XBF5B
+B0EB : B7 01 01		"   "		staa	X0101
+B0EE : 7A 01 00		"z  "		dec	X0100
+B0F1				LB0F1:
+B0F1 : 96 52		" R"		ldaa	X0052
+B0F3 : 91 15		"  "		cmpa	X0015
+B0F5 : 24 D1		"$ "		bcc	LB0C8
+B0F7				LB0F7:
+B0F7 : 90 15		"  "		suba	X0015
+B0F9 : 40		"@"		nega
+B0FA : 81 02		"  "		cmpa	#$02
+B0FC : 22 11		"" "		bhi	LB10F
+B0FE : 20 C8		"  "		bra	LB0C8
+				;
+B100				LB100:
+B100 : 96 52		" R"		ldaa	X0052
+B102 : 91 15		"  "		cmpa	X0015
+B104 : 23 F1		"# "		bls	LB0F7
+B106 : 90 15		"  "		suba	X0015
+B108 : 81 02		"  "		cmpa	#$02
+B10A : 23 BC		"# "		bls	LB0C8
+B10C : 7E B1 56		"~ V"		jmp	LB156
+				;
+B10F				LB10F:
+B10F : 44		"D"		lsra
+B110 : 44		"D"		lsra
+B111 : 16		" "		tab
+B112 : BD A0 00		"   "		jsr	start
+B115 : 0E		" "		cli
+B116 : 4D		"M"		tsta
+B117 : 26 04		"& "		bne	LB11D
+B119 : C1 40		" @"		cmpb	#$40
+B11B : 25 02		"% "		bcs	LB11F
+B11D				LB11D:
+B11D : C6 40		" @"		ldab	#$40
+B11F				LB11F:
+B11F : B6 BF 67		"  g"		ldaa	XBF67
+B122 : BD A0 00		"   "		jsr	start
+B125 : 0E		" "		cli
+B126 : 58		"X"		aslb
+B127 : 49		"I"		rola
+B128 : B7 01 02		"   "		staa	X0102
+B12B : F6 01 0D		"   "		ldab	X010D
+B12E : 26 18		"& "		bne	LB148
+B130 : 7C 00 7B		"| {"		inc	X007B
+B133 : 96 15		"  "		ldaa	X0015
+B135 : 90 52		" R"		suba	X0052
+B137 : 81 0C		"  "		cmpa	#$0C
+B139 : 23 05		"# "		bls	LB140
+B13B : F6 BF 5C		"  \"		ldab	XBF5C
+B13E : 20 03		"  "		bra	LB143
+				;
+B140				LB140:
+B140 : F6 BF 5D		"  ]"		ldab	XBF5D
+B143				LB143:
+B143 : F7 01 0D		"   "		stab	X010D
+B146 : 20 03		"  "		bra	LB14B
+				;
+B148				LB148:
+B148 : 7A 01 0D		"z  "		dec	X010D
+B14B				LB14B:
+B14B : D6 7B		" {"		ldab	X007B
+B14D : C1 FF		"  "		cmpb	#$FF
+B14F : 26 03		"& "		bne	LB154
+B151 : 7A 00 7B		"z {"		dec	X007B
+B154				LB154:
+B154 : 20 33		" 3"		bra	LB189
+				;
+B156				LB156:
+B156 : 7F 01 02		"   "		clr	X0102
+B159 : F6 01 0D		"   "		ldab	X010D
+B15C : 26 21		"&!"		bne	LB17F
+B15E : 7A 00 7B		"z {"		dec	X007B
+B161 : 96 52		" R"		ldaa	X0052
+B163 : 90 15		"  "		suba	X0015
+B165 : 81 0C		"  "		cmpa	#$0C
+B167 : 23 09		"# "		bls	LB172
+B169 : 81 18		"  "		cmpa	#$18
+B16B : 23 0A		"# "		bls	LB177
+B16D : F6 BF 5E		"  ^"		ldab	XBF5E
+B170 : 20 08		"  "		bra	LB17A
+				;
+B172				LB172:
+B172 : F6 BF 60		"  `"		ldab	XBF60
+B175 : 20 03		"  "		bra	LB17A
+				;
+B177				LB177:
+B177 : F6 BF 5F		"  _"		ldab	XBF5F
+B17A				LB17A:
+B17A : F7 01 0D		"   "		stab	X010D
+B17D : 20 03		"  "		bra	LB182
+				;
+B17F				LB17F:
+B17F : 7A 01 0D		"z  "		dec	X010D
+B182				LB182:
+B182 : D6 7B		" {"		ldab	X007B
+B184 : 26 03		"& "		bne	LB189
+B186 : 7C 00 7B		"| {"		inc	X007B
+B189				LB189:
+B189 : 96 7B		" {"		ldaa	X007B
+B18B : 80 80		"  "		suba	#$80
+B18D : 97 7B		" {"		staa	X007B
+B18F : 2B 12		"+ "		bmi	LB1A3
+B191 : BB BF 66		"  f"		adda	XBF66
+B194 : B1 BF 61		"  a"		cmpa	XBF61
+B197 : 25 1A		"% "		bcs	LB1B3
+B199 : F6 BF 61		"  a"		ldab	XBF61
+B19C : F0 BF 66		"  f"		subb	XBF66
+B19F : D7 7B		" {"		stab	X007B
+B1A1 : 20 10		"  "		bra	LB1B3
+				;
+B1A3				LB1A3:
+B1A3 : BB BF 66		"  f"		adda	XBF66
+B1A6 : B1 BF 62		"  b"		cmpa	XBF62
+B1A9 : 22 08		"" "		bhi	LB1B3
+B1AB : F6 BF 62		"  b"		ldab	XBF62
+B1AE : F0 BF 66		"  f"		subb	XBF66
+B1B1 : D7 7B		" {"		stab	X007B
+B1B3				LB1B3:
+B1B3 : D6 47		" G"		ldab	X0047
+B1B5 : C5 80		"  "		bitb	#$80
+B1B7 : 26 1B		"& "		bne	LB1D4
+B1B9 : 96 7B		" {"		ldaa	X007B
+B1BB : BB BF 66		"  f"		adda	XBF66
+B1BE : B1 BF 59		"  Y"		cmpa	XBF59
+B1C1 : 24 11		"$ "		bcc	LB1D4
+B1C3 : D6 7A		" z"		ldab	X007A
+B1C5 : 26 0A		"& "		bne	LB1D1
+B1C7 : F6 BF 5A		"  Z"		ldab	XBF5A
+B1CA : D7 7A		" z"		stab	X007A
+B1CC : 7C 00 7B		"| {"		inc	X007B
+B1CF : 20 03		"  "		bra	LB1D4
+				;
+B1D1				LB1D1:
+B1D1 : 7A 00 7A		"z z"		dec	X007A
+B1D4				LB1D4:
+B1D4 : 9B 51		" Q"		adda	X0051
+B1D6 : 25 1C		"% "		bcs	LB1F4
+B1D8 : BB 01 02		"   "		adda	X0102
+B1DB : 25 17		"% "		bcs	LB1F4
+B1DD : BB 01 00		"   "		adda	X0100
+B1E0 : 25 12		"% "		bcs	LB1F4
+B1E2 : B1 BF 61		"  a"		cmpa	XBF61
+B1E5 : 24 0D		"$ "		bcc	LB1F4
+B1E7 : B1 BF 62		"  b"		cmpa	XBF62
+B1EA : 24 03		"$ "		bcc	LB1EF
+B1EC : B6 BF 62		"  b"		ldaa	XBF62
+B1EF				LB1EF:
+B1EF : 97 8F		"  "		staa	X008F
+B1F1 : 7E A8 34		"~ 4"		jmp	LA834
+				;
+B1F4				LB1F4:
+B1F4 : B6 BF 61		"  a"		ldaa	XBF61
+B1F7 : 20 F6		"  "		bra	LB1EF
+				;
+B1F9				LB1F9:
+B1F9 : D6 7F		"  "		ldab	X007F
+B1FB : 2A 14		"* "		bpl	LB211
+B1FD : C4 3F		" ?"		andb	#$3F
+B1FF : C1 02		"  "		cmpb	#$02
+B201 : 22 08		"" "		bhi	LB20B
+B203 : 4F		"O"		clra
+B204 : 97 19		"  "		staa	X0019
+B206 : 97 1A		"  "		staa	X001A
+B208 : 7E A8 1B		"~  "		jmp	LA81B
+				;
+B20B				LB20B:
+B20B : 96 0F		"  "		ldaa	X000F
+B20D : 9A 10		"  "		oraa	X0010
+B20F : 27 08		"' "		beq	LB219
+B211				LB211:
+B211 : 96 05		"  "		ldaa	X0005
+B213 : 8A 01		"  "		oraa	#$01
+B215 : 97 05		"  "		staa	X0005
+B217 : 97 99		"  "		staa	X0099
+B219				LB219:
+B219 : 0F		" "		sei
+B21A : 96 90		"  "		ldaa	X0090
+B21C : D6 91		"  "		ldab	X0091
+B21E : 0E		" "		cli
+B21F : 58		"X"		aslb
+B220 : 49		"I"		rola
+B221 : 97 28		" ("		staa	X0028
+B223 : D7 29		" )"		stab	X0029
+B225 : 86 80		"  "		ldaa	#$80
+B227 : C6 35		" 5"		ldab	#$35
+B229 : BD A0 25		"  %"		jsr	LA025
+B22C : 97 0F		"  "		staa	X000F
+B22E : D7 10		"  "		stab	X0010
+B230 : 96 99		"  "		ldaa	X0099
+B232 : 84 A0		"  "		anda	#$A0
+B234 : D6 0B		"  "		ldab	X000B
+B236 : C1 80		"  "		cmpb	#$80
+B238 : 23 08		"# "		bls	LB242
+B23A : 8A 10		"  "		oraa	#$10
+B23C : C1 D0		"  "		cmpb	#$D0
+B23E : 22 08		"" "		bhi	LB248
+B240 : 20 04		"  "		bra	LB246
+				;
+B242				LB242:
+B242 : C1 40		" @"		cmpb	#$40
+B244 : 22 02		"" "		bhi	LB248
+B246				LB246:
+B246 : 8A 04		"  "		oraa	#$04
+B248				LB248:
+B248 : BA BF F7		"   "		oraa	XBFF7
+B24B : 97 47		" G"		staa	X0047
+B24D : 96 92		"  "		ldaa	X0092
+B24F : 96 93		"  "		ldaa	X0093
+B251 : 97 0D		"  "		staa	X000D
+B253 : F6 BF 42		"  B"		ldab	XBF42
+B256 : BD A0 00		"   "		jsr	start
+B259 : 0E		" "		cli
+B25A : BD A0 15		"   "		jsr	LA015
+B25D : 91 0F		"  "		cmpa	X000F
+B25F : 25 10		"% "		bcs	LB271
+B261 : 26 04		"& "		bne	LB267
+B263 : D1 10		"  "		cmpb	X0010
+B265 : 25 0A		"% "		bcs	LB271
+B267				LB267:
+B267 : 96 47		" G"		ldaa	X0047
+B269 : 85 04		"  "		bita	#$04
+B26B : 26 04		"& "		bne	LB271
+B26D : 8A 08		"  "		oraa	#$08
+B26F : 97 47		" G"		staa	X0047
+B271				LB271:
+B271 : 96 0D		"  "		ldaa	X000D
+B273 : 81 19		"  "		cmpa	#$19
+B275 : 25 0A		"% "		bcs	LB281
+B277 : 96 47		" G"		ldaa	X0047
+B279 : 85 04		"  "		bita	#$04
+B27B : 27 04		"' "		beq	LB281
+B27D : 8A 10		"  "		oraa	#$10
+B27F : 97 47		" G"		staa	X0047
+B281				LB281:
+B281 : D6 12		"  "		ldab	X0012
+B283 : 96 11		"  "		ldaa	X0011
+B285 : 26 08		"& "		bne	LB28F
+B287 : F1 BF 43		"  C"		cmpb	XBF43
+B28A : 24 03		"$ "		bcc	LB28F
+B28C : F6 BF 43		"  C"		ldab	XBF43
+B28F				LB28F:
+B28F : 97 28		" ("		staa	X0028
+B291 : D7 29		" )"		stab	X0029
+B293 : 96 0F		"  "		ldaa	X000F
+B295 : D6 10		"  "		ldab	X0010
+B297 : 4D		"M"		tsta
+B298 : 26 06		"& "		bne	LB2A0
+B29A : C1 10		"  "		cmpb	#$10
+B29C : 24 02		"$ "		bcc	LB2A0
+B29E : C6 10		"  "		ldab	#$10
+B2A0				LB2A0:
+B2A0 : BD A0 25		"  %"		jsr	LA025
+B2A3 : 96 29		" )"		ldaa	X0029
+B2A5 : 97 2D		" -"		staa	X002D
+B2A7 : 96 2A		" *"		ldaa	X002A
+B2A9 : 97 2E		" ."		staa	X002E
+B2AB : 96 2B		" +"		ldaa	X002B
+B2AD : 97 2F		" /"		staa	X002F
+B2AF : B6 BF 44		"  D"		ldaa	XBF44
+B2B2 : 97 29		" )"		staa	X0029
+B2B4 : B6 BF 45		"  E"		ldaa	XBF45
+B2B7 : 97 2A		" *"		staa	X002A
+B2B9 : B6 BF 46		"  F"		ldaa	XBF46
+B2BC : 97 2B		" +"		staa	X002B
+B2BE : 86 00		"  "		ldaa	#$00
+B2C0 : 97 28		" ("		staa	X0028
+B2C2 : 97 2C		" ,"		staa	X002C
+B2C4 : BD A0 E8		"   "		jsr	LA0E8
+B2C7 : 97 28		" ("		staa	X0028
+B2C9 : D7 29		" )"		stab	X0029
+B2CB : 96 08		"  "		ldaa	X0008
+B2CD : CE BB 70		"  p"		ldx	#$BB70 ;load Unknown fuel, IAT? 
+B2D0 : BD A1 3A		"  :"		jsr	LA13A
+B2D3 : 5F		"_"		clrb
+B2D4 : BD A0 25		"  %"		jsr	LA025
+B2D7 : 96 09		"  "		ldaa	X0009
+B2D9 : CE BB 60		"  `"		ldx	#$BB60 ;load Unknown fuel, Barometric? 
+B2DC : BD A1 3A		"  :"		jsr	LA13A
+B2DF : 5F		"_"		clrb
+B2E0 : BD A0 25		"  %"		jsr	LA025
+B2E3 : 85 C0		"  "		bita	#$C0
+B2E5 : 26 65		"&e"		bne	LB34C
+B2E7 : BD A0 20		"   "		jsr	LA020
+B2EA : 36		"6"		psha
+B2EB : 37		"7"		pshb
+B2EC : D6 47		" G"		ldab	X0047
+B2EE : 96 67		" g"		ldaa	X0067
+B2F0 : 2B 2D		"+-"		bmi	LB31F
+B2F2 : C5 80		"  "		bitb	#$80
+B2F4 : 26 02		"& "		bne	LB2F8
+B2F6 : 20 2B		" +"		bra	LB323
+				;
+B2F8				LB2F8:
+B2F8 : 85 01		"  "		bita	#$01
+B2FA : 26 2A		"&*"		bne	LB326
+B2FC : 8A 01		"  "		oraa	#$01
+B2FE : 97 67		" g"		staa	X0067
+B300 : D6 04		"  "		ldab	X0004
+B302 : F1 BF A4		"   "		cmpb	XBFA4
+B305 : 25 1F		"% "		bcs	LB326
+B307 : 8A 80		"  "		oraa	#$80
+B309 : 97 67		" g"		staa	X0067
+B30B				LB30B:
+B30B : 33		"3"		pulb
+B30C : 32		"2"		pula
+B30D : 97 3A		" :"		staa	X003A
+B30F : D7 3B		" ;"		stab	X003B
+B311 : 58		"X"		aslb
+B312 : 49		"I"		rola
+B313 : B7 01 33		"  3"		staa	X0133
+B316 : F7 01 34		"  4"		stab	X0134
+B319 : 96 3A		" :"		ldaa	X003A
+B31B : D6 3B		" ;"		ldab	X003B
+B31D : 20 0F		"  "		bra	LB32E
+				;
+B31F				LB31F:
+B31F : C5 80		"  "		bitb	#$80
+B321 : 26 E8		"& "		bne	LB30B
+B323				LB323:
+B323 : 7F 00 67		"  g"		clr	X0067
+B326				LB326:
+B326 : 33		"3"		pulb
+B327 : 32		"2"		pula
+B328 : B7 01 33		"  3"		staa	X0133
+B32B : F7 01 34		"  4"		stab	X0134
+B32E				LB32E:
+B32E : B1 BF 47		"  G"		cmpa	XBF47
+B331 : 22 0D		"" "		bhi	LB340
+B333 : 26 05		"& "		bne	LB33A
+B335 : F1 BF 48		"  H"		cmpb	XBF48
+B338 : 24 06		"$ "		bcc	LB340
+B33A				LB33A:
+B33A : B6 BF 47		"  G"		ldaa	XBF47 ;DWORD
+B33D : F6 BF 48		"  H"		ldab	XBF48
+B340				LB340:
+B340 : B1 BF 49		"  I"		cmpa	XBF49
+B343 : 25 0D		"% "		bcs	LB352
+B345 : 26 05		"& "		bne	LB34C
+B347 : F1 BF 4A		"  J"		cmpb	XBF4A
+B34A : 23 06		"# "		bls	LB352
+B34C				LB34C:
+B34C : B6 BF 49		"  I"		ldaa	XBF49 ;DWORD
+B34F : F6 BF 4A		"  J"		ldab	XBF4A
+B352				LB352:
+B352 : 97 3A		" :"		staa	X003A
+B354 : D7 3B		" ;"		stab	X003B
+B356 : B6 01 33		"  3"		ldaa	X0133
+B359 : F6 01 34		"  4"		ldab	X0134
+B35C : B1 BF 47		"  G"		cmpa	XBF47
+B35F : 22 0D		"" "		bhi	LB36E
+B361 : 26 05		"& "		bne	LB368
+B363 : F1 BF 48		"  H"		cmpb	XBF48
+B366 : 24 06		"$ "		bcc	LB36E
+B368				LB368:
+B368 : FE BF 47		"  G"		ldx	XBF47
+B36B : FF 01 33		"  3"		stx	X0133
+B36E				LB36E:
+B36E : 96 3A		" :"		ldaa	X003A
+B370 : D6 3B		" ;"		ldab	X003B
+B372 : BD B7 28		"  ("		jsr	LB728
+B375 : 96 0F		"  "		ldaa	X000F
+B377 : 26 45		"&E"		bne	LB3BE
+B379 : 96 10		"  "		ldaa	X0010
+B37B : 81 24		" $"		cmpa	#$24
+B37D : 24 3F		"$?"		bcc	LB3BE
+B37F : B6 01 33		"  3"		ldaa	X0133
+B382 : F6 01 34		"  4"		ldab	X0134
+B385 : FE 01 09		"   "		ldx	X0109
+B388 : 27 28		"'("		beq	LB3B2
+B38A : B6 01 09		"   "		ldaa	X0109
+B38D : F6 01 0A		"   "		ldab	X010A
+B390 : BD A0 15		"   "		jsr	LA015
+B393 : 50		"P"		negb
+B394 : 89 00		"  "		adca	#$00
+B396 : 40		"@"		nega
+B397 : FB 01 0A		"   "		addb	X010A
+B39A : B9 01 09		"   "		adca	X0109
+B39D : B7 01 09		"   "		staa	X0109
+B3A0 : F7 01 0A		"   "		stab	X010A
+B3A3 : B6 01 33		"  3"		ldaa	X0133
+B3A6 : F6 01 34		"  4"		ldab	X0134
+B3A9 : BD A0 15		"   "		jsr	LA015
+B3AC : FB 01 0A		"   "		addb	X010A
+B3AF : B9 01 09		"   "		adca	X0109
+B3B2				LB3B2:
+B3B2 : B7 01 09		"   "		staa	X0109
+B3B5 : F7 01 0A		"   "		stab	X010A
+B3B8 : B7 01 33		"  3"		staa	X0133
+B3BB : F7 01 34		"  4"		stab	X0134
+B3BE				LB3BE:
+B3BE : F6 BF 4B		"  K"		ldab	XBF4B
+B3C1 : 86 AF		"  "		ldaa	#$AF ;data 8 , decimal 175 
+B3C3 : 90 06		"  "		suba	X0006
+B3C5 : 24 08		"$ "		bcc	LB3CF
+B3C7 : 40		"@"		nega
+B3C8 : BD A0 00		"   "		jsr	start
+B3CB : 0E		" "		cli
+B3CC : 40		"@"		nega
+B3CD : 20 04		"  "		bra	LB3D3
+				;
+B3CF				LB3CF:
+B3CF : BD A0 00		"   "		jsr	start
+B3D2 : 0E		" "		cli
+B3D3				LB3D3:
+B3D3 : BB BF 4C		"  L"		adda	XBF4C ;fuel value
+B3D6 : 97 3C		" <"		staa	X003C
+B3D8 : 86 00		"  "		ldaa	#$00
+B3DA : 97 38		" 8"		staa	X0038
+B3DC : 97 39		" 9"		staa	X0039
+B3DE : 96 07		"  "		ldaa	X0007
+B3E0 : CE BE 00		"   "		ldx	#$BE00 ;load Fuel CHTS enrichment
+B3E3 : BD A1 45		"  E"		jsr	LA145
+B3E6 : 97 37		" 7"		staa	X0037
+B3E8 : 5F		"_"		clrb
+B3E9 : BD A0 17		"   "		jsr	LA017
+B3EC : DB 39		" 9"		addb	X0039
+B3EE : 99 38		" 8"		adca	X0038
+B3F0 : 97 38		" 8"		staa	X0038
+B3F2 : D7 39		" 9"		stab	X0039
+B3F4 : 96 47		" G"		ldaa	X0047
+B3F6 : 84 20		"  "		anda	#$20
+B3F8 : 27 0E		"' "		beq	LB408
+B3FA : 96 07		"  "		ldaa	X0007
+B3FC : CE BE 40		"  @"		ldx	#$BE40 ;load after start enrichment
+B3FF : BD A1 3A		"  :"		jsr	LA13A
+B402 : 97 34		" 4"		staa	X0034
+B404 : 86 FF		"  "		ldaa	#$FF
+B406 : 97 78		" x"		staa	X0078
+B408				LB408:
+B408 : 96 78		" x"		ldaa	X0078
+B40A : 27 12		"' "		beq	LB41E
+B40C : D6 34		" 4"		ldab	X0034
+B40E : BD A0 00		"   "		jsr	start
+B411 : 0E		" "		cli
+B412 : 5F		"_"		clrb
+B413 : BD A0 17		"   "		jsr	LA017
+B416 : DB 39		" 9"		addb	X0039
+B418 : 99 38		" 8"		adca	X0038
+B41A : 97 38		" 8"		staa	X0038
+B41C : D7 39		" 9"		stab	X0039
+B41E				LB41E:
+B41E : 96 47		" G"		ldaa	X0047
+B420 : 84 20		"  "		anda	#$20
+B422 : 26 03		"& "		bne	LB427
+B424 : 7E B4 D1		"~  "		jmp	LB4D1
+				;
+B427				LB427:
+B427 : 96 31		" 1"		ldaa	X0031
+B429 : 84 01		"  "		anda	#$01
+B42B : 26 09		"& "		bne	LB436
+B42D : 7F 01 15		"   "		clr	X0115
+B430 : 96 31		" 1"		ldaa	X0031
+B432 : 8A 01		"  "		oraa	#$01
+B434 : 97 31		" 1"		staa	X0031
+B436				LB436:
+B436 : 96 04		"  "		ldaa	X0004
+B438 : B7 01 10		"   "		staa	X0110
+B43B : B6 01 33		"  3"		ldaa	X0133
+B43E : F6 01 34		"  4"		ldab	X0134
+B441 : 97 28		" ("		staa	X0028
+B443 : D7 29		" )"		stab	X0029
+B445 : 96 38		" 8"		ldaa	X0038
+B447 : D6 39		" 9"		ldab	X0039
+B449 : BD A0 25		"  %"		jsr	LA025
+B44C : 97 28		" ("		staa	X0028
+B44E : D7 29		" )"		stab	X0029
+B450 : 86 82		"  "		ldaa	#$82
+B452 : C6 00		"  "		ldab	#$00
+B454 : BD A0 25		"  %"		jsr	LA025
+B457 : DB 3C		" <"		addb	X003C
+B459 : 89 00		"  "		adca	#$00
+B45B : 97 3E		" >"		staa	X003E
+B45D : D7 3F		" ?"		stab	X003F
+B45F				LB45F:
+B45F : B6 BF 4D		"  M"		ldaa	XBF4D
+B462 : 8B 32		" 2"		adda	#$32
+B464 : 24 02		"$ "		bcc	LB468
+B466 : 86 FF		"  "		ldaa	#$FF
+B468				LB468:
+B468 : B1 01 15		"   "		cmpa	X0115
+B46B : 24 03		"$ "		bcc	LB470
+B46D : 7E B4 CE		"~  "		jmp	LB4CE
+				;
+B470				LB470:
+B470 : 96 07		"  "		ldaa	X0007
+B472 : CE BE 20		"   "		ldx	#$BE20 ;load cranking enrichment
+B475 : BD A1 45		"  E"		jsr	LA145
+B478 : 97 3D		" ="		staa	X003D
+B47A : 96 0F		"  "		ldaa	X000F
+B47C : 26 17		"& "		bne	LB495
+B47E : D6 10		"  "		ldab	X0010
+B480 : C1 0C		"  "		cmpb	#$0C
+B482 : 23 1B		"# "		bls	LB49F
+B484 : F1 BF 4E		"  N"		cmpb	XBF4E ;dec 48
+B487 : 24 0C		"$ "		bcc	LB495
+B489 : C0 0C		"  "		subb	#$0C
+B48B : B6 BF 4F		"  O"		ldaa	XBF4F ;dec 6
+B48E : BD A0 00		"   "		jsr	start
+B491 : 0E		" "		cli
+B492 : 50		"P"		negb
+B493 : 20 02		"  "		bra	LB497
+				;
+B495				LB495:
+B495 : C6 1A		"  "		ldab	#$1A
+B497				LB497:
+B497 : 96 3D		" ="		ldaa	X003D
+B499 : BD A0 00		"   "		jsr	start
+B49C : 0E		" "		cli
+B49D : 97 3D		" ="		staa	X003D
+B49F				LB49F:
+B49F : F6 01 15		"   "		ldab	X0115
+B4A2 : F0 BF 4D		"  M"		subb	XBF4D
+B4A5 : 23 06		"# "		bls	LB4AD
+B4A7 : 58		"X"		aslb
+B4A8 : 50		"P"		negb
+B4A9 : CB 64		" d"		addb	#$64
+B4AB : 20 02		"  "		bra	LB4AF
+				;
+B4AD				LB4AD:
+B4AD : C6 64		" d"		ldab	#$64
+B4AF				LB4AF:
+B4AF : 96 3D		" ="		ldaa	X003D
+B4B1 : BD A0 00		"   "		jsr	start
+B4B4 : 0E		" "		cli
+B4B5 : 36		"6"		psha
+B4B6 : 96 67		" g"		ldaa	X0067
+B4B8 : 2A 05		"* "		bpl	LB4BF
+B4BA : 32		"2"		pula
+B4BB : 58		"X"		aslb
+B4BC : 49		"I"		rola
+B4BD : 20 01		"  "		bra	LB4C0
+				;
+B4BF				LB4BF:
+B4BF : 32		"2"		pula
+B4C0				LB4C0:
+B4C0 : 91 3E		" >"		cmpa	X003E
+B4C2 : 22 06		"" "		bhi	LB4CA
+B4C4 : 26 08		"& "		bne	LB4CE
+B4C6 : D1 3F		" ?"		cmpb	X003F
+B4C8 : 23 04		"# "		bls	LB4CE
+B4CA				LB4CA:
+B4CA : 97 3E		" >"		staa	X003E
+B4CC : D7 3F		" ?"		stab	X003F
+B4CE				LB4CE:
+B4CE : 7E B6 5C		"~ \"		jmp	LB65C
+				;
+B4D1				LB4D1:
+B4D1 : D6 31		" 1"		ldab	X0031
+B4D3 : C4 FE		"  "		andb	#$FE
+B4D5 : D7 31		" 1"		stab	X0031
+B4D7 : C5 80		"  "		bitb	#$80
+B4D9 : 26 17		"& "		bne	LB4F2
+B4DB : 96 0F		"  "		ldaa	X000F
+B4DD : B1 BF 50		"  P"		cmpa	XBF50 ;load RPM fuel cut
+B4E0 : 25 2D		"%-"		bcs	LB50F
+B4E2 : 26 07		"& "		bne	LB4EB
+B4E4 : 96 10		"  "		ldaa	X0010
+B4E6 : B1 BF 51		"  Q"		cmpa	XBF51
+B4E9 : 25 24		"%$"		bcs	LB50F
+B4EB				LB4EB:
+B4EB : CA 80		"  "		orab	#$80
+B4ED : D7 31		" 1"		stab	X0031
+B4EF				LB4EF:
+B4EF : 7E B5 D7		"~  "		jmp	LB5D7
+				;
+B4F2				LB4F2:
+B4F2 : B6 BF 51		"  Q"		ldaa	XBF51
+B4F5 : 80 28		" ("		suba	#$28
+B4F7 : B6 BF 50		"  P"		ldaa	XBF50 ;load RPM fuel cut
+B4FA : 82 00		"  "		sbca	#$00
+B4FC : 91 0F		"  "		cmpa	X000F
+B4FE : 22 0B		"" "		bhi	LB50B
+B500 : 26 ED		"& "		bne	LB4EF
+B502 : B6 BF 51		"  Q"		ldaa	XBF51
+B505 : 80 28		" ("		suba	#$28
+B507 : 91 10		"  "		cmpa	X0010
+B509 : 25 E4		"% "		bcs	LB4EF
+B50B				LB50B:
+B50B : C4 7F		"  "		andb	#$7F
+B50D : D7 31		" 1"		stab	X0031
+B50F				LB50F:
+B50F : 96 47		" G"		ldaa	X0047
+B511 : 85 80		"  "		bita	#$80
+B513 : 26 2D		"&-"		bne	LB542
+B515 : C5 02		"  "		bitb	#$02
+B517 : 27 17		"' "		beq	LB530
+B519 : C4 FD		"  "		andb	#$FD
+B51B : D7 31		" 1"		stab	X0031
+B51D : CE BE 50		"  P"		ldx	#$BE50
+B520 : 96 07		"  "		ldaa	X0007
+B522 : BD A1 3A		"  :"		jsr	LA13A
+B525 : 97 32		" 2"		staa	X0032
+B527 : 7F 00 33		"  3"		clr	X0033
+B52A : 86 C8		"  "		ldaa	#$C8
+B52C : 97 35		" 5"		staa	X0035
+B52E : 20 0F		"  "		bra	LB53F
+				;
+B530				LB530:
+B530 : 96 32		" 2"		ldaa	X0032
+B532 : 27 0B		"' "		beq	LB53F
+B534 : D6 33		" 3"		ldab	X0033
+B536 : F0 BF 52		"  R"		subb	XBF52
+B539 : 82 00		"  "		sbca	#$00
+B53B : 97 32		" 2"		staa	X0032
+B53D : D7 33		" 3"		stab	X0033
+B53F				LB53F:
+B53F : 7E B5 BF		"~  "		jmp	LB5BF
+				;
+B542				LB542:
+B542 : 7F 00 35		"  5"		clr	X0035
+B545 : 7F 00 32		"  2"		clr	X0032
+B548 : 7F 00 33		"  3"		clr	X0033
+B54B : 96 0D		"  "		ldaa	X000D
+B54D : B1 BF 53		"  S"		cmpa	XBF53
+B550 : 24 06		"$ "		bcc	LB558
+B552 : CA 02		"  "		orab	#$02
+B554 : D7 31		" 1"		stab	X0031
+B556 : 20 E7		"  "		bra	LB53F
+				;
+B558				LB558:
+B558 : C5 02		"  "		bitb	#$02
+B55A : 26 32		"&2"		bne	LB58E
+B55C : CA 02		"  "		orab	#$02
+B55E : D7 31		" 1"		stab	X0031
+B560 : D6 47		" G"		ldab	X0047
+B562 : C5 40		" @"		bitb	#$40
+B564 : 27 07		"' "		beq	LB56D
+B566				LB566:
+B566 : C5 08		"  "		bitb	#$08
+B568 : 26 03		"& "		bne	LB56D
+B56A				LB56A:
+B56A : 7E B5 BF		"~  "		jmp	LB5BF
+				;
+B56D				LB56D:
+B56D : CE BE 70		"  p"		ldx	#$BE70
+B570 : BD B5 78		"  x"		jsr	LB578
+B573 : 25 F5		"% "		bcs	LB56A
+B575 : 7E B5 CC		"~  "		jmp	LB5CC
+				;
+B578				LB578:
+B578 : 96 07		"  "		ldaa	X0007
+B57A : BD A1 3A		"  :"		jsr	LA13A
+B57D				LB57D:
+B57D : 5F		"_"		clrb
+B57E : 48		"H"		asla
+B57F : 59		"Y"		rolb
+B580 : D1 0F		"  "		cmpb	X000F
+B582 : 25 08		"% "		bcs	LB58C
+B584 : 26 04		"& "		bne	LB58A
+B586 : 91 10		"  "		cmpa	X0010
+B588 : 25 02		"% "		bcs	LB58C
+B58A				LB58A:
+B58A : 43		"C"		coma
+B58B : 39		"9"		rts
+				;
+B58C				LB58C:
+B58C : 4F		"O"		clra
+B58D : 39		"9"		rts
+				;
+B58E				LB58E:
+B58E : C5 0C		"  "		bitb	#$0C
+B590 : 26 13		"& "		bne	LB5A5
+B592 : CE BE 60		"  `"		ldx	#$BE60
+B595 : BD B5 78		"  x"		jsr	LB578
+B598 : 25 03		"% "		bcs	LB59D
+B59A : 7E B5 CC		"~  "		jmp	LB5CC
+				;
+B59D				LB59D:
+B59D : D6 47		" G"		ldab	X0047
+B59F : C5 40		" @"		bitb	#$40
+B5A1 : 26 C3		"& "		bne	LB566
+B5A3 : 20 C5		"  "		bra	LB56A
+				;
+B5A5				LB5A5:
+B5A5 : 96 47		" G"		ldaa	X0047
+B5A7 : 85 40		" @"		bita	#$40
+B5A9 : 27 04		"' "		beq	LB5AF
+B5AB : 85 08		"  "		bita	#$08
+B5AD : 27 09		"' "		beq	LB5B8
+B5AF				LB5AF:
+B5AF : CE BE 80		"   "		ldx	#$BE80
+B5B2 : 8D C4		"  "		bsr	LB578
+B5B4 : 24 16		"$ "		bcc	LB5CC
+B5B6 : 20 07		"  "		bra	LB5BF
+				;
+B5B8				LB5B8:
+B5B8 : 86 50		" P"		ldaa	#$50
+B5BA : BD B5 7D		"  }"		jsr	LB57D
+B5BD : 24 0D		"$ "		bcc	LB5CC
+B5BF				LB5BF:
+B5BF : 86 3C		" <"		ldaa	#$3C
+B5C1 : B7 01 22		"  ""		staa	X0122
+B5C4 : 96 31		" 1"		ldaa	X0031
+B5C6 : 84 F3		"  "		anda	#$F3
+B5C8 : 97 31		" 1"		staa	X0031
+B5CA : 20 11		"  "		bra	LB5DD
+				;
+B5CC				LB5CC:
+B5CC : 96 31		" 1"		ldaa	X0031
+B5CE : 8A 0C		"  "		oraa	#$0C
+B5D0 : 97 31		" 1"		staa	X0031
+B5D2 : B6 01 22		"  ""		ldaa	X0122
+B5D5 : 26 06		"& "		bne	LB5DD
+B5D7				LB5D7:
+B5D7 : 4F		"O"		clra
+B5D8 : D6 3C		" <"		ldab	X003C
+B5DA : 7E B4 CA		"~  "		jmp	LB4CA
+				;
+B5DD				LB5DD:
+B5DD : 96 32		" 2"		ldaa	X0032
+B5DF : 27 0C		"' "		beq	LB5ED
+B5E1 : 5F		"_"		clrb
+B5E2 : BD A0 17		"   "		jsr	LA017
+B5E5 : DB 39		" 9"		addb	X0039
+B5E7 : 99 38		" 8"		adca	X0038
+B5E9 : 97 38		" 8"		staa	X0038
+B5EB : D7 39		" 9"		stab	X0039
+B5ED				LB5ED:
+B5ED : 96 4A		" J"		ldaa	X004A
+B5EF : 5F		"_"		clrb
+B5F0 : BD A0 13		"   "		jsr	LA013
+B5F3 : DB 39		" 9"		addb	X0039
+B5F5 : 99 38		" 8"		adca	X0038
+B5F7 : 97 38		" 8"		staa	X0038
+B5F9 : D7 39		" 9"		stab	X0039
+B5FB : D6 0F		"  "		ldab	X000F
+B5FD : 26 10		"& "		bne	LB60F
+B5FF : D6 35		" 5"		ldab	X0035
+B601 : 27 0C		"' "		beq	LB60F
+B603 : 96 38		" 8"		ldaa	X0038
+B605 : D6 39		" 9"		ldab	X0039
+B607 : D0 35		" 5"		subb	X0035
+B609 : 82 00		"  "		sbca	#$00
+B60B : 97 38		" 8"		staa	X0038
+B60D : D7 39		" 9"		stab	X0039
+B60F				LB60F:
+B60F : 96 38		" 8"		ldaa	X0038
+B611 : 81 40		" @"		cmpa	#$40
+B613 : 25 08		"% "		bcs	LB61D
+B615 : 86 40		" @"		ldaa	#$40
+B617 : C6 00		"  "		ldab	#$00
+B619 : 97 38		" 8"		staa	X0038
+B61B : D7 39		" 9"		stab	X0039
+B61D				LB61D:
+B61D : B6 01 33		"  3"		ldaa	X0133
+B620 : F6 01 34		"  4"		ldab	X0134
+B623 : 97 28		" ("		staa	X0028
+B625 : D7 29		" )"		stab	X0029
+B627 : 96 38		" 8"		ldaa	X0038
+B629 : D6 39		" 9"		ldab	X0039
+B62B : BD A0 25		"  %"		jsr	LA025
+B62E : 97 28		" ("		staa	X0028
+B630 : D7 29		" )"		stab	X0029
+B632 : 96 13		"  "		ldaa	X0013
+B634 : D6 14		"  "		ldab	X0014
+B636 : BD A0 25		"  %"		jsr	LA025
+B639 : 97 3E		" >"		staa	X003E
+B63B : D7 3F		" ?"		stab	X003F
+B63D : 96 47		" G"		ldaa	X0047
+B63F : 85 01		"  "		bita	#$01
+B641 : 26 03		"& "		bne	LB646
+B643 : BD A6 1E		"   "		jsr	LA61E
+B646				LB646:
+B646 : 96 3E		" >"		ldaa	X003E
+B648 : D6 3F		" ?"		ldab	X003F
+B64A : DB 3C		" <"		addb	X003C
+B64C : 89 00		"  "		adca	#$00
+B64E : 97 3E		" >"		staa	X003E
+B650 : D7 3F		" ?"		stab	X003F
+B652 : B6 01 10		"   "		ldaa	X0110
+B655 : 81 3C		" <"		cmpa	#$3C
+B657 : 24 03		"$ "		bcc	LB65C
+B659 : 7E B4 5F		"~ _"		jmp	LB45F
+				;
+B65C				LB65C:
+B65C : 96 3E		" >"		ldaa	X003E
+B65E : D6 3F		" ?"		ldab	X003F
+B660 : 81 03		"  "		cmpa	#$03
+B662 : 25 42		"%B"		bcs	LB6A6
+B664 : 26 04		"& "		bne	LB66A
+B666 : C1 33		" 3"		cmpb	#$33
+B668 : 23 3C		"#<"		bls	LB6A6
+B66A				LB66A:
+B66A : 81 06		"  "		cmpa	#$06
+B66C : 25 4C		"%L"		bcs	LB6BA
+B66E : 26 04		"& "		bne	LB674
+B670 : C1 66		" f"		cmpb	#$66
+B672 : 23 46		"#F"		bls	LB6BA
+B674				LB674:
+B674 : 81 0C		"  "		cmpa	#$0C
+B676 : 25 49		"%I"		bcs	LB6C1
+B678 : 26 04		"& "		bne	LB67E
+B67A : C1 CC		"  "		cmpb	#$CC
+B67C : 23 43		"#C"		bls	LB6C1
+B67E				LB67E:
+B67E : 81 19		"  "		cmpa	#$19
+B680 : 25 46		"%F"		bcs	LB6C8
+B682 : 26 04		"& "		bne	LB688
+B684 : C1 99		"  "		cmpb	#$99
+B686 : 23 40		"#@"		bls	LB6C8
+B688				LB688:
+B688 : 81 33		" 3"		cmpa	#$33
+B68A : 25 43		"%C"		bcs	LB6CF
+B68C : 26 04		"& "		bne	LB692
+B68E : C1 33		" 3"		cmpb	#$33
+B690 : 23 3D		"#="		bls	LB6CF
+B692				LB692:
+B692 : 81 66		" f"		cmpa	#$66
+B694 : 25 40		"%@"		bcs	LB6D6
+B696 : 26 04		"& "		bne	LB69C
+B698 : C1 66		" f"		cmpb	#$66
+B69A : 23 3A		"#:"		bls	LB6D6
+B69C				LB69C:
+B69C : 86 66		" f"		ldaa	#$66
+B69E : C6 66		" f"		ldab	#$66
+B6A0 : 97 3E		" >"		staa	X003E
+B6A2 : D7 3F		" ?"		stab	X003F
+B6A4 : 20 30		" 0"		bra	LB6D6
+				;
+B6A6				LB6A6:
+B6A6 : 97 28		" ("		staa	X0028
+B6A8 : D7 29		" )"		stab	X0029
+B6AA : 86 40		" @"		ldaa	#$40
+B6AC : C6 00		"  "		ldab	#$00
+B6AE : BD A0 25		"  %"		jsr	LA025
+B6B1 : DB 3F		" ?"		addb	X003F
+B6B3 : 99 3E		" >"		adca	X003E
+B6B5 : CE 00 00		"   "		ldx	#$0000
+B6B8 : 20 2E		" ."		bra	LB6E8
+				;
+B6BA				LB6BA:
+B6BA : 86 A0		"  "		ldaa	#$A0
+B6BC : CE 00 01		"   "		ldx	#$0001
+B6BF : 20 1A		"  "		bra	LB6DB
+				;
+B6C1				LB6C1:
+B6C1 : 86 50		" P"		ldaa	#$50
+B6C3 : CE 00 02		"   "		ldx	#$0002
+B6C6 : 20 13		"  "		bra	LB6DB
+				;
+B6C8				LB6C8:
+B6C8 : 86 28		" ("		ldaa	#$28
+B6CA : CE 00 03		"   "		ldx	#$0003
+B6CD : 20 0C		"  "		bra	LB6DB
+				;
+B6CF				LB6CF:
+B6CF : 86 14		"  "		ldaa	#$14
+B6D1 : CE 00 04		"   "		ldx	#$0004
+B6D4 : 20 05		"  "		bra	LB6DB
+				;
+B6D6				LB6D6:
+B6D6 : 86 0A		"  "		ldaa	#$0A
+B6D8 : CE 00 05		"   "		ldx	#$0005
+B6DB				LB6DB:
+B6DB : C6 00		"  "		ldab	#$00
+B6DD : 97 28		" ("		staa	X0028
+B6DF : D7 29		" )"		stab	X0029
+B6E1 : 96 3E		" >"		ldaa	X003E
+B6E3 : D6 3F		" ?"		ldab	X003F
+B6E5 : BD A0 25		"  %"		jsr	LA025
+B6E8				LB6E8:
+B6E8 : 0F		" "		sei
+B6E9 : 97 19		"  "		staa	X0019
+B6EB : D7 1A		"  "		stab	X001A
+B6ED : DF 28		" ("		stx	X0028
+B6EF : 96 29		" )"		ldaa	X0029
+B6F1 : 97 17		"  "		staa	X0017
+B6F3 : FE 01 04		"   "		ldx	X0104
+B6F6 : FF 01 06		"   "		stx	X0106
+B6F9 : 0E		" "		cli
+B6FA : 7E A8 1B		"~  "		jmp	LA81B
+				;
+B6FD : 3F		"?"		swi
+B6FE : 3F		"?"		swi
+B6FF : 3F		"?"		swi
+B700 : 3F		"?"		swi
+B701 : 3F		"?"		swi
+B702 : 3F		"?"		swi
+B703 : 3F		"?"		swi
+B704 : 3F		"?"		swi
+B705 : 3F		"?"		swi
+B706 : 3F		"?"		swi
+B707 : 3F		"?"		swi
+B708 : 3F		"?"		swi
+B709 : 3F		"?"		swi
+B70A : 3F		"?"		swi
+B70B : 3F		"?"		swi
+B70C : 3F		"?"		swi
+B70D : 3F		"?"		swi
+B70E : 3F		"?"		swi
+B70F : 3F		"?"		swi
+B710 : 3F		"?"		swi
+B711 : 3F		"?"		swi
+B712 : 3F		"?"		swi
+B713 : 3F		"?"		swi
+B714 : 3F		"?"		swi
+B715 : 3F		"?"		swi
+B716 : 3F		"?"		swi
+B717 : 3F		"?"		swi
+B718 : 3F		"?"		swi
+B719 : 3F		"?"		swi
+B71A : 3F		"?"		swi
+B71B : 3F		"?"		swi
+B71C : 3F		"?"		swi
+B71D : 3F		"?"		swi
+B71E : 3F		"?"		swi
+B71F : 3F		"?"		swi
+B720 : 3F		"?"		swi
+B721 : 3F		"?"		swi
+B722 : 3F		"?"		swi
+B723 : 3F		"?"		swi
+B724 : 3F		"?"		swi
+B725 : 3F		"?"		swi
+B726 : 3F		"?"		swi
+B727 : 3F		"?"		swi
+B728				LB728:
+B728 : FE 01 0B		"   "		ldx	X010B
+B72B : 27 4A		"'J"		beq	LB777
+B72D : F0 01 0C		"   "		subb	X010C
+B730 : B2 01 0B		"   "		sbca	X010B
+B733 : 25 1F		"% "		bcs	LB754
+B735 : BD B7 7E		"  ~"		jsr	LB77E
+B738 : 24 06		"$ "		bcc	LB740
+B73A				LB73A:
+B73A : 96 3A		" :"		ldaa	X003A
+B73C : D6 3B		" ;"		ldab	X003B
+B73E : 20 37		" 7"		bra	LB777
+				;
+B740				LB740:
+B740 : 4D		"M"		tsta
+B741 : 26 06		"& "		bne	LB749
+B743 : C1 40		" @"		cmpb	#$40
+B745 : 24 02		"$ "		bcc	LB749
+B747 : 20 F1		"  "		bra	LB73A
+				;
+B749				LB749:
+B749 : BD A0 0F		"   "		jsr	LA00F
+B74C : FB 01 0C		"   "		addb	X010C
+B74F : B9 01 0B		"   "		adca	X010B
+B752 : 20 23		" #"		bra	LB777
+				;
+B754				LB754:
+B754 : 43		"C"		coma
+B755 : 53		"S"		comb
+B756 : CB 01		"  "		addb	#$01
+B758 : 89 00		"  "		adca	#$00
+B75A : BD B7 7E		"  ~"		jsr	LB77E
+B75D : 25 DB		"% "		bcs	LB73A
+B75F : 4D		"M"		tsta
+B760 : 26 06		"& "		bne	LB768
+B762 : C1 40		" @"		cmpb	#$40
+B764 : 24 02		"$ "		bcc	LB768
+B766 : 20 D2		"  "		bra	LB73A
+				;
+B768				LB768:
+B768 : BD A0 0F		"   "		jsr	LA00F
+B76B : F0 01 0C		"   "		subb	X010C
+B76E : B2 01 0B		"   "		sbca	X010B
+B771 : 43		"C"		coma
+B772 : 53		"S"		comb
+B773 : CB 01		"  "		addb	#$01
+B775 : 89 00		"  "		adca	#$00
+B777				LB777:
+B777 : B7 01 0B		"   "		staa	X010B
+B77A : F7 01 0C		"   "		stab	X010C
+B77D : 39		"9"		rts
+				;
+B77E				LB77E:
+B77E : 37		"7"		pshb
+B77F : 36		"6"		psha
+B780 : 96 0F		"  "		ldaa	X000F
+B782 : 26 0C		"& "		bne	LB790
+B784 : 96 10		"  "		ldaa	X0010
+B786 : B1 BF 68		"  h"		cmpa	XBF68
+B789 : 22 05		"" "		bhi	LB790
+B78B : B6 BF 69		"  i"		ldaa	XBF69
+B78E : 20 01		"  "		bra	LB791
+				;
+B790				LB790:
+B790 : 4F		"O"		clra
+B791				LB791:
+B791 : 33		"3"		pulb
+B792 : 11		" "		cba
+B793 : 17		" "		tba
+B794 : 33		"3"		pulb
+B795 : 39		"9"		rts
+				;
+B796				LB796:
+B796 : 96 35		" 5"		ldaa	X0035
+B798 : 27 06		"' "		beq	LB7A0
+B79A : 80 14		"  "		suba	#$14
+B79C : 24 02		"$ "		bcc	LB7A0
+B79E : 86 00		"  "		ldaa	#$00
+B7A0				LB7A0:
+B7A0 : 97 35		" 5"		staa	X0035
+B7A2 : 96 0C		"  "		ldaa	X000C
+B7A4 : D6 41		" A"		ldab	X0041
+B7A6 : C5 20		"  "		bitb	#$20
+B7A8 : 27 4D		"'M"		beq	LB7F7
+B7AA : 96 47		" G"		ldaa	X0047
+B7AC : 85 80		"  "		bita	#$80
+B7AE : 27 26		"'&"		beq	LB7D6
+B7B0 : 96 0F		"  "		ldaa	X000F
+B7B2 : 26 06		"& "		bne	LB7BA
+B7B4 : 96 10		"  "		ldaa	X0010
+B7B6 : 81 50		" P"		cmpa	#$50
+B7B8 : 25 1C		"% "		bcs	LB7D6
+B7BA				LB7BA:
+B7BA : 96 0D		"  "		ldaa	X000D
+B7BC : 81 04		"  "		cmpa	#$04
+B7BE : 25 16		"% "		bcs	LB7D6
+B7C0 : 7F 00 44		"  D"		clr	X0044
+B7C3 : C5 80		"  "		bitb	#$80
+B7C5 : 26 29		"&)"		bne	LB7F0
+B7C7 : 7C 00 43		"| C"		inc	X0043
+B7CA : 96 43		" C"		ldaa	X0043
+B7CC : 81 14		"  "		cmpa	#$14
+B7CE : 25 27		"%'"		bcs	LB7F7
+B7D0 : CA 80		"  "		orab	#$80
+B7D2 : D7 41		" A"		stab	X0041
+B7D4 : 20 21		" !"		bra	LB7F7
+				;
+B7D6				LB7D6:
+B7D6 : 7F 00 43		"  C"		clr	X0043
+B7D9 : C5 80		"  "		bitb	#$80
+B7DB : 27 1A		"' "		beq	LB7F7
+B7DD : 7C 00 44		"| D"		inc	X0044
+B7E0 : 96 44		" D"		ldaa	X0044
+B7E2 : 81 0F		"  "		cmpa	#$0F
+B7E4 : 25 04		"% "		bcs	LB7EA
+B7E6 : C4 7F		"  "		andb	#$7F
+B7E8 : D7 41		" A"		stab	X0041
+B7EA				LB7EA:
+B7EA : 7F 00 4D		"  M"		clr	X004D
+B7ED : 7E B9 D9		"~  "		jmp	LB9D9
+				;
+B7F0				LB7F0:
+B7F0 : B6 BF 75		"  u"		ldaa	XBF75
+B7F3 : 5F		"_"		clrb
+B7F4 : 7E B9 99		"~  "		jmp	LB999
+				;
+B7F7				LB7F7:
+B7F7 : C5 20		"  "		bitb	#$20
+B7F9 : 26 54		"&T"		bne	LB84F
+B7FB : 96 47		" G"		ldaa	X0047
+B7FD : 85 20		"  "		bita	#$20
+B7FF : 27 06		"' "		beq	LB807
+B801 : 7F 00 4D		"  M"		clr	X004D
+B804				LB804:
+B804 : 7E B9 BF		"~  "		jmp	LB9BF
+				;
+B807				LB807:
+B807 : 96 4D		" M"		ldaa	X004D
+B809 : 81 28		" ("		cmpa	#$28
+B80B : 24 03		"$ "		bcc	LB810
+B80D : 7E B9 BF		"~  "		jmp	LB9BF
+				;
+B810				LB810:
+B810 : 86 28		" ("		ldaa	#$28
+B812 : 97 4D		" M"		staa	X004D
+B814 : 96 04		"  "		ldaa	X0004
+B816 : B1 BF 6A		"  j"		cmpa	XBF6A
+B819 : 25 E9		"% "		bcs	LB804
+B81B : 96 0C		"  "		ldaa	X000C
+B81D : B1 BF 6B		"  k"		cmpa	XBF6B
+B820 : 24 0E		"$ "		bcc	LB830
+B822 : 81 03		"  "		cmpa	#$03
+B824 : 25 DE		"% "		bcs	LB804
+B826 : B1 BF 6C		"  l"		cmpa	XBF6C
+B829 : 25 0A		"% "		bcs	LB835
+B82B : 7F 00 4C		"  L"		clr	X004C
+B82E : 20 D4		"  "		bra	LB804
+				;
+B830				LB830:
+B830 : 7C 00 4C		"| L"		inc	X004C
+B833 : 20 03		"  "		bra	LB838
+				;
+B835				LB835:
+B835 : 7A 00 4C		"z L"		dec	X004C
+B838				LB838:
+B838 : 96 4C		" L"		ldaa	X004C
+B83A : 2B 08		"+ "		bmi	LB844
+B83C : 81 0A		"  "		cmpa	#$0A
+B83E : 25 C4		"% "		bcs	LB804
+B840 : CA 40		" @"		orab	#$40
+B842 : 20 04		"  "		bra	LB848
+				;
+B844				LB844:
+B844 : 81 F6		"  "		cmpa	#$F6
+B846 : 24 BC		"$ "		bcc	LB804
+B848				LB848:
+B848 : CA 28		" ("		orab	#$28
+B84A : D7 41		" A"		stab	X0041
+B84C : 7F 00 4D		"  M"		clr	X004D
+B84F				LB84F:
+B84F : B6 01 0F		"   "		ldaa	X010F
+B852 : 85 08		"  "		bita	#$08
+B854 : 27 10		"' "		beq	LB866
+B856 : 96 0F		"  "		ldaa	X000F
+B858 : 26 09		"& "		bne	LB863
+B85A : 96 10		"  "		ldaa	X0010
+B85C : 81 30		" 0"		cmpa	#$30
+B85E : 22 03		"" "		bhi	LB863
+B860 : 7E B9 BF		"~  "		jmp	LB9BF
+B863				LB863:
+B863 : 7E B9 BC		"~  "		jmp	LB9BC
+				;
+B866				LB866:
+B866 : 96 0D		"  "		ldaa	X000D
+B868 : 81 02		"  "		cmpa	#$02
+B86A : 25 0F		"% "		bcs	LB87B
+B86C : 96 0F		"  "		ldaa	X000F
+B86E : 26 06		"& "		bne	LB876
+B870 : 96 10		"  "		ldaa	X0010
+B872 : 81 28		" ("		cmpa	#$28
+B874 : 25 05		"% "		bcs	LB87B
+B876				LB876:
+B876 : CE 3D 70		" =p"		ldx	#$3D70
+B879 : 20 03		"  "		bra	LB87E
+				;
+B87B				LB87B:
+B87B : CE 1E 38		"  8"		ldx	#$1E38
+B87E				LB87E:
+B87E : DF 28		" ("		stx	X0028
+B880 : 96 41		" A"		ldaa	X0041
+B882 : D6 0C		"  "		ldab	X000C
+B884 : D1 4B		" K"		cmpb	X004B
+B886 : 25 4F		"%O"		bcs	LB8D7
+B888 : 85 08		"  "		bita	#$08
+B88A : 26 29		"&)"		bne	LB8B5
+B88C : D6 7F		"  "		ldab	X007F
+B88E : 2B 04		"+ "		bmi	LB894
+B890 : C6 03		"  "		ldab	#$03
+B892 : D7 9D		"  "		stab	X009D
+B894				LB894:
+B894 : 8A 08		"  "		oraa	#$08
+B896 : 97 41		" A"		staa	X0041
+B898 : B6 BF 6D		"  m"		ldaa	XBF6D
+B89B : 97 4B		" K"		staa	X004B
+B89D : 4F		"O"		clra
+B89E : F6 BF 71		"  q"		ldab	XBF71
+B8A1 : BD A0 1C		"   "		jsr	LA01C
+B8A4 : 97 2A		" *"		staa	X002A
+B8A6 : D7 2B		" +"		stab	X002B
+B8A8 : 96 13		"  "		ldaa	X0013
+B8AA : D6 14		"  "		ldab	X0014
+B8AC : D0 2B		" +"		subb	X002B
+B8AE : 92 2A		" *"		sbca	X002A
+B8B0 : 7F 00 4D		"  M"		clr	X004D
+B8B3 : 20 13		"  "		bra	LB8C8
+				;
+B8B5				LB8B5:
+B8B5 : 96 3E		" >"		ldaa	X003E
+B8B7 : D6 3F		" ?"		ldab	X003F
+B8B9 : BD A0 25		"  %"		jsr	LA025
+B8BC : 97 45		" E"		staa	X0045
+B8BE : D7 46		" F"		stab	X0046
+B8C0 : 96 13		"  "		ldaa	X0013
+B8C2 : D6 14		"  "		ldab	X0014
+B8C4 : D0 46		" F"		subb	X0046
+B8C6 : 92 45		" E"		sbca	X0045
+B8C8				LB8C8:
+B8C8 : 97 13		"  "		staa	X0013
+B8CA : D7 14		"  "		stab	X0014
+B8CC : 96 0C		"  "		ldaa	X000C
+B8CE : 91 5F		" _"		cmpa	X005F
+B8D0 : 25 02		"% "		bcs	LB8D4
+B8D2 : 97 5F		" _"		staa	X005F
+B8D4				LB8D4:
+B8D4 : 7E B9 77		"~ w"		jmp	LB977
+				;
+B8D7				LB8D7:
+B8D7 : 85 08		"  "		bita	#$08
+B8D9 : 27 7B		"'{"		beq	LB956
+B8DB : D6 7F		"  "		ldab	X007F
+B8DD : 2B 04		"+ "		bmi	LB8E3
+B8DF : C6 0B		"  "		ldab	#$0B
+B8E1 : D7 9D		"  "		stab	X009D
+B8E3				LB8E3:
+B8E3 : 84 F7		"  "		anda	#$F7
+B8E5 : 97 41		" A"		staa	X0041
+B8E7 : D6 47		" G"		ldab	X0047
+B8E9 : C5 01		"  "		bitb	#$01
+B8EB : 26 11		"& "		bne	LB8FE
+B8ED : D6 3A		" :"		ldab	X003A
+B8EF : F1 BF 74		"  t"		cmpb	XBF74
+B8F2 : 25 05		"% "		bcs	LB8F9
+B8F4 : F6 BF 73		"  s"		ldab	XBF73
+B8F7 : 20 14		"  "		bra	LB90D
+				;
+B8F9				LB8F9:
+B8F9 : F6 BF 72		"  r"		ldab	XBF72
+B8FC : 20 0F		"  "		bra	LB90D
+				;
+B8FE				LB8FE:
+B8FE : D6 09		"  "		ldab	X0009
+B900 : F1 BF 74		"  t"		cmpb	XBF74
+B903 : 25 05		"% "		bcs	LB90A
+B905 : F6 BF 73		"  s"		ldab	XBF73
+B908 : 20 03		"  "		bra	LB90D
+				;
+B90A				LB90A:
+B90A : F6 BF 72		"  r"		ldab	XBF72
+B90D				LB90D:
+B90D : 4F		"O"		clra
+B90E : BD A0 1C		"   "		jsr	LA01C
+B911 : DB 14		"  "		addb	X0014
+B913 : 99 13		"  "		adca	X0013
+B915 : D7 14		"  "		stab	X0014
+B917 : 97 13		"  "		staa	X0013
+B919 : 96 41		" A"		ldaa	X0041
+B91B : 85 40		" @"		bita	#$40
+B91D : 26 05		"& "		bne	LB924
+B91F : F6 BF 6E		"  n"		ldab	XBF6E
+B922 : 20 07		"  "		bra	LB92B
+				;
+B924				LB924:
+B924 : 84 BF		"  "		anda	#$BF
+B926 : 97 41		" A"		staa	X0041
+B928 : F6 BF 70		"  p"		ldab	XBF70
+B92B				LB92B:
+B92B : D7 4B		" K"		stab	X004B
+B92D : 96 5F		" _"		ldaa	X005F
+B92F : B1 BF 76		"  v"		cmpa	XBF76
+B932 : 24 16		"$ "		bcc	LB94A
+B934 : 7F 00 5F		"  _"		clr	X005F
+B937 : 96 77		" w"		ldaa	X0077
+B939 : 4C		"L"		inca
+B93A : 97 77		" w"		staa	X0077
+B93C : B1 BF 77		"  w"		cmpa	XBF77
+B93F : 25 36		"%6"		bcs	LB977
+B941 : 96 4D		" M"		ldaa	X004D
+B943 : B1 BF 78		"  x"		cmpa	XBF78
+B946 : 25 09		"% "		bcs	LB951
+B948 : 20 34		" 4"		bra	LB97E
+				;
+B94A				LB94A:
+B94A : 4F		"O"		clra
+B94B : 97 5F		" _"		staa	X005F
+B94D : 97 77		" w"		staa	X0077
+B94F : 20 26		" &"		bra	LB977
+				;
+B951				LB951:
+B951 : 7A 00 77		"z w"		dec	X0077
+B954 : 20 21		" !"		bra	LB977
+				;
+B956				LB956:
+B956 : 96 3E		" >"		ldaa	X003E
+B958 : D6 3F		" ?"		ldab	X003F
+B95A : BD A0 25		"  %"		jsr	LA025
+B95D : 97 48		" H"		staa	X0048
+B95F : D7 49		" I"		stab	X0049
+B961 : DB 14		"  "		addb	X0014
+B963 : 99 13		"  "		adca	X0013
+B965 : 97 13		"  "		staa	X0013
+B967 : D7 14		"  "		stab	X0014
+B969 : 96 77		" w"		ldaa	X0077
+B96B : B1 BF 77		"  w"		cmpa	XBF77
+B96E : 25 07		"% "		bcs	LB977
+B970 : 96 4D		" M"		ldaa	X004D
+B972 : B1 BF 79		"  y"		cmpa	XBF79
+B975 : 24 07		"$ "		bcc	LB97E
+B977				LB977:
+B977 : 96 4D		" M"		ldaa	X004D
+B979 : B1 BF 7A		"  z"		cmpa	XBF7A
+B97C : 25 06		"% "		bcs	LB984
+B97E				LB97E:
+B97E : 7F 00 77		"  w"		clr	X0077
+B981 : 7E B9 AE		"~  "		jmp	LB9AE
+				;
+B984				LB984:
+B984 : 96 13		"  "		ldaa	X0013
+B986 : D6 14		"  "		ldab	X0014
+B988 : 81 4B		" K"		cmpa	#$4B
+B98A : 25 06		"% "		bcs	LB992
+B98C : 81 7D		" }"		cmpa	#$7D
+B98E : 24 06		"$ "		bcc	LB996
+B990 : 20 07		"  "		bra	LB999
+				;
+B992				LB992:
+B992 : 86 4B		" K"		ldaa	#$4B
+B994 : 20 02		"  "		bra	LB998
+				;
+B996				LB996:
+B996 : 86 7D		" }"		ldaa	#$7D
+B998				LB998:
+B998 : 5F		"_"		clrb
+B999				LB999:
+B999 : 97 13		"  "		staa	X0013
+B99B : D7 14		"  "		stab	X0014
+B99D : 96 41		" A"		ldaa	X0041
+B99F : 96 0C		"  "		ldaa	X000C
+B9A1 : 96 5F		" _"		ldaa	X005F
+B9A3 : 96 13		"  "		ldaa	X0013
+B9A5 : 96 14		"  "		ldaa	X0014
+B9A7 : 96 4B		" K"		ldaa	X004B
+B9A9 : 96 4D		" M"		ldaa	X004D
+B9AB : 7E A7 F5		"~  "		jmp	LA7F5
+				;
+B9AE				LB9AE:
+B9AE : B6 BF 6F		"  o"		ldaa	XBF6F
+B9B1 : 97 4B		" K"		staa	X004B
+B9B3 : 96 41		" A"		ldaa	X0041
+B9B5 : 84 DF		"  "		anda	#$DF
+B9B7 : 97 41		" A"		staa	X0041
+B9B9 : 7F 00 4C		"  L"		clr	X004C
+B9BC				LB9BC:
+B9BC : 7F 00 4D		"  M"		clr	X004D
+B9BF				LB9BF:
+B9BF : 96 13		"  "		ldaa	X0013
+B9C1 : D6 14		"  "		ldab	X0014
+B9C3 : 81 64		" d"		cmpa	#$64
+B9C5 : 24 0A		"$ "		bcc	LB9D1
+B9C7 : DB 49		" I"		addb	X0049
+B9C9 : 99 48		" H"		adca	X0048
+B9CB : 81 64		" d"		cmpa	#$64
+B9CD : 24 0A		"$ "		bcc	LB9D9
+B9CF : 20 0B		"  "		bra	LB9DC
+				;
+B9D1				LB9D1:
+B9D1 : D0 46		" F"		subb	X0046
+B9D3 : 92 45		" E"		sbca	X0045
+B9D5 : 81 64		" d"		cmpa	#$64
+B9D7 : 24 03		"$ "		bcc	LB9DC
+B9D9				LB9D9:
+B9D9 : 86 64		" d"		ldaa	#$64
+B9DB : 5F		"_"		clrb
+B9DC				LB9DC:
+B9DC : 20 BB		"  "		bra	LB999
+				;
+B9DE				LB9DE:
+B9DE : 96 99		"  "		ldaa	X0099
+B9E0 : 85 20		"  "		bita	#$20
+B9E2 : 26 09		"& "		bne	LB9ED
+B9E4 : 96 7F		"  "		ldaa	X007F
+B9E6 : 84 DF		"  "		anda	#$DF
+B9E8 : 97 7F		"  "		staa	X007F
+B9EA				LB9EA:
+B9EA : 7E AA 98		"~  "		jmp	LAA98
+				;
+B9ED				LB9ED:
+B9ED : 85 80		"  "		bita	#$80
+B9EF : 27 1B		"' "		beq	LBA0C
+B9F1 : 96 7F		"  "		ldaa	X007F
+B9F3 : 85 02		"  "		bita	#$02
+B9F5 : 26 F3		"& "		bne	LB9EA
+B9F7 : 8A 02		"  "		oraa	#$02
+B9F9 : 97 7F		"  "		staa	X007F
+B9FB : BD BA 8B		"   "		jsr	LBA8B
+B9FE : 85 40		" @"		bita	#$40
+BA00 : 26 05		"& "		bne	LBA07
+BA02 : BD BA 86		"   "		jsr	LBA86
+BA05 : 20 E3		"  "		bra	LB9EA
+				;
+BA07				LBA07:
+BA07 : BD BA 82		"   "		jsr	LBA82
+BA0A : 20 DE		"  "		bra	LB9EA
+				;
+BA0C				LBA0C:
+BA0C : 96 90		"  "		ldaa	X0090
+BA0E : D6 91		"  "		ldab	X0091
+BA10 : 4D		"M"		tsta
+BA11 : 27 D7		"' "		beq	LB9EA
+BA13 : 96 7F		"  "		ldaa	X007F
+BA15 : 85 01		"  "		bita	#$01
+BA17 : 26 D1		"& "		bne	LB9EA
+BA19 : 0F		" "		sei
+BA1A : D6 05		"  "		ldab	X0005
+BA1C : 86 AA		"  "		ldaa	#$AA
+BA1E				LBA1E:
+BA1E : CE 01 7F		"   "		ldx	#$017F
+BA21				LBA21:
+BA21 : 43		"C"		coma
+BA22 : A7 00		"  "		staa	$00,x
+BA24 : 09		" "		dex
+BA25 : 43		"C"		coma
+BA26 : A7 00		"  "		staa	$00,x
+BA28 : 09		" "		dex
+BA29 : 8C 00 FF		"   "		cpx	#$00FF
+BA2C : 27 07		"' "		beq	LBA35
+BA2E : 8C FF FF		"   "		cpx	#$FFFF
+BA31 : 26 EE		"& "		bne	LBA21
+BA33 : 20 09		"  "		bra	LBA3E
+				;
+BA35				LBA35:
+BA35 : C8 10		"  "		eorb	#$10
+BA37 : D7 99		"  "		stab	X0099
+BA39 : CE 00 7F		"   "		ldx	#$007F
+BA3C : 20 E3		"  "		bra	LBA21
+				;
+BA3E				LBA3E:
+BA3E : C8 10		"  "		eorb	#$10
+BA40 : D7 99		"  "		stab	X0099
+BA42 : CE 01 7F		"   "		ldx	#$017F
+BA45				LBA45:
+BA45 : 43		"C"		coma
+BA46 : A1 00		"  "		cmpa	$00,x
+BA48 : 26 2D		"&-"		bne	LBA77
+BA4A : 09		" "		dex
+BA4B : 43		"C"		coma
+BA4C : A1 00		"  "		cmpa	$00,x
+BA4E : 26 27		"&'"		bne	LBA77
+BA50 : 09		" "		dex
+BA51 : 8C 00 FF		"   "		cpx	#$00FF
+BA54 : 27 10		"' "		beq	LBA66
+BA56 : 8C FF FF		"   "		cpx	#$FFFF
+BA59 : 26 EA		"& "		bne	LBA45
+BA5B : C8 10		"  "		eorb	#$10
+BA5D : D7 99		"  "		stab	X0099
+BA5F : 81 55		" U"		cmpa	#$55
+BA61 : 27 0C		"' "		beq	LBA6F
+BA63 : 43		"C"		coma
+BA64 : 20 B8		"  "		bra	LBA1E
+				;
+BA66				LBA66:
+BA66 : C8 10		"  "		eorb	#$10
+BA68 : D7 99		"  "		stab	X0099
+BA6A : CE 00 7F		"   "		ldx	#$007F
+BA6D : 20 D6		"  "		bra	LBA45
+				;
+BA6F				LBA6F:
+BA6F : C8 10		"  "		eorb	#$10
+BA71 : D7 99		"  "		stab	X0099
+BA73 : 86 21		" !"		ldaa	#$21
+BA75 : 20 06		"  "		bra	LBA7D
+				;
+BA77				LBA77:
+BA77 : C8 10		"  "		eorb	#$10
+BA79 : D7 99		"  "		stab	X0099
+BA7B : 86 61		" a"		ldaa	#$61
+BA7D				LBA7D:
+BA7D : 97 7F		"  "		staa	X007F
+BA7F : 7E A8 4C		"~ L"		jmp	LA84C
+				;
+BA82				LBA82:
+BA82 : C6 0B		"  "		ldab	#$0B
+BA84 : 20 02		"  "		bra	LBA88
+				;
+BA86				LBA86:
+BA86 : C6 03		"  "		ldab	#$03
+BA88				LBA88:
+BA88 : D7 9D		"  "		stab	X009D
+BA8A : 39		"9"		rts
+				;
+BA8B				LBA8B:
+BA8B : CE DF FF		"   "		ldx	#$DFFF
+BA8E				LBA8E:
+BA8E : 4F		"O"		clra
+BA8F : 5F		"_"		clrb
+BA90				LBA90:
+BA90 : 08		" "		inx
+BA91 : A8 00		"  "		eora	$00,x
+BA93 : EB 00		"  "		addb	$00,x
+BA95 : 36		"6"		psha
+BA96 : 96 05		"  "		ldaa	X0005
+BA98 : 84 EF		"  "		anda	#$EF
+BA9A : 97 05		"  "		staa	X0005
+BA9C : 97 99		"  "		staa	X0099
+BA9E : 32		"2"		pula
+BA9F : 8C EF FF		"   "		cpx	#$EFFF
+BAA2 : 27 07		"' "		beq	LBAAB
+BAA4 : 8C FF FF		"   "		cpx	#$FFFF
+BAA7 : 26 E7		"& "		bne	LBA90
+BAA9 : 20 12		"  "		bra	LBABD
+				;
+BAAB				LBAAB:
+BAAB : B7 01 1C		"   "		staa	X011C
+BAAE : F7 01 1D		"   "		stab	X011D
+BAB1 : B1 BF F3		"   "		cmpa	XBFF3
+BAB4 : 26 1E		"& "		bne	LBAD4
+BAB6 : F1 BF F4		"   "		cmpb	XBFF4
+BAB9 : 26 19		"& "		bne	LBAD4
+BABB : 20 D1		"  "		bra	LBA8E
+				;
+BABD				LBABD:
+BABD : B7 01 1E		"   "		staa	X011E
+BAC0 : F7 01 1F		"   "		stab	X011F
+BAC3 : B1 BF F5		"   "		cmpa	XBFF5
+BAC6 : 26 0C		"& "		bne	LBAD4
+BAC8 : F1 BF F6		"   "		cmpb	XBFF6
+BACB : 26 07		"& "		bne	LBAD4
+BACD : 96 7F		"  "		ldaa	X007F
+BACF : 84 BF		"  "		anda	#$BF
+BAD1				LBAD1:
+BAD1 : 97 7F		"  "		staa	X007F
+BAD3 : 39		"9"		rts
+				;
+BAD4				LBAD4:
+BAD4 : 96 7F		"  "		ldaa	X007F
+BAD6 : 8A 40		" @"		oraa	#$40
+BAD8 : 20 F7		"  "		bra	LBAD1
+				;
+BADA : F6 BF F7		"   "		ldab	XBFF7
+BADD : 54		"T"		lsrb
+BADE : 24 1B		"$ "		bcc	LBAFB
+BAE0 : D6 99		"  "		ldab	X0099
+BAE2 : C5 20		"  "		bitb	#$20
+BAE4 : 26 15		"& "		bne	LBAFB
+BAE6 : C5 80		"  "		bitb	#$80
+BAE8 : 27 19		"' "		beq	LBB03
+BAEA : D6 00		"  "		ldab	X0000
+BAEC : C5 C0		"  "		bitb	#$C0
+BAEE : 26 06		"& "		bne	LBAF6
+BAF0 : D6 0A		"  "		ldab	X000A
+BAF2 : C1 28		" ("		cmpb	#$28
+BAF4 : 25 0D		"% "		bcs	LBB03
+BAF6				LBAF6:
+BAF6 : 86 8A		"  "		ldaa	#$8A
+BAF8				LBAF8:
+BAF8 : 97 7F		"  "		staa	X007F
+BAFA : 3B		";"		rti
+				;
+BAFB				LBAFB:
+BAFB : 96 7F		"  "		ldaa	X007F
+BAFD : 84 7F		"  "		anda	#$7F
+BAFF : 8A 20		"  "		oraa	#$20
+BB01 : 20 F5		"  "		bra	LBAF8
+				;
+BB03				LBB03:
+BB03 : 4F		"O"		clra
+BB04 : 20 F2		"  "		bra	LBAF8
+				;
+BB06 : 3F		"?"		swi
+BB07 : 3F		"?"		swi
+BB08 : 3F		"?"		swi
+BB09 : 3F		"?"		swi
+BB0A : 3F		"?"		swi
+BB0B : 3F		"?"		swi
+BB0C : 3F		"?"		swi
+BB0D : 3F		"?"		swi
+BB0E : 3F		"?"		swi
+BB0F : 3F		"?"		swi
+				;
+BB10				DATA_MISC1:
+BB10 : 7D		"}"		db	$7D
+BB11 : A9		" "		db	$A9
+BB12 : 02		" "		db	$02
+BB13 : D0		" "		db	$D0
+BB14 : 04		" "		db	$04
+BB15 : B0		" "		db	$B0
+BB16 : A2		" "		db	$A2
+BB17 : CE		" "		db	$CE
+BB18 : 1C		" "		db	$1C
+BB19 : 46		"F"		db	$46
+BB1A : 1C		" "		db	$1C
+BB1B : E9		" "		db	$E9
+BB1C : 30		"0"		db	$30
+BB1D : D0		" "		db	$D0
+BB1E : 8F		" "		db	$8F
+BB1F : 9D		" "		db	$9D
+				; maybe not code? 
+BB20 : 3F		"?"		swi
+BB21 : 3F		"?"		swi
+BB22 : 3F		"?"		swi
+BB23 : 3F		"?"		swi
+				;
+BB24 : 05		" "		db	$05
+				;
+BB25 : 0F		" "		sei
+BB26 : 3F		"?"		swi
+BB27 : 3F		"?"		swi
+				;
+BB28 : 00		" "		db	$00
+				;
+BB29 : 90 00		"  "		suba	X0000
+BB2B : B0 01 30		"  0"		suba	X0130
+				;
+BB2E : 02 00		"  "		db	$02, $00
+BB30				CHTS_CONV:
+BB30 : FF		" "		db	$FF
+BB31 : C8		" "		db	$C8
+BB32 : B6		" "		db	$B6
+BB33 : A7		" "		db	$A7
+BB34 : 9A		" "		db	$9A
+BB35 : 90		" "		db	$90
+BB36 : 88		" "		db	$88
+BB37 : 82		" "		db	$82
+BB38 : 7C		"|"		db	$7C
+BB39 : 77		"w"		db	$77
+BB3A : 72		"r"		db	$72
+BB3B : 6E		"n"		db	$6E
+BB3C : 6A		"j"		db	$6A
+BB3D : 66		"f"		db	$66
+BB3E : 62		"b"		db	$62
+BB3F : 5E		"^"		db	$5E
+BB40 : 5B		"["		db	$5B
+BB41 : 57		"W"		db	$57
+BB42 : 53		"S"		db	$53
+BB43 : 50		"P"		db	$50
+BB44 : 4C		"L"		db	$4C
+BB45 : 48		"H"		db	$48
+BB46 : 44		"D"		db	$44
+BB47 : 40		"@"		db	$40
+BB48 : 3C		"<"		db	$3C
+BB49 : 38		"8"		db	$38
+BB4A : 33		"3"		db	$33
+BB4B : 2E		"."		db	$2E
+BB4C : 28		"("		db	$28
+BB4D : 20		" "		db	$20
+BB4E : 14		" "		db	$14
+BB4F : 00		" "		db	$00
+BB50				IGN_DUTY_DWELLV:
+BB50 : FF		" "		db	$FF
+BB51 : FF		" "		db	$FF
+BB52 : FF		" "		db	$FF
+BB53 : FF		" "		db	$FF
+BB54 : FF		" "		db	$FF
+BB55 : FF		" "		db	$FF
+BB56 : A2		" "		db	$A2
+BB57 : 6F		"o"		db	$6F
+BB58 : 55		"U"		db	$55
+BB59 : 46		"F"		db	$46
+BB5A : 3A		":"		db	$3A
+BB5B : 33		"3"		db	$33
+BB5C : 2D		"-"		db	$2D
+BB5D : 28		"("		db	$28
+BB5E : 25		"%"		db	$25
+BB5F : 21		"!"		db	$21
+BB60				FUEL_BARO:
+BB60 : 8D		" "		db	$8D
+BB61 : 8B		" "		db	$8B
+BB62 : 89		" "		db	$89
+BB63 : 86		" "		db	$86
+BB64 : 84		" "		db	$84
+BB65 : 81		" "		db	$81
+BB66 : 7F		" "		db	$7F
+BB67 : 7C		"|"		db	$7C
+BB68 : 79		"y"		db	$79
+BB69 : 77		"w"		db	$77
+BB6A : 74		"t"		db	$74
+BB6B : 71		"q"		db	$71
+BB6C : 6E		"n"		db	$6E
+BB6D : 6B		"k"		db	$6B
+BB6E : 68		"h"		db	$68
+BB6F : 65		"e"		db	$65
+BB70				FUEL_IAT:
+BB70 : 80		" "		db	$80
+BB71 : 80		" "		db	$80
+BB72 : 80		" "		db	$80
+BB73 : 80		" "		db	$80
+BB74 : 80		" "		db	$80
+BB75 : 80		" "		db	$80
+BB76 : 80		" "		db	$80
+BB77 : 80		" "		db	$80
+BB78 : 80		" "		db	$80
+BB79 : 80		" "		db	$80
+BB7A : 80		" "		db	$80
+BB7B : 80		" "		db	$80
+BB7C : 82		" "		db	$82
+BB7D : 84		" "		db	$84
+BB7E : 87		" "		db	$87
+BB7F : 8D		" "		db	$8D
+BB80				TP_SCALE_FUEL:
+BB80 : 00		" "		db	$00
+BB81 : 40		"@"		db	$40
+BB82 : 00		" "		db	$00
+BB83 : 60		"`"		db	$60
+BB84 : 00		" "		db	$00
+BB85 : 80		" "		db	$80
+BB86 : 00		" "		db	$00
+BB87 : A0		" "		db	$A0
+BB88 : 00		" "		db	$00
+BB89 : C0		" "		db	$C0
+BB8A : 00		" "		db	$00
+BB8B : E0		" "		db	$E0
+BB8C : 01		" "		db	$01
+BB8D : 00		" "		db	$00
+BB8E : 01		" "		db	$01
+BB8F : 20		" "		db	$20
+BB90 : 01		" "		db	$01
+BB91 : 40		"@"		db	$40
+BB92 : 01		" "		db	$01
+BB93 : 50		"P"		db	$50
+BB94 : 01		" "		db	$01
+BB95 : 60		"`"		db	$60
+BB96 : 01		" "		db	$01
+BB97 : 70		"p"		db	$70
+BB98 : 01		" "		db	$01
+BB99 : 80		" "		db	$80
+BB9A : 01		" "		db	$01
+BB9B : A0		" "		db	$A0
+BB9C : 01		" "		db	$01
+BB9D : E0		" "		db	$E0
+BB9E : 02		" "		db	$02
+BB9F : 00		" "		db	$00
+BBA0				RPM_SCALE_FUEL:
+BBA0 : 00		" "		db	$00
+BBA1 : 20		" "		db	$20
+BBA2 : 00		" "		db	$00
+BBA3 : 28		"("		db	$28
+BBA4 : 00		" "		db	$00
+BBA5 : 40		"@"		db	$40
+BBA6 : 00		" "		db	$00
+BBA7 : 60		"`"		db	$60
+BBA8 : 00		" "		db	$00
+BBA9 : 80		" "		db	$80
+BBAA : 00		" "		db	$00
+BBAB : A0		" "		db	$A0
+BBAC : 00		" "		db	$00
+BBAD : C0		" "		db	$C0
+BBAE : 00		" "		db	$00
+BBAF : E0		" "		db	$E0
+BBB0 : 01		" "		db	$01
+BBB1 : 00		" "		db	$00
+BBB2 : 01		" "		db	$01
+BBB3 : 20		" "		db	$20
+BBB4 : 01		" "		db	$01
+BBB5 : 40		"@"		db	$40
+BBB6 : 01		" "		db	$01
+BBB7 : 60		"`"		db	$60
+BBB8 : 01		" "		db	$01
+BBB9 : 80		" "		db	$80
+BBBA : 01		" "		db	$01
+BBBB : A0		" "		db	$A0
+BBBC : 01		" "		db	$01
+BBBD : C0		" "		db	$C0
+BBBE : 01		" "		db	$01
+BBBF : E0		" "		db	$E0
+BBC0				TP_SCALE_IGN:
+BBC0 : 00		" "		db	$00
+BBC1 : 40		"@"		db	$40
+BBC2 : 00		" "		db	$00
+BBC3 : 50		"P"		db	$50
+BBC4 : 00		" "		db	$00
+BBC5 : 60		"`"		db	$60
+BBC6 : 00		" "		db	$00
+BBC7 : 70		"p"		db	$70
+BBC8 : 00		" "		db	$00
+BBC9 : 80		" "		db	$80
+BBCA : 00		" "		db	$00
+BBCB : 90		" "		db	$90
+BBCC : 00		" "		db	$00
+BBCD : A0		" "		db	$A0
+BBCE : 00		" "		db	$00
+BBCF : B0		" "		db	$B0
+BBD0 : 00		" "		db	$00
+BBD1 : C0		" "		db	$C0
+BBD2 : 00		" "		db	$00
+BBD3 : E0		" "		db	$E0
+BBD4 : 01		" "		db	$01
+BBD5 : 00		" "		db	$00
+BBD6 : 01		" "		db	$01
+BBD7 : 20		" "		db	$20
+BBD8 : 01		" "		db	$01
+BBD9 : 40		"@"		db	$40
+BBDA : 01		" "		db	$01
+BBDB : 80		" "		db	$80
+BBDC : 01		" "		db	$01
+BBDD : C0		" "		db	$C0
+BBDE : 02		" "		db	$02
+BBDF : 00		" "		db	$00
+BBE0				RPM_SCALE_IGN:
+BBE0 : 00		" "		db	$00
+BBE1 : 40		"@"		db	$40
+BBE2 : 00		" "		db	$00
+BBE3 : 50		"P"		db	$50
+BBE4 : 00		" "		db	$00
+BBE5 : 60		"`"		db	$60
+BBE6 : 00		" "		db	$00
+BBE7 : 70		"p"		db	$70
+BBE8 : 00		" "		db	$00
+BBE9 : 80		" "		db	$80
+BBEA : 00		" "		db	$00
+BBEB : A0		" "		db	$A0
+BBEC : 00		" "		db	$00
+BBED : C0		" "		db	$C0
+BBEE : 00		" "		db	$00
+BBEF : E0		" "		db	$E0
+BBF0 : 01		" "		db	$01
+BBF1 : 00		" "		db	$00
+BBF2 : 01		" "		db	$01
+BBF3 : 20		" "		db	$20
+BBF4 : 01		" "		db	$01
+BBF5 : 40		"@"		db	$40
+BBF6 : 01		" "		db	$01
+BBF7 : 60		"`"		db	$60
+BBF8 : 01		" "		db	$01
+BBF9 : 80		" "		db	$80
+BBFA : 01		" "		db	$01
+BBFB : A0		" "		db	$A0
+BBFC : 01		" "		db	$01
+BBFD : C0		" "		db	$C0
+BBFE : 01		" "		db	$01
+BBFF : E0		" "		db	$E0
+BC00				IGN_MAP:
+BC00 : 14		" "		db	$14
+BC01 : 1E		" "		db	$1E
+BC02 : 23		"#"		db	$23
+BC03 : 28		"("		db	$28
+BC04 : 23		"#"		db	$23
+BC05 : 21		"!"		db	$21
+BC06 : 1E		" "		db	$1E
+BC07 : 1A		" "		db	$1A
+BC08 : 16		" "		db	$16
+BC09 : 12		" "		db	$12
+BC0A : 10		" "		db	$10
+BC0B : 10		" "		db	$10
+BC0C : 10		" "		db	$10
+BC0D : 10		" "		db	$10
+BC0E : 10		" "		db	$10
+BC0F : 10		" "		db	$10
+BC10 : 1A		" "		db	$1A
+BC11 : 24		"$"		db	$24
+BC12 : 2D		"-"		db	$2D
+BC13 : 2D		"-"		db	$2D
+BC14 : 2D		"-"		db	$2D
+BC15 : 29		")"		db	$29
+BC16 : 25		"%"		db	$25
+BC17 : 22		"""		db	$22
+BC18 : 1F		" "		db	$1F
+BC19 : 18		" "		db	$18
+BC1A : 12		" "		db	$12
+BC1B : 12		" "		db	$12
+BC1C : 12		" "		db	$12
+BC1D : 12		" "		db	$12
+BC1E : 12		" "		db	$12
+BC1F : 12		" "		db	$12
+BC20 : 1F		" "		db	$1F
+BC21 : 29		")"		db	$29
+BC22 : 2E		"."		db	$2E
+BC23 : 2E		"."		db	$2E
+BC24 : 2E		"."		db	$2E
+BC25 : 2B		"+"		db	$2B
+BC26 : 27		"'"		db	$27
+BC27 : 25		"%"		db	$25
+BC28 : 22		"""		db	$22
+BC29 : 1B		" "		db	$1B
+BC2A : 15		" "		db	$15
+BC2B : 15		" "		db	$15
+BC2C : 15		" "		db	$15
+BC2D : 15		" "		db	$15
+BC2E : 15		" "		db	$15
+BC2F : 15		" "		db	$15
+BC30 : 20		" "		db	$20
+BC31 : 2A		"*"		db	$2A
+BC32 : 31		"1"		db	$31
+BC33 : 33		"3"		db	$33
+BC34 : 33		"3"		db	$33
+BC35 : 2F		"/"		db	$2F
+BC36 : 2B		"+"		db	$2B
+BC37 : 27		"'"		db	$27
+BC38 : 24		"$"		db	$24
+BC39 : 1F		" "		db	$1F
+BC3A : 1A		" "		db	$1A
+BC3B : 12		" "		db	$12
+BC3C : 12		" "		db	$12
+BC3D : 12		" "		db	$12
+BC3E : 12		" "		db	$12
+BC3F : 12		" "		db	$12
+BC40 : 21		"!"		db	$21
+BC41 : 2B		"+"		db	$2B
+BC42 : 35		"5"		db	$35
+BC43 : 35		"5"		db	$35
+BC44 : 35		"5"		db	$35
+BC45 : 33		"3"		db	$33
+BC46 : 2E		"."		db	$2E
+BC47 : 29		")"		db	$29
+BC48 : 27		"'"		db	$27
+BC49 : 22		"""		db	$22
+BC4A : 1A		" "		db	$1A
+BC4B : 12		" "		db	$12
+BC4C : 0F		" "		db	$0F
+BC4D : 0F		" "		db	$0F
+BC4E : 0F		" "		db	$0F
+BC4F : 0F		" "		db	$0F
+BC50 : 25		"%"		db	$25
+BC51 : 2F		"/"		db	$2F
+BC52 : 36		"6"		db	$36
+BC53 : 39		"9"		db	$39
+BC54 : 39		"9"		db	$39
+BC55 : 35		"5"		db	$35
+BC56 : 32		"2"		db	$32
+BC57 : 2D		"-"		db	$2D
+BC58 : 28		"("		db	$28
+BC59 : 23		"#"		db	$23
+BC5A : 1C		" "		db	$1C
+BC5B : 19		" "		db	$19
+BC5C : 0F		" "		db	$0F
+BC5D : 0D		" "		db	$0D
+BC5E : 0D		" "		db	$0D
+BC5F : 0D		" "		db	$0D
+BC60 : 25		"%"		db	$25
+BC61 : 2F		"/"		db	$2F
+BC62 : 39		"9"		db	$39
+BC63 : 39		"9"		db	$39
+BC64 : 39		"9"		db	$39
+BC65 : 36		"6"		db	$36
+BC66 : 32		"2"		db	$32
+BC67 : 2D		"-"		db	$2D
+BC68 : 2A		"*"		db	$2A
+BC69 : 24		"$"		db	$24
+BC6A : 1E		" "		db	$1E
+BC6B : 1B		" "		db	$1B
+BC6C : 19		" "		db	$19
+BC6D : 12		" "		db	$12
+BC6E : 12		" "		db	$12
+BC6F : 12		" "		db	$12
+BC70 : 25		"%"		db	$25
+BC71 : 2F		"/"		db	$2F
+BC72 : 39		"9"		db	$39
+BC73 : 39		"9"		db	$39
+BC74 : 39		"9"		db	$39
+BC75 : 37		"7"		db	$37
+BC76 : 32		"2"		db	$32
+BC77 : 2D		"-"		db	$2D
+BC78 : 2A		"*"		db	$2A
+BC79 : 25		"%"		db	$25
+BC7A : 1F		" "		db	$1F
+BC7B : 1B		" "		db	$1B
+BC7C : 19		" "		db	$19
+BC7D : 16		" "		db	$16
+BC7E : 16		" "		db	$16
+BC7F : 16		" "		db	$16
+BC80 : 26		"&"		db	$26
+BC81 : 30		"0"		db	$30
+BC82 : 38		"8"		db	$38
+BC83 : 3A		":"		db	$3A
+BC84 : 38		"8"		db	$38
+BC85 : 35		"5"		db	$35
+BC86 : 31		"1"		db	$31
+BC87 : 2E		"."		db	$2E
+BC88 : 2B		"+"		db	$2B
+BC89 : 26		"&"		db	$26
+BC8A : 1F		" "		db	$1F
+BC8B : 1D		" "		db	$1D
+BC8C : 19		" "		db	$19
+BC8D : 17		" "		db	$17
+BC8E : 17		" "		db	$17
+BC8F : 17		" "		db	$17
+BC90 : 26		"&"		db	$26
+BC91 : 30		"0"		db	$30
+BC92 : 35		"5"		db	$35
+BC93 : 35		"5"		db	$35
+BC94 : 35		"5"		db	$35
+BC95 : 33		"3"		db	$33
+BC96 : 31		"1"		db	$31
+BC97 : 2E		"."		db	$2E
+BC98 : 2B		"+"		db	$2B
+BC99 : 26		"&"		db	$26
+BC9A : 21		"!"		db	$21
+BC9B : 1D		" "		db	$1D
+BC9C : 19		" "		db	$19
+BC9D : 19		" "		db	$19
+BC9E : 19		" "		db	$19
+BC9F : 19		" "		db	$19
+BCA0 : 27		"'"		db	$27
+BCA1 : 31		"1"		db	$31
+BCA2 : 36		"6"		db	$36
+BCA3 : 36		"6"		db	$36
+BCA4 : 36		"6"		db	$36
+BCA5 : 33		"3"		db	$33
+BCA6 : 31		"1"		db	$31
+BCA7 : 2F		"/"		db	$2F
+BCA8 : 2C		","		db	$2C
+BCA9 : 27		"'"		db	$27
+BCAA : 22		"""		db	$22
+BCAB : 1E		" "		db	$1E
+BCAC : 1A		" "		db	$1A
+BCAD : 1A		" "		db	$1A
+BCAE : 1A		" "		db	$1A
+BCAF : 1A		" "		db	$1A
+BCB0 : 27		"'"		db	$27
+BCB1 : 31		"1"		db	$31
+BCB2 : 36		"6"		db	$36
+BCB3 : 36		"6"		db	$36
+BCB4 : 36		"6"		db	$36
+BCB5 : 33		"3"		db	$33
+BCB6 : 31		"1"		db	$31
+BCB7 : 2F		"/"		db	$2F
+BCB8 : 2C		","		db	$2C
+BCB9 : 27		"'"		db	$27
+BCBA : 22		"""		db	$22
+BCBB : 1E		" "		db	$1E
+BCBC : 1A		" "		db	$1A
+BCBD : 17		" "		db	$17
+BCBE : 17		" "		db	$17
+BCBF : 17		" "		db	$17
+BCC0 : 27		"'"		db	$27
+BCC1 : 31		"1"		db	$31
+BCC2 : 35		"5"		db	$35
+BCC3 : 36		"6"		db	$36
+BCC4 : 36		"6"		db	$36
+BCC5 : 36		"6"		db	$36
+BCC6 : 31		"1"		db	$31
+BCC7 : 2F		"/"		db	$2F
+BCC8 : 2C		","		db	$2C
+BCC9 : 27		"'"		db	$27
+BCCA : 22		"""		db	$22
+BCCB : 1E		" "		db	$1E
+BCCC : 1A		" "		db	$1A
+BCCD : 17		" "		db	$17
+BCCE : 17		" "		db	$17
+BCCF : 17		" "		db	$17
+BCD0 : 28		"("		db	$28
+BCD1 : 32		"2"		db	$32
+BCD2 : 36		"6"		db	$36
+BCD3 : 37		"7"		db	$37
+BCD4 : 37		"7"		db	$37
+BCD5 : 37		"7"		db	$37
+BCD6 : 34		"4"		db	$34
+BCD7 : 30		"0"		db	$30
+BCD8 : 2D		"-"		db	$2D
+BCD9 : 26		"&"		db	$26
+BCDA : 23		"#"		db	$23
+BCDB : 20		" "		db	$20
+BCDC : 1E		" "		db	$1E
+BCDD : 1D		" "		db	$1D
+BCDE : 1D		" "		db	$1D
+BCDF : 1D		" "		db	$1D
+BCE0 : 28		"("		db	$28
+BCE1 : 32		"2"		db	$32
+BCE2 : 36		"6"		db	$36
+BCE3 : 37		"7"		db	$37
+BCE4 : 37		"7"		db	$37
+BCE5 : 37		"7"		db	$37
+BCE6 : 33		"3"		db	$33
+BCE7 : 30		"0"		db	$30
+BCE8 : 2D		"-"		db	$2D
+BCE9 : 25		"%"		db	$25
+BCEA : 21		"!"		db	$21
+BCEB : 1F		" "		db	$1F
+BCEC : 1F		" "		db	$1F
+BCED : 1F		" "		db	$1F
+BCEE : 1F		" "		db	$1F
+BCEF : 1F		" "		db	$1F
+BCF0 : 29		")"		db	$29
+BCF1 : 33		"3"		db	$33
+BCF2 : 37		"7"		db	$37
+BCF3 : 38		"8"		db	$38
+BCF4 : 38		"8"		db	$38
+BCF5 : 38		"8"		db	$38
+BCF6 : 34		"4"		db	$34
+BCF7 : 31		"1"		db	$31
+BCF8 : 2E		"."		db	$2E
+BCF9 : 26		"&"		db	$26
+BCFA : 22		"""		db	$22
+BCFB : 20		" "		db	$20
+BCFC : 1F		" "		db	$1F
+BCFD : 1F		" "		db	$1F
+BCFE : 1F		" "		db	$1F
+BCFF : 1F		" "		db	$1F
+BD00				FUEL_MAP:
+BD00 : 14		" "		db	$14
+BD01 : 14		" "		db	$14
+BD02 : 14		" "		db	$14
+BD03 : 14		" "		db	$14
+BD04 : 14		" "		db	$14
+BD05 : 14		" "		db	$14
+BD06 : 14		" "		db	$14
+BD07 : 14		" "		db	$14
+BD08 : 14		" "		db	$14
+BD09 : 14		" "		db	$14
+BD0A : 14		" "		db	$14
+BD0B : 14		" "		db	$14
+BD0C : 14		" "		db	$14
+BD0D : 14		" "		db	$14
+BD0E : 14		" "		db	$14
+BD0F : 14		" "		db	$14
+BD10 : 00		" "		db	$00
+BD11 : 00		" "		db	$00
+BD12 : 00		" "		db	$00
+BD13 : 00		" "		db	$00
+BD14 : 00		" "		db	$00
+BD15 : 14		" "		db	$14
+BD16 : 14		" "		db	$14
+BD17 : 14		" "		db	$14
+BD18 : 14		" "		db	$14
+BD19 : 14		" "		db	$14
+BD1A : 14		" "		db	$14
+BD1B : 14		" "		db	$14
+BD1C : 14		" "		db	$14
+BD1D : 14		" "		db	$14
+BD1E : 14		" "		db	$14
+BD1F : 14		" "		db	$14
+BD20 : 00		" "		db	$00
+BD21 : 00		" "		db	$00
+BD22 : 00		" "		db	$00
+BD23 : 00		" "		db	$00
+BD24 : 14		" "		db	$14
+BD25 : 20		" "		db	$20
+BD26 : 23		"#"		db	$23
+BD27 : 23		"#"		db	$23
+BD28 : 23		"#"		db	$23
+BD29 : 23		"#"		db	$23
+BD2A : 23		"#"		db	$23
+BD2B : 23		"#"		db	$23
+BD2C : 23		"#"		db	$23
+BD2D : 23		"#"		db	$23
+BD2E : 23		"#"		db	$23
+BD2F : 23		"#"		db	$23
+BD30 : 00		" "		db	$00
+BD31 : 00		" "		db	$00
+BD32 : 00		" "		db	$00
+BD33 : 00		" "		db	$00
+BD34 : 00		" "		db	$00
+BD35 : 00		" "		db	$00
+BD36 : 2C		","		db	$2C
+BD37 : 2C		","		db	$2C
+BD38 : 2C		","		db	$2C
+BD39 : 2C		","		db	$2C
+BD3A : 2C		","		db	$2C
+BD3B : 2C		","		db	$2C
+BD3C : 2C		","		db	$2C
+BD3D : 2C		","		db	$2C
+BD3E : 2C		","		db	$2C
+BD3F : 2C		","		db	$2C
+BD40 : 00		" "		db	$00
+BD41 : 00		" "		db	$00
+BD42 : 00		" "		db	$00
+BD43 : 00		" "		db	$00
+BD44 : 00		" "		db	$00
+BD45 : 00		" "		db	$00
+BD46 : 00		" "		db	$00
+BD47 : 00		" "		db	$00
+BD48 : 00		" "		db	$00
+BD49 : 00		" "		db	$00
+BD4A : 30		"0"		db	$30
+BD4B : 48		"H"		db	$48
+BD4C : 48		"H"		db	$48
+BD4D : 48		"H"		db	$48
+BD4E : 48		"H"		db	$48
+BD4F : 48		"H"		db	$48
+BD50 : 00		" "		db	$00
+BD51 : 00		" "		db	$00
+BD52 : 00		" "		db	$00
+BD53 : 00		" "		db	$00
+BD54 : 00		" "		db	$00
+BD55 : 00		" "		db	$00
+BD56 : 00		" "		db	$00
+BD57 : 00		" "		db	$00
+BD58 : 00		" "		db	$00
+BD59 : 00		" "		db	$00
+BD5A : 00		" "		db	$00
+BD5B : 14		" "		db	$14
+BD5C : 44		"D"		db	$44
+BD5D : 44		"D"		db	$44
+BD5E : 44		"D"		db	$44
+BD5F : 44		"D"		db	$44
+BD60 : 00		" "		db	$00
+BD61 : 00		" "		db	$00
+BD62 : 00		" "		db	$00
+BD63 : 00		" "		db	$00
+BD64 : 00		" "		db	$00
+BD65 : 00		" "		db	$00
+BD66 : 00		" "		db	$00
+BD67 : 00		" "		db	$00
+BD68 : 00		" "		db	$00
+BD69 : 00		" "		db	$00
+BD6A : 00		" "		db	$00
+BD6B : 14		" "		db	$14
+BD6C : 30		"0"		db	$30
+BD6D : 40		"@"		db	$40
+BD6E : 40		"@"		db	$40
+BD6F : 40		"@"		db	$40
+BD70 : 00		" "		db	$00
+BD71 : 00		" "		db	$00
+BD72 : 00		" "		db	$00
+BD73 : 00		" "		db	$00
+BD74 : 00		" "		db	$00
+BD75 : 00		" "		db	$00
+BD76 : 00		" "		db	$00
+BD77 : 00		" "		db	$00
+BD78 : 00		" "		db	$00
+BD79 : 14		" "		db	$14
+BD7A : 14		" "		db	$14
+BD7B : 26		"&"		db	$26
+BD7C : 38		"8"		db	$38
+BD7D : 4C		"L"		db	$4C
+BD7E : 4C		"L"		db	$4C
+BD7F : 4C		"L"		db	$4C
+BD80 : 00		" "		db	$00
+BD81 : 00		" "		db	$00
+BD82 : 00		" "		db	$00
+BD83 : 00		" "		db	$00
+BD84 : 00		" "		db	$00
+BD85 : 00		" "		db	$00
+BD86 : 00		" "		db	$00
+BD87 : 00		" "		db	$00
+BD88 : 14		" "		db	$14
+BD89 : 14		" "		db	$14
+BD8A : 14		" "		db	$14
+BD8B : 26		"&"		db	$26
+BD8C : 3C		"<"		db	$3C
+BD8D : 58		"X"		db	$58
+BD8E : 58		"X"		db	$58
+BD8F : 58		"X"		db	$58
+BD90 : 14		" "		db	$14
+BD91 : 14		" "		db	$14
+BD92 : 14		" "		db	$14
+BD93 : 14		" "		db	$14
+BD94 : 14		" "		db	$14
+BD95 : 14		" "		db	$14
+BD96 : 26		"&"		db	$26
+BD97 : 26		"&"		db	$26
+BD98 : 26		"&"		db	$26
+BD99 : 30		"0"		db	$30
+BD9A : 30		"0"		db	$30
+BD9B : 3C		"<"		db	$3C
+BD9C : 3C		"<"		db	$3C
+BD9D : 58		"X"		db	$58
+BD9E : 58		"X"		db	$58
+BD9F : 58		"X"		db	$58
+BDA0 : 14		" "		db	$14
+BDA1 : 14		" "		db	$14
+BDA2 : 14		" "		db	$14
+BDA3 : 14		" "		db	$14
+BDA4 : 14		" "		db	$14
+BDA5 : 14		" "		db	$14
+BDA6 : 26		"&"		db	$26
+BDA7 : 26		"&"		db	$26
+BDA8 : 26		"&"		db	$26
+BDA9 : 30		"0"		db	$30
+BDAA : 30		"0"		db	$30
+BDAB : 3C		"<"		db	$3C
+BDAC : 3C		"<"		db	$3C
+BDAD : 58		"X"		db	$58
+BDAE : 58		"X"		db	$58
+BDAF : 58		"X"		db	$58
+BDB0 : 14		" "		db	$14
+BDB1 : 14		" "		db	$14
+BDB2 : 14		" "		db	$14
+BDB3 : 14		" "		db	$14
+BDB4 : 14		" "		db	$14
+BDB5 : 14		" "		db	$14
+BDB6 : 26		"&"		db	$26
+BDB7 : 26		"&"		db	$26
+BDB8 : 26		"&"		db	$26
+BDB9 : 30		"0"		db	$30
+BDBA : 30		"0"		db	$30
+BDBB : 40		"@"		db	$40
+BDBC : 40		"@"		db	$40
+BDBD : 60		"`"		db	$60
+BDBE : 60		"`"		db	$60
+BDBF : 60		"`"		db	$60
+BDC0 : 14		" "		db	$14
+BDC1 : 14		" "		db	$14
+BDC2 : 14		" "		db	$14
+BDC3 : 14		" "		db	$14
+BDC4 : 14		" "		db	$14
+BDC5 : 14		" "		db	$14
+BDC6 : 26		"&"		db	$26
+BDC7 : 26		"&"		db	$26
+BDC8 : 26		"&"		db	$26
+BDC9 : 30		"0"		db	$30
+BDCA : 30		"0"		db	$30
+BDCB : 40		"@"		db	$40
+BDCC : 50		"P"		db	$50
+BDCD : 70		"p"		db	$70
+BDCE : 70		"p"		db	$70
+BDCF : 70		"p"		db	$70
+BDD0 : 14		" "		db	$14
+BDD1 : 14		" "		db	$14
+BDD2 : 14		" "		db	$14
+BDD3 : 14		" "		db	$14
+BDD4 : 14		" "		db	$14
+BDD5 : 14		" "		db	$14
+BDD6 : 26		"&"		db	$26
+BDD7 : 26		"&"		db	$26
+BDD8 : 26		"&"		db	$26
+BDD9 : 30		"0"		db	$30
+BDDA : 30		"0"		db	$30
+BDDB : 40		"@"		db	$40
+BDDC : 60		"`"		db	$60
+BDDD : 60		"`"		db	$60
+BDDE : 60		"`"		db	$60
+BDDF : 60		"`"		db	$60
+BDE0 : 14		" "		db	$14
+BDE1 : 14		" "		db	$14
+BDE2 : 14		" "		db	$14
+BDE3 : 14		" "		db	$14
+BDE4 : 14		" "		db	$14
+BDE5 : 14		" "		db	$14
+BDE6 : 26		"&"		db	$26
+BDE7 : 26		"&"		db	$26
+BDE8 : 26		"&"		db	$26
+BDE9 : 30		"0"		db	$30
+BDEA : 30		"0"		db	$30
+BDEB : 40		"@"		db	$40
+BDEC : 64		"d"		db	$64
+BDED : 64		"d"		db	$64
+BDEE : 64		"d"		db	$64
+BDEF : 64		"d"		db	$64
+BDF0 : 14		" "		db	$14
+BDF1 : 14		" "		db	$14
+BDF2 : 14		" "		db	$14
+BDF3 : 14		" "		db	$14
+BDF4 : 14		" "		db	$14
+BDF5 : 14		" "		db	$14
+BDF6 : 26		"&"		db	$26
+BDF7 : 2F		"/"		db	$2F
+BDF8 : 38		"8"		db	$38
+BDF9 : 64		"d"		db	$64
+BDFA : 64		"d"		db	$64
+BDFB : 64		"d"		db	$64
+BDFC : 64		"d"		db	$64
+BDFD : 64		"d"		db	$64
+BDFE : 64		"d"		db	$64
+BDFF : 64		"d"		db	$64
+BE00				FUEL_CHTS:
+BE00 : 40		"@"		db	$40
+BE01 : 40		"@"		db	$40
+BE02 : 40		"@"		db	$40
+BE03 : 40		"@"		db	$40
+BE04 : 40		"@"		db	$40
+BE05 : 40		"@"		db	$40
+BE06 : 40		"@"		db	$40
+BE07 : 40		"@"		db	$40
+BE08 : 40		"@"		db	$40
+BE09 : 40		"@"		db	$40
+BE0A : 40		"@"		db	$40
+BE0B : 40		"@"		db	$40
+BE0C : 40		"@"		db	$40
+BE0D : 40		"@"		db	$40
+BE0E : 40		"@"		db	$40
+BE0F : 40		"@"		db	$40
+BE10 : 40		"@"		db	$40
+BE11 : 41		"A"		db	$41
+BE12 : 42		"B"		db	$42
+BE13 : 44		"D"		db	$44
+BE14 : 46		"F"		db	$46
+BE15 : 47		"G"		db	$47
+BE16 : 4C		"L"		db	$4C
+BE17 : 4F		"O"		db	$4F
+BE18 : 53		"S"		db	$53
+BE19 : 58		"X"		db	$58
+BE1A : 5F		"_"		db	$5F
+BE1B : 61		"a"		db	$61
+BE1C : 64		"d"		db	$64
+BE1D : 66		"f"		db	$66
+BE1E : 6A		"j"		db	$6A
+BE1F : 6A		"j"		db	$6A
+BE20				FUEL_CRANK:
+BE20 : 04		" "		db	$04
+BE21 : 04		" "		db	$04
+BE22 : 04		" "		db	$04
+BE23 : 04		" "		db	$04
+BE24 : 04		" "		db	$04
+BE25 : 04		" "		db	$04
+BE26 : 04		" "		db	$04
+BE27 : 04		" "		db	$04
+BE28 : 04		" "		db	$04
+BE29 : 04		" "		db	$04
+BE2A : 04		" "		db	$04
+BE2B : 04		" "		db	$04
+BE2C : 04		" "		db	$04
+BE2D : 05		" "		db	$05
+BE2E : 06		" "		db	$06
+BE2F : 06		" "		db	$06
+BE30 : 06		" "		db	$06
+BE31 : 06		" "		db	$06
+BE32 : 06		" "		db	$06
+BE33 : 06		" "		db	$06
+BE34 : 06		" "		db	$06
+BE35 : 06		" "		db	$06
+BE36 : 06		" "		db	$06
+BE37 : 0C		" "		db	$0C
+BE38 : 13		" "		db	$13
+BE39 : 19		" "		db	$19
+BE3A : 1F		" "		db	$1F
+BE3B : 27		"'"		db	$27
+BE3C : 30		"0"		db	$30
+BE3D : 3A		":"		db	$3A
+BE3E : 4F		"O"		db	$4F
+BE3F : 4F		"O"		db	$4F
+BE40				FUEL_AFTERSTART:
+BE40 : 06		" "		db	$06
+BE41 : 06		" "		db	$06
+BE42 : 06		" "		db	$06
+BE43 : 06		" "		db	$06
+BE44 : 06		" "		db	$06
+BE45 : 06		" "		db	$06
+BE46 : 06		" "		db	$06
+BE47 : 06		" "		db	$06
+BE48 : 06		" "		db	$06
+BE49 : 06		" "		db	$06
+BE4A : 06		" "		db	$06
+BE4B : 10		" "		db	$10
+BE4C : 23		"#"		db	$23
+BE4D : 28		"("		db	$28
+BE4E : 2C		","		db	$2C
+BE4F : 32		"2"		db	$32
+BE50				UNKWN_TABLE1:
+BE50 : 00		" "		db	$00
+BE51 : 00		" "		db	$00
+BE52 : 00		" "		db	$00
+BE53 : 00		" "		db	$00
+BE54 : 00		" "		db	$00
+BE55 : 03		" "		db	$03
+BE56 : 09		" "		db	$09
+BE57 : 0E		" "		db	$0E
+BE58 : 11		" "		db	$11
+BE59 : 14		" "		db	$14
+BE5A : 16		" "		db	$16
+BE5B : 1F		" "		db	$1F
+BE5C : 33		"3"		db	$33
+BE5D : 39		"9"		db	$39
+BE5E : 40		"@"		db	$40
+BE5F : 4D		"M"		db	$4D
+BE60				UNKWN_TABLE2:
+BE60 : 44		"D"		db	$44
+BE61 : 44		"D"		db	$44
+BE62 : 44		"D"		db	$44
+BE63 : 44		"D"		db	$44
+BE64 : 44		"D"		db	$44
+BE65 : 45		"E"		db	$45
+BE66 : 46		"F"		db	$46
+BE67 : 48		"H"		db	$48
+BE68 : 4A		"J"		db	$4A
+BE69 : 4B		"K"		db	$4B
+BE6A : 4D		"M"		db	$4D
+BE6B : 4E		"N"		db	$4E
+BE6C : 4E		"N"		db	$4E
+BE6D : 4E		"N"		db	$4E
+BE6E : 4E		"N"		db	$4E
+BE6F : 4E		"N"		db	$4E
+BE70				UNKWN_TABLE3:
+BE70 : 32		"2"		db	$32
+BE71 : 32		"2"		db	$32
+BE72 : 32		"2"		db	$32
+BE73 : 32		"2"		db	$32
+BE74 : 32		"2"		db	$32
+BE75 : 35		"5"		db	$35
+BE76 : 38		"8"		db	$38
+BE77 : 3B		";"		db	$3B
+BE78 : 3E		">"		db	$3E
+BE79 : 40		"@"		db	$40
+BE7A : 43		"C"		db	$43
+BE7B : 46		"F"		db	$46
+BE7C : 46		"F"		db	$46
+BE7D : 46		"F"		db	$46
+BE7E : 46		"F"		db	$46
+BE7F : 46		"F"		db	$46
+BE80				UNKWN_TABLE4:
+BE80 : 30		"0"		db	$30
+BE81 : 30		"0"		db	$30
+BE82 : 30		"0"		db	$30
+BE83 : 30		"0"		db	$30
+BE84 : 30		"0"		db	$30
+BE85 : 33		"3"		db	$33
+BE86 : 37		"7"		db	$37
+BE87 : 39		"9"		db	$39
+BE88 : 3C		"<"		db	$3C
+BE89 : 3E		">"		db	$3E
+BE8A : 41		"A"		db	$41
+BE8B : 44		"D"		db	$44
+BE8C : 44		"D"		db	$44
+BE8D : 44		"D"		db	$44
+BE8E : 44		"D"		db	$44
+BE8F : 44		"D"		db	$44
+BE90				UNKWN_TABLE5:
+BE90 : 00		" "		db	$00
+BE91 : 00		" "		db	$00
+BE92 : 00		" "		db	$00
+BE93 : 00		" "		db	$00
+BE94 : 00		" "		db	$00
+BE95 : 00		" "		db	$00
+BE96 : 08		" "		db	$08
+BE97 : 10		" "		db	$10
+BE98 : 18		" "		db	$18
+BE99 : 20		" "		db	$20
+BE9A : 20		" "		db	$20
+BE9B : 20		" "		db	$20
+BE9C : 20		" "		db	$20
+BE9D : 20		" "		db	$20
+BE9E : 20		" "		db	$20
+BE9F : 20		" "		db	$20
+BEA0				UNKWN_TABLE6:
+BEA0 : 34		"4"		db	$34
+BEA1 : 34		"4"		db	$34
+BEA2 : 34		"4"		db	$34
+BEA3 : 34		"4"		db	$34
+BEA4 : 34		"4"		db	$34
+BEA5 : 3E		">"		db	$3E
+BEA6 : 44		"D"		db	$44
+BEA7 : 4A		"J"		db	$4A
+BEA8 : 50		"P"		db	$50
+BEA9 : 5B		"["		db	$5B
+BEAA : 67		"g"		db	$67
+BEAB : 70		"p"		db	$70
+BEAC : 70		"p"		db	$70
+BEAD : 70		"p"		db	$70
+BEAE : 70		"p"		db	$70
+BEAF : 70		"p"		db	$70
+				;microcode
+BEB0				LBEB0:
+BEB0 : 96 47		" G"		ldaa	X0047
+BEB2 : 85 40		" @"		bita	#$40
+BEB4 : 27 06		"' "		beq	LBEBC
+BEB6 : 96 04		"  "		ldaa	X0004
+BEB8 : 81 78		" x"		cmpa	#$78
+BEBA : 24 07		"$ "		bcc	LBEC3
+BEBC				LBEBC:
+BEBC : 96 7C		" |"		ldaa	X007C
+BEBE : 2A 03		"* "		bpl	LBEC3
+BEC0 : 7E A6 CE		"~  "		jmp	LA6CE
+BEC3				LBEC3:
+BEC3 : 7E A6 F2		"~  "		jmp	LA6F2
+				;
+BEC6 : 3F		"?"		swi
+BEC7 : 3F		"?"		swi
+BEC8 : 3F		"?"		swi
+BEC9 : 3F		"?"		swi
+BECA : 3F		"?"		swi
+BECB : 3F		"?"		swi
+BECC : 3F		"?"		swi
+BECD : 3F		"?"		swi
+BECE : 3F		"?"		swi
+BECF : 3F		"?"		swi
+BED0 : 3F		"?"		swi
+BED1 : 3F		"?"		swi
+BED2 : 3F		"?"		swi
+BED3 : 3F		"?"		swi
+BED4 : 3F		"?"		swi
+BED5 : 3F		"?"		swi
+BED6 : 3F		"?"		swi
+BED7 : 3F		"?"		swi
+BED8 : 3F		"?"		swi
+BED9 : 3F		"?"		swi
+BEDA : 3F		"?"		swi
+BEDB : 3F		"?"		swi
+BEDC : 3F		"?"		swi
+BEDD : 3F		"?"		swi
+BEDE : 3F		"?"		swi
+BEDF : 3F		"?"		swi
+BEE0 : 3F		"?"		swi
+BEE1 : 3F		"?"		swi
+BEE2 : 3F		"?"		swi
+BEE3 : 3F		"?"		swi
+BEE4 : 3F		"?"		swi
+BEE5 : 3F		"?"		swi
+BEE6 : 3F		"?"		swi
+BEE7 : 3F		"?"		swi
+BEE8 : 3F		"?"		swi
+BEE9 : 3F		"?"		swi
+BEEA : 3F		"?"		swi
+BEEB : 3F		"?"		swi
+BEEC : 3F		"?"		swi
+BEED : 3F		"?"		swi
+BEEE : 3F		"?"		swi
+BEEF : 3F		"?"		swi
+				;
+BEF0				8x8_TABLE:
+BEF0 : C8		" "		db	$C8
+BEF1 : C8		" "		db	$C8
+BEF2 : C8		" "		db	$C8
+BEF3 : 9C		" "		db	$9C
+BEF4 : 88		" "		db	$88
+BEF5 : 7C		"|"		db	$7C
+BEF6 : 6E		"n"		db	$6E
+BEF7 : C8		" "		db	$C8
+BEF8 : C8		" "		db	$C8
+BEF9 : C8		" "		db	$C8
+BEFA : 90		" "		db	$90
+BEFB : 86		" "		db	$86
+BEFC : 78		"x"		db	$78
+BEFD : 6C		"l"		db	$6C
+BEFE : 64		"d"		db	$64
+BEFF : C8		" "		db	$C8
+BF00 : C8		" "		db	$C8
+BF01 : 92		" "		db	$92
+BF02 : 88		" "		db	$88
+BF03 : 7E		"~"		db	$7E
+BF04 : 74		"t"		db	$74
+BF05 : 56		"V"		db	$56
+BF06 : 46		"F"		db	$46
+BF07 : 00		" "		db	$00
+BF08 : AA		" "		db	$AA
+BF09 : 86		" "		db	$86
+BF0A : 7C		"|"		db	$7C
+BF0B : 78		"x"		db	$78
+BF0C : 6E		"n"		db	$6E
+BF0D : 44		"D"		db	$44
+BF0E : 28		"("		db	$28
+BF0F : 00		" "		db	$00
+BF10 : 90		" "		db	$90
+BF11 : 82		" "		db	$82
+BF12 : 7A		"z"		db	$7A
+BF13 : 74		"t"		db	$74
+BF14 : 68		"h"		db	$68
+BF15 : 32		"2"		db	$32
+BF16 : 00		" "		db	$00
+BF17 : 00		" "		db	$00
+BF18 : 86		" "		db	$86
+BF19 : 78		"x"		db	$78
+BF1A : 72		"r"		db	$72
+BF1B : 6A		"j"		db	$6A
+BF1C : 58		"X"		db	$58
+BF1D : 00		" "		db	$00
+BF1E : 00		" "		db	$00
+BF1F : 00		" "		db	$00
+BF20 : 80		" "		db	$80
+BF21 : 6A		"j"		db	$6A
+BF22 : 62		"b"		db	$62
+BF23 : 5A		"Z"		db	$5A
+BF24 : 3C		"<"		db	$3C
+BF25 : 00		" "		db	$00
+BF26 : 00		" "		db	$00
+BF27 : 00		" "		db	$00
+BF28 : 84		" "		db	$84
+BF29 : 72		"r"		db	$72
+BF2A : 62		"b"		db	$62
+BF2B : 5A		"Z"		db	$5A
+BF2C : 3C		"<"		db	$3C
+BF2D : 00		" "		db	$00
+BF2E : 00		" "		db	$00
+BF2F : 00		" "		db	$00
+BF30				UNKWN_TP_SCALE_8x1:
+BF30 : 00		" "		db	$00
+BF31 : 5C		"\"		db	$5C
+BF32 : 00		" "		db	$00
+BF33 : 6C		"l"		db	$6C
+BF34 : 00		" "		db	$00
+BF35 : 7B		"{"		db	$7B
+BF36 : 00		" "		db	$00
+BF37 : 8A		" "		db	$8A
+BF38 : 00		" "		db	$00
+BF39 : 9A		" "		db	$9A
+BF3A : 00		" "		db	$00
+BF3B : C0		" "		db	$C0
+BF3C : 00		" "		db	$00
+BF3D : E0		" "		db	$E0
+BF3E : 01		" "		db	$01
+BF3F : 20		" "		db	$20
+BF40				DATA_MISC:
+BF40 : 10		" "		db	$10
+BF41 : 60		"`"		db	$60
+BF42 : FF		" "		db	$FF
+BF43 : 12		" "		db	$12
+BF44 : 0C		" "		db	$0C
+BF45 : 63		"c"		db	$63
+BF46 : 33		"3"		db	$33
+BF47 : 08		" "		db	$08
+BF48 : CD		" "		db	$CD
+BF49 : C0		" "		db	$C0
+BF4A : 00		" "		db	$00
+BF4B : B8		" "		db	$B8
+BF4C : 38		"8"		db	$38
+BF4D : 3C		"<"		db	$3C
+BF4E : 30		"0"		db	$30
+BF4F : 06		" "		db	$06
+BF50 : 02		" "		db	$02
+BF51 : 08		" "		db	$08
+BF52 : 21		"!"		db	$21
+BF53 : 04		" "		db	$04
+BF54 : 40		"@"		db	$40
+BF55 : 38		"8"		db	$38
+BF56 : 3C		"<"		db	$3C
+BF57 : 40		"@"		db	$40
+BF58 : 0C		" "		db	$0C
+BF59 : 46		"F"		db	$46
+BF5A : 7D		"}"		db	$7D
+BF5B : 0A		" "		db	$0A
+BF5C : 19		" "		db	$19
+BF5D : 32		"2"		db	$32
+BF5E : 19		" "		db	$19
+BF5F : 24		"$"		db	$24
+BF60 : 32		"2"		db	$32
+BF61 : 82		" "		db	$82
+BF62 : 1E		" "		db	$1E
+BF63 : A0		" "		db	$A0
+BF64 : 04		" "		db	$04
+BF65 : 08		" "		db	$08
+BF66 : 3C		"<"		db	$3C
+BF67 : 80		" "		db	$80
+BF68 : A0		" "		db	$A0
+BF69 : 10		" "		db	$10
+BF6A : 3C		"<"		db	$3C
+BF6B : 3D		"="		db	$3D
+BF6C : 17		" "		db	$17
+BF6D : 2B		"+"		db	$2B
+BF6E : 30		"0"		db	$30
+BF6F : 35		"5"		db	$35
+BF70 : 3A		":"		db	$3A
+BF71 : 48		"H"		db	$48
+BF72 : 70		"p"		db	$70
+BF73 : 78		"x"		db	$78
+BF74 : 80		" "		db	$80
+BF75 : 5A		"Z"		db	$5A
+BF76 : 3A		":"		db	$3A
+BF77 : 03		" "		db	$03
+BF78 : 14		" "		db	$14
+BF79 : 32		"2"		db	$32
+BF7A : 64		"d"		db	$64
+BF7B : 6C		"l"		db	$6C
+BF7C : A5		" "		db	$A5
+BF7D : 00		" "		db	$00
+BF7E : 00		" "		db	$00
+BF7F : C8		" "		db	$C8
+BF80 : 14		" "		db	$14
+BF81 : 0A		" "		db	$0A
+BF82 : 61		"a"		db	$61
+BF83 : 6C		"l"		db	$6C
+BF84 : 50		"P"		db	$50
+BF85 : 01		" "		db	$01
+BF86 : 00		" "		db	$00
+BF87 : 04		" "		db	$04
+BF88 : 05		" "		db	$05
+BF89 : 3D		"="		db	$3D
+BF8A : 50		"P"		db	$50
+BF8B : 00		" "		db	$00
+BF8C : A0		" "		db	$A0
+BF8D : 01		" "		db	$01
+BF8E : 40		"@"		db	$40
+BF8F : 00		" "		db	$00
+BF90 : 05		" "		db	$05
+BF91 : 0A		" "		db	$0A
+BF92 : 00		" "		db	$00
+BF93 : 05		" "		db	$05
+BF94 : 0A		" "		db	$0A
+BF95 : 00		" "		db	$00
+BF96 : 05		" "		db	$05
+BF97 : 05		" "		db	$05
+BF98 : 96		" "		db	$96
+BF99 : 3C		"<"		db	$3C
+BF9A : 38		"8"		db	$38
+BF9B : 02		" "		db	$02
+BF9C : 01		" "		db	$01
+BF9D : 41		"A"		db	$41
+BF9E : 00		" "		db	$00
+BF9F : 1A		" "		db	$1A
+				;some data & SWI  
+BFA0 : 01		" "		db $01
+BFA1 : 33		"3"		db $33
+BFA2 : 0A		" "		db $0A
+BFA3 : FB		" "		db $FB 
+BFA4 : FF		" "		db $FF
+BFA5 : 3F		" "		swi
+BFA6 : 3F		"?"		swi
+BFA7 : 3F		"?"		swi
+BFA8 : 3F		"?"		swi
+BFA9 : 3F		"?"		swi
+BFAA : 3F		"?"		swi
+BFAB : 3F		"?"		swi
+BFAC : 3F		"?"		swi
+BFAD : 3F		"?"		swi
+BFAE : 3F		"?"		swi
+BFAF : 3F		"?"		swi
+				;
+BFB0				IGN_DUTY_DWELL%:
+BFB0 : 0B		" "		db	$0B
+BFB1 : 0F		" "		db	$0F
+BFB2 : 27		"'"		db	$27
+BFB3 : 3E		">"		db	$3E
+BFB4 : 5B		"["		db	$5B
+BFB5 : 72		"r"		db	$72
+BFB6 : 89		" "		db	$89
+BFB7 : A0		" "		db	$A0
+BFB8 : B6		" "		db	$B6
+BFB9 : CD		" "		db	$CD
+BFBA : D2		" "		db	$D2
+BFBB : DD		" "		db	$DD
+BFBC : E8		" "		db	$E8
+BFBD : E8		" "		db	$E8
+BFBE : E8		" "		db	$E8
+BFBF : E8		" "		db	$E8
+BFC0				UNKWN_RPM_SCALE_8x1:
+BFC0 : 00		" "		db	$00
+BFC1 : 60		"`"		db	$60
+BFC2 : 00		" "		db	$00
+BFC3 : 70		"p"		db	$70
+BFC4 : 00		" "		db	$00
+BFC5 : 80		" "		db	$80
+BFC6 : 00		" "		db	$00
+BFC7 : 90		" "		db	$90
+BFC8 : 00		" "		db	$00
+BFC9 : A0		" "		db	$A0
+BFCA : 00		" "		db	$00
+BFCB : C0		" "		db	$C0
+BFCC : 00		" "		db	$00
+BFCD : E0		" "		db	$E0
+BFCE : 00		" "		db	$00
+BFCF : F0		" "		db	$F0
+BFD0				UNKWN_DATA:
+BFD0 : 00		" "		db	$00
+BFD1 : 50		"P"		db	$50
+BFD2 : 01		" "		db	$01
+BFD3 : 00		" "		db	$00
+BFD4 : 10		" "		db	$10
+BFD5 : 10		" "		db	$10
+BFD6 : 10		" "		db	$10
+BFD7 : 10		" "		db	$10
+BFD8 : 10		" "		db	$10
+BFD9 : 10		" "		db	$10
+BFDA : 10		" "		db	$10
+BFDB : 12		" "		db	$12
+BFDC : 14		" "		db	$14
+BFDD : 16		" "		db	$16
+BFDE : 19		" "		db	$19
+BFDF : 19		" "		db	$19
+BFE0				IGN_IDLE_SWITCH:
+BFE0 : 00		" "		db	$00
+BFE1 : 00		" "		db	$00
+BFE2 : 00		" "		db	$00
+BFE3 : 00		" "		db	$00
+BFE4 : 00		" "		db	$00
+BFE5 : 00		" "		db	$00
+BFE6 : 02		" "		db	$02
+BFE7 : 04		" "		db	$04
+BFE8 : 06		" "		db	$06
+BFE9 : 08		" "		db	$08
+BFEA : 0A		" "		db	$0A
+BFEB : 0C		" "		db	$0C
+BFEC : 0E		" "		db	$0E
+BFED : 10		" "		db	$10
+BFEE : 10		" "		db	$10
+BFEF : 10		" "		db	$10
+				; not microcode
+BFF0 : 3F		"?"		swi
+BFF1 : 3F		"?"		swi
+BFF2 : 3F		"?"		swi
+BFF3 : 30		" "		db $30
+BFF4 : 66		" "		db	$66
+bff5 : 89		" "		db	$89
+BFF6 : 4B		" "		db	$4B
+BFF7 : 01		" "		db	$01 
+;end of used data 
+BFF8 : A6		" "		db	$A6 
+BFF9 : AC		" "		db	$AC 
+BFFA : A8		" "		db	$A8 
+BFFB : 43		" "		db	$43
+BFFC : BA		" "		db	$BA 
+BFFD : DA		" "		db	$DA 
+BFFE : A8		" "		db	$A8 
+BFFF : 43		" "		db	$43 
+
+;--------------------------------------------------------------
+
+;----inputs----
+;CHTS
+;RPM/CAS
+;AFM
+;IAT
+;o2 sensor
+;knock sensor
+;idle switch
+;vehicle speed sensor( from dash )
+;Air conditioner switch
+;Barometric pressure sensor (internal to ECU) 
+;battery voltage, internal sensor?
+;----outputs----
+;injector PWM (maybe batch?)
+;ignition coil 
+;VCM EGR
+;VCM AAC
+;Fuel Pump Modulator
+;
+
+;--------------------------------------------------------------
+Symbol table
+============
+
+Value		Type	Name
+-----		----	----
+;---- internal RAM ---- the MCW6802 has 128bytes of on-board RAM located at hex addresses $~ to $007F
+0000		Data	X0000
+0001		Data	X0001
+0004		Data	X0004
+0005		Data	X0005
+0006		Data	X0006
+0007		Data	X0007
+0008		Data	X0008
+0009		Data	X0009
+000A		Data	X000A
+000B		Data	X000B
+000C		Data	X000C
+000D		Data	X000D
+000F		Data	X000F
+0010		Data	X0010
+0011		Data	X0011
+0012		Data	X0012
+0013		Data	X0013
+0014		Data	X0014
+0015		Data	X0015
+0017		Data	X0017
+0018		Data	X0018
+0019		Data	X0019
+001A		Data	X001A
+001C		Data	X001C
+001D		Data	X001D
+001E		Data	X001E
+001F		Data	X001F
+0020		Data	X0020
+0021		Data	X0021
+0022		Data	X0022
+0023		Data	X0023
+0024		Data	X0024
+0025		Data	X0025
+0026		Data	X0026
+0027		Data	X0027
+0028		Data	X0028
+0029		Data	X0029
+002A		Data	X002A
+002B		Data	X002B
+002C		Data	X002C
+002D		Data	X002D
+002E		Data	X002E
+002F		Data	X002F
+0030		Data	X0030
+0031		Data	X0031
+0032		Data	X0032
+0033		Data	X0033
+0034		Data	X0034
+0035		Data	X0035
+0036		Data	X0036
+0037		Data	X0037
+0038		Data	X0038
+0039		Data	X0039
+003A		Data	X003A
+003B		Data	X003B
+003C		Data	X003C
+003D		Data	X003D
+003E		Data	X003E
+003F		Data	X003F
+0041		Data	X0041
+0043		Data	X0043
+0044		Data	X0044
+0045		Data	X0045
+0046		Data	X0046
+0047		Data	X0047
+0048		Data	X0048
+0049		Data	X0049
+004A		Data	X004A
+004B		Data	X004B
+004C		Data	X004C
+004D		Data	X004D
+004E		Data	X004E
+004F		Data	X004F
+0050		Data	X0050
+0051		Data	X0051
+0052		Data	X0052
+0053		Data	X0053
+0054		Data	X0054
+0055		Data	X0055
+0056		Data	X0056
+0057		Data	X0057
+0058		Data	X0058
+0059		Data	X0059
+005A		Data	X005A
+005B		Data	X005B
+005C		Data	X005C
+005D		Data	X005D
+005E		Data	X005E
+005F		Data	X005F
+0060		Data	X0060
+0061		Data	X0061
+0062		Data	X0062
+0063		Data	X0063
+0064		Data	X0064
+0065		Data	X0065
+0066		Data	X0066
+0067		Data	X0067
+0068		Data	X0068
+0069		Data	X0069
+006A		Data	X006A
+006B		Data	X006B
+006C		Data	X006C
+006D		Data	X006D
+006E		Data	X006E
+006F		Data	X006F
+0071		Data	X0071
+0073		Data	X0073
+0074		Data	X0074
+0075		Data	X0075
+0076		Data	X0076
+0077		Data	X0077
+0078		Data	X0078
+0079		Data	X0079 ; RPM ? 
+007A		Data	X007A
+007B		Data	X007B
+007C		Data	X007C
+007D		Data	X007D
+007E		Data	X007E
+007F		Data	X007F
+; IO? A7 high  
+
+0080		Data	X0080 ;out
+0081		Data	X0081 ;out
+0082		Data	X0082 ;store index register, out ?
+0084		Data	X0084 ;STX, out? 
+0086		Data	X0086 ;STX
+0088		Data	X0088 ;out
+0089		Data	X0089 ;out
+008A		Data	X008A ;out
+008B		Data	X008B ;out
+008C		Data	X008C ;out 
+008D		Data	X008D ;out
+008E		Data	X008E ;out
+008F		Data	X008F ;out
+0090		Data	X0090 ;input DWORD + X0091 
+0091		Data	X0091 ;input
+0092		Data	X0092 ;input? STX & lDAA 
+0093		Data	X0093 ;input
+0094		Data	X0094 ;IO LDX & STAA?  
+0096		Data	X0096 ;IO LDX & STAA? 
+0098		Data	X0098 ;out STAA 
+0099		Data	X0099 ;io STAA & LDAA 
+009A		Data	X009A ; LDAA & STAB DWORD?
+009B		Data	X009B ;
+009C		Data	X009C ;out
+009D		Data	X009D ;out
+009E		Data	X009E ;out
+009F		Data	X009F ;io
+; External RAM A8 high, A7 low
+0100		Data	X0100
+0101		Data	X0101
+0102		Data	X0102
+0104		Data	X0104
+0106		Data	X0106
+0109		Data	X0109
+010A		Data	X010A
+010B		Data	X010B
+010C		Data	X010C
+010D		Data	X010D
+010E		Data	X010E
+010F		Data	X010F
+0110		Data	X0110
+0111		Data	X0111
+0112		Data	X0112
+0113		Data	X0113
+0115		Data	X0115
+0116		Data	X0116
+0118		Data	X0118
+011A		Data	X011A
+011B		Data	X011B
+011C		Data	X011C
+011D		Data	X011D
+011E		Data	X011E
+011F		Data	X011F
+0120		Data	X0120
+0121		Data	X0121
+0122		Data	X0122
+0123		Data	X0123
+0124		Data	X0124
+0125		Data	X0125
+0126		Data	X0126
+0127		Data	X0127
+0128		Data	X0128
+0129		Data	X0129
+012A		Data	X012A
+012B		Data	X012B
+012C		Data	X012C
+012D		Data	X012D
+012E		Data	X012E
+012F		Data	X012F
+0130		Data	X0130
+0131		Data	X0131
+0132		Data	X0132
+0133		Data	X0133
+0134		Data	X0134 
+;----CODE----  Internal 2364 ROM A000 to BFFF
+A000		Code	start
+A00F		Code	LA00F
+A013		Code	LA013
+A015		Code	LA015
+A017		Code	LA017
+A01C		Code	LA01C
+A020		Code	LA020
+A025		Code	LA025
+A091		Code	LA091
+A0A5		Code	LA0A5
+A0A8		Code	LA0A8
+A0B7		Code	LA0B7
+A0C0		Code	LA0C0
+A0CB		Code	LA0CB
+A0DE		Code	LA0DE
+A0E1		Code	LA0E1
+A0E8		Code	LA0E8
+A0F0		Code	LA0F0
+A10B		Code	LA10B
+A10F		Code	LA10F
+A11A		Code	LA11A
+A130		Code	LA130
+A133		Code	LA133
+A13A		Code	LA13A
+A140		Code	LA140
+A145		Code	LA145
+A14B		Code	LA14B
+A14C		Code	LA14C
+A176		Code	LA176
+A17D		Code	LA17D
+A180		Code	LA180
+A195		Code	LA195
+A197		Code	LA197
+A1A6		Code	LA1A6
+A1AE		Code	LA1AE
+A1B0		Code	LA1B0
+A1D5		Code	LA1D5
+A1DD		Code	LA1DD
+A1E5		Code	LA1E5
+A1EB		Code	LA1EB
+A1F9		Code	LA1F9
+A1FB		Code	LA1FB
+A20A		Code	LA20A
+A213		Code	LA213
+A217		Code	LA217
+A240		Code	LA240
+A248		Code	LA248
+A250		Code	LA250
+A256		Code	LA256
+A289		Code	LA289
+A290		Code	LA290
+A2A2		Code	LA2A2
+A2A6		Code	LA2A6
+A2B0		Code	LA2B0
+A2B7		Code	LA2B7
+A2C1		Code	LA2C1
+A2CD		Code	LA2CD
+A2CF		Code	LA2CF
+A2D1		Code	LA2D1
+A2F0		Code	LA2F0
+A307		Code	LA307
+A314		Code	LA314
+A32B		Code	LA32B
+A334		Code	LA334
+A341		Code	LA341
+A342		Code	LA342
+A356		Code	LA356
+A35A		Code	LA35A
+A35C		Code	LA35C
+A35D		Code	LA35D
+A36A		Code	LA36A
+A37A		Code	LA37A
+A38D		Code	LA38D
+A38E		Code	LA38E
+A395		Code	LA395
+A3A0		Code	LA3A0
+A3AA		Code	LA3AA
+A3B1		Code	LA3B1
+A3C6		Code	LA3C6
+A3DE		Code	LA3DE
+A406		Code	LA406
+A40A		Code	LA40A
+A40E		Code	LA40E
+A412		Code	LA412
+A416		Code	LA416
+A41A		Code	LA41A
+A41E		Code	LA41E
+A422		Code	LA422
+A426		Code	LA426
+A428		Code	LA428
+A42F		Code	LA42F
+A441		Code	LA441
+A44B		Code	LA44B
+A452		Code	LA452
+A464		Code	LA464
+A46E		Code	LA46E
+A479		Code	LA479
+A488		Code	LA488
+A49D		Code	LA49D
+A4B6		Code	LA4B6
+A4C3		Code	LA4C3
+A4E5		Code	LA4E5
+A4E8		Code	LA4E8
+A4EA		Code	LA4EA
+A4F7		Code	LA4F7
+A528		Code	LA528
+A530		Code	LA530
+A532		Code	LA532
+A54E		Code	LA54E
+A574		Code	LA574
+A578		Code	LA578
+A57C		Code	LA57C
+A583		Code	LA583
+A596		Code	LA596
+A59D		Code	LA59D
+A5C0		Code	LA5C0
+A5C4		Code	LA5C4
+A5C7		Code	LA5C7
+A5F8		Code	LA5F8
+A600		Code	LA600
+A602		Code	LA602
+A61E		Code	LA61E
+A639		Code	LA639
+A645		Code	LA645
+A649		Code	LA649
+A64F		Code	LA64F
+A651		Code	LA651
+A65B		Code	LA65B
+A663		Code	LA663
+A6B9		Code	LA6B9
+A6CE		Code	LA6CE
+A6DC		Code	LA6DC
+A6E1		Code	LA6E1
+A6EE		Code	LA6EE
+A6F2		Code	LA6F2
+A6F9		Code	LA6F9
+A70C		Code	LA70C
+A72D		Code	LA72D
+A73F		Code	LA73F
+A741		Code	LA741
+A743		Code	LA743
+A74F		Code	LA74F
+A757		Code	LA757
+A78F		Code	LA78F
+A7A3		Code	LA7A3
+A7B7		Code	LA7B7
+A7CD		Code	LA7CD
+A7D1		Code	LA7D1
+A7D8		Code	LA7D8
+A7EB		Code	LA7EB
+A7F5		Code	LA7F5
+A804		Code	LA804
+A814		Code	LA814
+A81B		Code	LA81B
+A82A		Code	LA82A
+A834		Code	LA834
+A84C		Code	LA84C
+A852		Code	LA852
+A853		Code	LA853
+A85B		Code	LA85B
+A86E		Code	LA86E
+A870		Code	LA870
+A8CD		Code	LA8CD
+A8CF		Code	LA8CF
+A8F5		Code	LA8F5
+A904		Code	LA904
+A913		Code	LA913
+A91F		Code	LA91F
+A92B		Code	LA92B
+A94C		Code	LA94C
+A95E		Code	LA95E
+A961		Code	LA961
+A975		Code	LA975
+A9C7		Code	LA9C7
+A9CA		Code	LA9CA
+A9CE		Code	LA9CE
+A9E8		Code	LA9E8
+A9FC		Code	LA9FC
+AA12		Code	LAA12
+AA20		Code	LAA20
+AA38		Code	LAA38
+AA50		Code	LAA50
+AA54		Code	LAA54
+AA56		Code	LAA56
+AA5C		Code	LAA5C
+AA62		Code	LAA62
+AA7B		Code	LAA7B
+AA83		Code	LAA83
+AA98		Code	LAA98
+AAB5		Code	LAAB5
+AABA		Code	LAABA
+AABE		Code	LAABE
+AACF		Code	LAACF
+AAD1		Code	LAAD1
+AAD4		Code	LAAD4
+AAE2		Code	LAAE2
+AAE8		Code	LAAE8
+AAED		Code	LAAED
+AB00		Code	LAB00
+AB04		Code	LAB04
+AB16		Code	LAB16
+AB1A		Code	LAB1A
+AB45		Code	LAB45
+AB4A		Code	LAB4A
+AB4E		Code	LAB4E
+AB54		Code	LAB54
+AB6B		Code	LAB6B
+AB83		Code	LAB83
+AB8B		Code	LAB8B
+AB99		Code	LAB99
+AB9B		Code	LAB9B
+ABAE		Code	LABAE
+ABB9		Code	LABB9
+ABC9		Code	LABC9
+ABD7		Code	LABD7
+ABE3		Code	LABE3
+ABED		Code	LABED
+ABF2		Code	LABF2
+ABFE		Code	LABFE
+AC08		Code	LAC08
+AC0D		Code	LAC0D
+AC19		Code	LAC19
+AC23		Code	LAC23
+AC26		Code	LAC26
+AC4C		Code	LAC4C
+AC4E		Code	LAC4E
+AC59		Code	LAC59
+AC60		Code	LAC60
+AC87		Code	LAC87
+AC89		Code	LAC89
+AC9D		Code	LAC9D
+ACBF		Code	LACBF
+ACC4		Code	LACC4
+ACC6		Code	LACC6
+ACF1		Code	LACF1
+ACF6		Code	LACF6
+AD02		Code	LAD02
+AD05		Code	LAD05
+AD13		Code	LAD13
+AD23		Code	LAD23
+AD2B		Code	LAD2B
+AD33		Code	LAD33
+AD3B		Code	LAD3B
+AD5B		Code	LAD5B
+AD5E		Code	LAD5E
+AD62		Code	LAD62
+AD69		Code	LAD69
+AD6D		Code	LAD6D
+AD81		Code	LAD81
+AD8C		Code	LAD8C
+ADA6		Code	LADA6
+ADB1		Code	LADB1
+ADBF		Code	LADBF
+ADCA		Code	LADCA
+ADD6		Code	LADD6
+ADDE		Code	LADDE
+ADEC		Code	LADEC
+ADEF		Code	LADEF
+ADF8		Code	LADF8
+AE0B		Code	LAE0B
+AE0C		Code	LAE0C
+AE20		Code	LAE20
+AE38		Code	LAE38
+AE41		Code	LAE41
+AE56		Code	LAE56
+AE6B		Code	LAE6B
+AE84		Code	LAE84
+AE94		Code	LAE94
+AE99		Code	LAE99
+AE9A		Code	LAE9A
+AEA8		Code	LAEA8
+AEB0		Code	LAEB0
+AEB2		Code	LAEB2
+AEC7		Code	LAEC7
+AECB		Code	LAECB
+AF00		Code	LAF00
+AF05		Code	LAF05
+AF08		Code	LAF08
+AF0B		Code	LAF0B
+AF1B		Code	LAF1B
+AF20		Code	LAF20
+AF2C		Code	LAF2C
+AF33		Code	LAF33
+AF36		Code	LAF36
+AF48		Code	LAF48
+AF5A		Code	LAF5A
+AF5E		Code	LAF5E
+AF66		Code	LAF66
+AF6A		Code	LAF6A
+AF70		Code	LAF70
+AF74		Code	LAF74
+AF77		Code	LAF77
+AF84		Code	LAF84
+AF8A		Code	LAF8A
+AF95		Code	LAF95
+AF9A		Code	LAF9A
+AFAE		Code	LAFAE
+AFBC		Code	LAFBC
+AFC3		Code	LAFC3
+AFCF		Code	LAFCF
+AFD9		Code	LAFD9
+AFE0		Code	LAFE0
+AFEA		Code	LAFEA
+AFFD		Code	LAFFD
+B005		Code	LB005
+B008		Code	LB008
+B00B		Code	LB00B
+B029		Code	LB029
+B031		Code	LB031
+B047		Code	LB047
+B04F		Code	LB04F
+B059		Code	LB059
+B06A		Code	LB06A
+B074		Code	LB074
+B07A		Code	LB07A
+B07C		Code	LB07C
+B098		Code	LB098
+B09B		Code	LB09B
+B0A8		Code	LB0A8
+B0A9		Code	LB0A9
+B0B3		Code	LB0B3
+B0B5		Code	LB0B5
+B0BD		Code	LB0BD
+B0C8		Code	LB0C8
+B0CE		Code	LB0CE
+B0D9		Code	LB0D9
+B0E8		Code	LB0E8
+B0F1		Code	LB0F1
+B0F7		Code	LB0F7
+B100		Code	LB100
+B10F		Code	LB10F
+B11D		Code	LB11D
+B11F		Code	LB11F
+B140		Code	LB140
+B143		Code	LB143
+B148		Code	LB148
+B14B		Code	LB14B
+B154		Code	LB154
+B156		Code	LB156
+B172		Code	LB172
+B177		Code	LB177
+B17A		Code	LB17A
+B17F		Code	LB17F
+B182		Code	LB182
+B189		Code	LB189
+B1A3		Code	LB1A3
+B1B3		Code	LB1B3
+B1D1		Code	LB1D1
+B1D4		Code	LB1D4
+B1EF		Code	LB1EF
+B1F4		Code	LB1F4
+B1F9		Code	LB1F9
+B20B		Code	LB20B
+B211		Code	LB211
+B219		Code	LB219
+B242		Code	LB242
+B246		Code	LB246
+B248		Code	LB248
+B267		Code	LB267
+B271		Code	LB271
+B281		Code	LB281
+B28F		Code	LB28F
+B2A0		Code	LB2A0
+B2F8		Code	LB2F8
+B30B		Code	LB30B
+B31F		Code	LB31F
+B323		Code	LB323
+B326		Code	LB326
+B32E		Code	LB32E
+B33A		Code	LB33A
+B340		Code	LB340
+B34C		Code	LB34C
+B352		Code	LB352
+B368		Code	LB368
+B36E		Code	LB36E
+B3B2		Code	LB3B2
+B3BE		Code	LB3BE
+B3CF		Code	LB3CF
+B3D3		Code	LB3D3
+B408		Code	LB408
+B41E		Code	LB41E
+B427		Code	LB427
+B436		Code	LB436
+B45F		Code	LB45F
+B468		Code	LB468
+B470		Code	LB470
+B495		Code	LB495
+B497		Code	LB497
+B49F		Code	LB49F
+B4AD		Code	LB4AD
+B4AF		Code	LB4AF
+B4BF		Code	LB4BF
+B4C0		Code	LB4C0
+B4CA		Code	LB4CA
+B4CE		Code	LB4CE
+B4D1		Code	LB4D1
+B4EB		Code	LB4EB
+B4EF		Code	LB4EF
+B4F2		Code	LB4F2
+B50B		Code	LB50B
+B50F		Code	LB50F
+B530		Code	LB530
+B53F		Code	LB53F
+B542		Code	LB542
+B558		Code	LB558
+B566		Code	LB566
+B56A		Code	LB56A
+B56D		Code	LB56D
+B578		Code	LB578
+B57D		Code	LB57D
+B58A		Code	LB58A
+B58C		Code	LB58C
+B58E		Code	LB58E
+B59D		Code	LB59D
+B5A5		Code	LB5A5
+B5AF		Code	LB5AF
+B5B8		Code	LB5B8
+B5BF		Code	LB5BF
+B5CC		Code	LB5CC
+B5D7		Code	LB5D7
+B5DD		Code	LB5DD
+B5ED		Code	LB5ED
+B60F		Code	LB60F
+B61D		Code	LB61D
+B646		Code	LB646
+B65C		Code	LB65C
+B66A		Code	LB66A
+B674		Code	LB674
+B67E		Code	LB67E
+B688		Code	LB688
+B692		Code	LB692
+B69C		Code	LB69C
+B6A6		Code	LB6A6
+B6BA		Code	LB6BA
+B6C1		Code	LB6C1
+B6C8		Code	LB6C8
+B6CF		Code	LB6CF
+B6D6		Code	LB6D6
+B6DB		Code	LB6DB
+B6E8		Code	LB6E8
+B728		Code	LB728
+B73A		Code	LB73A
+B740		Code	LB740
+B749		Code	LB749
+B754		Code	LB754
+B768		Code	LB768
+B777		Code	LB777
+B77E		Code	LB77E
+B790		Code	LB790
+B791		Code	LB791
+B796		Code	LB796
+B7A0		Code	LB7A0
+B7BA		Code	LB7BA
+B7D6		Code	LB7D6
+B7EA		Code	LB7EA
+B7F0		Code	LB7F0
+B7F7		Code	LB7F7
+B804		Code	LB804
+B807		Code	LB807
+B810		Code	LB810
+B830		Code	LB830
+B835		Code	LB835
+B838		Code	LB838
+B844		Code	LB844
+B848		Code	LB848
+B84F		Code	LB84F
+B863		Code	LB863
+B866		Code	LB866
+B876		Code	LB876
+B87B		Code	LB87B
+B87E		Code	LB87E
+B894		Code	LB894
+B8B5		Code	LB8B5
+B8C8		Code	LB8C8
+B8D4		Code	LB8D4
+B8D7		Code	LB8D7
+B8E3		Code	LB8E3
+B8F9		Code	LB8F9
+B8FE		Code	LB8FE
+B90A		Code	LB90A
+B90D		Code	LB90D
+B924		Code	LB924
+B92B		Code	LB92B
+B94A		Code	LB94A
+B951		Code	LB951
+B956		Code	LB956
+B977		Code	LB977
+B97E		Code	LB97E
+B984		Code	LB984
+B992		Code	LB992
+B996		Code	LB996
+B998		Code	LB998
+B999		Code	LB999
+B9AE		Code	LB9AE
+B9BC		Code	LB9BC
+B9BF		Code	LB9BF
+B9D1		Code	LB9D1
+B9D9		Code	LB9D9
+B9DC		Code	LB9DC
+B9DE		Code	LB9DE
+B9EA		Code	LB9EA
+B9ED		Code	LB9ED
+BA07		Code	LBA07
+BA0C		Code	LBA0C
+BA1E		Code	LBA1E
+BA21		Code	LBA21
+BA35		Code	LBA35
+BA3E		Code	LBA3E
+BA45		Code	LBA45
+BA66		Code	LBA66
+BA6F		Code	LBA6F
+BA77		Code	LBA77
+BA7D		Code	LBA7D
+BA82		Code	LBA82
+BA86		Code	LBA86
+BA88		Code	LBA88
+BA8B		Code	LBA8B
+BA8E		Code	LBA8E
+BA90		Code	LBA90
+BAAB		Code	LBAAB
+BABD		Code	LBABD
+BAD1		Code	LBAD1
+BAD4		Code	LBAD4
+BAF6		Code	LBAF6
+BAF8		Code	LBAF8
+BAFB		Code	LBAFB
+BB03		Code	LBB03
+BB10		Data	DATA_MISC1
+BB30		Data	CHTS_CONV
+BB50		Data	IGN_DUTY_DWELLV
+BB60		Data	FUEL_BARO
+BB70		Data	FUEL_IAT
+BB80		Data	TP_SCALE_FUEL
+BBA0		Data	RPM_SCALE_FUEL
+BBC0		Data	TP_SCALE_IGN
+BBE0		Data	RPM_SCALE_IGN
+BC00		Data	IGN_MAP
+BD00		Data	FUEL_MAP
+BE00		Data	FUEL_CHTS
+BE20		Data	FUEL_CRANK
+BE40		Data	FUEL_AFTERSTART
+BE50		Data	UNKWN_TABLE1
+BE60		Data	UNKWN_TABLE2
+BE70		Data	UNKWN_TABLE3
+BE80		Data	UNKWN_TABLE4
+BE90		Data	UNKWN_TABLE5
+BEA0		Data	UNKWN_TABLE6
+BEB0		Code	LBEB0
+BEBC		Code	LBEBC
+BEC3		Code	LBEC3
+BEF0		Data	8x8_MAP
+BF30		Data	UNKWN_TP_SCALE_8x1
+BF40		Data	DATA_MISC
+BF42		Data	XBF42
+BF43		Data	XBF43
+BF44		Data	XBF44
+BF45		Data	XBF45
+BF46		Data	XBF46
+BF47		Data	XBF47
+BF48		Data	XBF48
+BF49		Data	XBF49
+BF4A		Data	XBF4A
+BF4B		Data	XBF4B
+BF4C		Data	XBF4C
+BF4D		Data	XBF4D
+BF4E		Data	XBF4E
+BF4F		Data	XBF4F
+BF50		Data	XBF50
+BF51		Data	XBF51
+BF52		Data	XBF52
+BF53		Data	XBF53
+BF54		Data	XBF54
+BF55		Data	XBF55
+BF56		Data	XBF56
+BF57		Data	XBF57
+BF58		Data	XBF58
+BF59		Data	XBF59
+BF5A		Data	XBF5A
+BF5B		Data	XBF5B
+BF5C		Data	XBF5C
+BF5D		Data	XBF5D
+BF5E		Data	XBF5E
+BF5F		Data	XBF5F
+BF60		Data	XBF60
+BF61		Data	XBF61
+BF62		Data	XBF62
+BF63		Data	XBF63
+BF64		Data	XBF64
+BF65		Data	XBF65
+BF66		Data	XBF66
+BF67		Data	XBF67
+BF68		Data	XBF68
+BF69		Data	XBF69
+BF6A		Data	XBF6A
+BF6B		Data	XBF6B
+BF6C		Data	XBF6C
+BF6D		Data	XBF6D
+BF6E		Data	XBF6E
+BF6F		Data	XBF6F
+BF70		Data	XBF70
+BF71		Data	XBF71
+BF72		Data	XBF72
+BF73		Data	XBF73
+BF74		Data	XBF74
+BF75		Data	XBF75
+BF76		Data	XBF76
+BF77		Data	XBF77
+BF78		Data	XBF78
+BF79		Data	XBF79
+BF7A		Data	XBF7A
+BF7B		Data	XBF7B
+BF7C		Data	XBF7C
+BF7D		Data	XBF7D
+BF7E		Data	XBF7E
+BF7F		Data	XBF7F
+BF80		Data	XBF80
+BF81		Data	XBF81
+BF82		Data	XBF82
+BF83		Data	XBF83
+BF84		Data	XBF84
+BF85		Data	XBF85
+BF86		Data	XBF86
+BF87		Data	XBF87
+BF88		Data	XBF88
+BF89		Data	XBF89
+BF8A		Data	XBF8A
+BF8B		Data	XBF8B
+BF8C		Data	XBF8C
+BF8D		Data	XBF8D
+BF8E		Data	XBF8E
+BF8F		Data	XBF8F
+BF90		Data	XBF90
+BF91		Data	XBF91
+BF92		Data	XBF92
+BF93		Data	XBF93
+BF94		Data	XBF94
+BF95		Data	XBF95
+BF96		Data	XBF96
+BF97		Data	XBF97
+BF98		Data	XBF98
+BF99		Data	XBF99
+BF9A		Data	XBF9A
+BF9B		Data	XBF9B
+BF9C		Data	XBF9C
+BF9D		Data	XBF9D
+BF9E		Data	XBF9E
+BF9F		Data	XBF9F
+BFA0		Data	XBFA0
+BFA1		Data	XBFA1
+BFA2		Data	XBFA2
+BFA3		Data	XBFA3
+BFA4		Data	XBFA4
+BFB0		Data	IGN_DUTY_DWELL%
+BFC0		Data	UNKWN_RPM_SCALE_8x1
+BFD0		Data	UNKWN_DATA
+BFE0		Data	IGN_IDLE_SWITCH
+BFF3		Data	XBFF3
+BFF4		Data	XBFF4
+BFF5		Data	XBFF5
+BFF6		Data	XBFF6
+BFF7		Data	XBFF7
+FF3F		Data	XFF3F
+FFFF		Data	XFFFF
+
+Number of symbols:			856
+
+;--------------------------------------------------------------
