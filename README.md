@@ -6,6 +6,7 @@ I started out trying to just tune the maps, I succeded.
 Now I've gotten interested in learning about fuel injection, microcontrollers and assembly language.
 
 
+
 Some details about the hardware. 
 
 The 1982 ECCS ECU; (note, 1982 and 1983 ECCS ECM's are interchangeable) 
