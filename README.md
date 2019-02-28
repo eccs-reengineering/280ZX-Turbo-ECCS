@@ -7,7 +7,9 @@ Now I've gotten interested in learning about fuel injection, microcontrollers an
 
 
 
-#### Some details about the 1983/1983 ECCS hardware. 
+
+
+# Details about the 1983/1983 ECCS hardware. 
 
 ##### Hitachi HD46802P Motorola 6802 CPU varient
 
@@ -17,8 +19,6 @@ Motorola 6800 series was fairly common in the late 70's and 80s, NISSAN / JECS E
 ##### Hitachi HD46506 ADU (Analog Data Acquisition Unit)
 
 I haven't been able to find any information about this chip other than it is an IO extender. 
-
-
 
 
 ##### Hitachi HN25089 DIP-24
@@ -48,3 +48,5 @@ Addressed from A000 to BAFF
 Contains all microcode, fuel and ignition maps are on the last 1K of address space. 
 
 ##### Hitachi HM46810P RAM chip
+
+
