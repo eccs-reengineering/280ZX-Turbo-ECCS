@@ -11,7 +11,8 @@ Now I've gotten interested in learning about fuel injection, microcontrollers an
 
 # Details about the 1983/1983 ECCS hardware. 
 
-##### Hitachi HD46802P Motorola 6802 CPU varient
+##### Hitachi HD46802P 
+Motorola 6802 MCU
 
 Motorola 6800 series was fairly common in the late 70's and 80s, NISSAN / JECS ECCS ECUs used the 6802 processor up until around 1989. 
  
