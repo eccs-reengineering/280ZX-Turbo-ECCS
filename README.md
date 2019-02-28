@@ -7,22 +7,21 @@ Now I've gotten interested in learning about fuel injection, microcontrollers an
 
 
 
-####Some details about the hardware. 
+#### Some details about the 1983/1983 ECCS hardware. 
 
-The 1982 ECCS ECU; (note, 1982 and 1983 ECCS ECM's are interchangeable) 
-#####Hitachi HD46802P﻿ Motorola 6802 CPU varient
+##### Hitachi HD46802P Motorola 6802 CPU varient
 
 Motorola 6800 series was fairly common in the late 70's and 80s, NISSAN / JECS ECCS ECUs used these chips up until around 1989. 
  
  
-#####Hitachi HD46506 ADU (Analog Data Acquisition Unit)
+##### Hitachi HD46506 ADU (Analog Data Acquisition Unit)
 
 I haven't been able to find any information about this chip other than it is an IO extender. 
 
 
 
 
-#####Hitachi HN25089﻿ DIP-24
+##### Hitachi HN25089 DIP-24
 
 1K-byte 2708-type ROM 
 
@@ -38,7 +37,7 @@ This 1K ROM can be removed, and the ECU will function with the single 8K ROM as 
 
 
 
-#####Hitachi HN48364P DIP-24﻿
+##### Hitachi HN48364P DIP-24
 
 8k-byte 2364-type ROM
 
@@ -48,4 +47,4 @@ Addressed from A000 to BAFF
 
 Contains all microcode, fuel and ignition maps are on the last 1K of address space. 
 
-#####Hitachi HM46810P RAM chip
+##### Hitachi HM46810P RAM chip
