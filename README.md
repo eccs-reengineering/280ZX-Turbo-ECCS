@@ -11,7 +11,7 @@ Now I've gotten interested in learning about fuel injection, microcontrollers an
 
 ##### Hitachi HD46802P Motorola 6802 CPU varient
 
-Motorola 6800 series was fairly common in the late 70's and 80s, NISSAN / JECS ECCS ECUs used these chips up until around 1989. 
+Motorola 6800 series was fairly common in the late 70's and 80s, NISSAN / JECS ECCS ECUs used the 6802 processor up until around 1989. 
  
  
 ##### Hitachi HD46506 ADU (Analog Data Acquisition Unit)
