@@ -237,7 +237,7 @@ A135 : 96 2B		" +"		ldaa	X002B
 A137 : D6 2C		" ,"		ldab	X002C
 A139 : 39		"9"		rts
 				;
-A13A				LA13A:
+A13A				LA13A: ;this does something 
 A13A : 81 F0		"  "		cmpa	#$F0
 A13C : 23 02		"# "		bls	LA140
 A13E : 86 F0		"  "		ldaa	#$F0
@@ -247,7 +247,10 @@ A141 : 44		"D"		lsra
 A142 : 56		"V"		rorb
 A143 : 20 07		"  "		bra	LA14C
 				;
-A145				LA145:
+---------------------------------------------------------------------------------------
+;this does something with fueling enrichment scales 
+;CHTS Enrich, cranking enrich, temp sensor conversion scale, RPM scale 8x1
+				A145				LA145: 
 A145 : 81 F8		"  "		cmpa	#$F8
 A147 : 23 02		"# "		bls	LA14B
 A149 : 86 F8		"  "		ldaa	#$F8
@@ -261,17 +264,17 @@ A14F : 56		"V"		rorb
 A150 : 44		"D"		lsra
 A151 : 56		"V"		rorb
 A152 : 0F		" "		sei
-A153 : DF 53		" S"		stx	X0053
+A153 : DF 53		" S"		stx	X0053 ; store loaded scale address to 0x0053 
 A155 : 9B 54		" T"		adda	X0054
 A157 : 97 54		" T"		staa	X0054
 A159 : 86 00		"  "		ldaa	#$00
 A15B : 99 53		" S"		adca	X0053
 A15D : 97 53		" S"		staa	X0053
-A15F : DE 53		" S"		ldx	X0053
+A15F : DE 53		" S"		ldx	X0053 ; SCALE_ADDR -> X 
 A161 : 0E		" "		cli
 A162 : 5D		"]"		tstb
 A163 : 27 18		"' "		beq	LA17D
-A165 : A6 01		"  "		ldaa	$01,x
+A165 : A6 01		"  "		ldaa	$01,x ;
 A167 : A0 00		"  "		suba	$00,x
 A169 : 27 12		"' "		beq	LA17D
 A16B : 24 09		"$ "		bcc	LA176
@@ -298,8 +301,8 @@ A182 : D6 58		" X"		ldab	X0058
 A184 : BD A0 0F		"   "		jsr	LA00F
 A187 : 97 57		" W"		staa	X0057
 A189 : D7 58		" X"		stab	X0058
-A18B : DE 71		" q"		ldx	X0071
-A18D : 96 79		" y"		ldaa	X0079
+A18B : DE 71		" q"		ldx	X0071		; TP_SCALE_STORE -> X 
+A18D : 96 79		" y"		ldaa	X0079	; 
 A18F : 2A 04		"* "		bpl	LA195
 A191 : C6 07		"  "		ldab	#$07
 A193 : 20 02		"  "		bra	LA197
@@ -429,17 +432,21 @@ A250				LA250:
 A250 : 96 56		" V"		ldaa	X0056
 A252 : 97 69		" i"		staa	X0069
 A254 : 97 6A		" j"		staa	X006A
+
+------------------------------------------------------------------------------------- ;this does something 
+;only place TABLE_STORE is loaded
+
 A256				LA256:
 A256 : 96 68		" h"		ldaa	X0068
-A258 : 5F		"_"		clrb ;Clear the Accumulator    ;0x006D load calculation ????
+A258 : 5F		"_"		clrb ;Clear the Accumulator    
 A259 : 9B 6E		" n"		adda	X006E
 A25B : 97 6E		" n"		staa	X006E
 A25D : D9 6D		" m"		adcb	X006D ; Add contents of Memory + Carry Flag to Accumulator 
 A25F : D7 6D		" m"		stab	X006D
-A261 : DE 6D		" m"		ldx	X006D ;load index register X at 0x006D ?
+A261 : DE 6D		" m"		ldx	X006D ; load index register at TABLE_STORE
 A263 : 96 58		" X"		ldaa	X0058 ;load from RAM? 
 A265 : 90 6B		" k"		suba	X006B ;subtract memory contents 0x006B from accumulator A
-A267 : 97 76		" v"		staa	X0076 ;store accumulator A at 0x0076
+A267 : 97 76		" v"		staa	X0076 ;accA -> 0x0076
 A269 : 27 56		"'V"		beq	LA2C1 ;Branch if equal to zero
 A26B : 97 59		" Y"		staa	X0059
 A26D : 7F 00 5A		"  Z"		clr	X005A
@@ -499,17 +506,17 @@ A2BD : 97 74		" t"		staa	X0074
 A2BF : 20 10		"  "		bra	LA2D1
 				;
 A2C1				LA2C1:
-A2C1 : A6 00		"  "		ldaa	$00,x ;index register X at 0x006D, load at RAM $00
-A2C3 : 97 73		" s"		staa	X0073 ;Store Accumulator in Memory
-A2C5 : 96 79		" y"		ldaa	X0079 ; load acc A, RPM?  
-A2C7 : 2A 04		"* "		bpl	LA2CD	;Unconditional branch relative to present Program Counter contents.
-A2C9 : A6 08		"  "		ldaa	$08,x ;index register x at 0x006D + $08
+A2C1 : A6 00		"  "		ldaa	$00,x	; TABLE_STORE, load at DATA $00
+A2C3 : 97 73		" s"		staa	X0073	; Store accA in Memory
+A2C5 : 96 79		" y"		ldaa	X0079	; load accA, RPM?  
+A2C7 : 2A 04		"* "		bpl	LA2CD		;Unconditional branch relative to present Program Counter contents.
+A2C9 : A6 08		"  "		ldaa	$08,x	;TABLE_STORE @ $08 @ accA 
 A2CB : 20 02		"  "		bra	LA2CF ;Unconditional branch relative to present Program Counter contents.
 				;
 A2CD				LA2CD:
-A2CD : A6 10		"  "		ldaa	$10,x
+A2CD : A6 10		"  "		ldaa	$10,x	;TABLE_STORE @ $10 -> accA 
 A2CF				LA2CF:
-A2CF : 97 74		" t"		staa	X0074
+A2CF : 97 74		" t"		staa	X0074	;accA -> 0x0074
 A2D1				LA2D1:
 A2D1 : 96 56		" V"		ldaa	X0056
 A2D3 : 90 69		" i"		suba	X0069 ;Subtract Memory contents from Accumulator
@@ -830,7 +837,7 @@ A4E8				LA4E8:
 A4E8 : E7 06		"  "		stab	$06,x
 A4EA				LA4EA:
 A4EA : 96 07		"  "		ldaa	X0007
-A4EC : CE BB 30		"  0"		ldx	#$BB30 ;load Temp Sensor conversion CHTS register IX
+A4EC : CE BB 30		"  0"		ldx	#$BB30 ;load Temp Sensor conversion CHTS register X
 A4EF : BD A1 45		"  E"		jsr	LA145
 A4F2 : 97 04		"  "		staa	X0004
 A4F4 : 7E AF AE		"~  "		jmp	LAFAE
@@ -1508,7 +1515,7 @@ A91C : 5F		"_"		clrb
 A91D : 20 0C		"  "		bra	LA92B
 				;
 A91F				LA91F:
-A91F : CE BE 20		"   "		ldx	#$BE20
+A91F : CE BE 20		"   "		ldx	#$BE20 ; FUEL_CRANK
 A922 : BD A1 45		"  E"		jsr	LA145
 A925 : C6 04		"  "		ldab	#$04
 A927 : BD A0 00		"   "		jsr	start
@@ -1554,22 +1561,24 @@ A96D : B7 01 0F		"   "		staa	X010F
 A970 : 86 C6		"  "		ldaa	#$C6
 A972 : 7E AA 83		"~  "		jmp	LAA83
 				;
+				
+------------------------------------------------------------------------------------- ;8x8 table 
 A975				LA975:
 A975 : DE 3A		" :"		ldx	X003A
 A977 : DF 57		" W"		stx	X0057
 A979 : DE 0F		"  "		ldx	X000F
-A97B : DF 55		" U"		stx	X0055
-A97D : D6 79		" y"		ldab	X0079
-A97F : C4 0F		"  "		andb	#$0F
+A97B : DF 55		" U"		stx	X0055#$0F
 A981 : CA C0		"  "		orab	#$C0
+A97D : D6 79		" y"		ldab	X0079
+A97F : C4 0F		"  "		andb	
 A983 : D7 79		" y"		stab	X0079
-A985 : CE BF C0		"   "		ldx	#$BFC0 ;load unknown 8x1 RPM scale
-A988 : DF 6F		" o"		stx	X006F
-A98A : CE BF 30		"  0"		ldx	#$BF30 ;load unknown 8x1 TP scale
-A98D : DF 71		" q"		stx	X0071
-A98F : CE BE F0		"   "		ldx	#$BEF0 ;load 8x8 table
-A992 : DF 6D		" m"		stx	X006D
-A994 : DE 71		" q"		ldx	X0071
+A985 : CE BF C0		"   "		ldx	#$BFC0 ; UNKWN_RPM_SCALE_8x1
+A988 : DF 6F		" o"		stx	X006F	; $BFC0 -> RPM_SCALE_STORE
+A98A : CE BF 30		"  0"		ldx	#$BF30	;	load unknown 8x1 TP scale
+A98D : DF 71		" q"		stx	X0071	; $BF30 -> TP_SCALE_STORE
+A98F : CE BE F0		"   "		ldx	#$BEF0	; 8x8_TABLE
+A992 : DF 6D		" m"		stx	X006D	; $BEF0 -> TABLE_STORE
+A994 : DE 71		" q"		ldx	X0071	; TP_SCALE_STORE -> X 
 A996 : 96 57		" W"		ldaa	X0057
 A998 : A1 10		"  "		cmpa	$10,x
 A99A : 23 2E		"#."		bls	LA9CA
@@ -1797,6 +1806,7 @@ AB16				LAB16:
 AB16 : 84 7B		" {"		anda	#$7B
 AB18 : 20 CE		"  "		bra	LAAE8
 				;
+------------------------------------------------------------------------------------- ;fueling?
 AB1A				LAB1A:
 AB1A : DE 3A		" :"		ldx	X003A
 AB1C : DF 57		" W"		stx	X0057 ;Store the Index Register X
@@ -1805,12 +1815,12 @@ AB20 : DF 55		" U"		stx	X0055
 AB22 : 96 79		" y"		ldaa	X0079
 AB24 : 84 7F		"  "		anda	#$7F
 AB26 : 97 79		" y"		staa	X0079 
-AB28 : CE BD 00		"   "		ldx	#$BD00 ;load index register address, $BD00 fuel map
-AB2B : DF 6D		" m"		stx	X006D ;0x006D should be RPM + load, STX = Store the Index Register X 
-AB2D : CE BB A0		"   "		ldx	#$BBA0 ;load RPM scale fuel?
-AB30 : DF 6F		" o"		stx	X006F ;0x006F should be RPM data? Store Index RPM Scale at value 6F 
-AB32 : CE BB 80		"   "		ldx	#$BB80 ;load TP scale fuel? 
-AB35 : DF 71		" q"		stx	X0071 ;0x0071 should be load data? maybe part of TP calc STX at RAM 0x0071
+AB28 : CE BD 00		"   "		ldx	#$BD00	; FUEL_TABLE
+AB2B : DF 6D		" m"		stx	X006D	; store $BD00 -> X006D TABLE_STORE
+AB2D : CE BB A0		"   "		ldx	#$BBA0	;RPM Scale Fuel
+AB30 : DF 6F		" o"		stx	X006F	; $BBA0 -> 0x006F RPM_SCALE_STORE
+AB32 : CE BB 80		"   "		ldx	#$BB80	;load TP scale fuel? 
+AB35 : DF 71		" q"		stx	X0071	; $BB80 -> 0x0071 TP_SCALE_STORE
 AB37 : BD A1 80		"   "		jsr	LA180 ;Jump to Subroutine
 AB3A : F6 01 0F		"   "		ldab	X010F ;load accumulator from memory
 AB3D : C5 08		"  "		bitb	#$08 ;Memory contents AND the Accumulator, but only Status register is affected.
@@ -1842,7 +1852,7 @@ AB65 : 81 A0		"  "		cmpa	#$A0
 AB67 : 24 02		"$ "		bcc	LAB6B
 AB69 : 86 A0		"  "		ldaa	#$A0
 AB6B				LAB6B:
-AB6B : CE BF C0		"   "		ldx	#$BFC0
+AB6B : CE BF C0		"   "		ldx	#$BFC0 ;UNKWN_RPM_SCALE_8x1
 AB6E : BD A1 45		"  E"		jsr	LA145
 AB71 : D6 55		" U"		ldab	X0055
 AB73 : 26 0E		"& "		bne	LAB83
@@ -1980,6 +1990,7 @@ AC59				LAC59:
 AC59 : 96 56		" V"		ldaa	X0056
 AC5B : B1 BF 86		"   "		cmpa	XBF86
 AC5E : 25 EE		"% "		bcs	LAC4E
+------------------------------------------------------------------------------------- ;ignition timing? 
 AC60				LAC60:
 AC60 : FE 01 0B		"   "		ldx	X010B
 AC63 : DF 57		" W"		stx	X0057
@@ -2270,10 +2281,10 @@ AE54 : 20 2E		" ."		bra	LAE84
 AE56				LAE56:
 AE56 : 81 06		"  "		cmpa	#$06
 AE58 : 26 11		"& "		bne	LAE6B
-AE5A : CE 00 06		"   "		ldx	#$0006
-AE5D : FF 01 1A		"   "		stx	X011A
+AE5A : CE 00 06		"   "		ldx	#$0006 
+AE5D : FF 01 1A		"   "		stx	X011A ; $0006 -> RAM 0x011A 
 AE60 : CE BB 10		"   "		ldx	#$BB10
-AE63 : FF 01 18		"   "		stx	X0118
+AE63 : FF 01 18		"   "		stx	X0118 ; $BB10 -> RAM 0x0118 
 AE66 : BD AF 36		"  6"		jsr	LAF36
 AE69 : 20 19		"  "		bra	LAE84
 				;
@@ -2404,11 +2415,11 @@ AF34 : 33		"3"		pulb
 AF35 : 39		"9"		rts
 				;
 AF36				LAF36:
-AF36 : FE 01 1A		"   "		ldx	X011A
-AF39 : A6 00		"  "		ldaa	$00,x
-AF3B : FE 01 18		"   "		ldx	X0118
-AF3E : A1 00		"  "		cmpa	$00,x
-AF40 : 25 2E		"%."		bcs	LAF70
+AF36 : FE 01 1A		"   "		ldx	X011A 
+AF39 : A6 00		"  "		ldaa	$00,x	; load $0006 -> accA 
+AF3B : FE 01 18		"   "		ldx	X0118		 
+AF3E : A1 00		"  "		cmpa	$00,x	; Acca compare $00,x of BB10 
+AF40 : 25 2E		"%."		bcs	LAF70 ;branch if carry set 
 AF42 : A1 01		"  "		cmpa	$01,x
 AF44 : 22 2A		""*"		bhi	LAF70
 AF46 : 20 22		" ""		bra	LAF6A
@@ -2941,12 +2952,12 @@ B2C4 : BD A0 E8		"   "		jsr	LA0E8
 B2C7 : 97 28		" ("		staa	X0028
 B2C9 : D7 29		" )"		stab	X0029
 B2CB : 96 08		"  "		ldaa	X0008
-B2CD : CE BB 70		"  p"		ldx	#$BB70 ;load Unknown fuel, IAT? 
+B2CD : CE BB 70		"  p"		ldx	#$BB70 ;load IAT fuel scale
 B2D0 : BD A1 3A		"  :"		jsr	LA13A
 B2D3 : 5F		"_"		clrb
 B2D4 : BD A0 25		"  %"		jsr	LA025
 B2D7 : 96 09		"  "		ldaa	X0009
-B2D9 : CE BB 60		"  `"		ldx	#$BB60 ;load Unknown fuel, Barometric? 
+B2D9 : CE BB 60		"  `"		ldx	#$BB60 ;load Unknown fuel, Barometric Scale? 
 B2DC : BD A1 3A		"  :"		jsr	LA13A
 B2DF : 5F		"_"		clrb
 B2E0 : BD A0 25		"  %"		jsr	LA025
@@ -3707,7 +3718,7 @@ B7EA : 7F 00 4D		"  M"		clr	X004D
 B7ED : 7E B9 D9		"~  "		jmp	LB9D9
 				;
 B7F0				LB7F0:
-B7F0 : B6 BF 75		"  u"		ldaa	XBF75
+B7F0 : B6 BF 75		"  u"		ldaa	XBF75 ;what is this
 B7F3 : 5F		"_"		clrb
 B7F4 : 7E B9 99		"~  "		jmp	LB999
 				;
@@ -4220,24 +4231,23 @@ BB1C : 30		"0"		db	$30
 BB1D : D0		" "		db	$D0
 BB1E : 8F		" "		db	$8F
 BB1F : 9D		" "		db	$9D
-				; maybe not code? 
-BB20 : 3F		"?"		swi
-BB21 : 3F		"?"		swi
-BB22 : 3F		"?"		swi
-BB23 : 3F		"?"		swi
-				;
+				; misc data, unused? 
+BB20 : 3F		"?"		db	$3F
+BB21 : 3F		"?"		db	$3F
+BB22 : 3F		"?"		db	$3F
+BB23 : 3F		"?"		db	$3F
 BB24 : 05		" "		db	$05
-				;
-BB25 : 0F		" "		sei
-BB26 : 3F		"?"		swi
-BB27 : 3F		"?"		swi
-				;
+BB25 : 0F		" "		db	$3F
+BB26 : 3F		"?"		db	$3F
+BB27 : 3F		"?"		db	$3F
 BB28 : 00		" "		db	$00
-				;
-BB29 : 90 00		"  "		suba	X0000
-BB2B : B0 01 30		"  0"		suba	X0130
-				;
-BB2E : 02 00		"  "		db	$02, $00
+BB29 : 90 		" "		db	$90
+BB2A : 00		" "		db	$00
+BB2B : B0		" "		db	$B0
+BB2C : 01		" "		db	$01
+BB2D : 30		" "		db	$30
+BB2E : 02		" "		db	$02
+BB2F : 00		" "		db	$00
 BB30				CHTS_CONV:
 BB30 : FF		" "		db	$FF
 BB31 : C8		" "		db	$C8
@@ -5626,10 +5636,10 @@ Value		Type	Name
 006A		Data	X006A
 006B		Data	X006B
 006C		Data	X006C
-006D		Data	X006D
+006D		Data	X006D	; TABLE_STORE
 006E		Data	X006E
-006F		Data	X006F
-0071		Data	X0071
+006F		Data	X006F	; RPM_SCALE_STORE
+0071		Data	X0071	; TP_SCALE_STORE 
 0073		Data	X0073
 0074		Data	X0074
 0075		Data	X0075
@@ -6270,7 +6280,7 @@ BEA0		Data	UNKWN_TABLE6
 BEB0		Code	LBEB0
 BEBC		Code	LBEBC
 BEC3		Code	LBEC3
-BEF0		Data	8x8_MAP
+BEF0		Data	8x8_TABLE
 BF30		Data	UNKWN_TP_SCALE_8x1
 BF40		Data	DATA_MISC
 BF42		Data	XBF42
