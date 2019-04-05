@@ -237,7 +237,7 @@ A135 : 96 2B		" +"		ldaa	X002B
 A137 : D6 2C		" ,"		ldab	X002C
 A139 : 39		"9"		rts
 				;
-A13A				LA13A: ;this does something 
+A13A				LA13A: ;this does something
 A13A : 81 F0		"  "		cmpa	#$F0
 A13C : 23 02		"# "		bls	LA140
 A13E : 86 F0		"  "		ldaa	#$F0
@@ -441,13 +441,13 @@ A256 : 96 68		" h"		ldaa	X0068
 A258 : 5F		"_"		clrb ;Clear the Accumulator    
 A259 : 9B 6E		" n"		adda	X006E
 A25B : 97 6E		" n"		staa	X006E
-A25D : D9 6D		" m"		adcb	X006D ; Add contents of Memory + Carry Flag to Accumulator 
+A25D : D9 6D		" m"		adcb	X006D ; Add contents of Memory + Carry Flag to Accumulator B
 A25F : D7 6D		" m"		stab	X006D
 A261 : DE 6D		" m"		ldx	X006D ; load index register at TABLE_STORE
 A263 : 96 58		" X"		ldaa	X0058 ;load from RAM? 
 A265 : 90 6B		" k"		suba	X006B ;subtract memory contents 0x006B from accumulator A
 A267 : 97 76		" v"		staa	X0076 ;accA -> 0x0076
-A269 : 27 56		"'V"		beq	LA2C1 ;Branch if equal to zero
+A269 : 27 56		"'V"		beq	LA2C1 ;Branch if equal to zero 
 A26B : 97 59		" Y"		staa	X0059
 A26D : 7F 00 5A		"  Z"		clr	X005A
 A270 : 96 6C		" l"		ldaa	X006C
@@ -1981,7 +1981,7 @@ AC4A : 20 02		"  "		bra	LAC4E
 AC4C				LAC4C:
 AC4C : 96 56		" V"		ldaa	X0056
 AC4E				LAC4E:
-AC4E : CE BF E0		"   "		ldx	#$BFE0
+AC4E : CE BF E0		"   "		ldx	#$BFE0 ;ign idle switch 
 AC51 : BD A1 3A		"  :"		jsr	LA13A
 AC54 : BB BF 81		"   "		adda	XBF81
 AC57 : 20 2E		" ."		bra	LAC87
@@ -2297,7 +2297,7 @@ AE73 : 26 0F		"& "		bne	LAE84
 AE75 : CE 00 11		"   "		ldx	#$0011
 AE78 : FF 01 1A		"   "		stx	X011A
 AE7B : CE BB 12		"   "		ldx	#$BB12
-AE7E : FF 01 18		"   "		stx	X0118
+AE7E : FF 01 18		"   "		stx	X0118 ; $BB12 -> RAM 0x0118
 AE81 : BD AF 48		"  H"		jsr	LAF48
 AE84				LAE84:
 AE84 : 96 0F		"  "		ldaa	X000F
@@ -3269,7 +3269,7 @@ B515 : C5 02		"  "		bitb	#$02
 B517 : 27 17		"' "		beq	LB530
 B519 : C4 FD		"  "		andb	#$FD
 B51B : D7 31		" 1"		stab	X0031
-B51D : CE BE 50		"  P"		ldx	#$BE50
+B51D : CE BE 50		"  P"		ldx	#$BE50 ;;;;;;;;;;;;
 B520 : 96 07		"  "		ldaa	X0007
 B522 : BD A1 3A		"  :"		jsr	LA13A
 B525 : 97 32		" 2"		staa	X0032
@@ -4231,7 +4231,7 @@ BB1C : 30		"0"		db	$30
 BB1D : D0		" "		db	$D0
 BB1E : 8F		" "		db	$8F
 BB1F : 9D		" "		db	$9D
-				; misc data, unused? 
+				; misc data, unused?  not referenced in the code. 
 BB20 : 3F		"?"		db	$3F
 BB21 : 3F		"?"		db	$3F
 BB22 : 3F		"?"		db	$3F
@@ -4248,6 +4248,9 @@ BB2C : 01		" "		db	$01
 BB2D : 30		" "		db	$30
 BB2E : 02		" "		db	$02
 BB2F : 00		" "		db	$00
+
+; convert Cylinder Head Temperature Sensor voltage to Degrees Celsius
+
 BB30				CHTS_CONV:
 BB30 : FF		" "		db	$FF
 BB31 : C8		" "		db	$C8
@@ -4281,6 +4284,9 @@ BB4C : 28		"("		db	$28
 BB4D : 20		" "		db	$20
 BB4E : 14		" "		db	$14
 BB4F : 00		" "		db	$00
+
+; IGN DWELL vs battery voltage
+
 BB50				IGN_DUTY_DWELLV:
 BB50 : FF		" "		db	$FF
 BB51 : FF		" "		db	$FF
@@ -4298,6 +4304,9 @@ BB5C : 2D		"-"		db	$2D
 BB5D : 28		"("		db	$28
 BB5E : 25		"%"		db	$25
 BB5F : 21		"!"		db	$21
+
+; Barometric ( absolute pressure ) altitude enrichment lookup
+
 BB60				FUEL_BARO:
 BB60 : 8D		" "		db	$8D
 BB61 : 8B		" "		db	$8B
@@ -4315,6 +4324,9 @@ BB6C : 6E		"n"		db	$6E
 BB6D : 6B		"k"		db	$6B
 BB6E : 68		"h"		db	$68
 BB6F : 65		"e"		db	$65
+
+; Intake Air Temperature enrichment table 
+
 BB70				FUEL_IAT:
 BB70 : 80		" "		db	$80
 BB71 : 80		" "		db	$80
@@ -4332,6 +4344,9 @@ BB7C : 82		" "		db	$82
 BB7D : 84		" "		db	$84
 BB7E : 87		" "		db	$87
 BB7F : 8D		" "		db	$8D
+
+; TP Load Scale for Fuel Table DWORD 
+
 BB80				TP_SCALE_FUEL:
 BB80 : 00		" "		db	$00
 BB81 : 40		"@"		db	$40
@@ -4365,6 +4380,9 @@ BB9C : 01		" "		db	$01
 BB9D : E0		" "		db	$E0
 BB9E : 02		" "		db	$02
 BB9F : 00		" "		db	$00
+
+; RPM Scale for Fuel Table  DWORD 
+
 BBA0				RPM_SCALE_FUEL:
 BBA0 : 00		" "		db	$00
 BBA1 : 20		" "		db	$20
@@ -4398,6 +4416,9 @@ BBBC : 01		" "		db	$01
 BBBD : C0		" "		db	$C0
 BBBE : 01		" "		db	$01
 BBBF : E0		" "		db	$E0
+
+; Load Scale for Ignition Timing Table DWORD
+
 BBC0				TP_SCALE_IGN:
 BBC0 : 00		" "		db	$00
 BBC1 : 40		"@"		db	$40
@@ -4431,6 +4452,9 @@ BBDC : 01		" "		db	$01
 BBDD : C0		" "		db	$C0
 BBDE : 02		" "		db	$02
 BBDF : 00		" "		db	$00
+
+; RPM Scale for the Ignition Timing Table  DWORD
+
 BBE0				RPM_SCALE_IGN:
 BBE0 : 00		" "		db	$00
 BBE1 : 40		"@"		db	$40
@@ -4464,6 +4488,9 @@ BBFC : 01		" "		db	$01
 BBFD : C0		" "		db	$C0
 BBFE : 01		" "		db	$01
 BBFF : E0		" "		db	$E0
+
+; Ignition timing map in degrees BTDC
+
 BC00				IGN_MAP:
 BC00 : 14		" "		db	$14
 BC01 : 1E		" "		db	$1E
@@ -4721,7 +4748,13 @@ BCFC : 1F		" "		db	$1F
 BCFD : 1F		" "		db	$1F
 BCFE : 1F		" "		db	$1F
 BCFF : 1F		" "		db	$1F
-BD00				FUEL_MAP:
+
+; The Fuel Table is an AFR target value
+; Theoretical Pulse width is calculated for 14.7:1 AFR at a given RPM and load value based on Mass Air Flow. 
+; The ECU then looks up TP (Load Scale) and RPM then adds the AFR Target cell as a percentage modifier to the Pulse Width.
+; 
+
+BD00				FUEL_TABLE:
 BD00 : 14		" "		db	$14
 BD01 : 14		" "		db	$14
 BD02 : 14		" "		db	$14
@@ -4978,6 +5011,9 @@ BDFC : 64		"d"		db	$64
 BDFD : 64		"d"		db	$64
 BDFE : 64		"d"		db	$64
 BDFF : 64		"d"		db	$64
+
+; Enrichment table for CHTS Temperature
+
 BE00				FUEL_CHTS:
 BE00 : 40		"@"		db	$40
 BE01 : 40		"@"		db	$40
@@ -5011,6 +5047,9 @@ BE1C : 64		"d"		db	$64
 BE1D : 66		"f"		db	$66
 BE1E : 6A		"j"		db	$6A
 BE1F : 6A		"j"		db	$6A
+
+; Cranking Enrichment Table 
+
 BE20				FUEL_CRANK:
 BE20 : 04		" "		db	$04
 BE21 : 04		" "		db	$04
@@ -5044,6 +5083,9 @@ BE3C : 30		"0"		db	$30
 BE3D : 3A		":"		db	$3A
 BE3E : 4F		"O"		db	$4F
 BE3F : 4F		"O"		db	$4F
+
+; After start enrichment Table lasts about 5 seconds 
+
 BE40				FUEL_AFTERSTART:
 BE40 : 06		" "		db	$06
 BE41 : 06		" "		db	$06
@@ -5061,6 +5103,7 @@ BE4C : 23		"#"		db	$23
 BE4D : 28		"("		db	$28
 BE4E : 2C		","		db	$2C
 BE4F : 32		"2"		db	$32
+
 BE50				UNKWN_TABLE1:
 BE50 : 00		" "		db	$00
 BE51 : 00		" "		db	$00
@@ -5078,6 +5121,7 @@ BE5C : 33		"3"		db	$33
 BE5D : 39		"9"		db	$39
 BE5E : 40		"@"		db	$40
 BE5F : 4D		"M"		db	$4D
+
 BE60				UNKWN_TABLE2:
 BE60 : 44		"D"		db	$44
 BE61 : 44		"D"		db	$44
@@ -5095,6 +5139,7 @@ BE6C : 4E		"N"		db	$4E
 BE6D : 4E		"N"		db	$4E
 BE6E : 4E		"N"		db	$4E
 BE6F : 4E		"N"		db	$4E
+
 BE70				UNKWN_TABLE3:
 BE70 : 32		"2"		db	$32
 BE71 : 32		"2"		db	$32
@@ -5112,6 +5157,7 @@ BE7C : 46		"F"		db	$46
 BE7D : 46		"F"		db	$46
 BE7E : 46		"F"		db	$46
 BE7F : 46		"F"		db	$46
+
 BE80				UNKWN_TABLE4:
 BE80 : 30		"0"		db	$30
 BE81 : 30		"0"		db	$30
@@ -5129,6 +5175,7 @@ BE8C : 44		"D"		db	$44
 BE8D : 44		"D"		db	$44
 BE8E : 44		"D"		db	$44
 BE8F : 44		"D"		db	$44
+
 BE90				UNKWN_TABLE5:
 BE90 : 00		" "		db	$00
 BE91 : 00		" "		db	$00
@@ -5146,6 +5193,7 @@ BE9C : 20		" "		db	$20
 BE9D : 20		" "		db	$20
 BE9E : 20		" "		db	$20
 BE9F : 20		" "		db	$20
+
 BEA0				UNKWN_TABLE6:
 BEA0 : 34		"4"		db	$34
 BEA1 : 34		"4"		db	$34
@@ -5286,6 +5334,9 @@ BF2C : 3C		"<"		db	$3C
 BF2D : 00		" "		db	$00
 BF2E : 00		" "		db	$00
 BF2F : 00		" "		db	$00
+
+; TP Load Scale for 8x8 table
+
 BF30				UNKWN_TP_SCALE_8x1:
 BF30 : 00		" "		db	$00
 BF31 : 5C		"\"		db	$5C
@@ -5303,6 +5354,7 @@ BF3C : 00		" "		db	$00
 BF3D : E0		" "		db	$E0
 BF3E : 01		" "		db	$01
 BF3F : 20		" "		db	$20
+
 BF40				DATA_MISC:
 BF40 : 10		" "		db	$10
 BF41 : 60		"`"		db	$60
@@ -5400,7 +5452,7 @@ BF9C : 01		" "		db	$01
 BF9D : 41		"A"		db	$41
 BF9E : 00		" "		db	$00
 BF9F : 1A		" "		db	$1A
-				;some data & SWI  
+				;some data & interrupts ? 
 BFA0 : 01		" "		db $01
 BFA1 : 33		"3"		db $33
 BFA2 : 0A		" "		db $0A
@@ -5435,6 +5487,9 @@ BFBC : E8		" "		db	$E8
 BFBD : E8		" "		db	$E8
 BFBE : E8		" "		db	$E8
 BFBF : E8		" "		db	$E8
+
+; RPM Scale for 8x8 table
+
 BFC0				UNKWN_RPM_SCALE_8x1:
 BFC0 : 00		" "		db	$00
 BFC1 : 60		"`"		db	$60
@@ -5469,6 +5524,9 @@ BFDC : 14		" "		db	$14
 BFDD : 16		" "		db	$16
 BFDE : 19		" "		db	$19
 BFDF : 19		" "		db	$19
+
+; adds to base idle timing, idle switch activated, runs off ignition RPM scale
+
 BFE0				IGN_IDLE_SWITCH:
 BFE0 : 00		" "		db	$00
 BFE1 : 00		" "		db	$00
@@ -5490,7 +5548,7 @@ BFEF : 10		" "		db	$10
 BFF0 : 3F		"?"		swi
 BFF1 : 3F		"?"		swi
 BFF2 : 3F		"?"		swi
-BFF3 : 30		" "		db $30
+BFF3 : 30		" "		db	$30
 BFF4 : 66		" "		db	$66
 bff5 : 89		" "		db	$89
 BFF6 : 4B		" "		db	$4B
@@ -5631,7 +5689,7 @@ Value		Type	Name
 0065		Data	X0065
 0066		Data	X0066
 0067		Data	X0067
-0068		Data	X0068
+0068		Data	X0068	;???
 0069		Data	X0069
 006A		Data	X006A
 006B		Data	X006B
@@ -5677,7 +5735,7 @@ Value		Type	Name
 0098		Data	X0098 ;out STAA 
 0099		Data	X0099 ;io STAA & LDAA 
 009A		Data	X009A ; LDAA & STAB DWORD?
-009B		Data	X009B ;
+009B		Data	X009B ; ? 
 009C		Data	X009C ;out
 009D		Data	X009D ;out
 009E		Data	X009E ;out
