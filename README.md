@@ -9,7 +9,7 @@ Now I've gotten interested in learning about fuel injection, microcontrollers an
 
 
 
-# Details about the 1983/1983 ECCS hardware. 
+# Details about the 1982/1983 ECCS hardware. 
 
 ##### Hitachi HD46802P 
 Motorola 6802 MCU
