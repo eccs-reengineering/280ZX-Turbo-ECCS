@@ -61,7 +61,7 @@ A022 : 58		"X"		aslb
 A023 : 49		"I"		rola
 A024 : 39		"9"		rts
 				;
-A025				LA025:
+A025				LA025: ;;;start subroutine 
 A025 : 97 2A		" *"		staa	X002A
 A027 : 97 9A		"  "		staa	X009A
 A029 : 96 28		" ("		ldaa	X0028
@@ -126,7 +126,7 @@ A089 : 16		" "		tab
 A08A : 96 28		" ("		ldaa	X0028
 A08C : 89 00		"  "		adca	#$00
 A08E : 97 28		" ("		staa	X0028
-A090 : 39		"9"		rts
+A090 : 39		"9"		rts ;return to subroutine 
 				;
 A091				LA091:
 A091 : 97 2A		" *"		staa	X002A
@@ -283,7 +283,7 @@ A16E : 50		"P"		negb
 A16F : BD A0 00		"   "		jsr	start
 A172 : 0E		" "		cli
 A173 : AB 01		"  "		adda	$01,x
-A175 : 39		"9"		rts
+A175 : 39		"9"		rts ;return to subroutine
 				;
 A176				LA176:
 A176 : BD A0 00		"   "		jsr	start
@@ -1879,7 +1879,7 @@ AB97 : 20 02		"  "		bra	LAB9B
 				;
 AB99				LAB99:
 AB99 : 96 56		" V"		ldaa	X0056
-AB9B				LAB9B: ;idle switch timing something
+AB9B				LAB9B: ; cold idle switch timing? 
 AB9B : F1 BF 82		"   "		cmpb	XBF82 ; temp to idle adder?  cold idle timing increase? 
 AB9E : 24 0E		"$ "		bcc	LABAE ;branch if carry clear 
 ABA0 : CE BF E0		"   "		ldx	#$BFE0 ;ign idle switch table
@@ -2553,7 +2553,7 @@ B008 : 7F 00 50		"  P"		clr	X0050
 B00B				LB00B:
 B00B : D7 47		" G"		stab	X0047
 B00D : 96 07		"  "		ldaa	X0007
-B00F : CE BE A0		"   "		ldx	#$BEA0
+B00F : CE BE A0		"   "		ldx	#$BEA0 ;loading unknown scale
 B012 : BD A1 3A		"  :"		jsr	LA13A
 B015 : D6 47		" G"		ldab	X0047
 B017 : C5 40		" @"		bitb	#$40
