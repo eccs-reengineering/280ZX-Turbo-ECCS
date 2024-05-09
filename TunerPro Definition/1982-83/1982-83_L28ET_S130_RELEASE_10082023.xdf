@@ -1,4 +1,4 @@
-<!-- Written 10/08/2023 19:12:09 -->
+<!-- Written 05/08/2024 19:36:49 -->
 <XDFFORMAT version="1.70">
   <XDFHEADER>
     <flags>0x1</flags>
@@ -110,7 +110,7 @@
       <min>7.360000</min>
       <max>15.950000</max>
       <outputtype>1</outputtype>
-      <MATH equation="14.7*(256 / ( X + 236))">
+      <MATH equation="14.7*(256 / ( X + 256))">
         <VAR id="X" />
       </MATH>
     </XDFAXIS>
