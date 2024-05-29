@@ -22,9 +22,13 @@ The 6802 has 128 bytes of on-board RAM located at hex addresses $0000 to $001F.
  
 ##### Hitachi HD46506 ADU (Analog Data Acquisition Unit)
 
+Software uses addresses from 0080 to 009F
+MCU A7 high 
+
 I haven't been able to find any information about this chip other than it is an IO extender. 
 
 It has data lines and address lines linked to the MCU.  
+
 Inputs like the CHTS and AFM go directly into this unit as 0-5v signals, its a reasonable assumption to say they're translated into a linear 0-255 value by the ADC.  
 
 ##### Hitachi HN25089 DIP-24
@@ -33,7 +37,7 @@ Inputs like the CHTS and AFM go directly into this unit as 0-5v signals, its a r
 
 1024-word x 8-bits 
 
-Addressed from BB00 to BFFF
+Addressed from $BB00 to $BFFF
 
 Contains ignition&fuel map data similar to the design of the dual-chip Z31 & R31 ECCS units, the data is redundant and also contained in the main 8K-byte chip. 
 
@@ -47,11 +51,15 @@ This 1K ROM can be removed, and the ECU will function with the single 8K ROM as 
 
 8192-word x 8-bits
 
-Addressed from A000 to BAFF
+Addressed from $A000 to $BAFF
 
 Contains all microcode, fuel and ignition maps are on the last 1K of address space. 
 
 ##### Hitachi HM46810P RAM chip
 
-Addressed from 0100 to 0180
+Motorola MCM6810 clone 128-byte SRAM
+
+Addressed from $0100 to $017F
+
+MCU A8 high to RAM CS0, A7 low to CS1 
 
