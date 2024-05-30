@@ -4,19 +4,19 @@
 				;		(c) Copyright 1996-2003   Conquest Consultants
 				;		Version 1.40 (Oct 18 2003)
 				;
-				;	File:		A000_1982MT_S130_A18-601-042.bin
+				;	File:		.\A000_1982MT_S130_A18-601-042.BIN
 				;
-				;	Size:		49152 bytes
-				;	Checksum:	C0B1
-				;	CRC-32:		4928DC5E
+				;	Size:		8192 bytes
+				;	Checksum:	60B1
+				;	CRC-32:		B55C7F27
 				;
-				;	Date:		Wed Feb 27 21:07:23 2019
+				;	Date:		Wed May 29 09:02:54 2024
 				;
 				;	CPU:		Motorola 6802 (6800/6802/6808 family)
 				;
 				;
 				;
-					org	$0000
+					org	$A000
 				;
 A000				LA000:
 A000 : 0F		" "		sei
@@ -31,37 +31,37 @@ A00A : 96 9A		"  "		ldaa	X009A
 A00C : D6 9B		"  "		ldab	X009B
 A00E : 39		"9"		rts
 				;
-A00F				LA00F:
+A00F				Divide64ShiftAB:
 A00F : 44		"D"		lsra
 A010 : 56		"V"		rorb
 A011 : 44		"D"		lsra
 A012 : 56		"V"		rorb
-A013				LA013:
+A013				Divide16ShiftAB:
 A013 : 44		"D"		lsra
 A014 : 56		"V"		rorb
-A015				LA015:
+A015				Divide8ShiftAB:
 A015 : 44		"D"		lsra
 A016 : 56		"V"		rorb
-A017				LA017:
+A017				Divide4ShiftAB:
 A017 : 44		"D"		lsra
 A018 : 56		"V"		rorb
 A019 : 44		"D"		lsra
 A01A : 56		"V"		rorb
 A01B : 39		"9"		rts
 				;
-A01C				LA01C:
+A01C				Multiply16ShiftBA:
 A01C : 58		"X"		aslb
 A01D : 49		"I"		rola
 A01E : 58		"X"		aslb
 A01F : 49		"I"		rola
-A020				LA020:
+A020				Multiply8ShiftBA:
 A020 : 58		"X"		aslb
 A021 : 49		"I"		rola
 A022 : 58		"X"		aslb
 A023 : 49		"I"		rola
 A024 : 39		"9"		rts
 				;
-A025				LA025:
+A025				SRA025:
 A025 : 97 2A		" *"		staa	X002A
 A027 : 97 9A		"  "		staa	X009A
 A029 : 96 28		" ("		ldaa	X0028
@@ -295,7 +295,7 @@ A17F : 39		"9"		rts
 A180				LA180:
 A180 : 96 57		" W"		ldaa	X0057
 A182 : D6 58		" X"		ldab	X0058
-A184 : BD A0 0F		"   "		jsr	LA00F
+A184 : BD A0 0F		"   "		jsr	Divide64ShiftAB
 A187 : 97 57		" W"		staa	X0057
 A189 : D7 58		" X"		stab	X0058
 A18B : DE 71		" q"		ldx	X0071
@@ -785,7 +785,7 @@ A488 : 97 28		" ("		staa	X0028
 A48A : D7 29		" )"		stab	X0029
 A48C : 96 7D		" }"		ldaa	X007D
 A48E : D6 7E		" ~"		ldab	X007E
-A490 : BD A0 25		"  %"		jsr	LA025
+A490 : BD A0 25		"  %"		jsr	SRA025
 A493 : 96 28		" ("		ldaa	X0028
 A495 : D6 29		" )"		ldab	X0029
 A497 : 84 FF		"  "		anda	#$FF
@@ -939,7 +939,7 @@ A5A9 : 97 28		" ("		staa	X0028
 A5AB : D7 29		" )"		stab	X0029
 A5AD : 96 25		" %"		ldaa	X0025
 A5AF : D6 26		" &"		ldab	X0026
-A5B1 : BD A0 25		"  %"		jsr	LA025
+A5B1 : BD A0 25		"  %"		jsr	SRA025
 A5B4 : 96 28		" ("		ldaa	X0028
 A5B6 : D6 29		" )"		ldab	X0029
 A5B8 : 81 03		"  "		cmpa	#$03
@@ -1453,7 +1453,7 @@ A8B9 : CE 02 B2		"   "		ldx	#$02B2
 A8BC : DF 92		"  "		stx	X0092
 A8BE : CE 00 68		"  h"		ldx	#$0068
 A8C1 : DF 90		"  "		stx	X0090
-A8C3 : B6 BF F7		"   "		ldaa	XBFF7
+A8C3 : B6 BF F7		"   "		ldaa	ByteBFF7
 A8C6 : 44		"D"		lsra
 A8C7 : 25 04		"% "		bcs	LA8CD
 A8C9 : 86 59		" Y"		ldaa	#$59
@@ -1608,7 +1608,7 @@ A9D2 : 85 20		"  "		bita	#$20
 A9D4 : 26 12		"& "		bne	LA9E8
 A9D6 : A6 10		"  "		ldaa	$10,x
 A9D8 : 5F		"_"		clrb
-A9D9 : BD A0 0F		"   "		jsr	LA00F
+A9D9 : BD A0 0F		"   "		jsr	Divide64ShiftAB
 A9DC : D7 6B		" k"		stab	X006B
 A9DE : A6 01		"  "		ldaa	$01,x
 A9E0 : 97 6C		" l"		staa	X006C
@@ -1619,7 +1619,7 @@ A9E6 : 20 38		" 8"		bra	LAA20
 A9E8				LA9E8:
 A9E8 : A6 11		"  "		ldaa	$11,x
 A9EA : 5F		"_"		clrb
-A9EB : BD A0 0F		"   "		jsr	LA00F
+A9EB : BD A0 0F		"   "		jsr	Divide64ShiftAB
 A9EE : D7 6C		" l"		stab	X006C
 A9F0 : A6 0F		"  "		ldaa	$0F,x
 A9F2 : 97 6B		" k"		staa	X006B
@@ -1851,7 +1851,7 @@ AB77 : C1 08		"  "		cmpb	#$08
 AB79 : 24 08		"$ "		bcc	LAB83
 AB7B : BD A0 00		"   "		jsr	LA000
 AB7E : 0E		" "		cli
-AB7F : BD A0 15		"   "		jsr	LA015
+AB7F : BD A0 15		"   "		jsr	Divide8ShiftAB
 AB82 : 17		" "		tba
 AB83				LAB83:
 AB83 : 97 18		"  "		staa	X0018
@@ -1870,18 +1870,18 @@ AB97 : 20 02		"  "		bra	LAB9B
 AB99				LAB99:
 AB99 : 96 56		" V"		ldaa	X0056
 AB9B				LAB9B:
-AB9B : F1 BF 82		"   "		cmpb	XBF82
+AB9B : F1 BF 82		"   "		cmpb	TempSwitchCold
 AB9E : 24 0E		"$ "		bcc	LABAE
 ABA0 : CE BF E0		"   "		ldx	#$BFE0
 ABA3 : BD A1 3A		"  :"		jsr	LA13A
-ABA6 : BB BF 80		"   "		adda	XBF80
-ABA9 : BB BF 88		"   "		adda	XBF88
+ABA6 : BB BF 80		"   "		adda	IgnIdleValue
+ABA9 : BB BF 88		"   "		adda	IgnColdAdder
 ABAC : 20 D5		"  "		bra	LAB83
 				;
 ABAE				LABAE:
 ABAE : CE BF E0		"   "		ldx	#$BFE0
 ABB1 : BD A1 3A		"  :"		jsr	LA13A
-ABB4 : BB BF 80		"   "		adda	XBF80
+ABB4 : BB BF 80		"   "		adda	IgnIdleValue
 ABB7 : 20 CA		"  "		bra	LAB83
 				;
 ABB9				LABB9:
@@ -1954,7 +1954,7 @@ AC26 : 97 36		" 6"		staa	X0036
 AC28 : D6 04		"  "		ldab	X0004
 AC2A : F1 BF 83		"   "		cmpb	XBF83
 AC2D : 24 31		"$1"		bcc	LAC60
-AC2F : F1 BF 82		"   "		cmpb	XBF82
+AC2F : F1 BF 82		"   "		cmpb	TempSwitchCold
 AC32 : 25 2C		"%,"		bcs	LAC60
 AC34 : D6 3A		" :"		ldab	X003A
 AC36 : F1 BF 84		"   "		cmpb	XBF84
@@ -1994,9 +1994,9 @@ AC75 : CE BB C0		"   "		ldx	#$BBC0
 AC78 : DF 71		" q"		stx	X0071
 AC7A : BD A1 80		"   "		jsr	LA180
 AC7D : D6 04		"  "		ldab	X0004
-AC7F : F1 BF 82		"   "		cmpb	XBF82
+AC7F : F1 BF 82		"   "		cmpb	TempSwitchCold
 AC82 : 24 03		"$ "		bcc	LAC87
-AC84 : BB BF 88		"   "		adda	XBF88
+AC84 : BB BF 88		"   "		adda	IgnColdAdder
 AC87				LAC87:
 AC87 : 97 18		"  "		staa	X0018
 AC89				LAC89:
@@ -2157,7 +2157,7 @@ AD90 : 37		"7"		pshb
 AD91 : B6 01 2E		"  ."		ldaa	X012E
 AD94 : F6 01 2F		"  /"		ldab	X012F
 AD97 : F0 BF A1		"   "		subb	XBFA1
-AD9A : B2 BF A0		"   "		sbca	UNKWN_DATA
+AD9A : B2 BF A0		"   "		sbca	UnknownData
 AD9D : B7 01 2E		"  ."		staa	X012E
 ADA0 : F7 01 2F		"  /"		stab	X012F
 ADA3 : 33		"3"		pulb
@@ -2855,7 +2855,7 @@ B221 : 97 28		" ("		staa	X0028
 B223 : D7 29		" )"		stab	X0029
 B225 : 86 80		"  "		ldaa	#$80
 B227 : C6 35		" 5"		ldab	#$35
-B229 : BD A0 25		"  %"		jsr	LA025
+B229 : BD A0 25		"  %"		jsr	SRA025
 B22C : 97 0F		"  "		staa	X000F
 B22E : D7 10		"  "		stab	X0010
 B230 : 96 99		"  "		ldaa	X0099
@@ -2874,7 +2874,7 @@ B244 : 22 02		"" "		bhi	LB248
 B246				LB246:
 B246 : 8A 04		"  "		oraa	#$04
 B248				LB248:
-B248 : BA BF F7		"   "		oraa	XBFF7
+B248 : BA BF F7		"   "		oraa	ByteBFF7
 B24B : 97 47		" G"		staa	X0047
 B24D : 96 92		"  "		ldaa	X0092
 B24F : 96 93		"  "		ldaa	X0093
@@ -2882,7 +2882,7 @@ B251 : 97 0D		"  "		staa	X000D
 B253 : F6 BF 42		"  B"		ldab	XBF42
 B256 : BD A0 00		"   "		jsr	LA000
 B259 : 0E		" "		cli
-B25A : BD A0 15		"   "		jsr	LA015
+B25A : BD A0 15		"   "		jsr	Divide8ShiftAB
 B25D : 91 0F		"  "		cmpa	X000F
 B25F : 25 10		"% "		bcs	LB271
 B261 : 26 04		"& "		bne	LB267
@@ -2921,14 +2921,14 @@ B29A : C1 10		"  "		cmpb	#$10
 B29C : 24 02		"$ "		bcc	LB2A0
 B29E : C6 10		"  "		ldab	#$10
 B2A0				LB2A0:
-B2A0 : BD A0 25		"  %"		jsr	LA025
+B2A0 : BD A0 25		"  %"		jsr	SRA025
 B2A3 : 96 29		" )"		ldaa	X0029
 B2A5 : 97 2D		" -"		staa	X002D
 B2A7 : 96 2A		" *"		ldaa	X002A
 B2A9 : 97 2E		" ."		staa	X002E
 B2AB : 96 2B		" +"		ldaa	X002B
 B2AD : 97 2F		" /"		staa	X002F
-B2AF : B6 BF 44		"  D"		ldaa	XBF44
+B2AF : B6 BF 44		"  D"		ldaa	KValue
 B2B2 : 97 29		" )"		staa	X0029
 B2B4 : B6 BF 45		"  E"		ldaa	XBF45
 B2B7 : 97 2A		" *"		staa	X002A
@@ -2944,15 +2944,15 @@ B2CB : 96 08		"  "		ldaa	X0008
 B2CD : CE BB 70		"  p"		ldx	#$BB70
 B2D0 : BD A1 3A		"  :"		jsr	LA13A
 B2D3 : 5F		"_"		clrb
-B2D4 : BD A0 25		"  %"		jsr	LA025
+B2D4 : BD A0 25		"  %"		jsr	SRA025
 B2D7 : 96 09		"  "		ldaa	X0009
 B2D9 : CE BB 60		"  `"		ldx	#$BB60
 B2DC : BD A1 3A		"  :"		jsr	LA13A
 B2DF : 5F		"_"		clrb
-B2E0 : BD A0 25		"  %"		jsr	LA025
+B2E0 : BD A0 25		"  %"		jsr	SRA025
 B2E3 : 85 C0		"  "		bita	#$C0
 B2E5 : 26 65		"&e"		bne	LB34C
-B2E7 : BD A0 20		"   "		jsr	LA020
+B2E7 : BD A0 20		"   "		jsr	Multiply8ShiftBA
 B2EA : 36		"6"		psha
 B2EB : 37		"7"		pshb
 B2EC : D6 47		" G"		ldab	X0047
@@ -3041,7 +3041,7 @@ B385 : FE 01 09		"   "		ldx	X0109
 B388 : 27 28		"'("		beq	LB3B2
 B38A : B6 01 09		"   "		ldaa	X0109
 B38D : F6 01 0A		"   "		ldab	X010A
-B390 : BD A0 15		"   "		jsr	LA015
+B390 : BD A0 15		"   "		jsr	Divide8ShiftAB
 B393 : 50		"P"		negb
 B394 : 89 00		"  "		adca	#$00
 B396 : 40		"@"		nega
@@ -3051,7 +3051,7 @@ B39D : B7 01 09		"   "		staa	X0109
 B3A0 : F7 01 0A		"   "		stab	X010A
 B3A3 : B6 01 33		"  3"		ldaa	X0133
 B3A6 : F6 01 34		"  4"		ldab	X0134
-B3A9 : BD A0 15		"   "		jsr	LA015
+B3A9 : BD A0 15		"   "		jsr	Divide8ShiftAB
 B3AC : FB 01 0A		"   "		addb	X010A
 B3AF : B9 01 09		"   "		adca	X0109
 B3B2				LB3B2:
@@ -3084,7 +3084,7 @@ B3E0 : CE BE 00		"   "		ldx	#$BE00
 B3E3 : BD A1 45		"  E"		jsr	LA145
 B3E6 : 97 37		" 7"		staa	X0037
 B3E8 : 5F		"_"		clrb
-B3E9 : BD A0 17		"   "		jsr	LA017
+B3E9 : BD A0 17		"   "		jsr	Divide4ShiftAB
 B3EC : DB 39		" 9"		addb	X0039
 B3EE : 99 38		" 8"		adca	X0038
 B3F0 : 97 38		" 8"		staa	X0038
@@ -3105,7 +3105,7 @@ B40C : D6 34		" 4"		ldab	X0034
 B40E : BD A0 00		"   "		jsr	LA000
 B411 : 0E		" "		cli
 B412 : 5F		"_"		clrb
-B413 : BD A0 17		"   "		jsr	LA017
+B413 : BD A0 17		"   "		jsr	Divide4ShiftAB
 B416 : DB 39		" 9"		addb	X0039
 B418 : 99 38		" 8"		adca	X0038
 B41A : 97 38		" 8"		staa	X0038
@@ -3133,12 +3133,12 @@ B441 : 97 28		" ("		staa	X0028
 B443 : D7 29		" )"		stab	X0029
 B445 : 96 38		" 8"		ldaa	X0038
 B447 : D6 39		" 9"		ldab	X0039
-B449 : BD A0 25		"  %"		jsr	LA025
+B449 : BD A0 25		"  %"		jsr	SRA025
 B44C : 97 28		" ("		staa	X0028
 B44E : D7 29		" )"		stab	X0029
 B450 : 86 82		"  "		ldaa	#$82
 B452 : C6 00		"  "		ldab	#$00
-B454 : BD A0 25		"  %"		jsr	LA025
+B454 : BD A0 25		"  %"		jsr	SRA025
 B457 : DB 3C		" <"		addb	X003C
 B459 : 89 00		"  "		adca	#$00
 B45B : 97 3E		" >"		staa	X003E
@@ -3223,7 +3223,7 @@ B4D5 : D7 31		" 1"		stab	X0031
 B4D7 : C5 80		"  "		bitb	#$80
 B4D9 : 26 17		"& "		bne	LB4F2
 B4DB : 96 0F		"  "		ldaa	X000F
-B4DD : B1 BF 50		"  P"		cmpa	XBF50
+B4DD : B1 BF 50		"  P"		cmpa	FuelCutRPM
 B4E0 : 25 2D		"%-"		bcs	LB50F
 B4E2 : 26 07		"& "		bne	LB4EB
 B4E4 : 96 10		"  "		ldaa	X0010
@@ -3238,7 +3238,7 @@ B4EF : 7E B5 D7		"~  "		jmp	LB5D7
 B4F2				LB4F2:
 B4F2 : B6 BF 51		"  Q"		ldaa	XBF51
 B4F5 : 80 28		" ("		suba	#$28
-B4F7 : B6 BF 50		"  P"		ldaa	XBF50
+B4F7 : B6 BF 50		"  P"		ldaa	FuelCutRPM
 B4FA : 82 00		"  "		sbca	#$00
 B4FC : 91 0F		"  "		cmpa	X000F
 B4FE : 22 0B		"" "		bhi	LB50B
@@ -3382,7 +3382,7 @@ B5DD				LB5DD:
 B5DD : 96 32		" 2"		ldaa	X0032
 B5DF : 27 0C		"' "		beq	LB5ED
 B5E1 : 5F		"_"		clrb
-B5E2 : BD A0 17		"   "		jsr	LA017
+B5E2 : BD A0 17		"   "		jsr	Divide4ShiftAB
 B5E5 : DB 39		" 9"		addb	X0039
 B5E7 : 99 38		" 8"		adca	X0038
 B5E9 : 97 38		" 8"		staa	X0038
@@ -3390,7 +3390,7 @@ B5EB : D7 39		" 9"		stab	X0039
 B5ED				LB5ED:
 B5ED : 96 4A		" J"		ldaa	X004A
 B5EF : 5F		"_"		clrb
-B5F0 : BD A0 13		"   "		jsr	LA013
+B5F0 : BD A0 13		"   "		jsr	Divide16ShiftAB
 B5F3 : DB 39		" 9"		addb	X0039
 B5F5 : 99 38		" 8"		adca	X0038
 B5F7 : 97 38		" 8"		staa	X0038
@@ -3420,12 +3420,12 @@ B623 : 97 28		" ("		staa	X0028
 B625 : D7 29		" )"		stab	X0029
 B627 : 96 38		" 8"		ldaa	X0038
 B629 : D6 39		" 9"		ldab	X0039
-B62B : BD A0 25		"  %"		jsr	LA025
+B62B : BD A0 25		"  %"		jsr	SRA025
 B62E : 97 28		" ("		staa	X0028
 B630 : D7 29		" )"		stab	X0029
 B632 : 96 13		"  "		ldaa	X0013
 B634 : D6 14		"  "		ldab	X0014
-B636 : BD A0 25		"  %"		jsr	LA025
+B636 : BD A0 25		"  %"		jsr	SRA025
 B639 : 97 3E		" >"		staa	X003E
 B63B : D7 3F		" ?"		stab	X003F
 B63D : 96 47		" G"		ldaa	X0047
@@ -3494,7 +3494,7 @@ B6A6 : 97 28		" ("		staa	X0028
 B6A8 : D7 29		" )"		stab	X0029
 B6AA : 86 40		" @"		ldaa	#$40
 B6AC : C6 00		"  "		ldab	#$00
-B6AE : BD A0 25		"  %"		jsr	LA025
+B6AE : BD A0 25		"  %"		jsr	SRA025
 B6B1 : DB 3F		" ?"		addb	X003F
 B6B3 : 99 3E		" >"		adca	X003E
 B6B5 : CE 00 00		"   "		ldx	#$0000
@@ -3529,7 +3529,7 @@ B6DD : 97 28		" ("		staa	X0028
 B6DF : D7 29		" )"		stab	X0029
 B6E1 : 96 3E		" >"		ldaa	X003E
 B6E3 : D6 3F		" ?"		ldab	X003F
-B6E5 : BD A0 25		"  %"		jsr	LA025
+B6E5 : BD A0 25		"  %"		jsr	SRA025
 B6E8				LB6E8:
 B6E8 : 0F		" "		sei
 B6E9 : 97 19		"  "		staa	X0019
@@ -3606,7 +3606,7 @@ B745 : 24 02		"$ "		bcc	LB749
 B747 : 20 F1		"  "		bra	LB73A
 				;
 B749				LB749:
-B749 : BD A0 0F		"   "		jsr	LA00F
+B749 : BD A0 0F		"   "		jsr	Divide64ShiftAB
 B74C : FB 01 0C		"   "		addb	X010C
 B74F : B9 01 0B		"   "		adca	X010B
 B752 : 20 23		" #"		bra	LB777
@@ -3625,7 +3625,7 @@ B764 : 24 02		"$ "		bcc	LB768
 B766 : 20 D2		"  "		bra	LB73A
 				;
 B768				LB768:
-B768 : BD A0 0F		"   "		jsr	LA00F
+B768 : BD A0 0F		"   "		jsr	Divide64ShiftAB
 B76B : F0 01 0C		"   "		subb	X010C
 B76E : B2 01 0B		"   "		sbca	X010B
 B771 : 43		"C"		coma
@@ -3738,7 +3738,7 @@ B81D : B1 BF 6B		"  k"		cmpa	XBF6B
 B820 : 24 0E		"$ "		bcc	LB830
 B822 : 81 03		"  "		cmpa	#$03
 B824 : 25 DE		"% "		bcs	LB804
-B826 : B1 BF 6C		"  l"		cmpa	XBF6C
+B826 : B1 BF 6C		"  l"		cmpa	UnknownBF6C
 B829 : 25 0A		"% "		bcs	LB835
 B82B : 7F 00 4C		"  L"		clr	X004C
 B82E : 20 D4		"  "		bra	LB804
@@ -3811,7 +3811,7 @@ B898 : B6 BF 6D		"  m"		ldaa	XBF6D
 B89B : 97 4B		" K"		staa	X004B
 B89D : 4F		"O"		clra
 B89E : F6 BF 71		"  q"		ldab	XBF71
-B8A1 : BD A0 1C		"   "		jsr	LA01C
+B8A1 : BD A0 1C		"   "		jsr	Multiply16ShiftBA
 B8A4 : 97 2A		" *"		staa	X002A
 B8A6 : D7 2B		" +"		stab	X002B
 B8A8 : 96 13		"  "		ldaa	X0013
@@ -3824,7 +3824,7 @@ B8B3 : 20 13		"  "		bra	LB8C8
 B8B5				LB8B5:
 B8B5 : 96 3E		" >"		ldaa	X003E
 B8B7 : D6 3F		" ?"		ldab	X003F
-B8B9 : BD A0 25		"  %"		jsr	LA025
+B8B9 : BD A0 25		"  %"		jsr	SRA025
 B8BC : 97 45		" E"		staa	X0045
 B8BE : D7 46		" F"		stab	X0046
 B8C0 : 96 13		"  "		ldaa	X0013
@@ -3875,7 +3875,7 @@ B90A				LB90A:
 B90A : F6 BF 72		"  r"		ldab	XBF72
 B90D				LB90D:
 B90D : 4F		"O"		clra
-B90E : BD A0 1C		"   "		jsr	LA01C
+B90E : BD A0 1C		"   "		jsr	Multiply16ShiftBA
 B911 : DB 14		"  "		addb	X0014
 B913 : 99 13		"  "		adca	X0013
 B915 : D7 14		"  "		stab	X0014
@@ -3919,7 +3919,7 @@ B954 : 20 21		" !"		bra	LB977
 B956				LB956:
 B956 : 96 3E		" >"		ldaa	X003E
 B958 : D6 3F		" ?"		ldab	X003F
-B95A : BD A0 25		"  %"		jsr	LA025
+B95A : BD A0 25		"  %"		jsr	SRA025
 B95D : 97 48		" H"		staa	X0048
 B95F : D7 49		" I"		stab	X0049
 B961 : DB 14		"  "		addb	X0014
@@ -4138,7 +4138,7 @@ BAA9 : 20 12		"  "		bra	LBABD
 BAAB				LBAAB:
 BAAB : B7 01 1C		"   "		staa	X011C
 BAAE : F7 01 1D		"   "		stab	X011D
-BAB1 : B1 BF F3		"   "		cmpa	XBFF3
+BAB1 : B1 BF F3		"   "		cmpa	DwordBFF3
 BAB4 : 26 1E		"& "		bne	LBAD4
 BAB6 : F1 BF F4		"   "		cmpb	XBFF4
 BAB9 : 26 19		"& "		bne	LBAD4
@@ -4147,7 +4147,7 @@ BABB : 20 D1		"  "		bra	LBA8E
 BABD				LBABD:
 BABD : B7 01 1E		"   "		staa	X011E
 BAC0 : F7 01 1F		"   "		stab	X011F
-BAC3 : B1 BF F5		"   "		cmpa	XBFF5
+BAC3 : B1 BF F5		"   "		cmpa	DwordBFF5
 BAC6 : 26 0C		"& "		bne	LBAD4
 BAC8 : F1 BF F6		"   "		cmpb	XBFF6
 BACB : 26 07		"& "		bne	LBAD4
@@ -4162,7 +4162,7 @@ BAD4 : 96 7F		"  "		ldaa	X007F
 BAD6 : 8A 40		" @"		oraa	#$40
 BAD8 : 20 F7		"  "		bra	LBAD1
 				;
-BADA : F6 BF F7		"   "		ldab	XBFF7
+BADA : F6 BF F7		"   "		ldab	ByteBFF7
 BADD : 54		"T"		lsrb
 BADE : 24 1B		"$ "		bcc	LBAFB
 BAE0 : D6 99		"  "		ldab	X0099
@@ -4203,7 +4203,7 @@ BB0D : 3F		"?"		swi
 BB0E : 3F		"?"		swi
 BB0F : 3F		"?"		swi
 				;
-BB10				DATA_MISC1:
+BB10				dataUnknownBB10:
 BB10 : 7D		"}"		db	$7D
 BB11 : A9		" "		db	$A9
 BB12 : 02		" "		db	$02
@@ -4220,7 +4220,7 @@ BB1C : 30		"0"		db	$30
 BB1D : D0		" "		db	$D0
 BB1E : 8F		" "		db	$8F
 BB1F : 9D		" "		db	$9D
-BB20				UNKWN_DATA:
+BB20				UnknownDataBB20:
 BB20 : 3F		"?"		db	$3F
 BB21 : 3F		"?"		db	$3F
 BB22 : 3F		"?"		db	$3F
@@ -4237,7 +4237,7 @@ BB2C : 01		" "		db	$01
 BB2D : 30		"0"		db	$30
 BB2E : 02		" "		db	$02
 BB2F : 00		" "		db	$00
-BB30				CHTS_CONV:
+BB30				ChtsConversion:
 BB30 : FF		" "		db	$FF
 BB31 : C8		" "		db	$C8
 BB32 : B6		" "		db	$B6
@@ -4270,7 +4270,7 @@ BB4C : 28		"("		db	$28
 BB4D : 20		" "		db	$20
 BB4E : 14		" "		db	$14
 BB4F : 00		" "		db	$00
-BB50				IGN_DUTY_DWELLV:
+BB50				IgnDwellDutyVolts:
 BB50 : FF		" "		db	$FF
 BB51 : FF		" "		db	$FF
 BB52 : FF		" "		db	$FF
@@ -4287,7 +4287,7 @@ BB5C : 2D		"-"		db	$2D
 BB5D : 28		"("		db	$28
 BB5E : 25		"%"		db	$25
 BB5F : 21		"!"		db	$21
-BB60				FUEL_BARO:
+BB60				BaroTable:
 BB60 : 8D		" "		db	$8D
 BB61 : 8B		" "		db	$8B
 BB62 : 89		" "		db	$89
@@ -4304,7 +4304,7 @@ BB6C : 6E		"n"		db	$6E
 BB6D : 6B		"k"		db	$6B
 BB6E : 68		"h"		db	$68
 BB6F : 65		"e"		db	$65
-BB70				FUEL_IAT:
+BB70				IATTable:
 BB70 : 80		" "		db	$80
 BB71 : 80		" "		db	$80
 BB72 : 80		" "		db	$80
@@ -4321,139 +4321,75 @@ BB7C : 82		" "		db	$82
 BB7D : 84		" "		db	$84
 BB7E : 87		" "		db	$87
 BB7F : 8D		" "		db	$8D
-BB80				TP_SCALE_FUEL:
-BB80 : 00		" "		db	$00
-BB81 : 40		"@"		db	$40
-BB82 : 00		" "		db	$00
-BB83 : 60		"`"		db	$60
-BB84 : 00		" "		db	$00
-BB85 : 80		" "		db	$80
-BB86 : 00		" "		db	$00
-BB87 : A0		" "		db	$A0
-BB88 : 00		" "		db	$00
-BB89 : C0		" "		db	$C0
-BB8A : 00		" "		db	$00
-BB8B : E0		" "		db	$E0
-BB8C : 01		" "		db	$01
-BB8D : 00		" "		db	$00
-BB8E : 01		" "		db	$01
-BB8F : 20		" "		db	$20
-BB90 : 01		" "		db	$01
-BB91 : 40		"@"		db	$40
-BB92 : 01		" "		db	$01
-BB93 : 50		"P"		db	$50
-BB94 : 01		" "		db	$01
-BB95 : 60		"`"		db	$60
-BB96 : 01		" "		db	$01
-BB97 : 70		"p"		db	$70
-BB98 : 01		" "		db	$01
-BB99 : 80		" "		db	$80
-BB9A : 01		" "		db	$01
-BB9B : A0		" "		db	$A0
-BB9C : 01		" "		db	$01
-BB9D : E0		" "		db	$E0
-BB9E : 02		" "		db	$02
-BB9F : 00		" "		db	$00
-BBA0				RPM_SCALE_FUEL:
-BBA0 : 00		" "		db	$00
-BBA1 : 20		" "		db	$20
-BBA2 : 00		" "		db	$00
-BBA3 : 28		"("		db	$28
-BBA4 : 00		" "		db	$00
-BBA5 : 40		"@"		db	$40
-BBA6 : 00		" "		db	$00
-BBA7 : 60		"`"		db	$60
-BBA8 : 00		" "		db	$00
-BBA9 : 80		" "		db	$80
-BBAA : 00		" "		db	$00
-BBAB : A0		" "		db	$A0
-BBAC : 00		" "		db	$00
-BBAD : C0		" "		db	$C0
-BBAE : 00		" "		db	$00
-BBAF : E0		" "		db	$E0
-BBB0 : 01		" "		db	$01
-BBB1 : 00		" "		db	$00
-BBB2 : 01		" "		db	$01
-BBB3 : 20		" "		db	$20
-BBB4 : 01		" "		db	$01
-BBB5 : 40		"@"		db	$40
-BBB6 : 01		" "		db	$01
-BBB7 : 60		"`"		db	$60
-BBB8 : 01		" "		db	$01
-BBB9 : 80		" "		db	$80
-BBBA : 01		" "		db	$01
-BBBB : A0		" "		db	$A0
-BBBC : 01		" "		db	$01
-BBBD : C0		" "		db	$C0
-BBBE : 01		" "		db	$01
-BBBF : E0		" "		db	$E0
-BBC0				RPM_SCALE_IGN:
-BBC0 : 00		" "		db	$00
-BBC1 : 40		"@"		db	$40
-BBC2 : 00		" "		db	$00
-BBC3 : 50		"P"		db	$50
-BBC4 : 00		" "		db	$00
-BBC5 : 60		"`"		db	$60
-BBC6 : 00		" "		db	$00
-BBC7 : 70		"p"		db	$70
-BBC8 : 00		" "		db	$00
-BBC9 : 80		" "		db	$80
-BBCA : 00		" "		db	$00
-BBCB : 90		" "		db	$90
-BBCC : 00		" "		db	$00
-BBCD : A0		" "		db	$A0
-BBCE : 00		" "		db	$00
-BBCF : B0		" "		db	$B0
-BBD0 : 00		" "		db	$00
-BBD1 : C0		" "		db	$C0
-BBD2 : 00		" "		db	$00
-BBD3 : E0		" "		db	$E0
-BBD4 : 01		" "		db	$01
-BBD5 : 00		" "		db	$00
-BBD6 : 01		" "		db	$01
-BBD7 : 20		" "		db	$20
-BBD8 : 01		" "		db	$01
-BBD9 : 40		"@"		db	$40
-BBDA : 01		" "		db	$01
-BBDB : 80		" "		db	$80
-BBDC : 01		" "		db	$01
-BBDD : C0		" "		db	$C0
-BBDE : 02		" "		db	$02
-BBDF : 00		" "		db	$00
-BBE0				TP_SCALE_IGN:
-BBE0 : 00		" "		db	$00
-BBE1 : 40		"@"		db	$40
-BBE2 : 00		" "		db	$00
-BBE3 : 50		"P"		db	$50
-BBE4 : 00		" "		db	$00
-BBE5 : 60		"`"		db	$60
-BBE6 : 00		" "		db	$00
-BBE7 : 70		"p"		db	$70
-BBE8 : 00		" "		db	$00
-BBE9 : 80		" "		db	$80
-BBEA : 00		" "		db	$00
-BBEB : A0		" "		db	$A0
-BBEC : 00		" "		db	$00
-BBED : C0		" "		db	$C0
-BBEE : 00		" "		db	$00
-BBEF : E0		" "		db	$E0
-BBF0 : 01		" "		db	$01
-BBF1 : 00		" "		db	$00
-BBF2 : 01		" "		db	$01
-BBF3 : 20		" "		db	$20
-BBF4 : 01		" "		db	$01
-BBF5 : 40		"@"		db	$40
-BBF6 : 01		" "		db	$01
-BBF7 : 60		"`"		db	$60
-BBF8 : 01		" "		db	$01
-BBF9 : 80		" "		db	$80
-BBFA : 01		" "		db	$01
-BBFB : A0		" "		db	$A0
-BBFC : 01		" "		db	$01
-BBFD : C0		" "		db	$C0
-BBFE : 01		" "		db	$01
-BBFF : E0		" "		db	$E0
-BC00				IGN_TABLE:
+BB80				AfrScaleTP:
+BB80 : 00 40		" @"		dw	$0040
+BB82 : 00 60		" `"		dw	X0060
+BB84 : 00 80		"  "		dw	X0080
+BB86 : 00 A0		"  "		dw	$00A0
+BB88 : 00 C0		"  "		dw	$00C0
+BB8A : 00 E0		"  "		dw	$00E0
+BB8C : 01 00		"  "		dw	X0100
+BB8E : 01 20		"  "		dw	X0120
+BB90 : 01 40		" @"		dw	$0140
+BB92 : 01 50		" P"		dw	$0150
+BB94 : 01 60		" `"		dw	$0160
+BB96 : 01 70		" p"		dw	$0170
+BB98 : 01 80		"  "		dw	$0180
+BB9A : 01 A0		"  "		dw	$01A0
+BB9C : 01 E0		"  "		dw	$01E0
+BB9E : 02 00		"  "		dw	$0200
+BBA0				AfrScaleRPM:
+BBA0 : 00 20		"  "		dw	X0020
+BBA2 : 00 28		" ("		dw	X0028
+BBA4 : 00 40		" @"		dw	$0040
+BBA6 : 00 60		" `"		dw	X0060
+BBA8 : 00 80		"  "		dw	X0080
+BBAA : 00 A0		"  "		dw	$00A0
+BBAC : 00 C0		"  "		dw	$00C0
+BBAE : 00 E0		"  "		dw	$00E0
+BBB0 : 01 00		"  "		dw	X0100
+BBB2 : 01 20		"  "		dw	X0120
+BBB4 : 01 40		" @"		dw	$0140
+BBB6 : 01 60		" `"		dw	$0160
+BBB8 : 01 80		"  "		dw	$0180
+BBBA : 01 A0		"  "		dw	$01A0
+BBBC : 01 C0		"  "		dw	$01C0
+BBBE : 01 E0		"  "		dw	$01E0
+BBC0				IgnSaleTP:
+BBC0 : 00 40		" @"		dw	$0040
+BBC2 : 00 50		" P"		dw	X0050
+BBC4 : 00 60		" `"		dw	X0060
+BBC6 : 00 70		" p"		dw	$0070
+BBC8 : 00 80		"  "		dw	X0080
+BBCA : 00 90		"  "		dw	X0090
+BBCC : 00 A0		"  "		dw	$00A0
+BBCE : 00 B0		"  "		dw	$00B0
+BBD0 : 00 C0		"  "		dw	$00C0
+BBD2 : 00 E0		"  "		dw	$00E0
+BBD4 : 01 00		"  "		dw	X0100
+BBD6 : 01 20		"  "		dw	X0120
+BBD8 : 01 40		" @"		dw	$0140
+BBDA : 01 80		"  "		dw	$0180
+BBDC : 01 C0		"  "		dw	$01C0
+BBDE : 02 00		"  "		dw	$0200
+BBE0				IgnScaleRPM:
+BBE0 : 00 40		" @"		dw	$0040
+BBE2 : 00 50		" P"		dw	X0050
+BBE4 : 00 60		" `"		dw	X0060
+BBE6 : 00 70		" p"		dw	$0070
+BBE8 : 00 80		"  "		dw	X0080
+BBEA : 00 A0		"  "		dw	$00A0
+BBEC : 00 C0		"  "		dw	$00C0
+BBEE : 00 E0		"  "		dw	$00E0
+BBF0 : 01 00		"  "		dw	X0100
+BBF2 : 01 20		"  "		dw	X0120
+BBF4 : 01 40		" @"		dw	$0140
+BBF6 : 01 60		" `"		dw	$0160
+BBF8 : 01 80		"  "		dw	$0180
+BBFA : 01 A0		"  "		dw	$01A0
+BBFC : 01 C0		"  "		dw	$01C0
+BBFE : 01 E0		"  "		dw	$01E0
+BC00				IgnTable:
 BC00 : 14		" "		db	$14
 BC01 : 1E		" "		db	$1E
 BC02 : 23		"#"		db	$23
@@ -4710,7 +4646,7 @@ BCFC : 1F		" "		db	$1F
 BCFD : 1F		" "		db	$1F
 BCFE : 1F		" "		db	$1F
 BCFF : 1F		" "		db	$1F
-BD00				FUEL_TABLE:
+BD00				FuelTable:
 BD00 : 14		" "		db	$14
 BD01 : 14		" "		db	$14
 BD02 : 14		" "		db	$14
@@ -4967,7 +4903,7 @@ BDFC : 64		"d"		db	$64
 BDFD : 64		"d"		db	$64
 BDFE : 64		"d"		db	$64
 BDFF : 64		"d"		db	$64
-BE00				FUEL_CHTS:
+BE00				ChtsEnrichment:
 BE00 : 40		"@"		db	$40
 BE01 : 40		"@"		db	$40
 BE02 : 40		"@"		db	$40
@@ -5000,7 +4936,7 @@ BE1C : 64		"d"		db	$64
 BE1D : 66		"f"		db	$66
 BE1E : 6A		"j"		db	$6A
 BE1F : 6A		"j"		db	$6A
-BE20				FUEL_CRANK:
+BE20				CrankingEnrichment:
 BE20 : 04		" "		db	$04
 BE21 : 04		" "		db	$04
 BE22 : 04		" "		db	$04
@@ -5033,7 +4969,7 @@ BE3C : 30		"0"		db	$30
 BE3D : 3A		":"		db	$3A
 BE3E : 4F		"O"		db	$4F
 BE3F : 4F		"O"		db	$4F
-BE40				FUEL_AFTERSTART:
+BE40				AfterStartEnrichment:
 BE40 : 06		" "		db	$06
 BE41 : 06		" "		db	$06
 BE42 : 06		" "		db	$06
@@ -5050,7 +4986,7 @@ BE4C : 23		"#"		db	$23
 BE4D : 28		"("		db	$28
 BE4E : 2C		","		db	$2C
 BE4F : 32		"2"		db	$32
-BE50				UNKWN_TABLE1:
+BE50				UnknownBE50:
 BE50 : 00		" "		db	$00
 BE51 : 00		" "		db	$00
 BE52 : 00		" "		db	$00
@@ -5067,7 +5003,7 @@ BE5C : 33		"3"		db	$33
 BE5D : 39		"9"		db	$39
 BE5E : 40		"@"		db	$40
 BE5F : 4D		"M"		db	$4D
-BE60				UNKWN_TABLE2:
+BE60				UnknownBE60:
 BE60 : 44		"D"		db	$44
 BE61 : 44		"D"		db	$44
 BE62 : 44		"D"		db	$44
@@ -5084,7 +5020,7 @@ BE6C : 4E		"N"		db	$4E
 BE6D : 4E		"N"		db	$4E
 BE6E : 4E		"N"		db	$4E
 BE6F : 4E		"N"		db	$4E
-BE70				UNKWN_TABLE3:
+BE70				UnknownBE70:
 BE70 : 32		"2"		db	$32
 BE71 : 32		"2"		db	$32
 BE72 : 32		"2"		db	$32
@@ -5101,7 +5037,7 @@ BE7C : 46		"F"		db	$46
 BE7D : 46		"F"		db	$46
 BE7E : 46		"F"		db	$46
 BE7F : 46		"F"		db	$46
-BE80				UNKWN_TABLE4:
+BE80				UnknownBE80:
 BE80 : 30		"0"		db	$30
 BE81 : 30		"0"		db	$30
 BE82 : 30		"0"		db	$30
@@ -5118,7 +5054,7 @@ BE8C : 44		"D"		db	$44
 BE8D : 44		"D"		db	$44
 BE8E : 44		"D"		db	$44
 BE8F : 44		"D"		db	$44
-BE90				UNKWN_TABLE5:
+BE90				UnknownBE90:
 BE90 : 00		" "		db	$00
 BE91 : 00		" "		db	$00
 BE92 : 00		" "		db	$00
@@ -5135,7 +5071,7 @@ BE9C : 20		" "		db	$20
 BE9D : 20		" "		db	$20
 BE9E : 20		" "		db	$20
 BE9F : 20		" "		db	$20
-BEA0				UNKWN_TABLE6:
+BEA0				UnknownBEA0:
 BEA0 : 34		"4"		db	$34
 BEA1 : 34		"4"		db	$34
 BEA2 : 34		"4"		db	$34
@@ -5210,7 +5146,7 @@ BEED : 3F		"?"		swi
 BEEE : 3F		"?"		swi
 BEEF : 3F		"?"		swi
 				;
-BEF0				8x8_TABLE:
+BEF0				EgrTable:
 BEF0 : C8		" "		db	$C8
 BEF1 : C8		" "		db	$C8
 BEF2 : C8		" "		db	$C8
@@ -5275,7 +5211,7 @@ BF2C : 3C		"<"		db	$3C
 BF2D : 00		" "		db	$00
 BF2E : 00		" "		db	$00
 BF2F : 00		" "		db	$00
-BF30				UNKWN_SCALE1:
+BF30				EgrLoadTP:
 BF30 : 00		" "		db	$00
 BF31 : 5C		"\"		db	$5C
 BF32 : 00		" "		db	$00
@@ -5292,7 +5228,7 @@ BF3C : 00		" "		db	$00
 BF3D : E0		" "		db	$E0
 BF3E : 01		" "		db	$01
 BF3F : 20		" "		db	$20
-BF40				DATA_MISC:
+BF40				DataUnknown:
 BF40 : 10		" "		db	$10
 BF41 : 60		"`"		db	$60
 BF42 : FF		" "		db	$FF
@@ -5389,7 +5325,7 @@ BF9C : 01		" "		db	$01
 BF9D : 41		"A"		db	$41
 BF9E : 00		" "		db	$00
 BF9F : 1A		" "		db	$1A
-BFA0				UNKWN_DATA:
+BFA0				UnknownData:
 BFA0 : 01		" "		db	$01
 BFA1 : 33		"3"		db	$33
 BFA2 : 0A		" "		db	$0A
@@ -5406,7 +5342,7 @@ BFAC : 3F		"?"		db	$3F
 BFAD : 3F		"?"		db	$3F
 BFAE : 3F		"?"		db	$3F
 BFAF : 3F		"?"		db	$3F
-BFB0				IGN_DUTY_DWELL%:
+BFB0				IgnDwellDuty%:
 BFB0 : 0B		" "		db	$0B
 BFB1 : 0F		" "		db	$0F
 BFB2 : 27		"'"		db	$27
@@ -5423,7 +5359,7 @@ BFBC : E8		" "		db	$E8
 BFBD : E8		" "		db	$E8
 BFBE : E8		" "		db	$E8
 BFBF : E8		" "		db	$E8
-BFC0				UNKWN_SCALE2:
+BFC0				EgrLoadRPM:
 BFC0 : 00		" "		db	$00
 BFC1 : 60		"`"		db	$60
 BFC2 : 00		" "		db	$00
@@ -5440,7 +5376,7 @@ BFCC : 00		" "		db	$00
 BFCD : E0		" "		db	$E0
 BFCE : 00		" "		db	$00
 BFCF : F0		" "		db	$F0
-BFD0				UNKWN_DATA:
+BFD0				UnknownBFD0:
 BFD0 : 00		" "		db	$00
 BFD1 : 50		"P"		db	$50
 BFD2 : 01		" "		db	$01
@@ -5457,7 +5393,7 @@ BFDC : 14		" "		db	$14
 BFDD : 16		" "		db	$16
 BFDE : 19		" "		db	$19
 BFDF : 19		" "		db	$19
-BFE0				IGN_IDLE_SWITCH:
+BFE0				IgnIdleSwitch:
 BFE0 : 00		" "		db	$00
 BFE1 : 00		" "		db	$00
 BFE2 : 00		" "		db	$00
@@ -5474,23 +5410,24 @@ BFEC : 0E		" "		db	$0E
 BFED : 10		" "		db	$10
 BFEE : 10		" "		db	$10
 BFEF : 10		" "		db	$10
-BFF0				UNKWN_DATA:
+BFF0				SWI:
 BFF0 : 3F		"?"		db	$3F
 BFF1 : 3F		"?"		db	$3F
 BFF2 : 3F		"?"		db	$3F
-BFF3 : 30		"0"		db	$30
-BFF4 : 66		"f"		db	$66
-BFF5 : 89		" "		db	$89
-BFF6 : 4B		"K"		db	$4B
+BFF3				DwordBFF3:
+BFF3 : 30 66		"0f"		dw	$3066
+BFF5				DwordBFF5:
+BFF5 : 89 4B		" K"		dw	$894B
+BFF7				ByteBFF7:
 BFF7 : 01		" "		db	$01
-BFF8 : A6		" "		db	$A6
-BFF9 : AC		" "		db	$AC
-BFFA : A8		" "		db	$A8
-BFFB : 43		"C"		db	$43
-BFFC : BA		" "		db	$BA
-BFFD : DA		" "		db	$DA
-BFFE : A8		" "		db	$A8
-BFFF : 43		"C"		db	$43
+BFF8				IRQMaybe:
+BFF8 : A6 AC		"  "		dw	$A6AC
+BFFA				SWIMaybe:
+BFFA : A8 43		" C"		dw	$A843
+BFFC				NMIMaybe:
+BFFC : BA DA		"  "		dw	$BADA
+BFFE				RSTMaybe:
+BFFE : A8 43		" C"		dw	$A843
 
 ;--------------------------------------------------------------
 Symbol table
@@ -5691,13 +5628,13 @@ Value		Type	Name
 0133		Data	X0133
 0134		Data	X0134
 A000		Code	LA000
-A00F		Code	LA00F
-A013		Code	LA013
-A015		Code	LA015
-A017		Code	LA017
-A01C		Code	LA01C
-A020		Code	LA020
-A025		Code	LA025
+A00F		Code	Divide64ShiftAB
+A013		Code	Divide16ShiftAB
+A015		Code	Divide8ShiftAB
+A017		Code	Divide4ShiftAB
+A01C		Code	Multiply16ShiftBA
+A020		Code	Multiply8ShiftBA
+A025		Code	SRA025
 A091		Code	LA091
 A0A5		Code	LA0A5
 A0A8		Code	LA0A8
@@ -6217,36 +6154,36 @@ BAF6		Code	LBAF6
 BAF8		Code	LBAF8
 BAFB		Code	LBAFB
 BB03		Code	LBB03
-BB10		Data	DATA_MISC1
-BB20		Data	UNKWN_DATA
-BB30		Data	CHTS_CONV
-BB50		Data	IGN_DUTY_DWELLV
-BB60		Data	FUEL_BARO
-BB70		Data	FUEL_IAT
-BB80		Data	TP_SCALE_FUEL
-BBA0		Data	RPM_SCALE_FUEL
-BBC0		Data	RPM_SCALE_IGN
-BBE0		Data	TP_SCALE_IGN
-BC00		Data	IGN_TABLE
-BD00		Data	FUEL_TABLE
-BE00		Data	FUEL_CHTS
-BE20		Data	FUEL_CRANK
-BE40		Data	FUEL_AFTERSTART
-BE50		Data	UNKWN_TABLE1
-BE60		Data	UNKWN_TABLE2
-BE70		Data	UNKWN_TABLE3
-BE80		Data	UNKWN_TABLE4
-BE90		Data	UNKWN_TABLE5
-BEA0		Data	UNKWN_TABLE6
+BB10		Data	dataUnknownBB10
+BB20		Data	UnknownDataBB20
+BB30		Data	ChtsConversion
+BB50		Data	IgnDwellDutyVolts
+BB60		Data	BaroTable
+BB70		Data	IATTable
+BB80		Data	AfrScaleTP
+BBA0		Data	AfrScaleRPM
+BBC0		Data	IgnSaleTP
+BBE0		Data	IgnScaleRPM
+BC00		Data	IgnTable
+BD00		Data	FuelTable
+BE00		Data	ChtsEnrichment
+BE20		Data	CrankingEnrichment
+BE40		Data	AfterStartEnrichment
+BE50		Data	UnknownBE50
+BE60		Data	UnknownBE60
+BE70		Data	UnknownBE70
+BE80		Data	UnknownBE80
+BE90		Data	UnknownBE90
+BEA0		Data	UnknownBEA0
 BEB0		Code	LBEB0
 BEBC		Code	LBEBC
 BEC3		Code	LBEC3
-BEF0		Data	8x8_TABLE
-BF30		Data	UNKWN_SCALE1
-BF40		Data	DATA_MISC
+BEF0		Data	EgrTable
+BF30		Data	EgrLoadTP
+BF40		Data	DataUnknown
 BF42		Data	XBF42
 BF43		Data	XBF43
-BF44		Data	XBF44
+BF44		Data	KValue
 BF45		Data	XBF45
 BF46		Data	XBF46
 BF47		Data	XBF47
@@ -6258,7 +6195,7 @@ BF4C		Data	XBF4C
 BF4D		Data	XBF4D
 BF4E		Data	XBF4E
 BF4F		Data	XBF4F
-BF50		Data	XBF50
+BF50		Data	FuelCutRPM
 BF51		Data	XBF51
 BF52		Data	XBF52
 BF53		Data	XBF53
@@ -6286,7 +6223,7 @@ BF68		Data	XBF68
 BF69		Data	XBF69
 BF6A		Data	XBF6A
 BF6B		Data	XBF6B
-BF6C		Data	XBF6C
+BF6C		Data	UnknownBF6C
 BF6D		Data	XBF6D
 BF6E		Data	XBF6E
 BF6F		Data	XBF6F
@@ -6306,15 +6243,15 @@ BF7C		Data	XBF7C
 BF7D		Data	XBF7D
 BF7E		Data	XBF7E
 BF7F		Data	XBF7F
-BF80		Data	XBF80
+BF80		Data	IgnIdleValue
 BF81		Data	XBF81
-BF82		Data	XBF82
+BF82		Data	TempSwitchCold
 BF83		Data	XBF83
 BF84		Data	XBF84
 BF85		Data	XBF85
 BF86		Data	XBF86
 BF87		Data	XBF87
-BF88		Data	XBF88
+BF88		Data	IgnColdAdder
 BF89		Data	XBF89
 BF8A		Data	XBF8A
 BF8B		Data	XBF8B
@@ -6338,23 +6275,27 @@ BF9C		Data	XBF9C
 BF9D		Data	XBF9D
 BF9E		Data	XBF9E
 BF9F		Data	XBF9F
-BFA0		Data	UNKWN_DATA
+BFA0		Data	UnknownData
 BFA1		Data	XBFA1
 BFA2		Data	XBFA2
 BFA3		Data	XBFA3
 BFA4		Data	XBFA4
-BFB0		Data	IGN_DUTY_DWELL%
-BFC0		Data	UNKWN_SCALE2
-BFD0		Data	UNKWN_DATA
-BFE0		Data	IGN_IDLE_SWITCH
-BFF0		Data	UNKWN_DATA
-BFF3		Data	XBFF3
+BFB0		Data	IgnDwellDuty%
+BFC0		Data	EgrLoadRPM
+BFD0		Data	UnknownBFD0
+BFD4		Data	UnknownBFD4
+BFE0		Data	IgnIdleSwitch
+BFF0		Data	SWI
+BFF3		Data	DwordBFF3
 BFF4		Data	XBFF4
-BFF5		Data	XBFF5
+BFF5		Data	DwordBFF5
 BFF6		Data	XBFF6
-BFF7		Data	XBFF7
-FFFF		Data	XFFFF
+BFF7		Data	ByteBFF7
+BFF8		Data	IRQMaybe
+BFFA		Data	SWIMaybe
+BFFC		Data	NMIMaybe
+BFFE		Data	RSTMaybe
 
-Number of symbols:			856
+Number of symbols:			860
 
 ;--------------------------------------------------------------

@@ -4,13 +4,13 @@
 ;		(c) Copyright 1996-2003   Conquest Consultants
 ;		Version 1.40 (Oct 18 2003)
 ;
-;	File:		A000_1982MT_S130_A18-601-042.BIN
+;	File:		.\A000_1982MT_S130_A18-601-042.BIN
 ;
-;	Size:		49152 bytes
-;	Checksum:	C0B1
-;	CRC-32:		4928DC5E
+;	Size:		8192 bytes
+;	Checksum:	60B1
+;	CRC-32:		B55C7F27
 ;
-;	Date:		Wed Feb 27 21:52:18 2019
+;	Date:		Wed May 29 09:02:55 2024
 ;
 ;	CPU:		Motorola 6802 (6800/6802/6808 family)
 ;
@@ -31,37 +31,37 @@ LA000:
 	ldab	X009B
 	rts
 ;
-LA00F:
+Divide64ShiftAB:
 	lsra
 	rorb
 	lsra
 	rorb
-LA013:
+Divide16ShiftAB:
 	lsra
 	rorb
-LA015:
+Divide8ShiftAB:
 	lsra
 	rorb
-LA017:
+Divide4ShiftAB:
 	lsra
 	rorb
 	lsra
 	rorb
 	rts
 ;
-LA01C:
+Multiply16ShiftBA:
 	aslb
 	rola
 	aslb
 	rola
-LA020:
+Multiply8ShiftBA:
 	aslb
 	rola
 	aslb
 	rola
 	rts
 ;
-LA025:
+SRA025:
 	staa	X002A
 	staa	X009A
 	ldaa	X0028
@@ -295,7 +295,7 @@ LA17D:
 LA180:
 	ldaa	X0057
 	ldab	X0058
-	jsr	LA00F
+	jsr	Divide64ShiftAB
 	staa	X0057
 	stab	X0058
 	ldx	X0071
@@ -785,7 +785,7 @@ LA488:
 	stab	X0029
 	ldaa	X007D
 	ldab	X007E
-	jsr	LA025
+	jsr	SRA025
 	ldaa	X0028
 	ldab	X0029
 	anda	#$FF
@@ -939,7 +939,7 @@ LA59D:
 	stab	X0029
 	ldaa	X0025
 	ldab	X0026
-	jsr	LA025
+	jsr	SRA025
 	ldaa	X0028
 	ldab	X0029
 	cmpa	#$03
@@ -1453,7 +1453,7 @@ LA870:
 	stx	X0092
 	ldx	#$0068
 	stx	X0090
-	ldaa	XBFF7
+	ldaa	ByteBFF7
 	lsra
 	bcs	LA8CD
 	ldaa	#$59
@@ -1608,7 +1608,7 @@ LA9CE:
 	bne	LA9E8
 	ldaa	$10,x
 	clrb
-	jsr	LA00F
+	jsr	Divide64ShiftAB
 	stab	X006B
 	ldaa	$01,x
 	staa	X006C
@@ -1619,7 +1619,7 @@ LA9CE:
 LA9E8:
 	ldaa	$11,x
 	clrb
-	jsr	LA00F
+	jsr	Divide64ShiftAB
 	stab	X006C
 	ldaa	$0F,x
 	staa	X006B
@@ -1851,7 +1851,7 @@ LAB6B:
 	bcc	LAB83
 	jsr	LA000
 	cli
-	jsr	LA015
+	jsr	Divide8ShiftAB
 	tba
 LAB83:
 	staa	X0018
@@ -1870,18 +1870,18 @@ LAB8B:
 LAB99:
 	ldaa	X0056
 LAB9B:
-	cmpb	XBF82
+	cmpb	TempSwitchCold
 	bcc	LABAE
 	ldx	#$BFE0
 	jsr	LA13A
-	adda	XBF80
-	adda	XBF88
+	adda	IgnIdleValue
+	adda	IgnColdAdder
 	bra	LAB83
 ;
 LABAE:
 	ldx	#$BFE0
 	jsr	LA13A
-	adda	XBF80
+	adda	IgnIdleValue
 	bra	LAB83
 ;
 LABB9:
@@ -1954,7 +1954,7 @@ LAC26:
 	ldab	X0004
 	cmpb	XBF83
 	bcc	LAC60
-	cmpb	XBF82
+	cmpb	TempSwitchCold
 	bcs	LAC60
 	ldab	X003A
 	cmpb	XBF84
@@ -1994,9 +1994,9 @@ LAC60:
 	stx	X0071
 	jsr	LA180
 	ldab	X0004
-	cmpb	XBF82
+	cmpb	TempSwitchCold
 	bcc	LAC87
-	adda	XBF88
+	adda	IgnColdAdder
 LAC87:
 	staa	X0018
 LAC89:
@@ -2157,7 +2157,7 @@ LAD8C:
 	ldaa	X012E
 	ldab	X012F
 	subb	XBFA1
-	sbca	UNKWN_DATA
+	sbca	UnknownData
 	staa	X012E
 	stab	X012F
 	pulb
@@ -2855,7 +2855,7 @@ LB219:
 	stab	X0029
 	ldaa	#$80
 	ldab	#$35
-	jsr	LA025
+	jsr	SRA025
 	staa	X000F
 	stab	X0010
 	ldaa	X0099
@@ -2874,7 +2874,7 @@ LB242:
 LB246:
 	oraa	#$04
 LB248:
-	oraa	XBFF7
+	oraa	ByteBFF7
 	staa	X0047
 	ldaa	X0092
 	ldaa	X0093
@@ -2882,7 +2882,7 @@ LB248:
 	ldab	XBF42
 	jsr	LA000
 	cli
-	jsr	LA015
+	jsr	Divide8ShiftAB
 	cmpa	X000F
 	bcs	LB271
 	bne	LB267
@@ -2921,14 +2921,14 @@ LB28F:
 	bcc	LB2A0
 	ldab	#$10
 LB2A0:
-	jsr	LA025
+	jsr	SRA025
 	ldaa	X0029
 	staa	X002D
 	ldaa	X002A
 	staa	X002E
 	ldaa	X002B
 	staa	X002F
-	ldaa	XBF44
+	ldaa	KValue
 	staa	X0029
 	ldaa	XBF45
 	staa	X002A
@@ -2944,15 +2944,15 @@ LB2A0:
 	ldx	#$BB70
 	jsr	LA13A
 	clrb
-	jsr	LA025
+	jsr	SRA025
 	ldaa	X0009
 	ldx	#$BB60
 	jsr	LA13A
 	clrb
-	jsr	LA025
+	jsr	SRA025
 	bita	#$C0
 	bne	LB34C
-	jsr	LA020
+	jsr	Multiply8ShiftBA
 	psha
 	pshb
 	ldab	X0047
@@ -3041,7 +3041,7 @@ LB36E:
 	beq	LB3B2
 	ldaa	X0109
 	ldab	X010A
-	jsr	LA015
+	jsr	Divide8ShiftAB
 	negb
 	adca	#$00
 	nega
@@ -3051,7 +3051,7 @@ LB36E:
 	stab	X010A
 	ldaa	X0133
 	ldab	X0134
-	jsr	LA015
+	jsr	Divide8ShiftAB
 	addb	X010A
 	adca	X0109
 LB3B2:
@@ -3084,7 +3084,7 @@ LB3D3:
 	jsr	LA145
 	staa	X0037
 	clrb
-	jsr	LA017
+	jsr	Divide4ShiftAB
 	addb	X0039
 	adca	X0038
 	staa	X0038
@@ -3105,7 +3105,7 @@ LB408:
 	jsr	LA000
 	cli
 	clrb
-	jsr	LA017
+	jsr	Divide4ShiftAB
 	addb	X0039
 	adca	X0038
 	staa	X0038
@@ -3133,12 +3133,12 @@ LB436:
 	stab	X0029
 	ldaa	X0038
 	ldab	X0039
-	jsr	LA025
+	jsr	SRA025
 	staa	X0028
 	stab	X0029
 	ldaa	#$82
 	ldab	#$00
-	jsr	LA025
+	jsr	SRA025
 	addb	X003C
 	adca	#$00
 	staa	X003E
@@ -3223,7 +3223,7 @@ LB4D1:
 	bitb	#$80
 	bne	LB4F2
 	ldaa	X000F
-	cmpa	XBF50
+	cmpa	FuelCutRPM
 	bcs	LB50F
 	bne	LB4EB
 	ldaa	X0010
@@ -3238,7 +3238,7 @@ LB4EF:
 LB4F2:
 	ldaa	XBF51
 	suba	#$28
-	ldaa	XBF50
+	ldaa	FuelCutRPM
 	sbca	#$00
 	cmpa	X000F
 	bhi	LB50B
@@ -3382,7 +3382,7 @@ LB5DD:
 	ldaa	X0032
 	beq	LB5ED
 	clrb
-	jsr	LA017
+	jsr	Divide4ShiftAB
 	addb	X0039
 	adca	X0038
 	staa	X0038
@@ -3390,7 +3390,7 @@ LB5DD:
 LB5ED:
 	ldaa	X004A
 	clrb
-	jsr	LA013
+	jsr	Divide16ShiftAB
 	addb	X0039
 	adca	X0038
 	staa	X0038
@@ -3420,12 +3420,12 @@ LB61D:
 	stab	X0029
 	ldaa	X0038
 	ldab	X0039
-	jsr	LA025
+	jsr	SRA025
 	staa	X0028
 	stab	X0029
 	ldaa	X0013
 	ldab	X0014
-	jsr	LA025
+	jsr	SRA025
 	staa	X003E
 	stab	X003F
 	ldaa	X0047
@@ -3494,7 +3494,7 @@ LB6A6:
 	stab	X0029
 	ldaa	#$40
 	ldab	#$00
-	jsr	LA025
+	jsr	SRA025
 	addb	X003F
 	adca	X003E
 	ldx	#$0000
@@ -3529,7 +3529,7 @@ LB6DB:
 	stab	X0029
 	ldaa	X003E
 	ldab	X003F
-	jsr	LA025
+	jsr	SRA025
 LB6E8:
 	sei
 	staa	X0019
@@ -3606,7 +3606,7 @@ LB740:
 	bra	LB73A
 ;
 LB749:
-	jsr	LA00F
+	jsr	Divide64ShiftAB
 	addb	X010C
 	adca	X010B
 	bra	LB777
@@ -3625,7 +3625,7 @@ LB754:
 	bra	LB73A
 ;
 LB768:
-	jsr	LA00F
+	jsr	Divide64ShiftAB
 	subb	X010C
 	sbca	X010B
 	coma
@@ -3738,7 +3738,7 @@ LB810:
 	bcc	LB830
 	cmpa	#$03
 	bcs	LB804
-	cmpa	XBF6C
+	cmpa	UnknownBF6C
 	bcs	LB835
 	clr	X004C
 	bra	LB804
@@ -3811,7 +3811,7 @@ LB894:
 	staa	X004B
 	clra
 	ldab	XBF71
-	jsr	LA01C
+	jsr	Multiply16ShiftBA
 	staa	X002A
 	stab	X002B
 	ldaa	X0013
@@ -3824,7 +3824,7 @@ LB894:
 LB8B5:
 	ldaa	X003E
 	ldab	X003F
-	jsr	LA025
+	jsr	SRA025
 	staa	X0045
 	stab	X0046
 	ldaa	X0013
@@ -3875,7 +3875,7 @@ LB90A:
 	ldab	XBF72
 LB90D:
 	clra
-	jsr	LA01C
+	jsr	Multiply16ShiftBA
 	addb	X0014
 	adca	X0013
 	stab	X0014
@@ -3919,7 +3919,7 @@ LB951:
 LB956:
 	ldaa	X003E
 	ldab	X003F
-	jsr	LA025
+	jsr	SRA025
 	staa	X0048
 	stab	X0049
 	addb	X0014
@@ -4138,7 +4138,7 @@ LBA90:
 LBAAB:
 	staa	X011C
 	stab	X011D
-	cmpa	XBFF3
+	cmpa	DwordBFF3
 	bne	LBAD4
 	cmpb	XBFF4
 	bne	LBAD4
@@ -4147,7 +4147,7 @@ LBAAB:
 LBABD:
 	staa	X011E
 	stab	X011F
-	cmpa	XBFF5
+	cmpa	DwordBFF5
 	bne	LBAD4
 	cmpb	XBFF6
 	bne	LBAD4
@@ -4162,7 +4162,7 @@ LBAD4:
 	oraa	#$40
 	bra	LBAD1
 ;
-	ldab	XBFF7
+	ldab	ByteBFF7
 	lsrb
 	bcc	LBAFB
 	ldab	X0099
@@ -4203,7 +4203,7 @@ LBB03:
 	swi
 	swi
 ;
-DATA_MISC1:
+dataUnknownBB10:
 	db	$7D
 	db	$A9
 	db	$02
@@ -4220,7 +4220,7 @@ DATA_MISC1:
 	db	$D0
 	db	$8F
 	db	$9D
-UNKWN_DATA:
+UnknownDataBB20:
 	db	$3F
 	db	$3F
 	db	$3F
@@ -4237,7 +4237,7 @@ UNKWN_DATA:
 	db	$30
 	db	$02
 	db	$00
-CHTS_CONV:
+ChtsConversion:
 	db	$FF
 	db	$C8
 	db	$B6
@@ -4270,7 +4270,7 @@ CHTS_CONV:
 	db	$20
 	db	$14
 	db	$00
-IGN_DUTY_DWELLV:
+IgnDwellDutyVolts:
 	db	$FF
 	db	$FF
 	db	$FF
@@ -4287,7 +4287,7 @@ IGN_DUTY_DWELLV:
 	db	$28
 	db	$25
 	db	$21
-FUEL_BARO:
+BaroTable:
 	db	$8D
 	db	$8B
 	db	$89
@@ -4304,7 +4304,7 @@ FUEL_BARO:
 	db	$6B
 	db	$68
 	db	$65
-FUEL_IAT:
+IATTable:
 	db	$80
 	db	$80
 	db	$80
@@ -4321,139 +4321,75 @@ FUEL_IAT:
 	db	$84
 	db	$87
 	db	$8D
-TP_SCALE_FUEL:
-	db	$00
-	db	$40
-	db	$00
-	db	$60
-	db	$00
-	db	$80
-	db	$00
-	db	$A0
-	db	$00
-	db	$C0
-	db	$00
-	db	$E0
-	db	$01
-	db	$00
-	db	$01
-	db	$20
-	db	$01
-	db	$40
-	db	$01
-	db	$50
-	db	$01
-	db	$60
-	db	$01
-	db	$70
-	db	$01
-	db	$80
-	db	$01
-	db	$A0
-	db	$01
-	db	$E0
-	db	$02
-	db	$00
-RPM_SCALE_FUEL:
-	db	$00
-	db	$20
-	db	$00
-	db	$28
-	db	$00
-	db	$40
-	db	$00
-	db	$60
-	db	$00
-	db	$80
-	db	$00
-	db	$A0
-	db	$00
-	db	$C0
-	db	$00
-	db	$E0
-	db	$01
-	db	$00
-	db	$01
-	db	$20
-	db	$01
-	db	$40
-	db	$01
-	db	$60
-	db	$01
-	db	$80
-	db	$01
-	db	$A0
-	db	$01
-	db	$C0
-	db	$01
-	db	$E0
-RPM_SCALE_IGN:
-	db	$00
-	db	$40
-	db	$00
-	db	$50
-	db	$00
-	db	$60
-	db	$00
-	db	$70
-	db	$00
-	db	$80
-	db	$00
-	db	$90
-	db	$00
-	db	$A0
-	db	$00
-	db	$B0
-	db	$00
-	db	$C0
-	db	$00
-	db	$E0
-	db	$01
-	db	$00
-	db	$01
-	db	$20
-	db	$01
-	db	$40
-	db	$01
-	db	$80
-	db	$01
-	db	$C0
-	db	$02
-	db	$00
-TP_SCALE_IGN:
-	db	$00
-	db	$40
-	db	$00
-	db	$50
-	db	$00
-	db	$60
-	db	$00
-	db	$70
-	db	$00
-	db	$80
-	db	$00
-	db	$A0
-	db	$00
-	db	$C0
-	db	$00
-	db	$E0
-	db	$01
-	db	$00
-	db	$01
-	db	$20
-	db	$01
-	db	$40
-	db	$01
-	db	$60
-	db	$01
-	db	$80
-	db	$01
-	db	$A0
-	db	$01
-	db	$C0
-	db	$01
-	db	$E0
-IGN_TABLE:
+AfrScaleTP:
+	dw	$0040
+	dw	X0060
+	dw	X0080
+	dw	$00A0
+	dw	$00C0
+	dw	$00E0
+	dw	X0100
+	dw	X0120
+	dw	$0140
+	dw	$0150
+	dw	$0160
+	dw	$0170
+	dw	$0180
+	dw	$01A0
+	dw	$01E0
+	dw	$0200
+AfrScaleRPM:
+	dw	X0020
+	dw	X0028
+	dw	$0040
+	dw	X0060
+	dw	X0080
+	dw	$00A0
+	dw	$00C0
+	dw	$00E0
+	dw	X0100
+	dw	X0120
+	dw	$0140
+	dw	$0160
+	dw	$0180
+	dw	$01A0
+	dw	$01C0
+	dw	$01E0
+IgnSaleTP:
+	dw	$0040
+	dw	X0050
+	dw	X0060
+	dw	$0070
+	dw	X0080
+	dw	X0090
+	dw	$00A0
+	dw	$00B0
+	dw	$00C0
+	dw	$00E0
+	dw	X0100
+	dw	X0120
+	dw	$0140
+	dw	$0180
+	dw	$01C0
+	dw	$0200
+IgnScaleRPM:
+	dw	$0040
+	dw	X0050
+	dw	X0060
+	dw	$0070
+	dw	X0080
+	dw	$00A0
+	dw	$00C0
+	dw	$00E0
+	dw	X0100
+	dw	X0120
+	dw	$0140
+	dw	$0160
+	dw	$0180
+	dw	$01A0
+	dw	$01C0
+	dw	$01E0
+IgnTable:
 	db	$14
 	db	$1E
 	db	$23
@@ -4710,7 +4646,7 @@ IGN_TABLE:
 	db	$1F
 	db	$1F
 	db	$1F
-FUEL_TABLE:
+FuelTable:
 	db	$14
 	db	$14
 	db	$14
@@ -4967,7 +4903,7 @@ FUEL_TABLE:
 	db	$64
 	db	$64
 	db	$64
-FUEL_CHTS:
+ChtsEnrichment:
 	db	$40
 	db	$40
 	db	$40
@@ -5000,7 +4936,7 @@ FUEL_CHTS:
 	db	$66
 	db	$6A
 	db	$6A
-FUEL_CRANK:
+CrankingEnrichment:
 	db	$04
 	db	$04
 	db	$04
@@ -5033,7 +4969,7 @@ FUEL_CRANK:
 	db	$3A
 	db	$4F
 	db	$4F
-FUEL_AFTERSTART:
+AfterStartEnrichment:
 	db	$06
 	db	$06
 	db	$06
@@ -5050,7 +4986,7 @@ FUEL_AFTERSTART:
 	db	$28
 	db	$2C
 	db	$32
-UNKWN_TABLE1:
+UnknownBE50:
 	db	$00
 	db	$00
 	db	$00
@@ -5067,7 +5003,7 @@ UNKWN_TABLE1:
 	db	$39
 	db	$40
 	db	$4D
-UNKWN_TABLE2:
+UnknownBE60:
 	db	$44
 	db	$44
 	db	$44
@@ -5084,7 +5020,7 @@ UNKWN_TABLE2:
 	db	$4E
 	db	$4E
 	db	$4E
-UNKWN_TABLE3:
+UnknownBE70:
 	db	$32
 	db	$32
 	db	$32
@@ -5101,7 +5037,7 @@ UNKWN_TABLE3:
 	db	$46
 	db	$46
 	db	$46
-UNKWN_TABLE4:
+UnknownBE80:
 	db	$30
 	db	$30
 	db	$30
@@ -5118,7 +5054,7 @@ UNKWN_TABLE4:
 	db	$44
 	db	$44
 	db	$44
-UNKWN_TABLE5:
+UnknownBE90:
 	db	$00
 	db	$00
 	db	$00
@@ -5135,7 +5071,7 @@ UNKWN_TABLE5:
 	db	$20
 	db	$20
 	db	$20
-UNKWN_TABLE6:
+UnknownBEA0:
 	db	$34
 	db	$34
 	db	$34
@@ -5210,7 +5146,7 @@ LBEC3:
 	swi
 	swi
 ;
-8x8_TABLE:
+EgrTable:
 	db	$C8
 	db	$C8
 	db	$C8
@@ -5275,7 +5211,7 @@ LBEC3:
 	db	$00
 	db	$00
 	db	$00
-UNKWN_SCALE1:
+EgrLoadTP:
 	db	$00
 	db	$5C
 	db	$00
@@ -5292,7 +5228,7 @@ UNKWN_SCALE1:
 	db	$E0
 	db	$01
 	db	$20
-DATA_MISC:
+DataUnknown:
 	db	$10
 	db	$60
 	db	$FF
@@ -5389,7 +5325,7 @@ DATA_MISC:
 	db	$41
 	db	$00
 	db	$1A
-UNKWN_DATA:
+UnknownData:
 	db	$01
 	db	$33
 	db	$0A
@@ -5406,7 +5342,7 @@ UNKWN_DATA:
 	db	$3F
 	db	$3F
 	db	$3F
-IGN_DUTY_DWELL%:
+IgnDwellDuty%:
 	db	$0B
 	db	$0F
 	db	$27
@@ -5423,7 +5359,7 @@ IGN_DUTY_DWELL%:
 	db	$E8
 	db	$E8
 	db	$E8
-UNKWN_SCALE2:
+EgrLoadRPM:
 	db	$00
 	db	$60
 	db	$00
@@ -5440,7 +5376,7 @@ UNKWN_SCALE2:
 	db	$E0
 	db	$00
 	db	$F0
-UNKWN_DATA:
+UnknownBFD0:
 	db	$00
 	db	$50
 	db	$01
@@ -5457,7 +5393,7 @@ UNKWN_DATA:
 	db	$16
 	db	$19
 	db	$19
-IGN_IDLE_SWITCH:
+IgnIdleSwitch:
 	db	$00
 	db	$00
 	db	$00
@@ -5474,20 +5410,21 @@ IGN_IDLE_SWITCH:
 	db	$10
 	db	$10
 	db	$10
-UNKWN_DATA:
+SWI:
 	db	$3F
 	db	$3F
 	db	$3F
-	db	$30
-	db	$66
-	db	$89
-	db	$4B
+DwordBFF3:
+	dw	$3066
+DwordBFF5:
+	dw	$894B
+ByteBFF7:
 	db	$01
-	db	$A6
-	db	$AC
-	db	$A8
-	db	$43
-	db	$BA
-	db	$DA
-	db	$A8
-	db	$43
+IRQMaybe:
+	dw	$A6AC
+SWIMaybe:
+	dw	$A843
+NMIMaybe:
+	dw	$BADA
+RSTMaybe:
+	dw	$A843

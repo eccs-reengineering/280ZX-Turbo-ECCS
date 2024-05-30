@@ -1,40 +1,63 @@
 cpu 6802
-code 0xA000
+org 0xA000
+code 0xA00F Divide64ShiftAB 13
+code 0xA013 Divide16ShiftAB 9
+code 0xA015 Divide8ShiftAB 7
+code 0xA017 Divide4ShiftAB 5
+code 0xA01C Multiply16ShiftBA 9
+code 0xA020 Multiply8ShiftBA 5
+code 0xA025 SRA025 107
+
+;code 0x
 ;0xBB00 code 16
-byte 0xBB10 DATA_MISC1 16
-byte 0xBB20 UNKWN_DATA 16
-byte 0xBB30 CHTS_CONV 32
-byte 0xBB50 IGN_DUTY_DWELLV 16
-byte 0xBB60 FUEL_BARO 16
-byte 0xBB70 FUEL_IAT 16
-byte 0xBB80 TP_SCALE_FUEL 32
-byte 0xBBA0 RPM_SCALE_FUEL 32
-byte 0xBBC0 RPM_SCALE_IGN 32
-byte 0xBBE0 TP_SCALE_IGN 32
+byte 0xBB10 dataUnknownBB10 16
+byte 0xBB20 UnknownDataBB20 16
+byte 0xBB30 ChtsConversion 32
+byte 0xBB50 IgnDwellDutyVolts 16
+byte 0xBB60 BaroTable 16
+byte 0xBB70 IATTable 16
+word 0xBB80 AfrScaleTP 16
+word 0xBBA0 AfrScaleRPM 16
+word 0xBBC0 IgnSaleTP 16
+word 0xBBE0 IgnScaleRPM 16
 ;
-byte 0xBC00 IGN_TABLE 256
+byte 0xBC00 IgnTable 256
 ;
-byte 0xBD00 FUEL_TABLE 256
+byte 0xBD00 FuelTable 256
 ;
-byte 0xBE00 FUEL_CHTS 32
-byte 0xBE20 FUEL_CRANK 32
-byte 0xBE40 FUEL_AFTERSTART 16
-byte 0xBE50 UNKWN_TABLE1 16
-byte 0xBE60	UNKWN_TABLE2 16
-byte 0xBE70	UNKWN_TABLE3 16
-byte 0xBE80 UNKWN_TABLE4 16
-byte 0xBE90 UNKWN_TABLE5 16
-byte 0xBEA0 UNKWN_TABLE6 16
-;0xBEB0 code 64
-byte 0xBEF0 8x8_TABLE 64
-byte 0xBF30	UNKWN_TP_SCALE_8x1 16
-byte 0xBF40 DATA_MISC 96
-byte 0xBFA0 UNKWN_DATA 16
-byte 0xBFB0	IGN_DUTY_DWELL% 16
-byte 0xBFC0	UNKWN_SCALE2 16
-byte 0xBFD0 UNKWN_DATA 16
-byte 0xBFE0 IGN_IDLE_SWITCH 16
-byte 0xBFF0 UNKWN_DATA 16
+byte 0xBE00 ChtsEnrichment 32
+byte 0xBE20 CrankingEnrichment 32
+byte 0xBE40 AfterStartEnrichment 16
+byte 0xBE50 UnknownBE50 16
+byte 0xBE60	UnknownBE60 16
+byte 0xBE70	UnknownBE70 16
+byte 0xBE80 UnknownBE80 16
+byte 0xBE90 UnknownBE90 16
+byte 0xBEA0 UnknownBEA0 16
+;code 0xBEB0 64
+byte 0xBEF0 EgrTable 64
+byte 0xBF30	EgrLoadTP 16
+byte 0xBF40 DataUnknown 96
+word 0xBF44 KValue	1
+word 0xBF50 FuelCutRPM 1
+byte 0xBF6C UnknownBF6C 9
+byte 0xBF80 IgnIdleValue 1
+byte 0xBF82 TempSwitchCold 1
+byte 0xBF88 IgnColdAdder 1
+byte 0xBFA0 UnknownData 16
+byte 0xBFB0	IgnDwellDuty% 16
+byte 0xBFC0	EgrLoadRPM 16
+byte 0xBFD0 UnknownBFD0 16
+byte 0xBFD4 UnknownBFD4 12
+byte 0xBFE0 IgnIdleSwitch 16
+byte 0xBFF0 SWI 3
+word 0xBFF3 DwordBFF3 1
+word 0xBFF5 DwordBFF5 1
+byte 0xBFF7 ByteBFF7 
+word 0xBFF8 IRQMaybe 1
+word 0xBFFA SWIMaybe 1
+word 0xBFFC NMIMaybe 1
+word 0xBFFE RSTMaybe 1
 
 
 
