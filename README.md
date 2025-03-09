@@ -12,7 +12,7 @@ The address locations are verified in software, and in hardware based on how the
 ##### Hitachi HD46802P 
 Motorola 6802 MCU clone by Hitachi.
 
-We can get a lot of data from the motorola datasheet, but I do not know if there were any changes by motorola.
+There is plenty of information available in the the motorola datasheet.
 
 There is an external clock crystal on the board. 
 
@@ -22,14 +22,13 @@ The 6802 has 128 bytes of on-board RAM located at hex addresses $0000 to $001F.
  
 ##### Hitachi HD46506 ADU (Analog Data Acquisition Unit)
 
-Software uses addresses from 0080 to 009F
-MCU A7 high 
+Addressed from 0080 to 009F
 
-I haven't been able to find any information about this chip other than it is an IO extender. 
+I haven't been able to find much information about this chip other than it is an IO extender. 
 
-It has data lines and address lines linked to the MCU.  
-
-Inputs like the CHTS and AFM go directly into this unit as 0-5v signals, its a reasonable assumption to say they're translated into a linear 0-255 value by the ADC.  
+There is an SAE transaction mentioning early ECCS, it has a 10-bit ADC for the VAFM with 8-bit ADC for other sensors.
+Math instructions are included on this chip that are used to extend the capabilities of the 6802, specifically multiplication.
+There is no information on how these systems are addressed. 
 
 ##### Hitachi HN25089 DIP-24
 
