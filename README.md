@@ -1,12 +1,6 @@
 # 280ZX-Turbo-ECCS
 JECS / NISSAN ECCS Motorola 6800 microcode pulled from 1982/1983 Datsun 280ZX ECU
 
-I started out trying to just tune the tables, I succeded.
-
-Now I've gotten interested in learning about fuel injection, microcontrollers and assembly language.
-
-The address locations are verified in software, and in hardware based on how the Chip Enable and Read/Write lines are configured. 
-
 # Tuning the early ECCS system
 
 This information is mainly focused on the 82-83 ECUs, these tables may or may not exist in the 81. 
@@ -18,7 +12,7 @@ There is a Tunerpro definition supplied in this repository for 82-83, and 81.  T
 The RPM and Thoretical Pulsewidth (TP, Load) table scales are in 16-bit values.  Each table has 16 values.
 
 The load sclaes can be rescaled when the pre-TP load variables have been altered. 
-The RPM scales don't need to be modified unless more resolution is needed in a specific area.
+The RPM scales don't need to be modified for the stock engine.
 
 0x1BA0(16bit) Fuel RPM
 0x1B80(16bit) Fuel Load
