@@ -74,7 +74,7 @@ Testing is required.
 
 
 #### Fuel Cut Rev Limiter
-Lower it or raise it, fuel will cut for a couple seconds or until revs drop below a certain range when this value is hit. 
+When this value is hit, fuel will cut for a couple seconds or until revs drop below a certain range. 
 0x1F50(16bit) 1 value, default for 82-83 is 6500.  
 
 # Details about the 1982/1983 ECCS hardware. 
