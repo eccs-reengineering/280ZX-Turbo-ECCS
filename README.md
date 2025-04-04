@@ -31,6 +31,8 @@ There is a table that is added to this value as RPM increases at 0x1FE0(8bit) 16
 
 ## fuel
 
+Theorteical Pulsewidth (referred to as TP) is calculated, then modifier tables are used to arrive at the value the injectors are commanded. 
+
 ### Post-TP modifiers
 These tables apply enrichments after the theoretical pulsewidth calculation, and therefore act as total injection multipliers. 
 Fueling can be adjusted linearly without effecting the load(TP) scales.
@@ -52,7 +54,7 @@ A good condition factory calibrated AFM runs out of measurement somewhere around
 The factory setup is tuned with the majority of the AFM resolution at the lower load regions, this makes it problematic to convert to a MAF sensor with off the shelf conversion boards.  
 The computer still runs into a hp limit around 200hp, rescaling the tables is required to gain more resolution at the higher load regions for accurate fueling.
 
-### pre-load(TP) calculation fueling variables, Injector Constant
+### pre-TP calculation fueling variables, Injector Constant
 
 An injector constant like the Z31 and later nissan ECUs has not been found. 
 There are a few values that affect the theoretical pulsewidth calculation.
